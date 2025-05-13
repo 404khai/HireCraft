@@ -3,6 +3,7 @@ import { HiWrenchScrewdriver } from "react-icons/hi2";
 import React, { useState } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
+import UserChoiceModal from "../UserChoiceModal/UserChoiceModal";
 // import Contact from '../Contact/Contact';
 
 const Navbar = () => {
@@ -14,6 +15,16 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const [showModal, setShowModal] = useState(false);
+    const handleOpenModal = () => {
+        setShowModal(true);
+        document.body.classList.add('modal-open');
+    };
+    
+    const handleCloseModal = () => {
+        setShowModal(false);
+        document.body.classList.remove('modal-open');
+    };
   return (
     <div className='navbar'>
         <div className="navLogo">
@@ -29,13 +40,14 @@ const Navbar = () => {
         </nav>
 
         <div className="navBtn">
-          <button className='logIn'>
+          <button onClick={handleOpenModal} className='logIn'>
             <Link to=''>Login</Link>  
-          </button>
-          {/* <button className='logIn'>
-            <Link to='/DashBoard'>Sign Up</Link>  
-          </button> */}
+          </button> 
         </div>
+
+        {showModal && (
+            <UserChoiceModal onClose={handleCloseModal}/>
+        )}
 
         <div className="navBarToggle">
             <input type="checkbox" id="checkbox" checked={isMenuOpen} onChange={toggleMenu} />

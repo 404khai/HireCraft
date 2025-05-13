@@ -1,0 +1,168 @@
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .modal-open {
+    overflow: hidden;
+  }
+  
+  /* Modal container */
+  .modal {
+    background: #fff;
+    height: 70%;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px;
+    /* max-width: 90%; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+  }
+  .employer{
+    width: 40%;
+    height: 90%;
+    background-color: aqua;
+  }
+  .serviceProvider{
+    width: 40%;
+    height: 90%;
+    background-color: teal;
+  }
+  .droneInfo{
+    /* background: #9a6767; */
+    height: 45%;
+    /* padding: 20px; */
+    border-radius: 12px;
+    width: 600px;
+    max-width: 90%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.2); */
+    position: relative;
+  }
+  .modalBottom{
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 55%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .loadedMeds{
+    /* background-color: cadetblue; */
+    width: 45%;
+    height: 100%;
+  }
+  .medications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* background-color: saddlebrown; */
+    overflow-y: scroll;
+    scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    height: 70%;
+    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1);
+  }
+  .medications-list::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .med-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .med-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
+  
+  .med-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  .checkoutBox{
+    /* border: 1px solid black; */
+    width: 40%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+  
+
+  /* Close button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: red;
+  }
+  
+  /* Modal content */
+  .modal-content {
+    /* margin-top: 10px; */
+    /* border: 1px solid black; */
+    width: 37%;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .modal-img {
+    width: 40%;
+    height: 150px;
+    border-radius: 8px;
+    /* margin-bottom: 12px; */
+    /* border: 1px solid black; */
+  }
+  
+  .modal-content p {
+    /* margin: 8px 0; */
+    font-size: 16px;
+    color: black;
+    margin: 0;
+  }
+  .modal-content h2{
+    margin: 0;
+  }
+
+
+  .checkoutButton{
+    font-family: MuseoModerno, serif;
+    background-color: black;
+    /* background-color: transparent; */
+    border: 0;
+    /* border: 2px solid coral; */
+    border-radius: 10px;
+    /* width: 100px; */
+    padding: 10px 20px 10px 20px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+.checkoutButton:hover{
+    /* letter-spacing: 2px; */
+    transform: scale(0.9);
+    background-color: black;
+}
