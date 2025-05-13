@@ -12,7 +12,7 @@
     /* border: 2px solid black; */
     top: 0;
     /* gap: 100px; */
-    /* background-color: rgba(198, 255, 255, 0.619); */
+    /* background-color: rgba(31, 33, 33, 0.619); */
     /* box-shadow: 3px 3px 3px 0px #3205797f; */
     z-index: 1000;
 }
@@ -37,13 +37,13 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .nav a{
     color: black;
 }
 .navBtn{
-    width: 20%;
+    width: 200px;
     height: 100%;
     /* background-color: palegoldenrod; */
     display: flex;
@@ -58,9 +58,9 @@
 .logIn{
     background-color: #000000;
     border: 0;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
-    width: 40%;
+    width: 60%;
 }
 .signUp a, .logIn a{
     text-decoration: none;
@@ -95,7 +95,7 @@
 
 
 .navBarToggle {
-    display: block;
+    display: none;
     font-size: 30px;
     cursor: pointer;
     color: black;

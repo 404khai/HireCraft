@@ -1,0 +1,63 @@
+.home{
+    /* background-color: rgba(0, 0, 0, 0.397); */
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url('../../assets/homeBanner.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: darken; */
+}
+.homeTxt{
+    width: 500px;
+    height: 100%;
+    /* background-color: blanchedalmond; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.homeTxt p{
+    font-size: 40px;
+}
+.homeBanner{
+    width: 600px;
+    height: 100%;
+}
+
+.ctaBtns{
+    width: 100%;
+    height: 100px;
+    /* background-color: lightgreen; */
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.ctaBtns button{
+    padding: 10px;
+    border-radius: 10px;
+}
+.exploreServices{
+    background-color: black;
+    color: white;
+    border: 0;
+}
+.ctaBtns button:hover{
+    transition: 0.4s;
+    transform: scale(1.1);
+    /* letter-spacing: 2px; */
+}
+.becomeProvider{
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+}
+
+.jobSearch{
+    width: 200px;
+    height: 50%;
+    /* border: 1px solid black; */
+    margin-left: -200px;
+}
