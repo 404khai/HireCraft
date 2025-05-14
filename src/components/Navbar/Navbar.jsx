@@ -33,7 +33,7 @@ const Navbar = () => {
         </div>
 
         <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
-            <Link to=''>Services</Link>
+            <Link to='/Services'>Services</Link>
             <Link to=''>About Us</Link>
             <Link to=''>How It Works</Link>
             <Link to=''>FAQ's</Link>

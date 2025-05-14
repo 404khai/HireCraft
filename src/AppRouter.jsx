@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "r
 import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./pages/Login/Login";
+import Services from "./pages/Services/Services";
 
 const Layout = () => {
 //   const location = useLocation();
@@ -15,6 +16,7 @@ const Layout = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/Home" />} />
         <Route path="/Home" element={<Home />} />
+        <Route path="/Services" element={<Services />} />
         <Route path="/Login" element={<Login />} />
         <Route path="*" element={<Navigate to="/Home" />} />
       </Routes>

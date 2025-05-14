@@ -2,6 +2,7 @@ import React from 'react'
 import './Home.css'
 import jobSearchGlobe from '../../assets/jobSearchGlobe.png'
 import artisan from '../../assets/artisan.avif'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -12,7 +13,9 @@ const Home = () => {
 
                 <div className="ctaBtns">
                     <button className='exploreServices'>Explore Services</button>
-                    <button className='becomeProvider'>Become a Provider</button>
+                    <Link to="/Login">
+                        <button className='becomeProvider'>Become a Provider</button>
+                    </Link>
                 </div>
             </div>
             <img src={artisan} alt="" className='homeBanner'/>
@@ -20,7 +23,7 @@ const Home = () => {
         </div>
         
         <div className="trusted">
-            
+
         </div>
     </div>
   )
