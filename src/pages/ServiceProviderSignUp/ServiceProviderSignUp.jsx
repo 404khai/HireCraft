@@ -1,17 +1,17 @@
 import React from 'react'
-import './Login.css'
+import './ServiceProviderSignUp.css'
 import { Link } from 'react-router-dom'
-import loginImg from '../../assets/loginImg.jpg'
+import serviceproviderformimg from '../../assets/serviceProviderFormImg.jpg'
 import google from '../../assets/google.webp'
 
-const Login = () => {
+const ServiceProviderSignUp = () => {
   return (
-    <div className="loginContainer">
-        <img src={loginImg} alt="" />
+    <div className="mainFormContainer">
+        <img src={serviceproviderformimg} alt="" />
         <form className="form_container">
             <div className="title_container">
-                <p className="title">Login to your Account</p>
-                <span className="subtitle">Welcome back :), login and explore our amazing services</span>
+                <p className="title">Register as a Service Provider</p>
+                <span className="subtitle">Get started with our app, showcase your services, expand your reach, while getting paid.</span>
             </div>
 
             <div className="input_container">
@@ -33,8 +33,8 @@ const Login = () => {
             </div>
 
             <a routerLink="/dashboard" className="sign-in_btnLink">
-                <button title="Log In" type="submit" className="sign-in_btn">
-                    <span>Log In</span> 
+                <button title="Sign Up" type="submit" className="sign-in_btn">
+                    <span>Sign Up</span> 
                 </button>
             </a>
 
@@ -44,9 +44,9 @@ const Login = () => {
                 <hr className="line"/>
             </div>
 
-            <button title="Sign In with Google" type="submit" className="sign-in_ggl">
+            <button title="Sign Up with Google" type="submit" className="sign-in_ggl">
                 <img src={google} alt="" className='google'/>
-                <span>Sign In with Google</span>
+                <span>Sign Up with Google</span>
             </button>
             {/* <button title="Sign In" type="submit" className="sign-in_apl">
             <svg preserveAspectRatio="xMidYMid" version="1.1" viewBox="0 0 256 315" height="20px" width="16px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
@@ -57,8 +57,8 @@ const Login = () => {
             <span>Sign In with Apple</span>
             </button> */}
             <p className="note">
-            Don't have an account? 
-            <Link to="/ServiceProviderSignUp" className="sign-in_btnLink">Sign Up</Link>
+            Already have an account? 
+            <Link to="/Login" className="sign-in_btnLink">Log In</Link>
             {/* <a routerLink="/signup" >Sign Up</a> */}
             </p>
         </form>
@@ -66,7 +66,4 @@ const Login = () => {
   )
 }
 
-export default Login
-
-
-
+export default ServiceProviderSignUp

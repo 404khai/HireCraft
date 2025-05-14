@@ -1,6 +1,7 @@
 // UserChoiceModal.jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 import './UserChoiceModal.css';
 import employer from '../../assets/freelancer.jpg'
 import painter from '../../assets/showcaseSkills.jpg'
@@ -11,12 +12,12 @@ const UserChoiceModal = ({ onClose }) => {
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="employer">
           <p>Hire a Pro</p>
-          <img src={employer} alt="" />
+          <Link to="/Login"><img src={employer} alt="" /></Link>
           <p>Hire the services of master craftsmen and artisans within minutes</p>
         </div>
         <div className="serviceProvider">
           <p>Get jobs from around the world</p>
-          <img src={painter} alt="" />
+          <Link to="/Login"><img src={painter} alt="" /></Link>
           <p>Showcase your services and increase your reach while getting paid for it!</p>
         </div>
         {/* <button className="close-button" onClick={onClose}>×</button> */}
