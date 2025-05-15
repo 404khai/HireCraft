@@ -1,8 +1,14 @@
 import React from 'react'
 import './Home.css'
 import { IoSearch } from "react-icons/io5";
+import { MdHomeRepairService } from "react-icons/md";
+import { FaStar, FaStarHalf } from "react-icons/fa";
 import jobSearchGlobe from '../../assets/jobSearchGlobe.png'
 import artisan from '../../assets/heroSec.jpg'
+import explore from '../../assets/explore.png'
+import tomHolland from '../../assets/tomHolland.jpg'
+import girl from '../../assets/girl.jpeg'
+import OIF from '../../assets/OIF.jpeg'
 // import artisan from '../../assets/employer2.jpg'
 import { Link } from 'react-router-dom'
 
@@ -34,7 +40,44 @@ const Home = () => {
         </div>
         
         <div className="trusted">
+            <h2>The best Service Marketplace Site</h2>
+            <div className="heroSecStats">
+                <div className="userStats">
+                    <p>Over <span className='homeTxtSpan'><b>100</b></span> service providers</p>
+                    <div className="userStatsImgs">
+                        <img src={tomHolland} alt="" />
+                        <img src={girl} alt="" className='girl'/>
+                        <img src={OIF} alt="" className='OIF'/>
+                    </div>
 
+                    <div className="heroSecRating">
+                        <p>4.5</p>
+                        <div className="heroSecRatingIcons">
+                            <i><FaStar /></i>
+                            <i><FaStar /></i>
+                            <i><FaStar /></i>
+                            <i><FaStar /></i>
+                            <i><FaStarHalf /></i>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div className="availableServices">
+                    <i><MdHomeRepairService /></i>
+                    <p className='tenk'>10<span className="homeTxtSpan">K+</span></p>
+                    <p className='availServicesTxt'>Available Services</p>
+                </div>
+
+                <div className="exploreServices">
+                    <div className="exploreServicesTxt">
+                        <p>Choose from a variety of diverse services and hire a pro</p>
+                        <Link to="/Services">Explore featured services</Link>
+                    </div>
+                    
+                    <img src={explore} alt="" className='exploreImg'/>
+                </div>
+            </div>
         </div>
     </div>
   )
