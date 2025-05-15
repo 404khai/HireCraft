@@ -74,7 +74,7 @@
     gap: 30px;
     align-items: center;
     /* border: 1px solid black; */
-    border-radius: 50px;
+    /* border-radius: 50px; */
 }
 .ctaBtns button{
     padding: 15px;
@@ -155,6 +155,7 @@
     z-index: 10;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     transition: color 0.3s ease;
     color: #3251ff;
@@ -367,6 +368,60 @@
         width: 80%;
     }
     .heroSecImgs{
-        width: 70%;
+        width: 90%;
     }
+    .jobSearch{
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .homeTxt p{
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .becomeProvider{
+        font-size: 13px;
+    }
+    .ctaBtns{
+        /* border: 1px solid black; */
+        width: 100%;
+        gap: 0px;
+        justify-content: space-between;
+    }
+    .homeTxt p{
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+
+    .artisan{
+        width: 250px;
+    }
+    .heroSecImgs{
+        height: 80%;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .animated-hover-button{
+        width: 200px;
+    }
+    .btn-content{
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 395px) {
+
+    .jobSearch{
+        left: 80px;
+    }
+
 }
