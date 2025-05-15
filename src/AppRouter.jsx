@@ -22,7 +22,7 @@ const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
       {/* {showSidebar && <Sidebar />} */}
       {shouldShowNavbar && <Navbar />}
       <Routes>
-        <Route path="/" element={<Navigate to="/Home" />} />
+        <Route path="/" index element={<Navigate to="/Home" />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Services" element={<Services />} />
         <Route path="/Login" element={<Login />} />
