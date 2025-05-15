@@ -2,6 +2,7 @@ import React from 'react'
 import './Home.css'
 import jobSearchGlobe from '../../assets/jobSearchGlobe.png'
 import artisan from '../../assets/artisan.avif'
+// import artisan from '../../assets/employer2.jpg'
 import { Link } from 'react-router-dom'
 
 const Home = () => {

@@ -27,10 +27,13 @@ const Navbar = () => {
     };
   return (
     <div className='navbar'>
-        <div className="navLogo">
-            <i><HiWrenchScrewdriver/></i>
-            <p>hirecraft</p>
-        </div>
+        <Link to="/Home" className="navLogoLink">
+            <div className="navLogo">
+                <i><HiWrenchScrewdriver/></i>
+                <p>hirecraft</p>
+            </div>
+        </Link>
+        
 
         <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
             <Link to='/Services'>Services</Link>

@@ -17,6 +17,10 @@
     /* box-shadow: 3px 3px 3px 0px #3205797f; */
     z-index: 1000;
 }
+.navLogoLink{
+    text-decoration: none;
+    color: black;
+}
 .navLogo{
     /* background-color: paleturquoise; */
     height: 100%;

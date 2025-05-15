@@ -7,7 +7,7 @@ import google from '../../assets/google.webp'
 const Login = () => {
   return (
     <div className="loginContainer">
-        <img src={loginImg} alt="" />
+        <img src={loginImg} alt="" className='loginImg'/>
         <form className="form_container">
             <div className="title_container">
                 <p className="title">Login to your Account</p>

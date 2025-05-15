@@ -11,10 +11,16 @@ const Layout = () => {
 //   const location = useLocation();
 //   const showSidebar = location.pathname.startsWith("/DashBoard"); 
 
+const location = useLocation();
+
+// Hide Navbar only on this route
+const hideNavbarPaths = ["/ServiceProviderSignUp", "/Login"];
+const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
+
   return (
     <>
       {/* {showSidebar && <Sidebar />} */}
-      <Navbar/>
+      {shouldShowNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Navigate to="/Home" />} />
         <Route path="/Home" element={<Home />} />

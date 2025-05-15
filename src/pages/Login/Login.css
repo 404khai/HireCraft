@@ -1,11 +1,14 @@
 /* From Uiverse.io by zanina-yassine */ 
 .loginContainer{
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     /* background-color: chartreuse; */
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .loginImg{
+    width: 400px;
   }
   .form_container {
     width: fit-content;
