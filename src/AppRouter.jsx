@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import Services from "./pages/Services/Services";
 import EmployerSignUp from "./pages/EmployerSignUp/EmployerSignUp";
 import ServiceProviderSignUp from "./pages/ServiceProviderSignUp/ServiceProviderSignUp";
+import Footer from "./components/Footer/Footer";
 
 const Layout = () => {
 //   const location = useLocation();
@@ -30,6 +31,7 @@ const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
         <Route path="/ServiceProviderSignUp" element={<ServiceProviderSignUp />} />
         <Route path="*" element={<Navigate to="/Home" />} />
       </Routes>
+      {/* <Footer/> */}
     </>
   );
 };

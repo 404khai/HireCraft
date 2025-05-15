@@ -42,33 +42,35 @@ const Home = () => {
         <div className="trusted">
             <h2>The best Service Marketplace Site</h2>
             <div className="heroSecStats">
-                <div className="userStats">
-                    <p>Over <span className='homeTxtSpan'><b>100</b></span> service providers</p>
-                    <div className="userStatsImgs">
-                        <img src={tomHolland} alt="" />
-                        <img src={girl} alt="" className='girl'/>
-                        <img src={OIF} alt="" className='OIF'/>
-                    </div>
-
-                    <div className="heroSecRating">
-                        <p>4.5</p>
-                        <div className="heroSecRatingIcons">
-                            <i><FaStar /></i>
-                            <i><FaStar /></i>
-                            <i><FaStar /></i>
-                            <i><FaStar /></i>
-                            <i><FaStarHalf /></i>
+                <div className='flexUserStats'>
+                    <div className="userStats">
+                        <p>Over <span className='homeTxtSpan'><b>100</b></span> service providers</p>
+                        <div className="userStatsImgs">
+                            <img src={tomHolland} alt="" />
+                            <img src={girl} alt="" className='girl'/>
+                            <img src={OIF} alt="" className='OIF'/>
                         </div>
+
+                        <div className="heroSecRating">
+                            <p>4.5</p>
+                            <div className="heroSecRatingIcons">
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStar /></i>
+                                <i><FaStarHalf /></i>
+                            </div>
+                        </div>
+                        
                     </div>
-                    
-                </div>
 
-                <div className="availableServices">
-                    <i><MdHomeRepairService /></i>
-                    <p className='tenk'>10<span className="homeTxtSpan">K+</span></p>
-                    <p className='availServicesTxt'>Available Services</p>
+                    <div className="availableServices">
+                        <i><MdHomeRepairService /></i>
+                        <p className='tenk'>10<span className="homeTxtSpan">K+</span></p>
+                        <p className='availServicesTxt'>Available Services</p>
+                    </div>
                 </div>
-
+                
                 <div className="exploreServices">
                     <div className="exploreServicesTxt">
                         <p>Choose from a variety of diverse services and hire a pro</p>

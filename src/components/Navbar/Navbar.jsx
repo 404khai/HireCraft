@@ -40,6 +40,12 @@ const Navbar = () => {
             <Link to=''>About Us</Link>
             <Link to=''>How It Works</Link>
             <Link to=''>FAQ's</Link>
+
+            <div className="navOpenLoginBtn">
+                <button onClick={handleOpenModal} className='logIn'>
+                    <Link to=''>Login</Link>  
+                </button> 
+            </div>
         </nav>
 
         <div className="navBtn">
