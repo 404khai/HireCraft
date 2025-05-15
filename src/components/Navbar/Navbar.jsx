@@ -30,7 +30,7 @@ const Navbar = () => {
         <Link to="/Home" className="navLogoLink">
             <div className="navLogo">
                 <i><HiWrenchScrewdriver/></i>
-                <p>hirecraft</p>
+                <p>hire<span className="navLogoSpan">craft</span></p>
             </div>
         </Link>
         

@@ -32,11 +32,9 @@ const Login = () => {
                 <input placeholder="Password" title="Inpit title" name="input-name" type="password" className="input_field" id="password_field"/>
             </div>
 
-            <a routerLink="/dashboard" className="sign-in_btnLink">
-                <button title="Log In" type="submit" className="sign-in_btn">
-                    <span>Log In</span> 
-                </button>
-            </a>
+            <button title="Log In" type="submit" className="logInBtn">
+                <span>Log In</span> 
+            </button>
 
             <div className="separator">
                 <hr className='line'/>
@@ -57,9 +55,8 @@ const Login = () => {
             <span>Sign In with Apple</span>
             </button> */}
             <p className="note">
-            Don't have an account? 
-            <Link to="/ServiceProviderSignUp" className="sign-in_btnLink">Sign Up</Link>
-            {/* <a routerLink="/signup" >Sign Up</a> */}
+                Don't have an account? 
+                <Link to="/ServiceProviderSignUp" className="logInBtnLink">Sign Up</Link>
             </p>
         </form>
     </div>

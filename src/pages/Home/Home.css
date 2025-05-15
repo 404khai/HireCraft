@@ -16,7 +16,7 @@
     width: 100%;
     height: 480px;
     /* border: 1px solid black; */
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 .homeTxt{
@@ -30,15 +30,26 @@
 .homeTxt p{
     font-size: 40px;
 }
-.homeBanner{
-    width: 600px;
+.heroSecImgs{
+    width: 400px;
+    height: 90%;
+    /* background-color: crimson; */
+    display: flex;
+    align-items: center;
+}
+.artisan{
+    width: 300px;
     height: 70%;
+    /* border: 1px solid black; */
 }
 .jobSearch{
     width: 200px;
-    height: 40%;
+    height: 200px;
+    z-index: 100;
+    right: 400px;
+    position: absolute;
     /* border: 1px solid black; */
-    margin-left: -200px;
+    /* margin-left: -200px; */
 }
 .ctaBtns{
     width: 100%;
@@ -53,7 +64,9 @@
     border-radius: 10px;
 }
 .exploreServices{
-    background-color: black;
+    /* background: linear-gradient(#788cff, #ff32ff); */
+    background-image: linear-gradient(to right, #788cff , #3251ff);
+    /* background-color: black; */
     color: white;
     border: 0;
 }

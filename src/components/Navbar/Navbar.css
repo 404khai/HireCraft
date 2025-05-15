@@ -17,6 +17,19 @@
     /* box-shadow: 3px 3px 3px 0px #3205797f; */
     z-index: 1000;
 }
+
+.navLogoSpan{
+    /* color: #788cff;
+    background: linear-gradient(#788cff, #3251ff); */
+
+    background: linear-gradient(#788cff, #3251ff);
+    /* background: linear-gradient(#788cff, #32ff8e); */
+    /* background: linear-gradient(#788cff, #ff32ff); */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* For Firefox */
+  color: transparent;
+}
 .navLogoLink{
     text-decoration: none;
     color: black;
