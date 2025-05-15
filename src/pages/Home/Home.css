@@ -30,6 +30,19 @@
 .homeTxt p{
     font-size: 40px;
 }
+.homeTxtSpan{
+    /* color: #788cff;
+    background: linear-gradient(#788cff, #3251ff); */
+
+    background: linear-gradient(#788cff, #0022e1);
+    /* background: linear-gradient(#788cff, #32ff8e); */
+    /* background: linear-gradient(#788cff, #ff32ff); */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* For Firefox */
+  color: transparent;
+}
+
 .heroSecImgs{
     width: 400px;
     height: 90%;
@@ -58,10 +71,12 @@
     display: flex;
     gap: 30px;
     align-items: center;
+    /* border: 1px solid black; */
+    border-radius: 50px;
 }
 .ctaBtns button{
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 .exploreServices{
     /* background: linear-gradient(#788cff, #ff32ff); */
@@ -77,7 +92,76 @@
 }
 .becomeProvider{
     background-color: transparent;
-    border: 1px solid black;
+    border: 0;
     color: black;
 }
+.becomeProvider:hover{
+    color: #3251ff;
+}
 
+
+
+.animated-hover-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* padding: 12px 24px;
+    font-size: 16px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid #fd7014;
+    border-radius: 6px; */
+    background-color: white;
+    border: 1px solid #3251ff;
+    width: 140px;
+    height: 50px;
+    /* border: 0; */
+    overflow: hidden;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .animated-hover-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-image: linear-gradient(to right, #788cff , #3251ff);
+    z-index: 0;
+    transition: width 0.4s ease;
+  }
+  
+  .animated-hover-button:hover::before {
+    width: 100%;
+    /* background-color: transparent; */
+  }
+  
+  .animated-hover-button:hover {
+    color: white !important;
+    border: 0;
+    /* background-color: #fd7014; */
+  }
+    .hireProIcon{
+    color: #3251ff; 
+    font-size: 20px;
+    }
+  .animated-hover-button:hover .hireProIcon{
+    color: white !important;
+  }
+
+  .animated-hover-button .btn-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+    color: #3251ff;
+    /* border: 1px solid black; */
+  }
+  
+  .animated-hover-button:hover .btn-content {
+    color: white !important;
+  }

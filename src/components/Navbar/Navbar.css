@@ -74,7 +74,7 @@
 }
 
 .logIn{
-    background-color: #000000;
+   background-image: linear-gradient(to right, #788cff , #3251ff);
     border: 0;
     padding: 15px;
     border-radius: 10px;
@@ -97,10 +97,11 @@
     letter-spacing: 2px;
     transition: 1s;
     background-color: transparent;
-    border: 1px solid black;
+    border: 0;
+    transform: scale(1.1);
 }
 .logIn:hover a{
-    color: black;
+    color: white;
 }
 /* .logIn:hover a{
     color: white;
