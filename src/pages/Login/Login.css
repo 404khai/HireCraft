@@ -185,9 +185,13 @@
   @media screen and (max-width: 1230px) {
     .form_container{
       height: 60%;
+      padding: 0px;
+
     }
     .loginContainer{
       height: 100vh;
+      display: flex;
+      /* align-items: center; */
     }
   }
   @media screen and (max-width: 810px) {
