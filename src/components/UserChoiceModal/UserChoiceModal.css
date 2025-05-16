@@ -92,3 +92,40 @@
   }
   
   
+
+@media screen and (max-width: 1230px) {
+  .modal{
+    height: 80%;
+  }
+}
+
+@media screen and (max-width: 821px) {
+  .modal{
+   width: 80%;
+  }
+  .employer img, .serviceProvider img{
+    width: 90%;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 698px) {
+  .modal{
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   gap: 70px;
+  }
+  .employer, .serviceProvider{
+    width: 80%;
+    /* border: 1px solid black; */
+  }
+  .employer img, .serviceProvider img{
+    width: 200px;
+    height: 200px;
+  }
+  .modal-overlay{
+    height: 100vh;
+  }
+
+}

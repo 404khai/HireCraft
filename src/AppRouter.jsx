@@ -16,7 +16,9 @@ const location = useLocation();
 
 // Hide Navbar only on this route
 const hideNavbarPaths = ["/ServiceProviderSignUp", "/Login"];
+const hideFooterPaths = ["/ServiceProviderSignUp", "/Login"];
 const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
+const shouldShowFooter = !hideNavbarPaths.includes(location.pathname);
 
   return (
     <>
@@ -31,7 +33,7 @@ const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
         <Route path="/ServiceProviderSignUp" element={<ServiceProviderSignUp />} />
         <Route path="*" element={<Navigate to="/Home" />} />
       </Routes>
-      <Footer/>
+      {shouldShowFooter && <Footer />}
     </>
   );
 };
