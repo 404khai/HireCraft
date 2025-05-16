@@ -32,10 +32,10 @@
     font-size: 40px;
 }
 .homeTxtSpan{
-    /* color: #788cff;
-    background: linear-gradient(#788cff, #3251ff); */
+    /* color: #788cff; */
+    background: linear-gradient(#788cff, #3251ff); 
 
-    background: linear-gradient(#788cff, #0022e1);
+    /* background: linear-gradient(#788cff, #0022e1); */
     /* background: linear-gradient(#788cff, #32ff8e); */
     /* background: linear-gradient(#788cff, #ff32ff); */
   -webkit-background-clip: text;
