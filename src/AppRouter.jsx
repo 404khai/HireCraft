@@ -31,7 +31,7 @@ const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
         <Route path="/ServiceProviderSignUp" element={<ServiceProviderSignUp />} />
         <Route path="*" element={<Navigate to="/Home" />} />
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
     </>
   );
 };

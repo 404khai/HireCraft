@@ -1,5 +1,125 @@
 .footer{
     width: 100%;
-    height: 400px;
-    background-color: teal;
+    height: 300px;
+    /* background-color: teal; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.footerTop{
+    width: 100%;
+    height: 220px;
+    /* background-color: rgb(238, 148, 130); */
+    display: flex;
+    justify-content: space-evenly;
+}
+.footerTopBox{
+    width: 20%;
+    height: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footerTopBox a{
+    text-decoration: none;
+    color: black;
+}
+.footerTopBoxHeadTxt{
+    margin-bottom: 10px;
+    padding-left: 6px;
+    border-left: 3px solid #788cff;
+    border-radius: 3px;
+}
+/* #footerTopBox1{
+    align-items: end;
+    
+} */
+.socials{
+    /* border: 1px solid black; */
+    height: 40px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.socials i{
+    font-size: 25px;
+    background-color: #e5e5e5;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    color: #788cff;
+}
+.socials i:hover{
+    background-image: linear-gradient(to right, #788cff , #3251ff);
+    color: white;
+    transition: 0.6s;
+}
+.footerBottom{
+    width: 100%;
+    height: 80px;
+    border-top: 1px solid #788cff;
+    /* background-color: rgb(130, 175, 238); */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.footerBottomLinks{
+    width: 400px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 30px; */
+    /* border: 1px solid black; */
+}
+.footerBottomLinks p:hover{
+    transition: 0.4s;
+    border-bottom: 1px solid #0022e1;
+}
+
+.footerSpan{
+    /* color: #788cff;
+    background: linear-gradient(#788cff, #3251ff); */
+
+    background: linear-gradient(#788cff, #0022e1);
+    /* background: linear-gradient(#788cff, #32ff8e); */
+    /* background: linear-gradient(#788cff, #ff32ff); */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* For Firefox */
+  color: transparent;
+}
+
+
+.contactUs{
+   background-image: linear-gradient(to right, #788cff , #3251ff);
+    border: 0;
+    padding: 15px;
+    border-radius: 10px;
+    width: 60%;
+}
+.contactUs a{
+    text-decoration: none;
+    color: white;
+}
+/* .logIn{
+    background-color: transparent;
+    color: #9a59ff;
+    border: 1px solid #9a59ff;
+    padding: 15px;
+    border-radius: 10px;
+} */
+.contactUs:hover{
+    letter-spacing: 2px;
+    transition: 1s;
+    background-color: transparent;
+    border: 0;
+    transform: scale(1.1);
+}
+.logIn:hover a{
+    color: white;
 }
