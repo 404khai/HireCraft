@@ -327,6 +327,15 @@
         text-align: center;
         height: 400px;
     }
+    /* .flexUserStats{
+        background-color: palevioletred;
+    }
+    .userStats{
+        background-color: #788cff;
+    }
+    .userStatsImgs{
+        border: 1px solid black;
+    } */
     .trusted{
         /* background-color: cadetblue; */
         height: 500px;
@@ -413,9 +422,23 @@
     .heroSecImgs{
         height: 40%;
     }
+    .trusted h2{
+        font-size: 17px;
+    }
 
 }
 
+@media screen and (max-width: 404px) {
+    .exploreServices p, .exploreServices a{
+        font-size: 14px;
+    }
+    /* .exploreServices{
+        gap: 0;
+    } */
+    /* .exploreServicesTxt{
+        border: 1px solid black;
+    } */
+}
 @media screen and (max-width: 400px) {
     .animated-hover-button{
         width: 200px;
