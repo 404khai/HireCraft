@@ -186,4 +186,7 @@
     .loginImg{
       display: none;
     }
+    .form_container{
+      padding-top: 0px;
+    }
   }
