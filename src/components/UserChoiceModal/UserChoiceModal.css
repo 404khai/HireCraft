@@ -124,6 +124,7 @@
   .modalLine{
     border: 1px solid black;
     width: 100%;
+    display: block;
   }
   .employer, .serviceProvider{
     width: 80%;
@@ -140,6 +141,8 @@
   }
   .modal-overlay{
     height: 100vh;
+    display: flex;
+    align-items: center !important;
   }
 
 }
