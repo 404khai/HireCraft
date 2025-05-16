@@ -189,23 +189,23 @@
     
   }
 
-  @media screen and (max-width: 530px) {
+  /* @media screen and (max-width: 530px) {
     .form_container{
       width: 300px;
     }
     
-  }
+  } */
   
-  @media screen and (max-width: 444px) {
+  /* @media screen and (max-width: 444px) {
     .form_container{
       width: 250px;
     }
     
-  }
+  } */
   
-  @media screen and (max-width: 380px) {
+  /* @media screen and (max-width: 380px) {
     .form_container{
       width: 220px;
     }
     
-  }
+  } */

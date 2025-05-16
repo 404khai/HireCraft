@@ -187,7 +187,7 @@
     border-radius: 10px;
   }
 
-  @media screen and (max-width: 530px) {
+  /* @media screen and (max-width: 530px) {
     .form_container{
       width: 300px;
     }
@@ -206,4 +206,4 @@
       width: 220px;
     }
     
-  }
+  } */
