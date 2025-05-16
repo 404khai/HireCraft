@@ -15,6 +15,8 @@ const UserChoiceModal = ({ onClose }) => {
           <Link to="/Login"><img src={employer} alt="" /></Link>
           <p>Hire the services of master craftsmen and artisans within minutes</p>
         </div>
+        <div className="modalLine"></div>
+        <img width="94" height="94" src="https://img.icons8.com/3d-fluency/94/flash-on.png" alt="flash-on" className='lightning'/>
         <div className="serviceProvider">
           <p>Get jobs from around the world</p>
           <Link to="/Login"><img src={painter} alt="" /></Link>

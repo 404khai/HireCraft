@@ -90,7 +90,9 @@
     cursor: pointer;
     color: red;
   }
-  
+  .modalLine{
+    display: none;
+  }
   
 
 @media screen and (max-width: 1230px) {
@@ -113,13 +115,25 @@
   .modal{
    display: flex;
    flex-direction: column;
-   height: 100%;
-   gap: 70px;
+   height: 80%;
+   gap: 30px;
+  }
+  .lightning{
+    display: none;
+  }
+  .modalLine{
+    border: 1px solid black;
+    width: 100%;
   }
   .employer, .serviceProvider{
     width: 80%;
-    /* border: 1px solid black; */
   }
+  /* .employer{
+    border-bottom: 1px solid black;
+  }
+  .serviceProvider{
+    border-top: 1px solid black;
+  } */
   .employer img, .serviceProvider img{
     width: 200px;
     height: 200px;
