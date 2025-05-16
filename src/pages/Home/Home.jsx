@@ -46,7 +46,7 @@ const Home = () => {
                     <div className="userStats">
                         <p>Over <span className='homeTxtSpan'><b>100</b></span> service providers</p>
                         <div className="userStatsImgs">
-                            <img src={tomHolland} alt="" />
+                            <img src={tomHolland} alt="" className='tomHolland'/>
                             <img src={girl} alt="" className='girl'/>
                             <img src={OIF} alt="" className='OIF'/>
                         </div>
