@@ -62,11 +62,15 @@
 }
 .navBtn{
     display: flex;
+    width: 250px;
+    gap: 20px;
+    height: 100%;
+    /* background-color: palegoldenrod; */
+    align-items: center;
+    justify-content: space-evenly;
 }
 .navOpenLoginBtn{
     display: none;
-}
-.navBtn, .navOpenLoginBtn{
     width: 200px;
     height: 100%;
     /* background-color: palegoldenrod; */
@@ -250,8 +254,6 @@
         width: 100%;
         
         /* height: 500px; */
-    }
-    .logIn{
     }
     /* .toggle{
       display: block;

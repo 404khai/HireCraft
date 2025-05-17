@@ -3,7 +3,9 @@ import './Services.css'
 
 const Services = () => {
   return (
-    <div>Services</div>
+    <div className='services'>
+
+    </div>
   )
 }
 

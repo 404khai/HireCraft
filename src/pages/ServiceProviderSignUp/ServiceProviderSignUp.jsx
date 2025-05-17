@@ -27,7 +27,7 @@ const ServiceProviderSignUp = () => {
     };
 
     const prevStep = () => {
-        if (step > 0) setStep(step - 1)
+        if (step > 3) setStep(step - 1)
     };
 
 
@@ -88,7 +88,12 @@ const ServiceProviderSignUp = () => {
 
                         <input placeholder="Holland" title="Inpit title" name="input-name" type="text" className="signup_input_field" id="email_field" required/>
                     </div>
+                </div>
 
+            )}
+
+            {step === 1 && (
+                <div className="secondStep">
                     <div className="input_container">
                         <label className="input_label" for="email_field">Email</label>
                         <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" className="icon">
@@ -108,10 +113,12 @@ const ServiceProviderSignUp = () => {
                         <input placeholder="Password" title="Input password" name="input-name" type="password" className="signup_input_field" id="password_field" required/>
                     </div>
                 </div>
-            
             )}
 
-            {step === 1 && (
+            
+            
+
+            {step === 2 && (
                 <div className='lastStep'>
                     <div className="input_container" id='country'>
                         <label className="input_label" for="password_field">Select Country</label>

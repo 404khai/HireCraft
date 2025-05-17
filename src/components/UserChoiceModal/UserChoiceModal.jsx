@@ -12,13 +12,13 @@ const UserChoiceModal = ({ onClose }) => {
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="employer">
           <p>Hire a Pro</p>
-          <Link to="/Login"><img src={employer} alt="" /></Link>
+          <Link to="/EmployerSignUp"><img src={employer} alt="" /></Link>
           <p>Hire the services of master craftsmen and artisans within minutes</p>
         </div>
         <div className="modalLine"></div>
         <div className="serviceProvider">
           <p>Get jobs from around the world</p>
-          <Link to="/Login"><img src={painter} alt="" /></Link>
+          <Link to="/ServiceProviderSignUp"><img src={painter} alt="" /></Link>
           <p>Showcase your services and increase your reach while getting paid for it!</p>
         </div>
         {/* <button className="close-button" onClick={onClose}>×</button> */}

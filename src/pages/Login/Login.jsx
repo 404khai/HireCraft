@@ -55,8 +55,8 @@ const Login = () => {
             <span>Sign In with Apple</span>
             </button> */}
             <p className="note">
-                Don't have an account? 
-                <Link to="/ServiceProviderSignUp" className="logInBtnLink">Sign Up</Link>
+                Forgot Password? 
+                <Link to="/ServiceProviderSignUp" className="logInBtnLink">Reset Password</Link>
             </p>
         </form>
     </div>
