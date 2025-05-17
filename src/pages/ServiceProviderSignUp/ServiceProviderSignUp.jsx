@@ -23,11 +23,11 @@ const ServiceProviderSignUp = () => {
     };
 
     const nextStep = () => {
-        if (step < 1) setStep(step + 1);
+        if (step < 4) setStep(step + 1);
     };
 
     const prevStep = () => {
-        if (step > 3) setStep(step - 1)
+        if (step > 0) setStep(step - 1)
     };
 
 
@@ -119,7 +119,7 @@ const ServiceProviderSignUp = () => {
             
 
             {step === 2 && (
-                <div className='lastStep'>
+                <div className='thirdStep'>
                     <div className="input_container" id='country'>
                         <label className="input_label" for="password_field">Select Country</label>
                         <CountrySelect 
@@ -163,9 +163,14 @@ const ServiceProviderSignUp = () => {
                         />
                     </div>
                 
+                </div>
+            )}
+
+            {step === 3 && (
+                <div className="fourthStep">
                     <div className="group" id='phoneNo'>
                         <label htmlFor="" >
-                            {/* Phone Number: */}
+                                    {/* Phone Number: */}
                             <PhoneInput
                                 international
                                 countryCallingCodeEditable={false}
@@ -184,7 +189,7 @@ const ServiceProviderSignUp = () => {
                             Previous
                         </button>
                     )}
-                    {step < 1 && (
+                    {step < 3 && (
                         <button type="button" onClick={nextStep}>
                             Next
                         </button>
@@ -208,7 +213,7 @@ const ServiceProviderSignUp = () => {
             </div>
 
             <button title="Sign Up with Google" type="submit" className="sign-up_ggl">
-                <img src={google} alt="" className='google'/>
+                <img src={google} alt="" className='signUpGoogle'/>
                 <span>Sign Up with Google</span>
             </button>
             {/* <button title="Sign In" type="submit" className="sign-in_apl">

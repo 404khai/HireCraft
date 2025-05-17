@@ -14,14 +14,15 @@
   .signup_form_container {
     width: fit-content;
     /* border: 1px solid black; */
-    /* height: 400px; */
-    height: 100%;
+    height: 500px;
+    /* height: 90%; */
     display: flex;
     flex-direction: column;
     align-items: center !important;
     justify-content: center;
     gap: 15px;
-    padding: 50px 40px 20px 40px;
+    /* padding: 50px 40px 20px 40px; */
+    /* padding-top: 50px; */
     /* background-color: #932424; */
     /* box-shadow: 0px 106px 42px rgba(0, 0, 0, 0.01),
       0px 59px 36px rgba(0, 0, 0, 0.05), 0px 26px 26px rgba(0, 0, 0, 0.09),
@@ -29,13 +30,28 @@
     border-radius: 11px;
     font-family: "Inter", sans-serif;
   }
-  .firstStep, .lastStep{
-    /* background-color: black; */
+  .firstStep, .secondStep{
+    height: 150px;
+  }
+
+  .firstStep, .secondStep, .thirdStep{
+    justify-content: space-between;
+  }
+  .fourthStep{
+    justify-content: center;
+  }
+  .thirdStep{
+    height: 400px;
+    gap: 10px;
+  }
+  .firstStep, .secondStep, .thirdStep, .fourthStep{
+    /* background-color: coral; */
     width: 80%;
-    height: 100%;
+    /* height: 300px;
+    justify-content: center;
+    gap: 20px; */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
   .logo_container {
     box-sizing: border-box;
@@ -126,7 +142,8 @@
   }
   .signUpBtn {
     width: 50%;
-    height: 80px;
+    /* height: 80px; */
+    padding: 10px;
     border: 0;
     background: black;
     border-radius: 7px;
@@ -139,9 +156,14 @@
     transition: 0.6s;
     transform: scale(1.1);
   }
+  .signUpGoogle{
+    width: 20px;
+    height: 90%;
+  }
   .sign-up_ggl {
     width: 70%;
-    height: 60px;
+    padding: 10px;
+    /* height: 60px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -180,7 +202,15 @@
     display: flex;
     gap: 5px;
   }
-  
+  .prevNextButtons{
+    height: 50px;
+    width: 100%;
+    /* background-color: aquamarine; */
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
   .prevNextButtons button{
     background-color: #788cff;
     color: white;

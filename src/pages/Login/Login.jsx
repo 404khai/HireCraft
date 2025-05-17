@@ -56,7 +56,7 @@ const Login = () => {
             </button> */}
             <p className="note">
                 Forgot Password? 
-                <Link to="/ServiceProviderSignUp" className="logInBtnLink">Reset Password</Link>
+                <Link to="" className="logInBtnLink" style={{color: "red"}}>Reset Password</Link>
             </p>
         </form>
     </div>
