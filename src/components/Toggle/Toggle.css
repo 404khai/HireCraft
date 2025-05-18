@@ -1,0 +1,42 @@
+/* From Uiverse.io by Creatlydev */ 
+.switchThemeToggle {
+  /* background-color: #fff000; */
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  /* box-shadow: 0 0 50px 20px rgba(0, 0, 0, .1); */
+  line-height: 1;
+}
+/* .switchThemeContainer{
+  background-color: black;
+} */
+
+.switchThemeInput {
+  display: none;
+}
+
+.icon {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  transition: transform 500ms;
+}
+
+.icon--sun {
+  transition-delay: 200ms;
+}
+
+.icon--moon {
+  transform: scale(0);
+}
+
+#switch:checked + .icon--sun {
+  transform: rotate(360deg) scale(0);
+}
+
+#switch:checked ~ .icon--moon {
+  transition-delay: 200ms;
+  transform: scale(1) rotate(360deg);
+}

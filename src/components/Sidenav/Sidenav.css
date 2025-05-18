@@ -9,15 +9,13 @@
     /* justify-content: space-evenly; */
     /* align-items: end; */
 }
-#dashboardLogo{
-    /* background-color: cadetblue; */
+/* #dashboardLogo{
+    background-color: cadetblue; 
     border-right: 1px solid #b9b9b9;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.13);
     border-bottom: 1px solid #b9b9b9;
     width: 100%;
-    /* top: 0px; */
-    /* position:relative; */
-    /* justify-self: s; */
-}
+} */
 .start, .account{
     width: 100%;
     align-self: flex-end;
@@ -27,7 +25,7 @@
     flex-direction: column;
 }
 .start p, .account p{
-    padding-left: 5px;
+    padding-left: 10px;
 }
 .start a, .account a{
     text-decoration: none;

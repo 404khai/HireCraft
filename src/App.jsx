@@ -1,11 +1,15 @@
 import './App.css'
 import AppRouter from './AppRouter'
+// import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
 
   return (
     <>
-      <AppRouter/>
+      {/* <ThemeProvider> */}
+        <AppRouter/>
+      {/* </ThemeProvider> */}
+      
     </>
   )
 }

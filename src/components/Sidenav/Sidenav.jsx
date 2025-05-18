@@ -19,7 +19,7 @@ const Sidenav = () => {
         </Link>
 
         <div className="start">
-            <p><b>Start</b></p>
+            <p><b>Home</b></p>
             <Link to="/Dashboard">
                 <i><LuLayoutDashboard /></i>
                 Dashboard
