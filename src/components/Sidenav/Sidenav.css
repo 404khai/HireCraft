@@ -4,31 +4,45 @@
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.13);
+    /* justify-content: space-evenly; */
     /* align-items: end; */
 }
 #dashboardLogo{
     /* background-color: cadetblue; */
-    border-right: 1px solid #616161;
+    border-right: 1px solid #b9b9b9;
+    border-bottom: 1px solid #b9b9b9;
     width: 100%;
+    /* top: 0px; */
+    /* position:relative; */
+    /* justify-self: s; */
 }
 .start, .account{
-    width: 95%;
+    width: 100%;
     align-self: flex-end;
     height: 200px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
 }
+.start p, .account p{
+    padding-left: 5px;
+}
 .start a, .account a{
     text-decoration: none;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 50px;
     display: flex;
     align-items: center;
     gap: 10px;
     color: black;
+    padding-left: 10px;
 }
-
+.start p, .account p{
+    color: #3251ff;
+    font-size: 16px;
+}
 .start a:hover, .account a:hover{
     /* background: linear-gradient(#788cff, #3251ff); */
     /* background: linear-gradient(#788cff, #0022e1);
@@ -36,9 +50,11 @@
   -webkit-text-fill-color: transparent;
   background-clip: text; 
   color: transparent; */
-  border-left: 3px solid #788cff;
-  padding-left: 10px;
+  color: #3251ff;
+  border-left: 3px solid #3251ff;
+  padding-left: 20px;
+  background-color: #e2e6ff;
 }
  .start a:hover i, .account a:hover i{
-    color: #788cff;
+    color: #3251ff;
  }
