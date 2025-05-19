@@ -11,6 +11,8 @@ import girl from '../../assets/girl.jpeg'
 import OIF from '../../assets/OIF.jpeg'
 import modernHouse from '../../assets/modernHouse.png'
 import { Link } from 'react-router-dom'
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 import popularServices from '../../json/popularServices.json'
 
@@ -49,9 +51,7 @@ const Home = () => {
         </div>
         
         <div className="trusted">
-            <div className="sectionHeadTxts">
                 <h2>Global Talent Source trusted by Top Companies</h2>
-            </div>
             
 
             <div className="topCompaniesCarousel">
@@ -60,7 +60,7 @@ const Home = () => {
         </div>
 
         <div className="best">
-            <h2 className='sectionHeadTxts'>The best Service Marketplace Site</h2>
+            <h2>The best Service Marketplace Site</h2>
             <div className="heroSecStats">
                 <div className='flexUserStats'>
                     <div className="userStats">
@@ -103,15 +103,70 @@ const Home = () => {
         </div>
 
         <div className="popularServices">
-            <h2 className='sectionHeadTxts'>Popular Services</h2>
-            <div className="popularServicesScrollBox">
+            <h2>Popular Services</h2>
+            {/* <div className="popularServicesScrollBox"> */}
+            <Carousel
+                additionalTransfrom={0}
+                arrows
+                autoPlaySpeed={3000}
+                centerMode={false}
+                className="carousel"
+                containerClass="container"
+                dotListClass=""
+                draggable
+                focusOnSelect={false}
+                infinite={false}
+                itemClass=""
+                keyBoardControl
+                minimumTouchDrag={80}
+                pauseOnHover
+                renderArrowsWhenDisabled={false}
+                renderButtonGroupOutside={false}
+                renderDotsOutside={false}
+                responsive={{
+                    desktop: {
+                    breakpoint: {
+                        max: 3000,
+                        min: 1024
+                    },
+                    items: 5,
+                    partialVisibilityGutter: 40
+                    },
+                    mobile: {
+                    breakpoint: {
+                        max: 464,
+                        min: 0
+                    },
+                    items: 1,
+                    partialVisibilityGutter: 30
+                    },
+                    tablet: {
+                    breakpoint: {
+                        max: 1024,
+                        min: 464
+                    },
+                    items: 2,
+                    partialVisibilityGutter: 30
+                    }
+                }}
+                rewind={false}
+                rewindWithAnimation={false}
+                rtl={false}
+                shouldResetAutoplay
+                showDots={false}
+                sliderClass=""
+                slidesToSlide={1}
+                swipeable
+            >
+
                 {popularServices.map((popularService, key) => (
                     <div className="popularServicesBox" key={key}>
                         <p>{popularService.name}</p>
                         <img src={getImage(popularService.image)} alt="" />
                     </div>
                 ))}
-            </div>
+            </Carousel>
+            {/* </div> */}
         </div>
 
         <div className="instantResults">

@@ -182,11 +182,6 @@
 
 
 
-.sectionHeadTxts{
-    text-align: start;
-    width: 90%;
-    /* border: 1px solid #788cff; */
-}
 /* best SECTION */
   .best{
     width: 100%;
@@ -344,9 +339,15 @@
     /* padding-left: 100px; */
     padding-bottom: 10px;
 }
+.carousel{
+    width: 98%;
+    height: 90%;
+    /* border: 1px solid black; */
+    /* background-color: crimson; */
+}
 .popularServicesBox{
     width: 230px;
-    height: 90%;
+    height: 250px;
     color: rgb(0, 0, 0);
     text-align: start;
     /* background-image: linear-gradient(to right, #788cff , #3251ff); */
