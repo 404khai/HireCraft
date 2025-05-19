@@ -16,8 +16,8 @@
     },
     {
         "id": 4, 
-        "name": "Photography",
-        "image": "../assets/photography.webp"
+        "name": "Plumbing",
+        "image": "../assets/plumbing.jpg"
     },
     {
         "id": 5, 
@@ -28,5 +28,15 @@
         "id": 6, 
         "name": "Logo Design",
         "image": "../assets/logoDesign.webp"
+    },
+    {
+        "id": 7, 
+        "name": "Creative Writing",
+        "image": "../assets/writing.jpg"
+    }, 
+    {
+        "id": 8, 
+        "name": "Photography",
+        "image": "../assets/photography.webp"
     }
 ]

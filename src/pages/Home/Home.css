@@ -1,11 +1,11 @@
 .home{
     /* background-color: rgba(0, 0, 0, 0.397); */
     width: 100%;
-    height: 1500px;
+    height: 2000px;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
-    /* align-items: center; */
+    align-items: center;
     /* background-image: url('../../assets/homeBanner.jpg');
     background-position: center;
     background-size: cover;
@@ -169,10 +169,29 @@
 
 
 /* TRUSTED SECTION */
-  .trusted{
+.trusted{
+    width: 100%;
+    height: 200px;
+    /* background-color: aliceblue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+
+
+
+.sectionHeadTxts{
+    text-align: start;
+    width: 90%;
+    /* border: 1px solid #788cff; */
+}
+/* best SECTION */
+  .best{
     width: 100%;
     height: 230px;
-    /* background-color: aliceblue; */
+    /* background-color: rgb(63, 63, 63); */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -200,7 +219,7 @@
   .availableServices{
     width: 170px;
     height: 80%;
-    background-color: #e5e5e572;
+    background-color: #e5e5e5;
     /* backdrop-filter: blur(50px); */
     border-radius: 10px;
     display: flex;
@@ -302,7 +321,7 @@
 /* POPULAR SERVICES */
 .popularServices{
     width: 100%;
-    height: 400px;
+    height: 300px;
     /* background-color: rgb(32, 85, 132); */
     display: flex;
     flex-direction: column;
@@ -314,7 +333,7 @@
     /* width: 200px; */
     width: 98%;
     height: 80%;
-    /* background-color: #788cff; */
+    /* background-color: #000000; */
     align-self: flex-end;
     /* border: 1px solid rgb(255, 0, 0); */
     display: flex;
@@ -326,12 +345,14 @@
     padding-bottom: 10px;
 }
 .popularServicesBox{
-    width: 250px;
-    height: 100%;
-    color: white;
-    background-image: linear-gradient(to right, #788cff , #3251ff);
+    width: 230px;
+    height: 90%;
+    color: rgb(0, 0, 0);
+    text-align: start;
+    /* background-image: linear-gradient(to right, #788cff , #3251ff); */
     /* border: 1px solid black; */
-    /* background-color: #3251ff; */
+    background-color: #e5e5e5;
+    /* box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.221); */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -341,12 +362,13 @@
 }
 
 .popularServicesBox:hover{
-    background-color: #788cff;
+    /* background-color: #788cff; */
+    /* background-color: rgb(40, 40, 40); */
     transition: 0.8s;
-    transform: scale(0.99);
+    transform: scale(0.97);
 }
 .popularServicesBox img{
-    width: 90%;
+    width: 80%;
     height: 160px;
     border-radius: 10px;
 }
@@ -370,6 +392,68 @@
 }
 
 
+
+/* INSTANT RESULTS */
+.instantResults{
+    width: 90%;
+    height: 400px;
+    background-color: #e5e5e5;
+    /* background: linear-gradient(#788cff, black); */
+    /* background-color: rgb(32, 85, 132); */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* margin-bottom: 100px; */
+    border-radius: 10px;
+}
+.instantResultsTxt{
+    width: 50%;
+    height: 90%;
+    /* border: 1px solid white; */
+    /* color: white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.instantResultsImg{
+    width: 30%;
+    height: 80%;
+    /* border: 1px solid coral; */
+}
+.instantResultsImg img{
+    width: 100%;
+    height: 100%;
+}
+
+.instantResultsTxt h2{
+    font-size: 30px;
+}
+
+.getStarted{
+   background-image: linear-gradient(to right, #788cff , #3251ff);
+    border: 0;
+    padding: 15px;
+    border-radius: 10px;
+    width: 200px;
+}
+.getStarted a{
+    text-decoration: none;
+    color: white;
+}
+/* .logIn{
+    background-color: transparent;
+    color: #9a59ff;
+    border: 1px solid #9a59ff;
+    padding: 15px;
+    border-radius: 10px;
+} */
+.getStarted:hover{
+    letter-spacing: 2px;
+    transition: 1s;
+    background-color: transparent;
+    border: 0;
+    transform: scale(1.1);
+}
 
 @media screen and (max-width: 1230px) {
     .home{
@@ -413,7 +497,7 @@
     .userStatsImgs{
         border: 1px solid black;
     } */
-    .trusted{
+    .best{
         /* background-color: cadetblue; */
         height: 500px;
         justify-content: center;
@@ -471,7 +555,7 @@
     .homeTxt p{
         font-size: 35px;
     }
-    .trusted h2{
+    .best h2{
         font-size: 20px;
     }
 }
@@ -499,7 +583,7 @@
     .heroSecImgs{
         height: 40%;
     }
-    .trusted h2{
+    .best h2{
         font-size: 17px;
     }
 

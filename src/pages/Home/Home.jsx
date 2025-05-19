@@ -9,7 +9,7 @@ import explore from '../../assets/explore.png'
 import tomHolland from '../../assets/tomHolland.jpg'
 import girl from '../../assets/girl.jpeg'
 import OIF from '../../assets/OIF.jpeg'
-// import artisan from '../../assets/employer2.jpg'
+import modernHouse from '../../assets/modernHouse.png'
 import { Link } from 'react-router-dom'
 
 import popularServices from '../../json/popularServices.json'
@@ -49,7 +49,18 @@ const Home = () => {
         </div>
         
         <div className="trusted">
-            <h2>The best Service Marketplace Site</h2>
+            <div className="sectionHeadTxts">
+                <h2>Global Talent Source trusted by Top Companies</h2>
+            </div>
+            
+
+            <div className="topCompaniesCarousel">
+
+            </div>
+        </div>
+
+        <div className="best">
+            <h2 className='sectionHeadTxts'>The best Service Marketplace Site</h2>
             <div className="heroSecStats">
                 <div className='flexUserStats'>
                     <div className="userStats">
@@ -92,7 +103,7 @@ const Home = () => {
         </div>
 
         <div className="popularServices">
-            <h2>Popular Services</h2>
+            <h2 className='sectionHeadTxts'>Popular Services</h2>
             <div className="popularServicesScrollBox">
                 {popularServices.map((popularService, key) => (
                     <div className="popularServicesBox" key={key}>
@@ -100,6 +111,20 @@ const Home = () => {
                         <img src={getImage(popularService.image)} alt="" />
                     </div>
                 ))}
+            </div>
+        </div>
+
+        <div className="instantResults">
+            <div className="instantResultsTxt">
+                <h2>Instant results, Top Talents</h2>
+
+                <p>At HireCraft, we connect you with top-tier professionals—fast. Whether you need a skilled developer, a reliable designer, or a seasoned project manager, our platform delivers instant access to a curated network of verified experts.  Hire with confidence, knowing every candidate is pre-vetted for quality, experience, and performance. With HireCraft, top talent isn’t hard to find—it’s just a click away.</p>
+                <button className='getStarted'>
+                    <Link to=''>Get Started</Link>  
+                </button>
+            </div>
+            <div className="instantResultsImg">
+                <img src={modernHouse} alt="" />
             </div>
         </div>
     </div>
