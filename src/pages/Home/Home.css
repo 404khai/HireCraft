@@ -1,7 +1,7 @@
 .home{
     /* background-color: rgba(0, 0, 0, 0.397); */
     width: 100%;
-    height: 1000px;
+    height: 1500px;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -168,7 +168,7 @@
 
 
 
-
+/* TRUSTED SECTION */
   .trusted{
     width: 100%;
     height: 230px;
@@ -176,6 +176,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 100px;
     justify-content: space-between;
   }
   .heroSecStats{
@@ -296,6 +297,79 @@
     height: 100%;
     border-radius: 10px;
 }
+
+
+/* POPULAR SERVICES */
+.popularServices{
+    width: 100%;
+    height: 400px;
+    /* background-color: rgb(32, 85, 132); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
+.popularServicesScrollBox{
+    /* width: 200px; */
+    width: 98%;
+    height: 80%;
+    /* background-color: #788cff; */
+    align-self: flex-end;
+    /* border: 1px solid rgb(255, 0, 0); */
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    overflow-x: scroll;
+    /* overflow: hidden; */
+    /* padding-left: 100px; */
+    padding-bottom: 10px;
+}
+.popularServicesBox{
+    width: 250px;
+    height: 100%;
+    color: white;
+    background-image: linear-gradient(to right, #788cff , #3251ff);
+    /* border: 1px solid black; */
+    /* background-color: #3251ff; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-shrink: 0;
+}
+
+.popularServicesBox:hover{
+    background-color: #788cff;
+    transition: 0.8s;
+    transform: scale(0.99);
+}
+.popularServicesBox img{
+    width: 90%;
+    height: 160px;
+    border-radius: 10px;
+}
+
+/* The scrollbar track (the background) */
+.popularServicesScrollBox::-webkit-scrollbar {
+  width: 1px; 
+  height: 4px;
+  /* Width of vertical scrollbar */
+}
+
+/* The handle (thumb) of the scrollbar */
+.popularServicesScrollBox::-webkit-scrollbar-thumb {
+  background-color: #788cff; /* Color of the scrollbar handle */
+  border-radius: 10px;
+}
+
+.popularServicesScrollBox::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #e1e1e1; /* Background color of the scrollbar track */
+}
+
+
 
 @media screen and (max-width: 1230px) {
     .home{

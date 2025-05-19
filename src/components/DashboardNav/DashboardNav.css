@@ -21,9 +21,14 @@
     /* background-color: black; */
 }
 .notifications{
-    font-size: 30px;
+    font-size: 25px;
     display: flex;
     align-items: center;
+}
+.notifications:hover{
+    transform: scale(0.9);
+    color: #3251ff;
+    transition: 0.5s;
 }
 .moon{
     width: 30px;

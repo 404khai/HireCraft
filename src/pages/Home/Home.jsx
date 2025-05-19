@@ -12,7 +12,16 @@ import OIF from '../../assets/OIF.jpeg'
 // import artisan from '../../assets/employer2.jpg'
 import { Link } from 'react-router-dom'
 
+import popularServices from '../../json/popularServices.json'
+
 const Home = () => {
+    const images = import.meta.glob('../../assets/*', { eager: true });
+
+  const getImage = (filename) => {
+    const entry = Object.entries(images).find(([key]) => key.includes(filename));
+    return entry ? entry[1].default : '';
+  };
+
   return (
     <div className='home'>
         <div className="heroSection">
@@ -79,6 +88,18 @@ const Home = () => {
                     
                     <img src={explore} alt="" className='exploreImg'/>
                 </div>
+            </div>
+        </div>
+
+        <div className="popularServices">
+            <h2>Popular Services</h2>
+            <div className="popularServicesScrollBox">
+                {popularServices.map((popularService, key) => (
+                    <div className="popularServicesBox" key={key}>
+                        <p>{popularService.name}</p>
+                        <img src={getImage(popularService.image)} alt="" />
+                    </div>
+                ))}
             </div>
         </div>
     </div>

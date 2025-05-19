@@ -6,6 +6,14 @@ const Dashboard = () => {
   return (
     <div className='dashboard'>
         <DashboardNav/>
+
+        <div className="welcome">
+            <p>Welcome, Mark</p>
+        </div>
+
+        <div className="overview">
+            
+        </div>
     </div>
   )
 }

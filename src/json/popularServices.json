@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1, 
+        "name": "Painting",
+        "image": "../assets/painters.jpg"
+    },
+    {
+        "id": 2, 
+        "name": "Tiling",
+        "image": "../assets/tiler.jpg"
+    }, 
+    {
+        "id": 3, 
+        "name": "Home Decor",
+        "image": "../assets/homeDecor.webp"
+    },
+    {
+        "id": 4, 
+        "name": "Photography",
+        "image": "../assets/photography.webp"
+    },
+    {
+        "id": 5, 
+        "name": "Video Editing",
+        "image": "../assets/vidEditing.webp"
+    }, 
+    {
+        "id": 6, 
+        "name": "Logo Design",
+        "image": "../assets/logoDesign.webp"
+    }
+]
