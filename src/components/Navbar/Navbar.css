@@ -205,6 +205,10 @@
     .navToggle{
         display: flex;
     }
+    .navLogo{
+        /* background-color: #0b5c35; */
+        width: 240px;
+    }
     .navBarToggle{
         display: block;
         /* background-color: #0b5c35; */
@@ -261,12 +265,6 @@
     } */
 }
 
-@media screen and (max-width: 940px) {
-    .navLogo img{
-        width: 90%;
-        height: 90%;
-    }
-}
 
 /* @media screen and (max-width: 730px) {
     .navLogo{
