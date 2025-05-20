@@ -356,6 +356,11 @@
     /* border: 1px solid black; */
     /* background-color: crimson; */
 }
+.react-multi-carousel-track {
+    /* gap: 20px; */
+    /* border: 1px solid black !important; */
+    /* flex-direction: column !important; */
+}
 .react-multiple-carousel__arrow {
     z-index: 0 !important;
 }
@@ -473,9 +478,9 @@
 }
 
 @media screen and (max-width: 1230px) {
-    .home{
+    /* .home{
         gap: 100px;
-    }
+    } */
     .heroSection{
         /* border: 1px solid black; */
         width: 100% !important;
@@ -490,7 +495,8 @@
 
 @media screen and (max-width: 1100px) {
     .home{
-        height: 1300px;
+        height: 2500px;
+        gap: 100px;
     }
     .heroSection{
         /* border: 1px solid black; */
@@ -552,6 +558,32 @@
     }
 }
 
+@media screen and (max-width: 900px) {
+    .topCompaniesCarousel{
+        /* background-color: blanchedalmond; */
+        flex-wrap: wrap;
+        /* gap: 20px; */
+    }
+    .trusted{
+        /* background-color: cadetblue; */
+        height: 500px;
+        width: 90%;
+    }
+    .trusted h2{
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .trusted{
+        /* background-color: cadetblue; */
+        height: 700px;
+    }
+    .trusted h2{
+        text-align: center;
+    }
+}
+
 @media screen and (max-width: 560px) {
     .exploreServices{
         width: 100%;
@@ -572,7 +604,7 @@
     .homeTxt p{
         font-size: 35px;
     }
-    .best h2{
+    .best h2, .trusted h2{
         font-size: 20px;
     }
 }
@@ -589,6 +621,12 @@
     }
     .homeTxt p{
         font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 446px) {
+    .netflix{
+        margin-top: 50px;
     }
 }
 

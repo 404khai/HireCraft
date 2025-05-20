@@ -61,7 +61,7 @@ const Home = () => {
                 <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/DreamWorks_Animation_SKG_logo_with_fishing_boy.svg" alt="" />
                 <img src="https://i.pinimg.com/736x/72/c8/d3/72c8d31d8779299857123e1966c4a710.jpg" alt="" />
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Blizzard_Entertainment_Logo_2015.svg/2560px-Blizzard_Entertainment_Logo_2015.svg.png" alt="" />
-                <img src="https://cdn.worldvectorlogo.com/logos/netflix-4.svg" alt="" />
+                <img src="https://cdn.worldvectorlogo.com/logos/netflix-4.svg" alt="" className='netflix'/>
             </div>
         </div>
 
@@ -131,28 +131,45 @@ const Home = () => {
                 renderDotsOutside={false}
                 responsive={{
                     desktop: {
-                    breakpoint: {
-                        max: 3000,
-                        min: 1024
+                        breakpoint: {
+                            max: 3000,
+                            min: 1230
+                        },
+                        items: 5,
+                        partialVisibilityGutter: 40
                     },
-                    items: 5,
-                    partialVisibilityGutter: 40
-                    },
-                    mobile: {
-                    breakpoint: {
-                        max: 464,
-                        min: 0
-                    },
-                    items: 1,
-                    partialVisibilityGutter: 30
+                    ipad: {
+                        breakpoint: {
+                            max: 1230,
+                            min: 1000
+                        },
+                        items: 4,
+                        partialVisibilityGutter: 30
                     },
                     tablet: {
-                    breakpoint: {
-                        max: 1024,
-                        min: 464
+                        breakpoint: {
+                            max: 1000,
+                            min: 760
+                        },
+                        // centerMode : true,
+                        items: 3,
+                        partialVisibilityGutter: 30
                     },
-                    items: 2,
-                    partialVisibilityGutter: 30
+                    mobile: {
+                        breakpoint: {
+                            max: 760,
+                            min: 500
+                        },
+                        items: 2,
+                        partialVisibilityGutter: 30
+                    },
+                    miniMobile: {
+                        breakpoint: {
+                            max: 500,
+                            min: 0
+                        },
+                        items: 1,
+                        partialVisibilityGutter: 30
                     }
                 }}
                 rewind={false}
