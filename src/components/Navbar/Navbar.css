@@ -244,6 +244,7 @@
     .nav.open{
         display: flex;
         flex-direction: column;
+        border-bottom: 1px solid #788cff;
     }
     .navOpenLoginBtn{
         display: flex;

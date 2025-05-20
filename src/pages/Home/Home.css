@@ -379,6 +379,8 @@
     align-items: center;
     justify-content: space-evenly;
     flex-shrink: 0;
+    align-self: center;
+    justify-self: center;
 }
 
 .popularServicesBox:hover{
@@ -484,6 +486,10 @@
     .heroSection{
         /* border: 1px solid black; */
         width: 100% !important;
+        margin-bottom: 50px;
+    }
+    .instantResults{
+        margin-bottom: 100px;
     }
     /* .artisan{
         border: 1px solid black;
@@ -496,7 +502,7 @@
 @media screen and (max-width: 1100px) {
     .home{
         height: 2500px;
-        gap: 100px;
+        /* gap: 100px; */
     }
     .heroSection{
         /* border: 1px solid black; */
@@ -572,6 +578,24 @@
     .trusted h2{
         font-size: 24px;
     }
+    .instantResults{
+        display: flex;
+        flex-direction: column;
+        height: 1000px;
+    }
+    .instantResultsTxt{
+        /* background-color: #3251ff; */
+        width: 90%;
+        height: 50%;
+    }
+    .instantResultsTxt p{
+        font-size: 19px;
+    }
+    .instantResultsImg{
+        /* border: 1px solid slateblue; */
+        width: 350px;
+        height: 50%;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -582,6 +606,26 @@
     .trusted h2{
         text-align: center;
     }
+    .instantResultsTxt p{
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 667px) {
+    .instantResults{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between; */
+        /* height: 1300px; */
+    }
+    /* .instantResultsTxt{
+        justify-content: space-between;
+    } */
+
+    /* .instantResultsTxt p{
+        font-size: 19px;
+    } */
 }
 
 @media screen and (max-width: 560px) {
@@ -607,7 +651,23 @@
     .best h2, .trusted h2{
         font-size: 20px;
     }
+    /* .instantResultsImg{
+        border: 1px solid slateblue;
+        width: 50%;
+        height: 40%;
+    } */
 }
+
+
+@media screen and (max-width: 510px) {
+    .home{
+        height: 2600px;
+    }
+    .instantResultsTxt p{
+        font-size: 15px;
+    }
+}
+
 
 @media screen and (max-width: 460px) {
     .becomeProvider{
@@ -627,6 +687,9 @@
 @media screen and (max-width: 446px) {
     .netflix{
         margin-top: 50px;
+    }
+    .home{
+        /* height: 3000px; */
     }
 }
 
@@ -669,6 +732,9 @@
 
     .jobSearch{
         left: 80px;
+    }
+    .home{
+        height: 2700px;
     }
 
 }
