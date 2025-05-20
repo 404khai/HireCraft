@@ -29,7 +29,7 @@
     justify-content: center;
 }
 .homeTxt p{
-    font-size: 40px;
+    font-size: 45px;
 }
 .homeTxtSpan{
     /* color: #788cff; */
@@ -172,13 +172,24 @@
 .trusted{
     width: 100%;
     height: 200px;
-    /* background-color: aliceblue; */
+    /* background-color: rgb(88, 177, 255); */
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-bottom: 100px;
 }
-
+.topCompaniesCarousel{
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.topCompaniesCarousel img{
+    width: 100px;
+}
 
 
 
@@ -345,6 +356,9 @@
     /* border: 1px solid black; */
     /* background-color: crimson; */
 }
+.react-multiple-carousel__arrow {
+    z-index: 0 !important;
+}
 .popularServicesBox{
     width: 230px;
     height: 250px;
@@ -429,7 +443,9 @@
 .instantResultsTxt h2{
     font-size: 30px;
 }
-
+.instantResultsTxt p{
+    font-size: 20px;
+}
 .getStarted{
    background-image: linear-gradient(to right, #788cff , #3251ff);
     border: 0;

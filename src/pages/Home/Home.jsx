@@ -51,11 +51,17 @@ const Home = () => {
         </div>
         
         <div className="trusted">
-                <h2>Global Talent Source trusted by Top Companies</h2>
-            
+            <h2>Global Talent Source trusted by Top Companies</h2>
 
             <div className="topCompaniesCarousel">
-
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWx_E-0G-NHsVInfrP0xUrYvY-YFhmI8iasw&s" alt="" />
+                <img src="https://images.credly.com/images/cc2c9a21-84a0-4f80-bcda-eb9dea7aa35c/blob.png" alt="" />
+                {/* <img src="https://static.wikia.nocookie.net/logopedia/images/7/7f/RedbubbleLogo2012.png/revision/latest?cb=20190716174345" alt="" /> */}
+                <img src="https://support.substack.com/hc/theming_assets/01HZPCAPDV5H31C2F6C9262Q6H" alt="" />
+                <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/DreamWorks_Animation_SKG_logo_with_fishing_boy.svg" alt="" />
+                <img src="https://i.pinimg.com/736x/72/c8/d3/72c8d31d8779299857123e1966c4a710.jpg" alt="" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Blizzard_Entertainment_Logo_2015.svg/2560px-Blizzard_Entertainment_Logo_2015.svg.png" alt="" />
+                <img src="https://cdn.worldvectorlogo.com/logos/netflix-4.svg" alt="" />
             </div>
         </div>
 
