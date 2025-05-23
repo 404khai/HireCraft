@@ -81,18 +81,34 @@
     font-size: 17px;
     text-decoration: none;
 }
-
+.loginLink{
+    width: 60%;
+    /* height: 100%; */
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+.navSignUp{
+    background-image: linear-gradient(to right, #788cff , #3251ff);
+    border: 0;
+    padding: 15px;
+    border-radius: 10px;
+    width: 60%;
+    color: white;
+}
 .logIn{
    background-image: linear-gradient(to right, #788cff , #3251ff);
     border: 0;
     padding: 15px;
     border-radius: 10px;
-    width: 60%;
+    width: 100%;
+    color: white;
 }
-.signUp a, .logIn a{
+.navSignUp a, .logIn a{
     text-decoration: none;
 }
-.logIn a{
+.navSignUp a{
     color: white;
 }
 /* .logIn{
@@ -102,14 +118,14 @@
     padding: 15px;
     border-radius: 10px;
 } */
-.logIn:hover{
+.logIn:hover, .navSignUp:hover{
     letter-spacing: 2px;
     transition: 1s;
     background-color: transparent;
     border: 0;
     transform: scale(1.1);
 }
-.logIn:hover a{
+.logIn:hover a, .navSignUp:hover a{
     color: white;
 }
 /* .logIn:hover a{

@@ -42,26 +42,30 @@ const Navbar = () => {
             <Link to=''>Contact Us</Link>
 
             <div className="navOpenLoginBtn">
-                <button onClick={handleOpenModal} className='logIn'>
+                <button onClick={handleOpenModal} className='navSignUp'>
                     <Link to=''>Sign Up</Link>  
                 </button> 
             </div>
 
             <div className="navOpenLoginBtn">
-                <button className='logIn'>
-                    <Link to='/Login'>Login</Link>  
-                </button> 
+                <Link to='/Login' className="loginLink">
+                    <button className='logIn'>
+                        Login
+                    </button> 
+                </Link>  
             </div>
         </nav>
 
         <div className="navBtn">
-          <button onClick={handleOpenModal} className='logIn'>
+          <button onClick={handleOpenModal} className='navSignUp'>
             <Link to=''>Sign Up</Link>  
           </button> 
 
-          <button className='logIn'>
-            <Link to='/Login'>Login</Link>  
-          </button>
+            <Link to='/Login' className="loginLink">
+                <button className='logIn'>
+                    Login 
+                </button>
+            </Link> 
         </div>
 
         {showModal && (
