@@ -1,13 +1,14 @@
 import React from 'react'
 import './Login.css'
 import { Link } from 'react-router-dom'
-import loginImg from '../../assets/loginImg.jpg'
+import loginImg from '../../assets/loginImg2.png'
+import loginGif from '../../assets/login.gif'
 import google from '../../assets/google.webp'
 
 const Login = () => {
   return (
     <div className="loginContainer">
-        <img src={loginImg} alt="" className='loginImg'/>
+        <img src={loginGif} alt="" className='loginImg'/>
         <form className="form_container">
             <div className="title_container">
                 <p className="title">Login to your Account</p>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './ServiceProviderSignUp.css'
 import { Link } from 'react-router-dom'
-import serviceproviderformimg from '../../assets/serviceProviderFormImg.jpg'
+import serviceproviderformgif from '../../assets/serviceProviderFormGif.gif'
 import google from '../../assets/google.webp'
 
 
@@ -33,7 +33,7 @@ const ServiceProviderSignUp = () => {
 
   return (
     <div className="serviceProviderFormContainer">
-        <img src={serviceproviderformimg} alt="" className='serviceProviderFormImg'/>
+        <img src={serviceproviderformgif} alt="" className='serviceProviderFormImg'/>
         <form className="signup_form_container">
             <div className="title_container">
                 <p className="title">Register as a Service Provider</p>
