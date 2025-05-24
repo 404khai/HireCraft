@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     color: white;
-    top: -101px;
+    top: -81px;
     position: relative;
     justify-content: start;
     width: 100%;
@@ -128,7 +128,7 @@
     left: 0;
     width: 0%;
     height: 100%;
-    background: linear-gradient(#35D07D, #38604b);
+    background: linear-gradient(#35D07D, #009749);
     z-index: 0;
     transition: width 0.4s ease;
   }
