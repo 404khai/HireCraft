@@ -9,7 +9,7 @@
     align-items: center;
     font-family: "Exo 2", serif;
     justify-content: space-evenly;
-    background-color: white;
+    background-color: transparent;
     border-bottom: 1px solid #9a9a9a;
     top: 0;
     /* gap: 40px; */
@@ -19,16 +19,7 @@
 }
 
 .navLogoSpan{
-    /* color: #788cff;
-    background: linear-gradient(#788cff, #3251ff); */
-
-    /* background: linear-gradient(#788cff, #3251ff); */
-    background: linear-gradient(#35D07D, #38604b);
-    /* background: linear-gradient(#788cff, #ff32ff); */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text; /* For Firefox */
-  color: transparent;
+    color: #35D07D;
 }
 .hirecraftLogo{
     /* border: 1px solid black; */
@@ -39,7 +30,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: black;
+    color: rgb(255, 255, 255);
     height: 100%;
     border-right: 1px solid #9a9a9a;
 }
@@ -70,7 +61,7 @@
     /* justify-content: space-between; */
 }
 .nav a{
-    color: black;
+    color: rgb(255, 255, 255);
 }
 .navBtn{
     display: flex;
@@ -86,6 +77,14 @@
 .navBtn a{
     text-decoration: none;
     color: #35D07D;
+    display: flex;
+    gap: 4px;
+    /* border: 1px solid black; */
+    align-items: center;
+}
+.navBtn a i{
+    font-size: 20px;
+    display: flex;
 }
 .navUserImg{
     border: 2px solid #35D07D;

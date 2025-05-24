@@ -1,7 +1,7 @@
 .home{
     /* background-color: rgba(0, 0, 0, 0.397); */
     width: 100%;
-    height: 2000px;
+    height: 2100px;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -14,15 +14,27 @@
 }
 .heroSection{
     display: flex;
-    width: 100%;
-    height: 480px;
-    /* border: 1px solid black; */
-    justify-content: space-around;
     align-items: center;
+    color: white;
+    top: -101px;
+    position: relative;
+    justify-content: start;
+    width: 100%;
+    height: 590px;
+    /* border: 1px solid black; */
+    background-color: rgba(0, 0, 0, 0.648);
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('https://workscout.in/wp-content/uploads/2024/05/1880381-1-scaled-1.jpg');
 }
 .homeTxt{
     width: 500px;
     height: 90%;
+    margin-top: 100px;
+    left: 100px;
+    position: relative;
     /* background-color: blanchedalmond; */
     display: flex;
     flex-direction: column;
@@ -32,16 +44,7 @@
     font-size: 45px;
 }
 .homeTxtSpan{
-    /* color: #788cff; */
-    background: linear-gradient(#788cff, #3251ff); 
-
-    /* background: linear-gradient(#788cff, #0022e1); */
-    /* background: linear-gradient(#788cff, #32ff8e); */
-    /* background: linear-gradient(#788cff, #ff32ff); */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text; /* For Firefox */
-  color: transparent;
+    color: #35D07D;
 }
 
 .heroSecImgs{
@@ -89,10 +92,10 @@
 .becomeProvider{
     background-color: transparent;
     border: 0;
-    color: black;
+    color: rgb(209, 209, 209);
 }
 .becomeProvider:hover{
-    color: #3251ff;
+    color: #35D07D;
 }
 
 
@@ -108,8 +111,8 @@
     background-color: transparent;
     border: 2px solid #fd7014;
     border-radius: 6px; */
-    background-color: white;
-    border: 1px solid #3251ff;
+    background-color: transparent;
+    border: 1px solid #35D07D;
     width: 140px;
     height: 50px;
     /* border: 0; */
@@ -125,7 +128,7 @@
     left: 0;
     width: 0%;
     height: 100%;
-    background-image: linear-gradient(to right, #788cff , #3251ff);
+    background: linear-gradient(#35D07D, #38604b);
     z-index: 0;
     transition: width 0.4s ease;
   }
@@ -141,7 +144,7 @@
     /* background-color: #fd7014; */
   }
     .hireProIcon{
-    color: #3251ff; 
+    color: #35D07D; 
     font-size: 20px;
     display: flex;
     align-items: center;
@@ -158,7 +161,7 @@
     justify-content: center;
     gap: 8px;
     transition: color 0.3s ease;
-    color: #3251ff;
+    color: #35D07D;
     /* border: 1px solid black; */
   }
   

@@ -42,10 +42,10 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="heroSecImgs">
+            {/* <div className="heroSecImgs">
                 <img src={jobSearchGlobe} alt=""  className='jobSearch'/>
                 <img src={artisan} alt="" className='artisan'/>
-            </div>
+            </div> */}
             
             {/* <img src={jobSearchGlobe} alt=""  className='jobSearch'/> */}
         </div>
