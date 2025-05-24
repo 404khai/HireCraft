@@ -13,9 +13,9 @@ const DashboardNav = () => {
         <Link to="/Home">
             <i className='notifications'><IoHomeOutline /></i>
         </Link>
-        <div className="moon">
-            {/* <Toggle/> */}
-        </div>
+        {/* <div className="moon">
+            <Toggle/>
+        </div> */}
         <i className='notifications'><PiMailbox /></i>
         <img src={profilePic} alt="" className='profilePic'/>
     </div>

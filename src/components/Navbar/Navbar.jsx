@@ -1,9 +1,13 @@
 // import React from 'react'
-import { HiWrenchScrewdriver } from "react-icons/hi2";
 import React, { useState } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
+import hirecraftLogo from '../../assets/hirecraftLogo.png'
+import OIF from '../../assets/OIF.jpeg'
 import UserChoiceModal from "../UserChoiceModal/UserChoiceModal";
+import { IoIosUnlock } from "react-icons/io";
+import { PiPlusCircleFill } from "react-icons/pi";
+// import { HiWrenchScrewdriver } from "react-icons/hi2";
 // import Contact from '../Contact/Contact';
 
 const Navbar = () => {
@@ -29,15 +33,16 @@ const Navbar = () => {
     <div className='navbar'>
         <Link to="/Home" className="navLogoLink">
             <div className="navLogo">
-                <i><HiWrenchScrewdriver/></i>
+                <img src={hirecraftLogo} alt="" className="hirecraftLogo"/>
                 <p>hire<span className="navLogoSpan">craft</span></p>
+                {/* <i><HiWrenchScrewdriver/></i>
+                <p>hire<span className="navLogoSpan">craft</span></p> */}
             </div>
         </Link>
         
 
         <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
-            <Link to='/Services'>Services</Link>
-            <Link to=''>How It Works</Link>
+            <Link to='/Services'>Browse Services</Link>
             <Link to=''>FAQ's</Link>
             <Link to=''>Contact Us</Link>
 
@@ -57,15 +62,9 @@ const Navbar = () => {
         </nav>
 
         <div className="navBtn">
-          <button onClick={handleOpenModal} className='navSignUp'>
-            <Link to=''>Sign Up</Link>  
-          </button> 
-
-            <Link to='/Login' className="loginLink">
-                <button className='logIn'>
-                    Login 
-                </button>
-            </Link> 
+            <Link to="" onClick={handleOpenModal}><i><PiPlusCircleFill /></i> Register</Link>
+            <Link to='/Login'><i><IoIosUnlock/></i> Login</Link>
+            {/* <img src={OIF} alt="" className='navUserImg'/> */}
         </div>
 
         {showModal && (

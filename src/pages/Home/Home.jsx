@@ -36,7 +36,7 @@ const Home = () => {
                             Hire a Pro <i className='hireProIcon'><IoSearch /></i>
                         </div>  
                     </button>
-                    <Link to="/Login">
+                    <Link to="/Dashboard">
                         <button className='becomeProvider'>Become a Service Provider</button>
                     </Link>
                 </div>
