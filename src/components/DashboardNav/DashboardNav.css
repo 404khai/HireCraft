@@ -15,7 +15,7 @@
 .profilePic{
     width: 50px;
     height: 70%;
-    border: 2px solid #788cff;
+    border: 2px solid #35D07D;
     border-radius: 50%;
     margin-right: 50px;
     /* background-color: black; */
@@ -27,7 +27,7 @@
 }
 .notifications:hover{
     transform: scale(0.9);
-    color: #3251ff;
+    color: #35D07D;
     transition: 0.5s;
 }
 .moon{

@@ -2,41 +2,46 @@
     {
         "id": 1, 
         "name": "Painting",
-        "image": "../assets/painters.jpg"
+        "bgImage": "https://workscout.in/wp-content/uploads/2022/02/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg"
     },
     {
         "id": 2, 
         "name": "Tiling",
-        "image": "../assets/tiler.png"
+        "bgImage": "../assets/tiler.png"
     }, 
     {
         "id": 3, 
         "name": "Home Decor",
-        "image": "../assets/homeDecor.webp"
+        "bgImage": "../assets/homeDecor.webp"
     },
     {
         "id": 4, 
         "name": "Plumbing",
-        "image": "../assets/plumbing.jpg"
+        "bgImage": "../assets/plumbing.jpg"
     },
     {
         "id": 5, 
         "name": "Video Editing",
-        "image": "../assets/vidEditing.webp"
+        "bgImage": "../assets/vidEditing.webp"
     }, 
     {
         "id": 6, 
         "name": "Logo Design",
-        "image": "../assets/logoDesign.webp"
+        "bgImage": "../assets/logoDesign.webp"
     },
     {
         "id": 7, 
         "name": "Creative Writing",
-        "image": "../assets/writing.jpg"
+        "bgImage": "../assets/writing.jpg"
     }, 
     {
         "id": 8, 
         "name": "Photography",
-        "image": "../assets/photography.webp"
+        "bgImage": "../assets/photography.webp"
+    },
+    {
+        "id": 9,
+        "name": "Education",
+        "bgImage": "https://workscout.in/wp-content/uploads/2022/02/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg"
     }
 ]

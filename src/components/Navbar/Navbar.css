@@ -63,6 +63,10 @@
 .nav a{
     color: rgb(255, 255, 255);
 }
+.nav a:hover{
+    color: #35D07D;
+    transition: 0.6s;
+}
 .navBtn{
     display: flex;
     flex-direction: column;

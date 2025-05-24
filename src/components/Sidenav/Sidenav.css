@@ -38,7 +38,7 @@
     padding-left: 10px;
 }
 .start p, .account p{
-    color: #3251ff;
+    color: #35D07D;
     font-size: 16px;
 }
 .start a:hover, .account a:hover{
@@ -48,11 +48,11 @@
   -webkit-text-fill-color: transparent;
   background-clip: text; 
   color: transparent; */
-  color: #3251ff;
-  border-left: 3px solid #3251ff;
+  color: #35D07D;
+  border-left: 3px solid #35D07D;
   padding-left: 20px;
-  background-color: #e2e6ff;
+  background-color: #4372591e;
 }
  .start a:hover i, .account a:hover i{
-    color: #3251ff;
+    color: #35D07D;
  }

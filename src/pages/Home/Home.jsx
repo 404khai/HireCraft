@@ -110,6 +110,7 @@ const Home = () => {
 
         <div className="popularServices">
             <h2>Popular Services</h2>
+            <p style={{color: "#909090"}}>Find the right industry for your career</p>
             {/* <div className="popularServicesScrollBox"> */}
             <Carousel
                 additionalTransfrom={0}
@@ -183,11 +184,22 @@ const Home = () => {
             >
 
                 {popularServices.map((popularService, key) => (
-                    <div className="popularServicesBox" key={key}>
-                        <p>{popularService.name}</p>
-                        <img src={getImage(popularService.image)} alt="" />
+                    <div 
+                        className="popularServicesBox" 
+                        key={key}
+                        style={{
+                        backgroundImage: `url(${popularService.bgImage})`,
+                        backgroundSize: 'cover',       // Optional: makes the image cover the box
+                        backgroundPosition: 'center',  // Optional: centers the image
+                        backgroundRepeat: 'no-repeat'  // Optional: prevents repeating
+                        }}
+                    >
+                        <div className='serviceNameHolder'>
+                            <p>{popularService.name}</p>
+                        </div>
                     </div>
                 ))}
+
             </Carousel>
             {/* </div> */}
         </div>

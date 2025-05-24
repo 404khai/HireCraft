@@ -331,27 +331,12 @@
 .popularServices{
     width: 100%;
     height: 300px;
-    /* background-color: rgb(32, 85, 132); */
+    background-color: rgb(32, 85, 132);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 100px;
-}
-.popularServicesScrollBox{
-    /* width: 200px; */
-    width: 98%;
-    height: 80%;
-    /* background-color: #000000; */
-    align-self: flex-end;
-    /* border: 1px solid rgb(255, 0, 0); */
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    overflow-x: scroll;
-    /* overflow: hidden; */
-    /* padding-left: 100px; */
-    padding-bottom: 10px;
 }
 .carousel{
     width: 98%;
@@ -375,32 +360,42 @@
     /* / height: 100%; */
     color: rgb(0, 0, 0);
     text-align: start;
+    /* background-image: url(); */
     /* background-image: linear-gradient(to right, #788cff , #3251ff); */
     /* border: 1px solid black; */
-    background-color: #e5e5e5;
+    /* background-color: #e5e5e5; */
     /* box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.221); */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: end;
     /* flex-shrink: 0; */
     align-self: center;
     justify-self: center;
 }
 
-.popularServicesBox:hover{
-    /* background-color: #788cff; */
-    /* background-color: rgb(40, 40, 40); */
+/* .popularServicesBox:hover{
     transition: 0.8s;
     transform: scale(0.97);
-}
+} */
 .popularServicesBox img{
     width: 80%;
     height: 160px;
     border-radius: 10px;
 }
-
+.serviceNameHolder{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgb(255, 255, 0255, 0.18);
+    width: 90%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
 /* The scrollbar track (the background) */
 .popularServicesScrollBox::-webkit-scrollbar {
   width: 1px; 
