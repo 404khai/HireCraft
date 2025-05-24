@@ -7,40 +7,45 @@
     {
         "id": 2, 
         "name": "Tiling",
-        "bgImage": "../assets/tiler.png"
+        "bgImage": "https://www.orhp.com/hubfs/InTouch%20Newsletter%20Article%20Imagery/Tiling.jpg"
     }, 
     {
         "id": 3, 
         "name": "Home Decor",
-        "bgImage": "../assets/homeDecor.webp"
+        "bgImage": "https://s3.ap-south-1.amazonaws.com/mbprodimages/images/interiorDesignerCMS/decorPartner/69/projectImage/simple-tv-unit-interior-design-17.jpg"
     },
     {
         "id": 4, 
-        "name": "Plumbing",
-        "bgImage": "../assets/plumbing.jpg"
+        "name": "Web Design",
+        "bgImage": "https://www.ntc.edu/sites/default/files/styles/full_width_16_9/public/2021-06/web-design-header.jpg?itok=4d7TmUMl"
     },
     {
         "id": 5, 
-        "name": "Video Editing",
-        "bgImage": "../assets/vidEditing.webp"
-    }, 
+        "name": "Plumbing",
+        "bgImage": "https://careertraining.occc.edu/common/images/2/23274/Foundations-of-Plumbing-Tools-935x572.jpg"
+    },
     {
         "id": 6, 
-        "name": "Logo Design",
-        "bgImage": "../assets/logoDesign.webp"
-    },
-    {
-        "id": 7, 
-        "name": "Creative Writing",
-        "bgImage": "../assets/writing.jpg"
+        "name": "Video Editing",
+        "bgImage": "https://cdn.prod.website-files.com/5fac161927bf86485ba43fd0/66a7b65d3e0193c5cbbdcb8a_Blog%20cover_2024_07_What%20is%20video%20editing%20(1).webp"
     }, 
     {
-        "id": 8, 
-        "name": "Photography",
-        "bgImage": "../assets/photography.webp"
+        "id": 7, 
+        "name": "Logo Design",
+        "bgImage": "https://static.wixstatic.com/media/11062b_e2a67e29d11045a69a86366b56055c16~mv2.jpg/v1/fill/w_640,h_268,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_e2a67e29d11045a69a86366b56055c16~mv2.jpg"
     },
     {
-        "id": 9,
+        "id": 8, 
+        "name": "Creative Writing",
+        "bgImage": "https://www.bolton.ac.uk/assets/Uploads/Picture1-v39.png"
+    }, 
+    {
+        "id": 9, 
+        "name": "Photography",
+        "bgImage": "https://d2ub1k1pknil0e.cloudfront.net/media/images/camera-photography.width-1200.jpg"
+    },
+    {
+        "id": 10,
         "name": "Education",
         "bgImage": "https://workscout.in/wp-content/uploads/2022/02/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg"
     }
