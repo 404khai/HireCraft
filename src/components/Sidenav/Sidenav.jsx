@@ -7,16 +7,11 @@ import { TiMessages } from "react-icons/ti";
 import { FaRegUser } from "react-icons/fa6";
 import { IoExitOutline , IoBriefcaseOutline} from "react-icons/io5";
 import { MdOutlineRateReview } from "react-icons/md";
+import { IoMdFolderOpen } from "react-icons/io";
 
 const Sidenav = () => {
   return (
     <div className='sidenav'>
-        <Link to="/Home" className="navLogoLink">
-            <div className="navLogo" id='dashboardLogo'>
-                <i><HiWrenchScrewdriver/></i>
-                <p>hire<span className="navLogoSpan">craft</span></p>
-            </div>
-        </Link>
 
         <div className="start">
             <p><b>Home</b></p>
@@ -38,15 +33,23 @@ const Sidenav = () => {
             </Link>
         </div>
        
+        <div className="manage">
+            <p><b>Organize & Manage</b></p>
+            <Link to="/Dashboard">
+                <i><HiOutlineWallet /></i>
+                Wallet / Earnings
+            </Link>
+            <Link to="/Dashboard">
+                <i><IoMdFolderOpen /></i>
+                Projects
+            </Link>
+        </div>
+
         <div className="account">
             <p><b>Account</b></p>
             <Link to="/Dashboard">
                 <i><FaRegUser /></i>
                 My Profile
-            </Link>
-            <Link to="/Dashboard">
-                <i><HiOutlineWallet /></i>
-                Wallet / Earnings
             </Link>
             <Link to="/Dashboard">
                 <i><MdOutlineRateReview /></i>

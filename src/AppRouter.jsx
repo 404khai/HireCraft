@@ -98,12 +98,19 @@ const Layout = () => {
 };
 
 const DashboardLayout = () => (
-  <div className="dashboardContainer">
-    <Sidenav />
+  // <div className="dashboardContainer">
+  //   <Sidenav />
+  //   <Routes>
+  //     <Route path="/Dashboard" element={<Dashboard />} />
+  //   </Routes>
+  // </div>
+
+  <>
+    {/* <Sidenav /> */}
     <Routes>
       <Route path="/Dashboard" element={<Dashboard />} />
     </Routes>
-  </div>
+  </>
 );
 
 const AppRouter = () => {

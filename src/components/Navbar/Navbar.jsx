@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
-import hirecraftLogo from '../../assets/hirecraftLogo.png'
+import hirecraftLogo from '../../../public/favicon2.png'
 import OIF from '../../assets/OIF.jpeg'
 import UserChoiceModal from "../UserChoiceModal/UserChoiceModal";
 import { IoIosUnlock } from "react-icons/io";
@@ -15,9 +15,8 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const navbar = document.querySelector('.navbar');
-            const homeTxt = document.querySelector('.homeTxt');
 
-            if (window.scrollY > homeTxt.offsetTop + homeTxt.offsetHeight) {
+            if (window.scrollY > 30) {
             navbar.classList.add('scrolled');
             } else {
             navbar.classList.remove('scrolled');

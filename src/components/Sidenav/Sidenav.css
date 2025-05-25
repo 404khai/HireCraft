@@ -1,11 +1,16 @@
 .sidenav{
     width: 20%;
-    height: 100%;
+    /* height: 120vh !important; */
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
+    /* position: absolute; */
+    /* top: 70px; */
+    padding-top: 40px;
+    overflow-y: scroll;
     gap: 20px;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.13);
+    /* box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.13); */
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
     /* justify-content: space-evenly; */
     /* align-items: end; */
 }
@@ -24,10 +29,18 @@
     display: flex;
     flex-direction: column;
 }
-.start p, .account p{
-    padding-left: 10px;
+.manage{
+    width: 100%;
+    align-self: flex-end;
+    height: 100px;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
 }
-.start a, .account a{
+.start p, .account p, .manage p{
+    padding-left: 20px;
+}
+.start a, .account a, .manage a{
     text-decoration: none;
     /* border: 1px solid black; */
     height: 50px;
@@ -35,24 +48,24 @@
     align-items: center;
     gap: 10px;
     color: black;
-    padding-left: 10px;
+    padding-left: 20px;
 }
-.start p, .account p{
+.start p, .account p, .manage p{
     color: #35D07D;
     font-size: 16px;
 }
-.start a:hover, .account a:hover{
+.start a:hover, .account a:hover, .manage a:hover{
     /* background: linear-gradient(#788cff, #3251ff); */
     /* background: linear-gradient(#788cff, #0022e1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text; 
   color: transparent; */
-  color: #35D07D;
-  border-left: 3px solid #35D07D;
-  padding-left: 20px;
-  background-color: #4372591e;
+  color: #009749;
+  border-left: 3px solid #009749;
+  padding-left: 25px;
+  background-color: #35d07d23;
 }
- .start a:hover i, .account a:hover i{
-    color: #35D07D;
+ .start a:hover i, .account a:hover i, .manage a:hover i{
+    color: #009749;
  }
