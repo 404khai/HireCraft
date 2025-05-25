@@ -1,5 +1,5 @@
 // import React from 'react'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 import hirecraftLogo from '../../assets/hirecraftLogo.png'
@@ -11,6 +11,24 @@ import { PiPlusCircleFill } from "react-icons/pi";
 // import Contact from '../Contact/Contact';
 
 const Navbar = () => {
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const navbar = document.querySelector('.navbar');
+            const homeTxt = document.querySelector('.homeTxt');
+
+            if (window.scrollY > homeTxt.offsetTop + homeTxt.offsetHeight) {
+            navbar.classList.add('scrolled');
+            } else {
+            navbar.classList.remove('scrolled');
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+
     // alert(activeTab)
     // console.log("Active Tab:", activeTab);
     const [isMenuOpen, setIsMenuOpen] = useState(false);

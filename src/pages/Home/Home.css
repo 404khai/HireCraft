@@ -199,7 +199,7 @@
 /* best SECTION */
   .best{
     width: 100%;
-    height: 230px;
+    height: 400px;
     /* background-color: rgb(63, 63, 63); */
     display: flex;
     flex-direction: column;
@@ -209,7 +209,7 @@
   }
   .heroSecStats{
     width: 90%;
-    height: 160px;
+    height: 360px;
     /* border: 1px solid black; */
     display: flex;
     align-items: center;
@@ -223,11 +223,11 @@
   }
   .availableServices i{
     font-size: 30px;
-    color: #3251ff;
+    color: #35D07D;
   }
   .availableServices{
     width: 170px;
-    height: 80%;
+    height: 40%;
     background-color: #e5e5e5;
     /* backdrop-filter: blur(50px); */
     border-radius: 10px;
@@ -249,14 +249,34 @@
     padding: 10px;
     width: 50%;
     height: 80%;
+    background-image: url(../../assets/teacher.jpg);
+    /* background-position: center; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.103);
+    background-blend-mode: darken;
     /* background-color: rgb(214, 214, 214); */
     /* backdrop-filter: blur(20px); */
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
+    align-items: end;
     justify-content: center;
     /* align-items: center; */
     /* text-align: center; */
+  }
+  .userStatsBox{
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.244), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    /* border: 1px solid rgb(255, 255, 0255, 0.18); */
+    width: 80%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    position: relative;
+    right: -100px;
+    border-radius: 10px;
   }
   .heroSecRating{
     /* background-color: black; */
@@ -301,7 +321,7 @@
     /* background: linear-gradient(#788cff, #ff32ff); */
     /* background-image: linear-gradient(to right, #788cff , #3251ff); */
     /* background-color: gainsboro; */
-    height: 90%;
+    height: 40%;
     width: 500px;
     display: flex;
     justify-content: center;
@@ -318,7 +338,7 @@
 }
 .exploreServicesTxt a{
     text-decoration: none;
-    color: #3251ff;
+    color: #35D07D;
 }
 .exploreImg{
     width: 200px;
@@ -361,8 +381,6 @@
     /* / height: 100%; */
     color: rgb(0, 0, 0);
     text-align: start;
-    background-color: rgba(0, 0, 0, 0.26);
-    background-blend-mode: darken;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -371,7 +389,32 @@
     /* flex-shrink: 0; */
     align-self: center;
     justify-self: center;
+    transition: transform 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    
 }
+
+.popularServicesBox::before {
+    background-color: rgba(0, 0, 0, 0.26);
+    background-blend-mode: darken;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+
+.popularServicesBox:hover::before {
+  transform: scale(1.1); /* Zoom effect */
+}
+
+
+
 
 /* .popularServicesBox:hover{
     transition: 0.8s;
@@ -418,17 +461,113 @@
 }
 
 
+.feedback{
+    width: 100%;
+    height: 600px;
+    /* background-color: blanchedalmond; */
+    text-align: center;
+}
+.feedbackHead{
+    height: 10%;
+}
+.feedbackHead > p{
+    color: #54595F;
+}
+.feedbackHead h1{
+    color: black;
+}
+
+/* Carousel section */
+.carousel{
+    width: 100%;
+    height: 500px;
+    /* background-color: teal; */
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    /* justify-content: space-evenly; */
+}
+.feedbackCard{
+    /* width: 400px; */
+    height: 400px;
+    background-color: #F9F8FF;
+    border: 1px solid #DDD8F9;
+    padding: 30px;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+}
+.txtBody > p, .name > p, .role > p{
+    color: black;
+}
+.txtBody > p{
+    font-size: 22px;
+}
+.icons{
+    width: 50%;
+    height: 50px;
+    /* border: 2px solid chartreuse; */
+    display: flex;
+    gap: 0;
+    align-items: center;
+   
+}
+.icons > i{
+    display: flex;
+   
+}
+.txtBody{
+    width: 90%;
+    height: 200px;
+    /* border: 2px solid chartreuse; */
+    display: flex;
+    align-items: center;
+}
+.profile{
+    width: 100%;
+    height: 80px;
+    /* background-color: brown; */
+    display: flex;
+    justify-content: space-evenly;
+}
+.nameRole{
+    width: 400px;
+    height: 100%;
+    /* border: 2px solid black; */
+    display: flex;
+    padding-left: 10px;
+    flex-direction: column;
+    /* text-align: center; */
+    justify-content: center;
+}
+.img{
+    width: 200px;
+    /* background-color: aquamarine; */
+    height: 100%;
+}
+.img > img{
+    width: 100%;
+    height: 90%;
+    border-radius: 50%;
+}
+.starIcon{
+    color: #553CDF;
+}
+
 
 /* INSTANT RESULTS */
 .instantResults{
     width: 90%;
     height: 400px;
-    background-color: #e5e5e5;
+    /* background-color: #009749; */
     /* background: linear-gradient(#788cff, black); */
     /* background-color: rgb(32, 85, 132); */
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 40px;
     /* margin-bottom: 100px; */
     border-radius: 10px;
 }
@@ -439,12 +578,19 @@
     /* color: white; */
     display: flex;
     flex-direction: column;
+    /* color: white; */
     justify-content: space-evenly;
 }
 .instantResultsImg{
-    width: 30%;
-    height: 80%;
+    width: 50%;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     /* border: 1px solid coral; */
+    background-image: url('https://gaijinpot.scdn3.secure.raxcdn.com/app/uploads/sites/4/2023/09/iStock-recep-bg-cafe-at-night-coffee-1024x640.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .instantResultsImg img{
     width: 100%;
@@ -458,7 +604,9 @@
     font-size: 20px;
 }
 .getStarted{
-   background-image: linear-gradient(to right, #788cff , #3251ff);
+    background-color: #35D07D;
+    color: white;
+   /* background-image: linear-gradient(to right, #788cff , #3251ff); */
     border: 0;
     padding: 15px;
     border-radius: 10px;
