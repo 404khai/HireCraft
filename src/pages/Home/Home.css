@@ -1,7 +1,7 @@
 .home{
     /* background-color: rgba(0, 0, 0, 0.397); */
     width: 100%;
-    height: 2100px;
+    height: 3000px;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -21,6 +21,7 @@
     justify-content: start;
     width: 100%;
     height: 590px;
+    margin-bottom: 40px;
     /* border: 1px solid black; */
     background-color: rgba(0, 0, 0, 0.648);
     background-blend-mode: darken;
@@ -180,7 +181,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 .topCompaniesCarousel{
     /* border: 1px solid black; */
@@ -265,7 +266,7 @@
     /* text-align: center; */
   }
   .userStatsBox{
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.244), rgba(255, 255, 255, 0));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.244), rgba(117, 117, 117, 0.089));
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     /* border: 1px solid rgb(255, 255, 0255, 0.18); */
@@ -287,7 +288,7 @@
     gap: 10px;
   }
   .heroSecRatingIcons i{
-    color: goldenrod;
+    color: gold;
   }
   .userStatsImgs{
     /* background-color: black; */
@@ -357,7 +358,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 100px;
-    gap: 20px;
+    /* gap: 20px; */
 }
 .carousel{
     width: 98%;
@@ -463,9 +464,14 @@
 
 .feedback{
     width: 100%;
-    height: 600px;
+    height: 300px;
     /* background-color: blanchedalmond; */
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
 }
 .feedbackHead{
     height: 10%;
@@ -478,61 +484,64 @@
 }
 
 /* Carousel section */
-.carousel{
-    width: 100%;
-    height: 500px;
+.feedbackCarousel{
+    width: 90%;
+    height: 200px;
     /* background-color: teal; */
     display: flex;
     align-items: center;
-    padding-left: 50px;
-    padding-right: 50px;
+    justify-content: space-between;
+    /* padding-left: 50px; */
+    /* padding-right: 50px; */
     /* justify-content: space-evenly; */
 }
 .feedbackCard{
-    /* width: 400px; */
-    height: 400px;
-    background-color: #F9F8FF;
-    border: 1px solid #DDD8F9;
-    padding: 30px;
+    width: 30%;
+    height: 100%;
+    background-color: #35d07d13;
+    border: 1px solid #35D07D;
+    padding: 5px;
     text-align: start;
     display: flex;
     flex-direction: column;
-    gap: 2%;
+    justify-content: center;
+    gap: 10px;
 }
-.txtBody > p, .name > p, .role > p{
+.feedbackTxt > p, .feedbackName > p, .feedbackRole > p{
     color: black;
 }
-.txtBody > p{
+/* .feedbackTxt > p{
     font-size: 22px;
-}
-.icons{
+} */
+.feedbackIcons{
     width: 50%;
-    height: 50px;
+    /* height: 50px; */
+    /* background-color: #788cff; */
     /* border: 2px solid chartreuse; */
     display: flex;
     gap: 0;
     align-items: center;
    
 }
-.icons > i{
+.feedbackIcons > i{
     display: flex;
    
 }
-.txtBody{
+.feedbackTxt{
     width: 90%;
-    height: 200px;
+    /* height: 200px; */
     /* border: 2px solid chartreuse; */
     display: flex;
     align-items: center;
 }
-.profile{
+.feedbackProfile{
     width: 100%;
     height: 80px;
     /* background-color: brown; */
     display: flex;
     justify-content: space-evenly;
 }
-.nameRole{
+.feedbackNameRole{
     width: 400px;
     height: 100%;
     /* border: 2px solid black; */
@@ -542,18 +551,21 @@
     /* text-align: center; */
     justify-content: center;
 }
-.img{
+.feedbackImg{
     width: 200px;
     /* background-color: aquamarine; */
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.img > img{
-    width: 100%;
-    height: 90%;
+.feedbackImg > img{
+    width: 70px;
+    height: 80%;
     border-radius: 50%;
 }
 .starIcon{
-    color: #553CDF;
+    color: gold;
 }
 
 
@@ -631,7 +643,7 @@
     transform: scale(1.1);
 }
 
-.popularServices h2, .best h2, .trusted h2{
+.popularServices h2, .best h2, .trusted h2, .feedbackHead h2{
     font-size: 24px;
 }
 @media screen and (max-width: 1230px) {
