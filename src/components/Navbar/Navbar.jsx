@@ -51,7 +51,7 @@ const Navbar = () => {
     <div className='navbar'>
         <Link to="/Home" className="navLogoLink">
             <div className="navLogo">
-                <img src={hirecraftLogo} alt="" className="hirecraftLogo"/>
+                {/* <img src={hirecraftLogo} alt="" className="hirecraftLogo"/> */}
                 <p>hire<span className="navLogoSpan">craft</span></p>
                 {/* <i><HiWrenchScrewdriver/></i>
                 <p>hire<span className="navLogoSpan">craft</span></p> */}
@@ -61,6 +61,7 @@ const Navbar = () => {
 
         <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
             <Link to='/Services'>Browse Services</Link>
+            <Link to=''>How It Works</Link>
             <Link to=''>FAQ's</Link>
             <Link to=''>Contact Us</Link>
 

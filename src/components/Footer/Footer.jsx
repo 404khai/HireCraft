@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="footerTopBox" id='footerTopBox1'>
                 <Link to="/Home" className='footerLogoLink'>
                     <div className="footerLogo">
-                        <img src={hirecraftLogo} alt="" className="hirecraftLogoFooter"/>
+                        {/* <img src={hirecraftLogo} alt="" className="hirecraftLogoFooter"/> */}
                         <p style={{color: "white"}}>hire<span className="footerLogoSpan">craft</span></p>
                     </div>
                 </Link>

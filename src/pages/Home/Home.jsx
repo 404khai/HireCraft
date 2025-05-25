@@ -82,6 +82,7 @@ const Home = () => {
         }
     ]
 
+
   return (
     <div className='home'>
         <div className="heroSection">
@@ -122,6 +123,16 @@ const Home = () => {
                 <img src="https://ml.globenewswire.com/Resource/Download/15ddbb23-7272-49b1-8aa1-517bcdcb21a4" alt="" className='netflix'/>
             </div>
         </div>
+
+        {/* <div className="howItWorks">
+            <h2>How It Works</h2>
+            <p style={{color: "#54595F"}}>Source the best providers at your pace</p>
+            <p style={{color: "#54595F"}}>Work with creative experts you can trust 🙂</p>
+
+            <div className="howItWorksBoxes">
+
+            </div>
+        </div> */}
 
         <div className="best">
             <h2>The best Service Marketplace Site</h2>
@@ -262,7 +273,7 @@ const Home = () => {
 
         <div className="feedback">
             <div className="feedbackHead">
-                <h2>What our users say ❤️</h2>
+                <h2>What our users say 💕</h2>
                 <p>You'll find something to spark your curiosity and enhance</p>
             </div>
             <div className="feedbackCarousel">
