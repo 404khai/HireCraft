@@ -7,8 +7,9 @@
     align-items: center;
     justify-content: space-around;
 }
-.breadcrumb p{
+.breadcrumb a{
     color: white;
+    text-decoration: none;
 }
 .breadcrumb i{
     color: #717171;

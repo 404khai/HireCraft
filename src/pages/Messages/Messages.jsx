@@ -1,5 +1,6 @@
 import React from 'react'
 import './Messages.css'
+import { IoIosSend } from "react-icons/io";
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import EmployerSideNav from '../../components/EmployerSideNav/EmployerSideNav'
@@ -27,7 +28,7 @@ const Messages = () => {
                 <h2>Messages</h2>
               </div>
 
-              <Breadcrumbs firstLink="Messages" secondLink="Dashboard"/>
+              <Breadcrumbs firstLink="Messages" link="/Dashboard/Messages" secondLink="Dashboard" link2="/Dashboard"/>
             </div>
 
             <div className="messagesGroup">
@@ -42,14 +43,23 @@ const Messages = () => {
                             </div>
                             
                             <div className='messageBadge'>
-
+                                <p>8</p>
                             </div>
                         </div>
                     ))}
                                     
                 </div>
                 <div className="messageChat">
-
+                    <div className="sendChat">
+                        <input
+                            type="text"
+                            placeholder="Type to Send"
+                            // value={message}
+                            // onChange={(e) => setMessage(e.target.value)}
+                            // onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+                        />
+                        <i><IoIosSend /></i>
+                    </div>
                 </div>
             </div>
             

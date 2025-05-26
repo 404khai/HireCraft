@@ -23,7 +23,7 @@ const Dashboard = () => {
                 <p style={{color: "#888"}}>We are glad to see you again!</p>
               </div>
 
-              <Breadcrumbs firstLink="Home" secondLink="Dashboard"/>
+              <Breadcrumbs firstLink="Home" link="/Dashboard" secondLink="Dashboard" link2="/Dashboard"/>
             </div>
 
             <div className="overview">
