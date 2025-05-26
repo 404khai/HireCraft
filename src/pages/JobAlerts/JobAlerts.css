@@ -31,11 +31,11 @@
     padding-left: 10px;
     gap: 10px;
     border-bottom: 1px solid #9a9a9a;
-    color: #35D07D;
 }
 .jobAlertsHead i{
     font-size: 20px;
     display: flex;
+    color: #35D07D;
 }
 
 .newJobAlert{

@@ -1,15 +1,15 @@
 import React from 'react'
-import './JobAlerts.css'
+import './Bookings.css'
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import { IoBriefcaseOutline, IoLocationOutline} from "react-icons/io5";
 import OIF from '../../assets/OIF.jpeg'
 import { LuClock4 } from "react-icons/lu";
-import { GrMapLocation } from "react-icons/gr";
+import { MdTaskAlt } from "react-icons/md";
 import { LiaGlobeAmericasSolid } from "react-icons/lia";
 
-const JobAlerts = () => {
+const Bookings = () => {
   return (
     <div className='dashboardBox'>
       <DashboardNav/>
@@ -19,21 +19,21 @@ const JobAlerts = () => {
           <div className="dashboard">
             <div className="welcome">
               <div className="welcomeTxt">
-                <h2>Job Alerts</h2>
+                <h2>My Bookings</h2>
               </div>
 
-              <Breadcrumbs firstLink="Dashboard" link="/Dashboard" secondLink="Job Alerts" link2="/Dashboard/JobAlerts"/>
+              <Breadcrumbs firstLink="Dashboard" link="/Dashboard" secondLink="My Bookings" link2="/Dashboard/Bookings"/>
             </div>
 
             <div className="jobAlertsBox">
               <div className="jobAlertsNoti">
-                <p>Your job alerts are shown below. Your alerts will also be sent to your email.</p>
+                <p>Your current bookings are shown below. They will also be sent to your email.</p>
               </div>
 
               <div className="jobAlerts">
                 <div className="jobAlertsHead">
-                  <i><IoBriefcaseOutline /></i>
-                  <b>Alerts</b>
+                  <i><MdTaskAlt /></i>
+                  My Bookings
                 </div>
 
                 <div className="jobAlert">
@@ -79,4 +79,4 @@ const JobAlerts = () => {
   )
 }
 
-export default JobAlerts
+export default Bookings

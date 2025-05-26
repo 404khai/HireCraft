@@ -30,7 +30,7 @@ const ProviderSideNav = () => {
                 <i><LuBellRing /></i>
                 Job Alerts
             </Link>
-            <Link to="/Dashboard">
+            <Link to="/Dashboard/Bookings">
                 <i><IoBriefcaseOutline /></i>
                 My Bookings
             </Link>
@@ -43,7 +43,7 @@ const ProviderSideNav = () => {
                 <i><RiWallet3Line/></i>
                 Wallet
             </Link>
-            <Link to="/Dashboard">
+            <Link to="/Dashboard/MyProjects">
                 <i><IoMdFolderOpen /></i>
                 Projects
             </Link>

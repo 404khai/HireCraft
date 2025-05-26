@@ -1,0 +1,15 @@
+.project{
+    display: flex;
+    flex-direction: column;
+    height: 83%;
+    border-bottom: 1px solid #9a9a9a;
+    width: 30%;
+}
+.projectTitle{
+    /* background-color: coral; */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 30px;
+}
