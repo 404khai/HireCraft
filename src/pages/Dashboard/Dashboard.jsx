@@ -1,7 +1,8 @@
 import React from 'react'
 import './Dashboard.css'
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
-import Sidenav from '../../components/Sidenav/Sidenav'
+import EmployerSideNav from '../../components/EmployerSideNav/EmployerSideNav'
+import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import { IoBriefcaseOutline} from "react-icons/io5";
 import { HiArrowTrendingUp } from "react-icons/hi2";
@@ -13,7 +14,8 @@ const Dashboard = () => {
     <div className='dashboardBox'>
       <DashboardNav/>
       <div className='dashboardBody'>
-          <Sidenav/>
+          {/* <ProviderSideNav/> */}
+          <EmployerSideNav/>
           <div className="dashboard">
             <div className="welcome">
               <div className="welcomeTxt">

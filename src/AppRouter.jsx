@@ -67,7 +67,7 @@ import EmployerSignUp from "./pages/EmployerSignUp/EmployerSignUp";
 import ServiceProviderSignUp from "./pages/ServiceProviderSignUp/ServiceProviderSignUp";
 import Footer from "./components/Footer/Footer";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Sidenav from "./components/Sidenav/Sidenav";
+import Messages from "./pages/Messages/Messages";
 
 import './App.css'
 
@@ -109,6 +109,7 @@ const DashboardLayout = () => (
     {/* <Sidenav /> */}
     <Routes>
       <Route path="/Dashboard" element={<Dashboard />} />
+      <Route path="/Dashboard/Messages" element={<Messages />} />
     </Routes>
   </>
 );

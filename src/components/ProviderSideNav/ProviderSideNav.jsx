@@ -1,5 +1,5 @@
 import React from 'react'
-import './Sidenav.css'
+import './ProviderSideNav.css'
 import { Link } from 'react-router-dom'
 import { HiWrenchScrewdriver, HiOutlineWallet } from "react-icons/hi2";
 import { LuLayoutDashboard, LuBellRing } from "react-icons/lu";
@@ -9,7 +9,7 @@ import { IoExitOutline , IoBriefcaseOutline} from "react-icons/io5";
 import { MdOutlineRateReview } from "react-icons/md";
 import { IoMdFolderOpen } from "react-icons/io";
 
-const Sidenav = () => {
+const ProviderSideNav = () => {
   return (
     <div className='sidenav'>
 
@@ -19,7 +19,7 @@ const Sidenav = () => {
                 <i><LuLayoutDashboard /></i>
                 Dashboard
             </Link>
-            <Link to="/Dashboard">
+            <Link to="/Dashboard/Messages">
                 <i><TiMessages /></i>
                 Messages
             </Link>
@@ -64,4 +64,4 @@ const Sidenav = () => {
   )
 }
 
-export default Sidenav
+export default ProviderSideNav
