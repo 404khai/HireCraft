@@ -69,8 +69,10 @@ import Footer from "./components/Footer/Footer";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Messages from "./pages/Messages/Messages";
 import Wallet from "./pages/Wallet/Wallet";
+import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
 
 import './App.css'
+
 
 const Layout = () => {
   const location = useLocation();
@@ -112,6 +114,7 @@ const DashboardLayout = () => (
       <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/Dashboard/Messages" element={<Messages />} />
       <Route path="/Dashboard/Wallet" element={<Wallet />} />
+      <Route path="/Dashboard/ProviderProfile" element={<ProviderProfile />} />
     </Routes>
   </>
 );

@@ -20,7 +20,7 @@ const Wallet = () => {
                 <h2>Wallet</h2>
               </div>
 
-              <Breadcrumbs firstLink="Wallet" link="/Dashboard/Wallet" secondLink="Dashboard" link2="/Dashboard"/>
+              <Breadcrumbs firstLink="Dashboard" link="/Dashboard" secondLink="Wallet" link2="/Dashboard/Wallet"/>
             </div>
 
             <div className="walletOverview">

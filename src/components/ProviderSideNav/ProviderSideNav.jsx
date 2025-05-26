@@ -54,7 +54,7 @@ const ProviderSideNav = () => {
 
         <div className="account">
             <p><b>Account</b></p>
-            <Link to="/Dashboard">
+            <Link to="/Dashboard/ProviderProfile">
                 <i><FaRegUser /></i>
                 My Profile
             </Link>
