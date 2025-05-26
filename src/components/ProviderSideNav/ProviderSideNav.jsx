@@ -25,7 +25,7 @@ const ProviderSideNav = () => {
                 <i><TiMessages /></i>
                 Messages
             </Link>
-            <Link to="/Dashboard">
+            <Link to="/Dashboard/JobRequests">
                 <i><LuBellRing /></i>
                 Job Requests
             </Link>

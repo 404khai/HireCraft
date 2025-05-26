@@ -70,6 +70,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Messages from "./pages/Messages/Messages";
 import Wallet from "./pages/Wallet/Wallet";
 import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
+import JobRequests from "./pages/JobRequests/JobRequests";
 
 import './App.css'
 
@@ -113,6 +114,7 @@ const DashboardLayout = () => (
     <Routes>
       <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/Dashboard/Messages" element={<Messages />} />
+      <Route path="/Dashboard/JobRequests" element={<JobRequests />} />
       <Route path="/Dashboard/Wallet" element={<Wallet />} />
       <Route path="/Dashboard/ProviderProfile" element={<ProviderProfile />} />
     </Routes>
