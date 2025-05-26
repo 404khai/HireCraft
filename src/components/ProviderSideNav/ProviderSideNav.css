@@ -50,6 +50,10 @@
     color: #888;
     padding-left: 20px;
 }
+.start a i, .account a i, .manage a i{
+    font-size: 20px;
+    /* font-weight: bold; */
+}
 .start p, .account p, .manage p{
     color: #35D07D;
     font-size: 16px;

@@ -26,9 +26,9 @@ const ProviderSideNav = () => {
                 <i><TiMessages /></i>
                 Messages
             </Link>
-            <Link to="/Dashboard/JobRequests">
+            <Link to="/Dashboard/JobAlerts">
                 <i><LuBellRing /></i>
-                Job Requests
+                Job Alerts
             </Link>
             <Link to="/Dashboard">
                 <i><IoBriefcaseOutline /></i>
