@@ -8,10 +8,12 @@ import { FaRegUser } from "react-icons/fa6";
 import { IoExitOutline , IoBriefcaseOutline} from "react-icons/io5";
 import { MdOutlineRateReview } from "react-icons/md";
 import { IoMdFolderOpen } from "react-icons/io";
+import { SiReaddotcv } from "react-icons/si";
+import { RiWallet3Line } from "react-icons/ri";
 
 const ProviderSideNav = () => {
   return (
-    <div className='sidenav'>
+    <div className='providersidenav'>
 
         <div className="start">
             <p><b>Home</b></p>
@@ -35,13 +37,18 @@ const ProviderSideNav = () => {
        
         <div className="manage">
             <p><b>Organize & Manage</b></p>
-            <Link to="/Dashboard">
-                <i><HiOutlineWallet /></i>
-                Wallet / Earnings
+            <Link to="/Dashboard/Wallet">
+                {/* <i><HiOutlineWallet /></i> */}
+                <i><RiWallet3Line/></i>
+                Wallet
             </Link>
             <Link to="/Dashboard">
                 <i><IoMdFolderOpen /></i>
                 Projects
+            </Link>
+            <Link to="/Dashboard">
+                <i><SiReaddotcv /></i>
+                Resume
             </Link>
         </div>
 

@@ -11,7 +11,7 @@ import { GrUserWorker } from "react-icons/gr";
 
 const EmployerSideNav = () => {
   return (
-    <div className='sidenav'>
+    <div className='employersidenav'>
 
         <div className="start">
             <p><b>Home</b></p>
@@ -33,7 +33,7 @@ const EmployerSideNav = () => {
             </Link>
         </div>
        
-        <div className="manage">
+        <div className="serviceMgt">
             <p><b>Service Management</b></p>
             <Link to="/Dashboard">
                 <i><GrUserWorker /></i>

@@ -13,4 +13,5 @@
 }
 .breadcrumb i{
     color: #717171;
+    display: flex;
 }

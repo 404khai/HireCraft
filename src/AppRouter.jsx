@@ -68,6 +68,7 @@ import ServiceProviderSignUp from "./pages/ServiceProviderSignUp/ServiceProvider
 import Footer from "./components/Footer/Footer";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Messages from "./pages/Messages/Messages";
+import Wallet from "./pages/Wallet/Wallet";
 
 import './App.css'
 
@@ -110,6 +111,7 @@ const DashboardLayout = () => (
     <Routes>
       <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/Dashboard/Messages" element={<Messages />} />
+      <Route path="/Dashboard/Wallet" element={<Wallet />} />
     </Routes>
   </>
 );

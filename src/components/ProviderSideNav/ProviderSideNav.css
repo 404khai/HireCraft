@@ -1,6 +1,6 @@
-.sidenav{
+.providersidenav{
     width: 20%;
-    /* height: 1200px!important; */
+    height: 1200px;
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
@@ -32,8 +32,7 @@
 .manage{
     width: 100%;
     align-self: flex-end;
-    height: 100px;
-    /* border: 1px solid red; */
+    height: 160px;
     display: flex;
     flex-direction: column;
 }

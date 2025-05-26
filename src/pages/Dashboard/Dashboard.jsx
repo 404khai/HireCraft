@@ -14,8 +14,8 @@ const Dashboard = () => {
     <div className='dashboardBox'>
       <DashboardNav/>
       <div className='dashboardBody'>
-          {/* <ProviderSideNav/> */}
-          <EmployerSideNav/>
+          <ProviderSideNav/>
+          {/* <EmployerSideNav/> */}
           <div className="dashboard">
             <div className="welcome">
               <div className="welcomeTxt">

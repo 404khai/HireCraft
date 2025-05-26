@@ -1,4 +1,4 @@
-.sidenav{
+.employersidenav{
     width: 20%;
     /* height: auto; */
     /* height: 1200px !important; */
@@ -30,18 +30,18 @@
     display: flex;
     flex-direction: column;
 }
-.manage{
+.serviceMgt{
     width: 100%;
     align-self: flex-end;
-    height: 100px;
+    height: 120px;
     /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
 }
-.start p, .account p, .manage p{
+.start p, .account p, .serviceMgt p{
     padding-left: 20px;
 }
-.start a, .account a, .manage a{
+.start a, .account a, .serviceMgt a{
     text-decoration: none;
     /* border: 1px solid black; */
     height: 50px;
@@ -51,11 +51,11 @@
     color: #888;
     padding-left: 20px;
 }
-.start p, .account p, .manage p{
+.start p, .account p, .serviceMgt p{
     color: #35D07D;
     font-size: 16px;
 }
-.start a:hover, .account a:hover, .manage a:hover{
+.start a:hover, .account a:hover, .serviceMgt a:hover{
     /* background: linear-gradient(#788cff, #3251ff); */
     /* background: linear-gradient(#788cff, #0022e1);
   -webkit-background-clip: text;
@@ -67,6 +67,6 @@
   padding-left: 25px;
   background-color: #35d07d23;
 }
- .start a:hover i, .account a:hover i, .manage a:hover i{
+ .start a:hover i, .account a:hover i, .serviceMgt a:hover i{
     color: #009749;
  }

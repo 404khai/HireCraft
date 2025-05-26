@@ -1,0 +1,56 @@
+.walletOverview{
+    width: 90%;
+    height: 120px;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.walletOverviewTxt p{
+    /* border: 1px solid black; */
+    font-size: 20px;
+}
+.walletOverviewTxt h4{
+    /* border: 1px solid black; */
+    font-size: 25px;
+}
+.balance{
+    width: 30%;
+    height: 100%;
+    background-color: #def5d8;
+    color: #3fad27;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.dailyEarnings{
+    width: 30%;
+    height: 100%;
+    /* color: #e49c0b; */
+    color: purple;
+    /* background-color: rgba(128, 0, 128, 0.233); */
+    background-color: #f0d8fb;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.totalEarnings{
+    width: 30%;
+    height: 100%;
+    color: #e49c0b;
+    background-color: #fbf0d8;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.balance i, .dailyEarnings i, .totalEarnings i{
+    font-size: 40px;
+    display: flex;
+}
+.walletSvg{
+    width: 50px;
+    height: 50px;
+}
