@@ -1,14 +1,15 @@
 .providersidenav{
     width: 20%;
-    height: 1200px;
+    height: 480px;
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
     position: relative;
     /* top: 70px; */
     padding-top: 40px;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
     gap: 20px;
+    /* bottom: 0px; */
     /* box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.13); */
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
     /* justify-content: space-evenly; */

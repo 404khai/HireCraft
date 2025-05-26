@@ -17,8 +17,8 @@
 .dashboard{
     background-color: #fafafa;
     /* position: relative; */
-    height: 1000px;
-    /* overflow-y: scroll; */
+    /* height: 1000px; */
+    overflow-y: hidden;
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -65,7 +65,8 @@
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 4px;
     height: 80px;
 }
 .jobReqOverview { 

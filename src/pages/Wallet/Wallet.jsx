@@ -9,12 +9,12 @@ import { TbMoneybag } from "react-icons/tb";
 
 const Wallet = () => {
   return (
-    <div className='dashboardBox'>
+    <div className='walletBox'>
       <DashboardNav/>
-      <div className='dashboardBody'>
+        <div className='walletBody'>
           <ProviderSideNav/>
           {/* <EmployerSideNav/> */}
-          <div className="dashboard">
+          <div className="wallet">
             <div className="welcome">
               <div className="welcomeTxt">
                 <h2>Wallet</h2>
@@ -75,6 +75,11 @@ const Wallet = () => {
                     </svg> */}
                 </div>
             </div>
+
+            <div className='walletTypeBox'>
+                
+            </div>
+
            </div>
         </div>
     </div>
