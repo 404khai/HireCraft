@@ -3,7 +3,11 @@ import './JobAlerts.css'
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
-import { IoBriefcaseOutline} from "react-icons/io5";
+import { IoBriefcaseOutline, IoLocationOutline} from "react-icons/io5";
+import OIF from '../../assets/OIF.jpeg'
+import { LuClock4 } from "react-icons/lu";
+import { GrMapLocation } from "react-icons/gr";
+import { LiaGlobeAmericasSolid } from "react-icons/lia";
 
 const JobAlerts = () => {
   return (
@@ -33,7 +37,37 @@ const JobAlerts = () => {
                 </div>
 
                 <div className="jobAlert">
-                  <p>TV Unit Decor</p>
+                  <div className="jobAlertTitle">
+                    <p><b>TV Unit Decor</b></p>
+                    <button className='newJobAlert'>🔥 New</button>
+                  </div>
+                  <div className="jobAlertInfo">
+                    <p>
+                      <i><IoBriefcaseOutline /></i>
+                      Categories: Home Decor
+                    </p>
+                    <p>
+                      <i><IoLocationOutline /></i>
+                      Location: Ikeja, Lagos
+                    </p>
+                    <p>
+                      <i><LiaGlobeAmericasSolid /></i>
+                      Nigeria
+                    </p>
+                  </div>
+
+                  <div className="jobAlertEmployer">
+                    <img src={OIF} alt="" />
+                    <div className="jobEmployerTxt">
+                      <p>Peter Grey</p>
+                      <p>Company: Aptech</p>
+                    </div>
+                    
+                  </div>
+
+                  <div className="jobAlertDuration">
+                    <p><i><LuClock4/></i>3 days</p>
+                  </div>
                 </div>
               </div>
             </div>

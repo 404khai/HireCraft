@@ -37,3 +37,70 @@
     font-size: 20px;
     display: flex;
 }
+
+.newJobAlert{
+    background-color: rgb(255, 178, 193);
+    color: crimson;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+.jobAlert{
+    display: flex;
+    flex-direction: column;
+    height: 170px;
+    border-bottom: 1px solid #9a9a9a;
+}
+.jobAlertTitle{
+    /* background-color: coral; */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 30px;
+}
+.jobAlertInfo{
+    /* background-color: cornflowerblue; */
+    height: 30px;
+    display: flex;
+    gap: 30px;
+    padding-left: 30px;
+    align-items: center;
+    color: #777;
+}
+.jobAlertEmployer{
+    /* background-color: crimson; */
+    height: 60px;
+    display: flex;
+    gap: 10px;
+    padding-left: 30px;
+    align-items: center;
+    color: #777;
+}
+.jobAlertEmployer img{
+    width: 50px;
+    height: 80%;
+    border-radius: 50px;
+}
+.jobAlertEmployerTxt{
+    display: flex;
+    flex-direction: column;
+    color: #777;
+    justify-content: center;
+}
+.jobAlertDuration{
+    /* background-color: palegreen; */
+    height: 30px;
+    display: flex;
+    padding-left: 30px;
+    align-items: center;
+    color: #777;
+}
+.jobAlertDuration p, .jobAlertInfo P{
+    display: flex;
+    gap: 10px;
+}
+.jobAlertDuration p i, .jobAlertInfo p i{
+    display: flex;
+    align-items: center;
+}
