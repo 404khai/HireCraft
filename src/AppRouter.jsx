@@ -71,6 +71,7 @@ import Messages from "./pages/Messages/Messages";
 import Wallet from "./pages/Wallet/Wallet";
 import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
 import JobRequests from "./pages/JobRequests/JobRequests";
+import Resume from "./pages/Resume/Resume";
 
 import './App.css'
 
@@ -117,6 +118,7 @@ const DashboardLayout = () => (
       <Route path="/Dashboard/JobRequests" element={<JobRequests />} />
       <Route path="/Dashboard/Wallet" element={<Wallet />} />
       <Route path="/Dashboard/ProviderProfile" element={<ProviderProfile />} />
+      <Route path="/Dashboard/Resume" element={<Resume />} />
     </Routes>
   </>
 );

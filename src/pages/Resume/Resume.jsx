@@ -1,10 +1,12 @@
 import React from 'react'
-import './JobRequests.css'
+import './Resume.css'
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
+import resumeFolder from '../../assets/resume.gif'
+import { FiFileText } from "react-icons/fi";
 
-const JobRequests = () => {
+const Resume = () => {
   return (
     <div className='dashboardBox'>
       <DashboardNav/>
@@ -14,12 +16,21 @@ const JobRequests = () => {
           <div className="dashboard">
             <div className="welcome">
               <div className="welcomeTxt">
-                <h2>Job Requests</h2>
+                <h2>Resume</h2>
               </div>
 
-              <Breadcrumbs firstLink="Dashboard" link="/Dashboard" secondLink="Job Requests" link2="/Dashboard/JobRequests"/>
+              <Breadcrumbs firstLink="Dashboard" link="/Dashboard" secondLink="Resume" link2="/Dashboard/Resume"/>
             </div>
 
+            <div className="resumeBox">
+                <p>No Resumes added</p>
+               <img src={resumeFolder} alt="" />
+
+               <button className='uploadCv'>
+                    <i><FiFileText /></i>
+                    Upload CV
+               </button>
+            </div>
             
           </div>
           
@@ -28,4 +39,4 @@ const JobRequests = () => {
   )
 }
 
-export default JobRequests
+export default Resume

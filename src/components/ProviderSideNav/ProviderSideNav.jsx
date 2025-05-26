@@ -10,6 +10,7 @@ import { MdOutlineRateReview } from "react-icons/md";
 import { IoMdFolderOpen } from "react-icons/io";
 import { SiReaddotcv } from "react-icons/si";
 import { RiWallet3Line } from "react-icons/ri";
+import { TbFileTextSpark } from "react-icons/tb";
 
 const ProviderSideNav = () => {
   return (
@@ -46,8 +47,8 @@ const ProviderSideNav = () => {
                 <i><IoMdFolderOpen /></i>
                 Projects
             </Link>
-            <Link to="/Dashboard">
-                <i><SiReaddotcv /></i>
+            <Link to="/Dashboard/Resume">
+                <i><TbFileTextSpark /></i>
                 Resume
             </Link>
         </div>

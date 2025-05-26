@@ -1,0 +1,34 @@
+.resumeBox{
+    width: 90%;
+    height: 350px;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+.resumeBox img{
+    height: 300px;
+}
+.uploadCv{
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #35D07D;
+    display: flex;
+    gap: 5px;
+    color: white;
+    border: 0;
+}
+.uploadCv i{
+    font-size: 20px;
+    display: flex;
+}
+.uploadCv:hover{
+    /* letter-spacing: 2px; */
+    transition: 1s;
+    background-color: transparent;
+    border: 1px solid #35D07D;
+    color: #35D07D;
+    transform: scale(1.1);
+    transform: translateY(-10px);
+}
