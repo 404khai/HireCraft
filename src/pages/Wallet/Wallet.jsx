@@ -28,7 +28,7 @@ const Wallet = () => {
                     <div className="walletOverviewTxt">
                         <h4><b>300.00</b></h4>
                         <p>Withdrawable</p>
-                        <p>Balance <span><b>$</b></span></p>
+                        <p>Balance <span className='walletCurrency'>$</span></p>
                         {/* <p>Withdrawable Balance $</p> */}
                     </div>
                     <i><MdCurrencyExchange/></i>
@@ -50,7 +50,7 @@ const Wallet = () => {
                     <div className="walletOverviewTxt">
                         <h4><b>57.00</b></h4>
                         <p>Daily</p>
-                        <p>Earnings <span><b>$</b></span></p>
+                        <p>Earnings <span className='walletCurrency'>$</span></p>
                         {/* <p>Daily Earnings $</p> */}
                     </div>
                     <i><IoCartOutline/></i>
@@ -60,7 +60,7 @@ const Wallet = () => {
                     <div className="walletOverviewTxt">
                         <h4><b>0.00</b></h4>
                         <p>Total</p>
-                        <p>Earnings <span><b>$</b></span></p>
+                        <p>Earnings <span className='walletCurrency'>$</span></p>
                         {/* <p>Total Earnings $</p> */}
                     </div>
                     <i><TbMoneybag/></i>
@@ -77,7 +77,20 @@ const Wallet = () => {
             </div>
 
             <div className='walletTypeBox'>
-                
+                <div className="payout">
+                    <div className="payoutTitle">
+                        <p><b>Payout</b></p>
+                        <button>Fee: <b>10%</b></button>
+                    </div>
+                    <div className="payoutBody">
+                        <i><IoCartOutline /></i>
+                        <p>You don't have payouts yet</p>
+                    </div>
+                </div>
+
+                <div className="payoutMethods">
+                    
+                </div>
             </div>
 
            </div>
