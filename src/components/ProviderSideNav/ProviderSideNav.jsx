@@ -5,7 +5,7 @@ import { HiWrenchScrewdriver, HiOutlineWallet } from "react-icons/hi2";
 import { LuLayoutDashboard, LuBellRing } from "react-icons/lu";
 import { TiMessages } from "react-icons/ti";
 import { FaRegUser } from "react-icons/fa6";
-import { IoExitOutline , IoBriefcaseOutline} from "react-icons/io5";
+import { IoExitOutline , IoBriefcaseOutline, IoSettingsOutline} from "react-icons/io5";
 import { MdOutlineRateReview } from "react-icons/md";
 import { IoMdFolderOpen } from "react-icons/io";
 import { SiReaddotcv } from "react-icons/si";
@@ -55,9 +55,9 @@ const ProviderSideNav = () => {
 
         <div className="account">
             <p><b>Account</b></p>
-            <Link to="/Dashboard/ProviderProfile">
-                <i><FaRegUser /></i>
-                My Profile
+            <Link to="/Dashboard/Settings">
+                <i><IoSettingsOutline /></i>
+                Settings
             </Link>
             <Link to="/Dashboard">
                 <i><MdOutlineRateReview /></i>

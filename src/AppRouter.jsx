@@ -10,7 +10,7 @@ import Footer from "./components/Footer/Footer";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Messages from "./pages/Messages/Messages";
 import Wallet from "./pages/Wallet/Wallet";
-import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
+import Settings from "./pages/Settings/Settings";
 import JobAlerts from "./pages/JobAlerts/JobAlerts";
 import Resume from "./pages/Resume/Resume";
 import Bookings from "./pages/Bookings/Bookings";
@@ -62,7 +62,7 @@ const DashboardLayout = () => (
       <Route path="/Dashboard/Bookings" element={<Bookings />} />
       <Route path="/Dashboard/Wallet" element={<Wallet />} />
       <Route path="/Dashboard/MyProjects" element={<MyProjects />} />
-      <Route path="/Dashboard/ProviderProfile" element={<ProviderProfile />} />
+      <Route path="/Dashboard/Settings" element={<Settings />} />
       <Route path="/Dashboard/Resume" element={<Resume />} />
     </Routes>
   </>

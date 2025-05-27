@@ -39,7 +39,6 @@ const Bookings = () => {
                 <div className="jobAlert">
                   <div className="jobAlertTitle">
                     <p><b>TV Unit Decor</b></p>
-                    <button className='newJobAlert'>🔥 New</button>
                   </div>
                   <div className="jobAlertInfo">
                     <p>
