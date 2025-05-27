@@ -4,8 +4,8 @@ import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import { IoMdFolderOpen } from "react-icons/io";
-import { TbEyeSearch } from "react-icons/tb";
-import tvUnit
+import { IoImageOutline } from "react-icons/io5";
+import tvUnit from '../../assets/tvUnit.jpg'
 
 const MyProjects = () => {
   return (
@@ -23,9 +23,7 @@ const MyProjects = () => {
               <Breadcrumbs firstLink="Dashboard" link="/Dashboard" secondLink="Projects" link2="/Dashboard/MyProjects"/>
             </div>
 
-            <div className="jobAlertsBox">
-
-              <div className="jobAlerts">
+            <div className="projects">
                 <div className="jobAlertsHead">
                   <i><IoMdFolderOpen /></i>
                   <b>Projects</b>
@@ -37,12 +35,10 @@ const MyProjects = () => {
                   </div>
                   <img src={tvUnit} alt="" />
                   <button>
-                    <i><TbEyeSearch/></i>
+                    <i><IoImageOutline/></i>
                     Edit Image
                   </button>
                 </div>
-              </div>
-                
             </div>
             
           </div>
