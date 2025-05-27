@@ -114,7 +114,7 @@
     gap: 30px;
 }
 
-.payout{
+.earnings{
     height: 200px;
     width: 50%;
     border-radius: 5px;
@@ -126,9 +126,13 @@
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
-.payoutTitle{
+.earningsTitle{
     width: 100%;
     height: 60px;
     border-bottom: 1px solid #9a9a9a;
@@ -137,7 +141,7 @@
     align-items: center;
     gap: 150px;
 }
-.payoutTitle button{
+.earningsTitle button{
     border-radius: 5px;
     font-size: 14px;
     color: #888;
@@ -146,7 +150,7 @@
     padding: 6px 10px;
     background: #f4f4f4;
 }
-.payoutBody{
+.earningsBody{
     /* width: 100%; */
     /* background-color:crimson; */
     display: flex;
@@ -155,7 +159,7 @@
     padding-left: 40px;
     gap: 10px;
 }
-.payoutBody i{
+.earningsBody i{
     color: #777;
     text-align: center;
     border-radius: 50%;
@@ -164,4 +168,69 @@
     display: flex;
     background-color: #eee;
 
+}
+
+
+.payoutMethodsTitle{
+    width: 89%;
+    height: 60px;
+    border-bottom: 1px solid #9a9a9a;
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    padding-left: 50px;  
+}
+
+.payoutMethodsBody{
+    width: 90%;
+    height: 70%;
+    border: 3px solid #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.payoutMethodsBodyTitle{
+    width: 88%;
+    height: 60px;
+    background-color: #f2f2f2;
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    padding-left: 50px;  
+}
+.payoutMethodsNoti{
+    color: #3184ae;
+    background-color: #E9F7FE;
+    width: 90%;
+    padding: 5px;
+    border-radius: 5px;
+}
+.payoutMethodsInput{
+    width:87%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #9a9a9a;
+    outline: 0;
+}
+
+.confirmPayout{
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #35D07D;
+    display: flex;
+    gap: 5px;
+    color: white;
+    border: 0;
+    align-self: flex-start;
+    margin-left: 15px;
+}
+.confirmPayout:hover{
+    /* letter-spacing: 2px; */
+    transition: 1s;
+    background-color: #35D07D;
+    border: 1px solid #35D07D;
+    color: white;
+    transform: scale(1.1);
 }

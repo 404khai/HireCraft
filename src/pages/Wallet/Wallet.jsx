@@ -77,19 +77,38 @@ const Wallet = () => {
             </div>
 
             <div className='walletTypeBox'>
-                <div className="payout">
-                    <div className="payoutTitle">
-                        <p><b>Payout</b></p>
+                <div className="earnings">
+                    <div className="earningsTitle">
+                        <p><b>Earnings</b></p>
                         <button>Fee: <b>10%</b></button>
                     </div>
-                    <div className="payoutBody">
+                    <div className="earningsBody">
                         <i><IoCartOutline /></i>
                         <p>You don't have payouts yet</p>
                     </div>
                 </div>
 
                 <div className="payoutMethods">
+                    <div className="payoutMethodsTitle">
+                        <p><b>Payout Methods</b></p>
+                    </div>
                     
+                    <div className="payoutMethodsBody">
+                        <div className="payoutMethodsBodyTitle">
+                            <p><b>Bank Transfer</b></p>
+                        </div>
+
+                        <div className="payoutMethodsNoti">
+                            <p><b>Add the following bank transfer details:</b></p>
+                            <p>Account holder's name, account number & bank name</p>
+                        </div>
+
+                        <input type="text" placeholder='Account Holders Name' className='payoutMethodsInput'/>
+                        <input type="text" placeholder='Account Number' className='payoutMethodsInput'/>
+                        <input type="text" placeholder='Bank Name' className='payoutMethodsInput'/>
+
+                        <button className='confirmPayout'>Confirm Payout</button>
+                    </div>
                 </div>
             </div>
 
