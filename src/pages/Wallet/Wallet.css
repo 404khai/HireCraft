@@ -2,36 +2,43 @@
     /* background-color: tan; */
     /* position: fixed; */
     width: 100%;
-    height: 100vh;
+    overflow: hidden;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     /* align-items: end; */
 }
 .walletBody{
     width: 100%;
-    height: 1000px;
+    /* height: 1000px; */
     display: flex;
+    /* flex: 1; */
     /* background-color: cadetblue; */
     margin-top: 70px;
-    /* overflow-y: scroll; */
+    overflow: hidden;
 }
 .wallet{
+    margin-left: 20%;
     background-color: #fafafa;
     /* position: relative; */
-    /* height: 100%; */
-    /* height: 100px; */
-    overflow-y: scroll;
+    height: 100%;
+    /* background-color: rgb(85, 0, 79); */
+    height: 1000px;
+    /* overflow-y: scroll; */
     width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* flex: 1; */
     gap: 30px;
+    /* position: fixed; */
+    /* margin-right: -60px; */
 }
 .walletOverview{
     width: 90%;
     height: 100px;
-    /* border: 1px solid black; */
+    /* border: 1px solid rgb(255, 255, 255); */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -87,6 +94,6 @@
 
 .walletTypeBox{
     width: 90%;
-    height: 800px;
-    background-color: black;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.301);
 }

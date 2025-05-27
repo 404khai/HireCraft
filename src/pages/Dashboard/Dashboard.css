@@ -15,6 +15,7 @@
     /* overflow-y: scroll; */
 }
 .dashboard{
+    margin-left: 20%;
     background-color: #fafafa;
     /* position: relative; */
     /* height: 1000px; */
