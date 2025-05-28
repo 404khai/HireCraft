@@ -28,12 +28,12 @@
     height: 50px;
     display: flex;
     align-items: center;
-    padding-left: 10px;
+     padding-left: 40px;
     gap: 10px;
     border-bottom: 1px solid #9a9a9a;
 }
 .jobAlertsHead i{
-    font-size: 20px;
+    font-size: 25px;
     display: flex;
     color: #35D07D;
 }
