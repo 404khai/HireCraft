@@ -1,6 +1,7 @@
 
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import FAQS from "./pages/FAQS/FAQS";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./pages/Login/Login";
 import Services from "./pages/Services/Services";
@@ -17,6 +18,7 @@ import Bookings from "./pages/Bookings/Bookings";
 import MyProjects from "./pages/MyProjects/MyProjects";
 
 import './App.css'
+import ContactUs from "./pages/ContactUs/ContactUs";
 
 
 const Layout = () => {
@@ -35,6 +37,8 @@ const Layout = () => {
         <Route path="/" index element={<Navigate to="/Home" />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Services" element={<Services />} />
+        <Route path="/FAQS" element={<FAQS />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/EmployerSignUp" element={<EmployerSignUp />} />
         <Route path="/ServiceProviderSignUp" element={<ServiceProviderSignUp />} />

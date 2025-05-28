@@ -61,8 +61,8 @@ const Navbar = () => {
         <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
             <Link to='/Services'>Browse Services</Link>
             <Link to=''>How It Works</Link>
-            <Link to=''>FAQ's</Link>
-            <Link to=''>Contact Us</Link>
+            <Link to='/FAQS'>FAQ's</Link>
+            <Link to='/ContactUs'>Contact Us</Link>
 
             <div className="navOpenLoginBtn">
                 <button onClick={handleOpenModal} className='navSignUp'>
