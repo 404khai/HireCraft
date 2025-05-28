@@ -19,6 +19,7 @@ import MyProjects from "./pages/MyProjects/MyProjects";
 
 import './App.css'
 import ContactUs from "./pages/ContactUs/ContactUs";
+import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
 
 
 const Layout = () => {
@@ -41,6 +42,7 @@ const Layout = () => {
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/EmployerSignUp" element={<EmployerSignUp />} />
+        <Route path="/ProviderProfile" element={<ProviderProfile />} />
         <Route path="/ServiceProviderSignUp" element={<ServiceProviderSignUp />} />
       </Routes>
 

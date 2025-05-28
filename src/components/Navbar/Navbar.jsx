@@ -7,26 +7,49 @@ import OIF from '../../assets/OIF.jpeg'
 import UserChoiceModal from "../UserChoiceModal/UserChoiceModal";
 import { IoIosUnlock } from "react-icons/io";
 import { PiPlusCircleFill } from "react-icons/pi";
+import { useLocation } from 'react-router-dom';
+
 // import { HiWrenchScrewdriver } from "react-icons/hi2";
 // import Contact from '../Contact/Contact';
 
 const Navbar = () => {
 
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         const navbar = document.querySelector('.navbar');
+
+    //         if (window.scrollY > 30) {
+    //         navbar.classList.add('scrolled');
+    //         } else {
+    //         navbar.classList.remove('scrolled');
+    //         }
+    //     };
+
+    //     window.addEventListener('scroll', handleScroll);
+    //     return () => window.removeEventListener('scroll', handleScroll);
+    // }, []);
+
+    const location = useLocation();
+    const [isScrolled, setIsScrolled] = useState(false);
+
     useEffect(() => {
         const handleScroll = () => {
-            const navbar = document.querySelector('.navbar');
-
             if (window.scrollY > 30) {
-            navbar.classList.add('scrolled');
+                setIsScrolled(true);
             } else {
-            navbar.classList.remove('scrolled');
+                setIsScrolled(false);
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
+        // Add scroll listener only on homepage
+        if (location.pathname === '/Home' || location.pathname === '/') {
+            window.addEventListener('scroll', handleScroll);
+            return () => window.removeEventListener('scroll', handleScroll);
+        } else {
+            // Other pages: force scrolled appearance
+            setIsScrolled(true);
+        }
+    }, [location.pathname]);
 
     // alert(activeTab)
     // console.log("Active Tab:", activeTab);
@@ -47,7 +70,8 @@ const Navbar = () => {
         document.body.classList.remove('modal-open');
     };
   return (
-    <div className='navbar'>
+    <div className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+
         <Link to="/Home" className="navLogoLink">
             <div className="navLogo">
                 {/* <img src={hirecraftLogo} alt="" className="hirecraftLogo"/> */}
