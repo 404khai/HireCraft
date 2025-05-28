@@ -10,8 +10,8 @@
     justify-content: space-around;
     align-items: center;
     height: 83%;
-    border-bottom: 1px solid #9a9a9a;
-    border-right: 1px solid #9a9a9a;
+    /* border-bottom: 1px solid #9a9a9a; */
+    /* border-right: 1px solid #9a9a9a; */
     width: 30%;
 }
 .projectTitle{

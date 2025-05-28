@@ -46,6 +46,7 @@ const Settings = () => {
 
                         <div className="editPic">
                           <p><b>Avatar</b></p>
+                          {/* <input type="week" /> */}
                           <img src={avatar} alt="" title='Change Avatar'/>
                         </div>
 
@@ -65,7 +66,7 @@ const Settings = () => {
                             <input placeholder="testhirecraft@gmail.com" title="Change Lastname" type="text" className="changeInfoInput" required/>
                           </div>
 
-                          <div className="group" id='phoneNo'>
+                          <div className="changePhoneNo" id='phoneNo'>
                             <label htmlFor="" >
                                 <PhoneInput
                                     international
@@ -84,53 +85,93 @@ const Settings = () => {
 
                           <div className="changeInfoInputContainer">
                             <label className="changeInfoLabel">Bio</label>
-                            <input placeholder="" title="Change Lastname" type="text" className="changeInfoInput" required/>
+                            <textarea id="bio" name="bio"></textarea>
+                            {/* <input placeholder="" id='bioChange' title="Change Lastname" type="text" className="changeInfoInput" required/> */}
                           </div>
+
+                          <div className="changeInfoInputContainer">
+                            <label className="changeInfoLabel">Skills</label>
+                            <textarea id="skills" name="skills"></textarea>
+                            {/* <input placeholder="" id='bioChange' title="Change Lastname" type="text" className="changeInfoInput" required/> */}
+                          </div>
+
+                          <div className="changeInfoInputContainer" id='country'>
+                            <label className="changeInfoLabel" for="password_field">Select Country</label>
+                            <CountrySelect 
+                                onChange={(e) =>{
+                                    setcountryid(e.id);
+                                    console.log(e);  
+                                }}
+                                style={{border: "none", outline: "none"}}
+                                // placeHolder='Select Country'
+                                className="input_field"
+                            />
+                          </div>
+
+                          <div className="changeInfoInputContainer" id='state'>
+                              <label className="changeInfoLabel" for="password_field">Select State</label>
+                              <StateSelect 
+                                  disabled={!countryid}
+                                  countryid={countryid}
+                                  onChange={(e) =>{
+                                      setstateid(e.id);
+                                      console.log(e);  
+                                  }}
+                                  style={{border: "none", outline: "none"}}
+                                  // placeHolder='Select State'
+                                  className='input_field'
+                              />
+                          </div>
+
+                          <div className="changeInfoInputContainer" id='state'>
+                              <label className="changeInfoLabel" for="password_field">Select City</label>
+                              <CitySelect 
+                                  disabled={!stateid}
+                                  countryid={countryid}
+                                  stateid={stateid}
+                                  onChange={(e) =>{
+                                      console.log(e);  
+                                  }}
+                                  style={{border: "none", outline: "none"}}
+                                  // placeHolder='Select City'
+                                  className='input_field'
+                              />
+                          </div>
+
+                          <button className='saveChanges'>Save Changes</button>
                         </div>
                         
-                        <div className="input_container" id='country'>
-                          <label className="input_label" for="password_field">Select Country</label>
-                          <CountrySelect 
-                              onChange={(e) =>{
-                                  setcountryid(e.id);
-                                  console.log(e);  
-                              }}
-                              style={{border: "none", outline: "none"}}
-                              // placeHolder='Select Country'
-                              className="input_field"
-                          />
+                        
+                    </div>
+
+
+                    <div className="editPassword">
+                      <div className="editProfileHead">
+                        <i><TiFolderAdd /></i>
+                        <b>Change Password</b>
+                      </div>
+
+                      <div className="changePasswordForm">
+                        <div className="changeInfoInputContainer">
+                          <label className="changeInfoLabel">Current Password</label>
+                          <input title="Current Password" type="text" className="changeInfoInput" required/>
                         </div>
 
-                    <div className="input_container" id='state'>
-                        <label className="input_label" for="password_field">Select State</label>
-                        <StateSelect 
-                            disabled={!countryid}
-                            countryid={countryid}
-                            onChange={(e) =>{
-                                setstateid(e.id);
-                                console.log(e);  
-                            }}
-                            style={{border: "none", outline: "none"}}
-                            // placeHolder='Select State'
-                            className='input_field'
-                        />
+                        <div className="changeInfoInputContainer">
+                          <label className="changeInfoLabel">New Password</label>
+                          <input title="New Password" type="text" className="changeInfoInput" required/>
+                        </div>
+
+                        <div className="changeInfoInputContainer">
+                          <label className="changeInfoLabel">Confirm New Password</label>
+                          <input  title="Confirm New Password" type="text" className="changeInfoInput" required/>
+                        </div>
+
+                        <button className='saveChanges'>Save Changes</button>
+                      </div>
                     </div>
 
-                    <div className="input_container" id='state'>
-                        <label className="input_label" for="password_field">Select City</label>
-                        <CitySelect 
-                            disabled={!stateid}
-                            countryid={countryid}
-                            stateid={stateid}
-                            onChange={(e) =>{
-                                console.log(e);  
-                            }}
-                            style={{border: "none", outline: "none"}}
-                            // placeHolder='Select City'
-                            className='input_field'
-                        />
-                    </div>
-                    </div>
+
                 </div>
 
             </div>
