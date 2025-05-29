@@ -211,7 +211,10 @@
     color: #b9b9b9;
     display: flex;
 }
-
+.socialProfiles i:hover{
+    color: black;
+    transition: 1s;
+}
 .skills{
     width: 100%;
     display: flex;
