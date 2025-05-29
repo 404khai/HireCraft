@@ -26,10 +26,10 @@ const ProviderSideNav = () => {
                 <i><TiMessages /></i>
                 Messages
             </Link>
-            <Link to="/Dashboard/JobAlerts">
+            {/* <Link to="/Dashboard/JobAlerts">
                 <i><LuBellRing /></i>
                 Job Alerts
-            </Link>
+            </Link> */}
             <Link to="/Dashboard/Bookings">
                 <i><IoBriefcaseOutline /></i>
                 My Bookings

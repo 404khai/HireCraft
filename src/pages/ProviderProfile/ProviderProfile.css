@@ -1,8 +1,10 @@
 .providerProfile{
-    height: 500px;
+    height: 1200px;
+    gap: 60px;
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .providerProfileHead{
     width: 100%;
@@ -68,4 +70,174 @@
 }
 .flag{
     font-size: 30px;
+}
+
+
+.providerProfileBody{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 30px;
+    width: 90%;
+    height: 970px;
+    /* border: 5px solid rgb(255, 0, 0); */
+}
+.providerProfileAbout{
+    grid-column: 1;
+    grid-row: 1;
+    /* background-color: #666; */
+    /* height: fit-content; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.providerProfileOverview{
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    /* background-color: #666; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.providerProfilePortfolio{
+    grid-column: 1;
+    grid-row: 2;
+    /* background-color: #666; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* height: 400px; */
+}
+.providerWorkFeedback{
+    grid-column: 1;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* background-color: #666; */
+}
+
+.providerProfileAbout p{
+    color: #666;
+}
+.providerWorkFeedback h3 i{
+    color: #35D07D;
+    font-size: 23px;
+}
+.feedbackRatingRating{
+    /* border: 1px solid white; */
+    display: flex;
+    width: 100%;
+    height:40px;
+}
+.feedbackDate{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.providerProfilePortfolioImgBox{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    width: 100%;
+    height: 80%;
+    /* border: 1px solid black; */
+}
+.providerProfilePortfolioImgBox img{
+    border-radius: 5px;
+    width: 100%;
+    /* height: 100%; */
+}
+.providerProfilePortfolioImg1{
+    /* grid-row: 1 /span 2;
+    grid-column: 1; */
+    grid-area: 1 / 1 / 3 / 3;
+    height: 100%;
+    /* background-color: rgba(255, 68, 0, 0.404); */
+}
+.providerProfilePortfolioImg1 img, .providerProfilePortfolioImg2 img, .providerProfilePortfolioImg3 img{
+    height: 100%;
+}
+.providerProfilePortfolioImg2 { 
+    grid-area: 1 / 3 / 2 / 5; 
+    /* background-color: rgba(255, 68, 0, 0.404); */
+}
+.providerProfilePortfolioImg3 { 
+    grid-area: 2 / 3 / 3 / 5; 
+    /* background-color: rgba(255, 68, 0, 0.404); */
+}
+
+.providerProfileOverviewRates{
+    background-color: #f6f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: 50px;
+}
+.hourlyRate, .jobsDone{
+    width: 40%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: blue; */
+}
+.hourlyRate{
+    border-right: 1px solid #e0e0e0;
+}
+.jobsDone{
+    border-left: 1px solid #e0e0e0;
+}
+
+.socialProfiles{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    /* background-color: chocolate; */
+    gap: 30px;
+    margin-bottom: 50px;
+}
+.socialProfiles i{
+    font-size: 30px;
+    color: #b9b9b9;
+    display: flex;
+}
+
+.skills{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    height: 100px;
+    /* background-color: chocolate; */
+    gap: 30px;
+    margin-bottom: 50px;
+}
+.skills p{
+    background-color: rgba(38, 174, 97, 0.07);
+    color: #26ae61;
+    padding: 6px 15px;
+    border-radius: 5px;
+}
+
+.cvFile{
+    width: 150px;
+    height: 100px;
+    background-color: #f4f4f4;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: start !important;
+    border-radius: 5px;
 }
