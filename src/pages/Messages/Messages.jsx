@@ -28,7 +28,7 @@ const Messages = () => {
                 <h2>Messages</h2>
               </div>
 
-              <Breadcrumbs firstLink="Dashboard" link="/Dashboard" secondLink="Messages" link2="/Dashboard/Messages"/>
+              <Breadcrumbs firstLink="Dashboard" link="/ProviderDashboard" secondLink="Messages" link2="/ProviderDashboard/Messages"/>
             </div>
 
             <div className="messagesGroup">

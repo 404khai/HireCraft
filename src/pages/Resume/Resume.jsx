@@ -19,7 +19,7 @@ const Resume = () => {
                 <h2>Resume</h2>
               </div>
 
-              <Breadcrumbs firstLink="Dashboard" link="/Dashboard" secondLink="Resume" link2="/Dashboard/Resume"/>
+              <Breadcrumbs firstLink="Dashboard" link="/ProviderDashboard" secondLink="Resume" link2="/ProviderDashboard/Resume"/>
             </div>
 
             <div className="resumeBox">

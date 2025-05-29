@@ -1,5 +1,5 @@
 import React from 'react'
-import './Dashboard.css'
+import './ProviderDashboard.css'
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import EmployerSideNav from '../../components/EmployerSideNav/EmployerSideNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
@@ -9,7 +9,7 @@ import { HiArrowTrendingUp } from "react-icons/hi2";
 import { FaDollarSign } from "react-icons/fa6";
 import { MdMarkUnreadChatAlt } from "react-icons/md";
 
-const Dashboard = () => {
+const ProviderDashboard = () => {
   return (
     <div className='dashboardBox'>
       <DashboardNav/>
@@ -23,13 +23,13 @@ const Dashboard = () => {
                 <p style={{color: "#888"}}>We are glad to see you again!</p>
               </div>
 
-              <Breadcrumbs firstLink="Dashboard" link="/Dashboard" secondLink="Home" link2="/Dashboard"/>
+              <Breadcrumbs firstLink="Dashboard" link="/ProviderDashboard" secondLink="Home" link2="/ProviderDashboard"/>
             </div>
 
             <div className="overview">
                 <div className="jobReqOverview">
                   <div className="overviewTxt">
-                    <p><b>New Job Requests</b></p>
+                    <p><b>New Booking Requests</b></p>
                     <p>50</p>
                   </div>
                   <i className='jobReqOverviewIcon'><IoBriefcaseOutline/></i>
@@ -67,4 +67,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default ProviderDashboard

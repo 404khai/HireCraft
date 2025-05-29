@@ -95,7 +95,7 @@ const Home = () => {
                             Hire a Pro <i className='hireProIcon'><IoSearch /></i>
                         </div>  
                     </button>
-                    <Link to="/Dashboard">
+                    <Link to="/ProviderDashboard">
                         <button className='becomeProvider'>Become a Service Provider</button>
                     </Link>
                 </div>

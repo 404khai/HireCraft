@@ -18,11 +18,11 @@ const ProviderSideNav = () => {
 
         <div className="start">
             <p><b>Home</b></p>
-            <Link to="/Dashboard">
+            <Link to="/ProviderDashboard">
                 <i><LuLayoutDashboard /></i>
                 Dashboard
             </Link>
-            <Link to="/Dashboard/Messages">
+            <Link to="/ProviderDashboard/Messages">
                 <i><TiMessages /></i>
                 Messages
             </Link>
@@ -30,7 +30,7 @@ const ProviderSideNav = () => {
                 <i><LuBellRing /></i>
                 Job Alerts
             </Link> */}
-            <Link to="/Dashboard/Bookings">
+            <Link to="/ProviderDashboard/Bookings">
                 <i><IoBriefcaseOutline /></i>
                 My Bookings
             </Link>
@@ -38,16 +38,16 @@ const ProviderSideNav = () => {
        
         <div className="manage">
             <p><b>Organize & Manage</b></p>
-            <Link to="/Dashboard/Wallet">
+            <Link to="/ProviderDashboard/Wallet">
                 {/* <i><HiOutlineWallet /></i> */}
                 <i><RiWallet3Line/></i>
                 Wallet
             </Link>
-            <Link to="/Dashboard/MyProjects">
+            <Link to="/ProviderDashboard/MyProjects">
                 <i><IoMdFolderOpen /></i>
                 Projects
             </Link>
-            <Link to="/Dashboard/Resume">
+            <Link to="/ProviderDashboard/Resume">
                 <i><TbFileTextSpark /></i>
                 Resume
             </Link>
@@ -55,15 +55,15 @@ const ProviderSideNav = () => {
 
         <div className="account">
             <p><b>Account</b></p>
-            <Link to="/Dashboard/Settings">
+            <Link to="/ProviderDashboard/Settings">
                 <i><IoSettingsOutline /></i>
                 Settings
             </Link>
-            <Link to="/Dashboard">
+            <Link to="/ProviderDashboard">
                 <i><MdOutlineRateReview /></i>
                 Review & Ratings
             </Link>
-            <Link to="/Dashboard">
+            <Link to="/ProviderDashboard">
                 <i><IoExitOutline /></i>
                 Log Out
             </Link>
