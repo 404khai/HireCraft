@@ -1,14 +1,12 @@
 .employersidenav{
     width: 20%;
-    /* height: auto; */
-    /* height: 1200px !important; */
-    /* border: 1px solid black; */
+    height: 480px;
     display: flex;
     flex-direction: column;
-    position: relative;
-    /* top: 70px; */
+    position: fixed;
+    background-color: white;
     padding-top: 40px;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
     gap: 20px;
     /* box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.13); */
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
@@ -40,6 +38,9 @@
 }
 .start p, .account p, .serviceMgt p{
     padding-left: 20px;
+}
+.start a i, .account a i, .serviceMgt a i{
+    font-size: 20px;
 }
 .start a, .account a, .serviceMgt a{
     text-decoration: none;

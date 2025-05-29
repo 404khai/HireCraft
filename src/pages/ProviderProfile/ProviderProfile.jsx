@@ -85,7 +85,7 @@ const ProviderProfile = () => {
           <h3>Attachments</h3>
           <div className="cvFile">
             <p>My-CV.pdf</p>
-            <p style={{color: "#999"}}>pdf</p>
+            <p>pdf</p>
           </div>
         </div>
 

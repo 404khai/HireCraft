@@ -9,10 +9,11 @@ import EmployerSignUp from "./pages/EmployerSignUp/EmployerSignUp";
 import ServiceProviderSignUp from "./pages/ServiceProviderSignUp/ServiceProviderSignUp";
 import Footer from "./components/Footer/Footer";
 import ProviderDashboard from "./pages/ProviderDashboard/ProviderDashboard";
+import EmployerDashboard from "./pages/EmployerDashboard/EmployerDashboard";
 import Messages from "./pages/Messages/Messages";
 import Wallet from "./pages/Wallet/Wallet";
 import Settings from "./pages/Settings/Settings";
-import JobAlerts from "./pages/JobAlerts/JobAlerts";
+// import JobAlerts from "./pages/JobAlerts/JobAlerts";
 import Resume from "./pages/Resume/Resume";
 import Bookings from "./pages/Bookings/Bookings";
 import MyProjects from "./pages/MyProjects/MyProjects";
@@ -25,8 +26,8 @@ import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
 const Layout = () => {
   const location = useLocation();
 
-  const hideNavbarPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard"];
-  const hideFooterPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard"];
+  const hideNavbarPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/EmployerDashboard"];
+  const hideFooterPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/EmployerDashboard"];
   const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
   const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
 
@@ -52,15 +53,7 @@ const Layout = () => {
 };
 
 const ProviderDashboardLayout = () => (
-  // <div className="dashboardContainer">
-  //   <Sidenav />
-  //   <Routes>
-  //     <Route path="/Dashboard" element={<Dashboard />} />
-  //   </Routes>
-  // </div>
-
   <>
-    {/* <Sidenav /> */}
     <Routes>
       <Route path="/ProviderDashboard" element={<ProviderDashboard />} />
       <Route path="/ProviderDashboard/Messages" element={<Messages />} />
@@ -74,12 +67,28 @@ const ProviderDashboardLayout = () => (
   </>
 );
 
+
+const EmployerDashboardLayout = () => (
+  <>
+    <Routes>
+      <Route path="/EmployerDashboard" element={<EmployerDashboard />} />
+    </Routes>
+  </>
+);
+
 const AppRouter = () => {
   const location = useLocation();
 
-  const isDashboardRoute = location.pathname.startsWith("/ProviderDashboard");
+  const isProviderDashboardRoute = location.pathname.startsWith("/ProviderDashboard");
+  const isEmployerDashboardRoute = location.pathname.startsWith("/EmployerDashboard");
 
-  return isDashboardRoute ? <ProviderDashboardLayout /> : <Layout />;
+  if (isProviderDashboardRoute) {
+    return <ProviderDashboardLayout />;
+  } else if (isEmployerDashboardRoute) {
+    return <EmployerDashboardLayout />;
+  } else {
+    return <Layout />;
+  }
 };
 
 const App = () => (

@@ -22,7 +22,7 @@ const Bookings = () => {
                 <h2>My Bookings</h2>
               </div>
 
-              <Breadcrumbs firstLink="Dashboard" link="/Dashboard" secondLink="My Bookings" link2="/Dashboard/Bookings"/>
+              <Breadcrumbs firstLink="Dashboard" link="/ProviderDashboard" secondLink="My Bookings" link2="/ProviderDashboard/Bookings"/>
             </div>
 
             <div className="jobAlertsBox">

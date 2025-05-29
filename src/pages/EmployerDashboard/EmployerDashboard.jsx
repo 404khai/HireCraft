@@ -1,24 +1,24 @@
 import React from 'react'
-import './ProviderDashboard.css'
+import './EmployerDashboard.css'
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
-import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
+import EmployerSideNav from '../../components/EmployerSideNav/EmployerSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import { IoBriefcaseOutline} from "react-icons/io5";
 import { HiArrowTrendingUp } from "react-icons/hi2";
 import { FaDollarSign } from "react-icons/fa6";
 import { MdMarkUnreadChatAlt } from "react-icons/md";
 
-const ProviderDashboard = () => {
+const EmployerDashboard = () => {
   return (
     <div className='dashboardBox'>
       <DashboardNav/>
       <div className='dashboardBody'>
-          <ProviderSideNav/>
+          <EmployerSideNav/>
           {/* <EmployerSideNav/> */}
           <div className="dashboard">
             <div className="welcome">
               <div className="welcomeTxt">
-                <h2>Welcome, Daniel</h2>
+                <h2>Welcome, Victor</h2>
                 <p style={{color: "#888"}}>We are glad to see you again!</p>
               </div>
 
@@ -28,7 +28,7 @@ const ProviderDashboard = () => {
             <div className="overview">
                 <div className="jobReqOverview">
                   <div className="overviewTxt">
-                    <p><b>New Booking Requests</b></p>
+                    <p><b>Accepted Booking Requests</b></p>
                     <p>50</p>
                   </div>
                   <i className='jobReqOverviewIcon'><IoBriefcaseOutline/></i>
@@ -45,7 +45,7 @@ const ProviderDashboard = () => {
 
                 <div className="earningsOverview">
                   <div className="overviewTxt">
-                    <p><b>Daily Earnings</b></p>
+                    <p><b>New Invoice</b></p>
                     <p>$50</p>
                   </div>
                   <i className='earningsOverviewIcon'><FaDollarSign/></i>
@@ -66,4 +66,4 @@ const ProviderDashboard = () => {
   )
 }
 
-export default ProviderDashboard
+export default EmployerDashboard

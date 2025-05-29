@@ -1,13 +1,10 @@
 .providersidenav{
     width: 20%;
-    /* margin-right: 20%; */
     height: 480px;
-    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
     position: fixed;
     background-color: white;
-    /* top: 70px; */
     padding-top: 40px;
     overflow-y: scroll;
     gap: 20px;

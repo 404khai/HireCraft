@@ -20,7 +20,7 @@ const MyProjects = () => {
                 <h2>Projects</h2>
               </div>
 
-              <Breadcrumbs firstLink="Dashboard" link="/Dashboard" secondLink="Projects" link2="/Dashboard/MyProjects"/>
+              <Breadcrumbs firstLink="Dashboard" link="/ProviderDashboard" secondLink="Projects" link2="/ProviderDashboard/MyProjects"/>
             </div>
 
             <div className="projects">

@@ -34,7 +34,7 @@ const Settings = () => {
                         <h2>Settings</h2>
                     </div>
 
-                    <Breadcrumbs firstLink="Dashboard" link="/Dashboard" secondLink="Settings" link2="/Dashboard/Settings"/>
+                    <Breadcrumbs firstLink="Dashboard" link="/ProviderDashboard" secondLink="Settings" link2="/ProviderDashboard/Settings"/>
                 </div>
 
                 <div className="editProfileSettings">

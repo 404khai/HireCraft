@@ -23,10 +23,10 @@ const EmployerSideNav = () => {
                 <i><TiMessages /></i>
                 Messages
             </Link>
-            <Link to="/Dashboard">
+            {/* <Link to="/Dashboard">
                 <i><LuBellRing /></i>
                 Job Requests
-            </Link>
+            </Link> */}
             <Link to="/Dashboard">
                 <i><IoBriefcaseOutline /></i>
                 My Bookings
