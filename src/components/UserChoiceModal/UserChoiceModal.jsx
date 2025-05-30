@@ -13,13 +13,13 @@ const UserChoiceModal = ({ onClose }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="employer">
-          <p>Hire a Pro</p>
+          <h3>Register as Client</h3>
           <Link to="/EmployerSignUp"><img src={employer} alt="" /></Link>
           <p>Hire the services of master craftsmen and artisans within minutes</p>
         </div>
         <div className="modalLine"></div>
         <div className="serviceProvider">
-          <p>Get hired from around the world</p>
+          <h3>Register as Service Provider</h3>
           <Link to="/ServiceProviderSignUp"><img src={provider} alt="" /></Link>
           <p>Showcase your services and increase your reach while getting paid for it!</p>
         </div>

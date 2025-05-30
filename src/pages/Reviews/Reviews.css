@@ -1,0 +1,10 @@
+.reviewsBox{
+    width: 90%;
+    height: 350px;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* align-items: center; */
+    justify-content: start;
+}

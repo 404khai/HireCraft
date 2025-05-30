@@ -1,13 +1,12 @@
 import React from 'react'
 import './ProviderProfile.css'
 import OIF from '../../assets/OIF.jpeg'
-import { FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
 import ReactCountryFlag from "react-country-flag"
+import ReviewCard from '../../components/ReviewCard/ReviewCard';
+import { FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { DiVisualstudio } from 'react-icons/di';
 import { FaRegThumbsUp, FaInstagram, FaLinkedinIn, FaWhatsapp, FaFacebookF } from "react-icons/fa6";
-import {  } from "react-icons/fa6";
-import { LuCalendarDays } from "react-icons/lu";
 import mac1 from '../../assets/mac1.jpg'
 import mac2 from '../../assets/mac2.jpg'
 import mac3 from '../../assets/mac3.jpg'
@@ -113,26 +112,8 @@ const ProviderProfile = () => {
         </div>
         <div className="providerWorkFeedback">
           <h3><i><FaRegThumbsUp/></i> Work Feedback</h3>
-
-          <div className="feedbackRating">
-            <p>Steve Rogers</p>
-            <div className="feedbackRatingRating">
-              <div className="providerRating">
-                <button>4.5</button>
-                <i><FaStar/></i>
-                <i><FaStar/></i>
-                <i><FaStar/></i>
-                <i><FaStar/></i>
-                <i><FaRegStarHalfStroke/></i>
-              </div>
-
-              <div className="feedbackDate" style={{color: "#666"}}>
-                <i><LuCalendarDays /></i>
-                <p>May 29, 2025</p>
-              </div>
-            </div>
-            <p style={{color: "#666"}}>Very professional, excellent work, highly recommend!</p>
-          </div>
+          <ReviewCard/>
+          
         </div>
       </div>
     </div>

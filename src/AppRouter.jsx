@@ -17,7 +17,7 @@ import Settings from "./pages/Settings/Settings";
 import Resume from "./pages/Resume/Resume";
 import Bookings from "./pages/Bookings/Bookings";
 import MyProjects from "./pages/MyProjects/MyProjects";
-
+import Reviews from './pages/Reviews/Reviews'
 import './App.css'
 import ContactUs from "./pages/ContactUs/ContactUs";
 import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
@@ -62,6 +62,7 @@ const ProviderDashboardLayout = () => (
       <Route path="/ProviderDashboard/Wallet" element={<Wallet />} />
       <Route path="/ProviderDashboard/MyProjects" element={<MyProjects />} />
       <Route path="/ProviderDashboard/Settings" element={<Settings />} />
+      <Route path="/ProviderDashboard/Reviews" element={<Reviews/>}  />
       <Route path="/ProviderDashboard/Resume" element={<Resume />} />
     </Routes>
   </>

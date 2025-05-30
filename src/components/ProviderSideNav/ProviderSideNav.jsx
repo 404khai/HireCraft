@@ -59,7 +59,7 @@ const ProviderSideNav = () => {
                 <i><IoSettingsOutline /></i>
                 Settings
             </Link>
-            <Link to="/ProviderDashboard">
+            <Link to="/ProviderDashboard/Reviews">
                 <i><MdOutlineRateReview /></i>
                 Review & Ratings
             </Link>
