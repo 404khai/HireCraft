@@ -38,7 +38,7 @@ const ProviderProfile = () => {
             </div>       
           </div>
 
-          <p className='providerProfileState'><i><IoLocationOutline/></i> Chicago</p>
+          <p className='providerProfileState'><i><IoLocationOutline/></i> Chicago, Illinois</p>
         </div>
 
         {/* <button>Send a job request</button> */}
