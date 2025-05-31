@@ -12,18 +12,18 @@ const Services = () => {
 
   return (
     <div className='services'>
-      {/* <div className="servicesBanner">
-        <p>Browse through our services</p>
-        <p>Discover exceptional talents</p>
-      </div> */}
-      <h1>Browse through our services, discover exceptional talents</h1>
+      <div className="servicesBanner">
+        <h2>Browse Freelancers</h2>
+      </div>
+      {/* <h1>Browse through our services, discover exceptional talents</h1> */}
       <div className="servicesShowcase">
-        {popularServices.map((popularService, key) => (
-          <div className="servicesBox" key={key}>
-            <p>{popularService.name}</p>
-            <img src={getImage(popularService.image)} alt="" />
-          </div>
-        ))}
+        <div className="freelancerFilter">
+
+        </div>
+        
+        <div className="freelancers">
+          
+        </div>
       </div>
     </div>
   )

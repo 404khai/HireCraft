@@ -184,9 +184,22 @@ const Home = () => {
 
         <div className="popularServices">
             <h2>Popular Services</h2>
-            <p style={{color: "#54595F"}}>Find the right industry for your career</p>
-            {/* <div className="popularServicesScrollBox"> */}
-            <Carousel
+            <p style={{color: "#54595F"}} className='rightIndustry'>Find the right industry for your career</p>
+            <div className="popularServicesScrollBox">
+                {popularServices.map((popularService, key) => (
+                    <div 
+                        className="popularServicesBox" 
+                        key={key}
+                        style={{
+                        backgroundImage: `url(${popularService.bgImage})`}}
+                    >
+                        <div className='serviceNameHolder'>
+                            <p>{popularService.name}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            {/* <Carousel
                 additionalTransfrom={0}
                 arrows
                 autoPlaySpeed={3000}
@@ -270,7 +283,7 @@ const Home = () => {
                     </div>
                 ))}
 
-            </Carousel>
+            </Carousel> */}
             {/* </div> */}
         </div>
 
