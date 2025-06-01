@@ -42,10 +42,10 @@ const Filter = () => {
         <input type="text" placeholder='e.g Chicago, California...' className='filterSearch'/>
       </div>
        
-            <div className='priceFilterBox'>
-                <PriceFilter onFilterChange={handleFilterChange} />
-                <p>Selected Price: ${filteredPrice}</p>
-            </div>
+      <div className='priceFilterBox'>
+        <label htmlFor="">Filter by Rates</label>
+        <PriceFilter onFilterChange={handleFilterChange} />
+      </div>
     </div>
   )
 }
