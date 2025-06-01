@@ -1,6 +1,6 @@
 import React from 'react'
 import './Services.css'
-import popularServices from '../../json/popularServices.json'
+import Filter from '../../components/Filter/Filter'
 
 const Services = () => {
   const images = import.meta.glob('../../assets/*', { eager: true });
@@ -18,11 +18,11 @@ const Services = () => {
       {/* <h1>Browse through our services, discover exceptional talents</h1> */}
       <div className="servicesShowcase">
         <div className="freelancerFilter">
-
+          <Filter></Filter>
         </div>
         
         <div className="freelancers">
-          
+
         </div>
       </div>
     </div>
