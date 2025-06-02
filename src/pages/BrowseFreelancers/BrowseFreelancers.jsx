@@ -1,8 +1,9 @@
 import React from 'react'
-import './Services.css'
+import './BrowseFreelancers.css'
 import Filter from '../../components/Filter/Filter'
+import FreelancerProfile from '../../components/FreelancerProfile/FreelancerProfile'
 
-const Services = () => {
+const BrowseFreelancers = () => {
   const images = import.meta.glob('../../assets/*', { eager: true });
 
   const getImage = (filename) => {
@@ -22,11 +23,11 @@ const Services = () => {
         </div>
         
         <div className="freelancers">
-
+          <FreelancerProfile></FreelancerProfile>
         </div>
       </div>
     </div>
   )
 }
 
-export default Services
+export default BrowseFreelancers

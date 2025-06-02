@@ -4,7 +4,7 @@ import Home from "./pages/Home/Home";
 import FAQS from "./pages/FAQS/FAQS";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./pages/Login/Login";
-import Services from "./pages/Services/Services";
+import BrowseFreelancers from "./pages/BrowseFreelancers/BrowseFreelancers";
 import EmployerSignUp from "./pages/EmployerSignUp/EmployerSignUp";
 import ServiceProviderSignUp from "./pages/ServiceProviderSignUp/ServiceProviderSignUp";
 import Footer from "./components/Footer/Footer";
@@ -38,7 +38,7 @@ const Layout = () => {
       <Routes>
         <Route path="/" index element={<Navigate to="/Home" />} />
         <Route path="/Home" element={<Home />} />
-        <Route path="/Services" element={<Services />} />
+        <Route path="/BrowseFreelancers" element={<BrowseFreelancers />} />
         <Route path="/FAQS" element={<FAQS />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Login" element={<Login />} />
