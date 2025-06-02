@@ -1,0 +1,107 @@
+.freelancerProfile{
+    /* background-color: brown; */
+    width: 90%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    /* padding-left: 40px; */
+    /* justify-content: space-around; */
+    gap: 20px;
+}
+.freelancerProfileInfo{
+    /* border: 1px solid black; */
+    /* height: 70%; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.freelancerProfileInfoName{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+}
+.freelancerProfileInfoJob, .freelancerProfileRate p, .freelancerProfileLocation p{
+    color: #888;
+    font-size: 14px;
+}
+.freelancerProfile img{
+    width: 90px;
+    height: 60%;
+    border-radius: 50px;
+}
+
+.freelancerProfileInfo2{
+    width: 400px;
+    height: 100%;
+    /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 10px;
+    justify-content: center;
+}
+.freelancerProfileRateBox{
+    width: 500px;
+    height: 40%;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    /* border: 3px solid rgb(255, 145, 0); */
+}
+.freelancerProfileRate{
+    width: 20%;
+    height: 100%;
+    /* background-color: aliceblue; */
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    justify-content: center;
+}
+.freelancerProfileLocation{
+    width: 40%;
+    height: 100%;
+    /* background-color: aliceblue; */
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    justify-content: center;
+}
+strong{
+    color: #333;
+    font-weight: 500;
+}
+
+
+.viewProfileBtn{
+    /* background-color: #35D07D; */
+    background-color: #def5d8;
+    
+   /* background-image: linear-gradient(to right, #788cff , #3251ff); */
+    border: 0;
+    padding: 15px;
+    border-radius: 10px;
+    width: 150px;
+}
+.viewProfileBtn a{
+    text-decoration: none;
+    /* color: white; */
+    color: #3fad27;
+}
+/* .logIn{
+    background-color: transparent;
+    color: #9a59ff;
+    border: 1px solid #9a59ff;
+    padding: 15px;
+    border-radius: 10px;
+} */
+.viewProfileBtn:hover{
+    letter-spacing: 2px;
+    transition: 1s;
+    background-color: #3fad27;
+    border: 0;
+    transform: scale(1.1);
+}
+.viewProfileBtn:hover a{
+    color: white;
+}
