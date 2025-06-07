@@ -63,12 +63,21 @@
     display: flex;
 }
 .overviewTxt{
-    /* border: 1px solid black; */
+    /* border: 1px solid black;  */
+    width: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 4px;
     height: 80px;
+}
+.overviewTxtTitle{
+    font-weight: 400;
+    font-size: 15px;
+}
+.overviewTxtValue{
+    font-size: 18px;
+    font-weight: 500;
 }
 .jobReqOverview { 
     grid-column: 1;

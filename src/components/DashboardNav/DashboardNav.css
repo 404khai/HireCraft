@@ -50,7 +50,15 @@
     border: 2px solid #35D07D;
     border-radius: 50%;
     margin-right: 50px;
+    position: relative;
     /* background-color: black; */
+}
+.online{
+  background-color: #35D07D;
+  width: 13px;
+  height: 13px;
+  border: 0;
+  border-radius: 50px;
 }
 .notifications{
     font-size: 25px;
@@ -137,3 +145,5 @@
     transform: scale(1);
   }
 }
+
+

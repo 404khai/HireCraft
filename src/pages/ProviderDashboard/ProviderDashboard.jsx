@@ -28,16 +28,16 @@ const ProviderDashboard = () => {
             <div className="overview">
                 <div className="jobReqOverview">
                   <div className="overviewTxt">
-                    <p><b>New Booking Requests</b></p>
-                    <p>50</p>
+                    <p className='overviewTxtTitle'>New Booking Requests</p>
+                    <p className='overviewTxtValue'>50</p>
                   </div>
                   <i className='jobReqOverviewIcon'><IoBriefcaseOutline/></i>
                 </div>
 
                 <div className="profileViewsOverview">
                   <div className="overviewTxt">
-                    <p><b>Profile Views</b></p>
-                    <p>50</p>
+                    <p className='overviewTxtTitle'>Profile Views</p>
+                    <p className='overviewTxtValue'>50</p>
                     <p><span style={{color: "green"}}>47%</span> more than yesterday</p>
                   </div>
                   <i className='profileViewsOverviewIcon'><HiArrowTrendingUp/></i>
@@ -45,16 +45,16 @@ const ProviderDashboard = () => {
 
                 <div className="earningsOverview">
                   <div className="overviewTxt">
-                    <p><b>Daily Earnings</b></p>
-                    <p>$50</p>
+                    <p className='overviewTxtTitle'>Daily Earnings</p>
+                    <p className='overviewTxtValue'>$50</p>
                   </div>
                   <i className='earningsOverviewIcon'><FaDollarSign/></i>
                 </div>
 
                 <div className="unreadNotisOverview">
                   <div className="overviewTxt">
-                    <p><b>Unread Messages</b></p>
-                    <p>3</p>
+                    <p className='overviewTxtTitle'>Unread Messages</p>
+                    <p className='overviewTxtValue'>3</p>
                   </div>
                   <i className='unreadNotisOverviewIcon'><MdMarkUnreadChatAlt/></i>
                 </div>

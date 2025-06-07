@@ -67,6 +67,7 @@ const Settings = () => {
                           </div>
 
                           <div className="changePhoneNo" id='phoneNo'>
+                            <label className="changeInfoLabel">Phone Number</label>
                             <label htmlFor="" >
                                 <PhoneInput
                                     international
@@ -79,8 +80,8 @@ const Settings = () => {
                           </div>
 
                           <div className="changeInfoInputContainer">
-                            <label className="changeInfoLabel">Profession</label>
-                            <input placeholder="Animator" title="Change Lastname" type="text" className="changeInfoInput" required/>
+                            <label className="changeInfoLabel">Occupation</label>
+                            <input placeholder="Plumber" title="Change Lastname" type="text" className="changeInfoInput" required/>
                           </div>
 
                           <div className="changeInfoInputContainer">
@@ -96,7 +97,7 @@ const Settings = () => {
                           </div>
 
                           <div className="changeInfoInputContainer" id='country'>
-                            <label className="changeInfoLabel" for="password_field">Select Country</label>
+                            <label className="changeInfoLabel" for="password_field">Country</label>
                             <CountrySelect 
                                 onChange={(e) =>{
                                     setcountryid(e.id);
@@ -109,7 +110,7 @@ const Settings = () => {
                           </div>
 
                           <div className="changeInfoInputContainer" id='state'>
-                              <label className="changeInfoLabel" for="password_field">Select State</label>
+                              <label className="changeInfoLabel" for="password_field">State</label>
                               <StateSelect 
                                   disabled={!countryid}
                                   countryid={countryid}
@@ -124,7 +125,7 @@ const Settings = () => {
                           </div>
 
                           <div className="changeInfoInputContainer" id='state'>
-                              <label className="changeInfoLabel" for="password_field">Select City</label>
+                              <label className="changeInfoLabel" for="password_field">City</label>
                               <CitySelect 
                                   disabled={!stateid}
                                   countryid={countryid}

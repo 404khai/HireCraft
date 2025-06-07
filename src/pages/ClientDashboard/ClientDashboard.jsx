@@ -1,19 +1,19 @@
 import React from 'react'
-import './EmployerDashboard.css'
+import './ClientDashboard.css'
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
-import EmployerSideNav from '../../components/EmployerSideNav/EmployerSideNav'
+import ClientSideNav from '../../components/ClientSideNav/ClientSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import { IoBriefcaseOutline} from "react-icons/io5";
 import { HiArrowTrendingUp } from "react-icons/hi2";
 import { FaDollarSign } from "react-icons/fa6";
 import { MdMarkUnreadChatAlt } from "react-icons/md";
 
-const EmployerDashboard = () => {
+const ClientDashboard = () => {
   return (
     <div className='dashboardBox'>
       <DashboardNav/>
       <div className='dashboardBody'>
-          <EmployerSideNav/>
+          <ClientSideNav/>
           {/* <EmployerSideNav/> */}
           <div className="dashboard">
             <div className="welcome">
@@ -66,4 +66,4 @@ const EmployerDashboard = () => {
   )
 }
 
-export default EmployerDashboard
+export default ClientDashboard

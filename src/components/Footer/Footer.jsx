@@ -45,7 +45,7 @@ const Footer = () => {
                 <p className='footerTopBoxHeadTxt'>Get In Touch</p>
                 <p style={{color: "#909090"}}><i style={{color: "#35D07D"}}><PiPhoneCallFill /></i> support@hirecraft.com</p>
                 <button className='contactUs'>
-                    <Link to=''>Contact Us</Link>  
+                    <Link to='/ContactUs'>Contact Us</Link>  
                 </button>
             </div>
 

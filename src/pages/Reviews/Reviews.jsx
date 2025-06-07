@@ -22,9 +22,15 @@ const Reviews = () => {
             </div>
 
             <div className="reviewsBox">
+              <div className="reviewBoxEach">
                 <ReviewCard/>
+              </div>
+              <div className="reviewBoxEach">
                 <ReviewCard/>
+              </div>
+              <div className="reviewBoxEach">
                 <ReviewCard/>
+              </div>
             </div>
             
           </div>

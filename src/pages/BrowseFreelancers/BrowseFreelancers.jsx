@@ -24,6 +24,8 @@ const BrowseFreelancers = () => {
         
         <div className="freelancers">
           <FreelancerProfile></FreelancerProfile>
+          <FreelancerProfile></FreelancerProfile>
+          <FreelancerProfile></FreelancerProfile>
         </div>
       </div>
     </div>

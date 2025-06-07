@@ -1,5 +1,5 @@
 import React from 'react'
-import './EmployerSideNav.css'
+import './ClientSideNav.css'
 import { Link } from 'react-router-dom'
 import { LuLayoutDashboard, LuBellRing } from "react-icons/lu";
 import { TiMessages } from "react-icons/ti";
@@ -9,7 +9,7 @@ import { MdOutlineRateReview } from "react-icons/md";
 import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import { GrUserWorker } from "react-icons/gr";
 
-const EmployerSideNav = () => {
+const ClientSideNav = () => {
   return (
     <div className='employersidenav'>
 
@@ -64,4 +64,4 @@ const EmployerSideNav = () => {
   )
 }
 
-export default EmployerSideNav
+export default ClientSideNav

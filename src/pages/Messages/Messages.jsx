@@ -3,7 +3,7 @@ import './Messages.css'
 import { IoIosSend } from "react-icons/io";
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
-import EmployerSideNav from '../../components/EmployerSideNav/EmployerSideNav'
+import EmployerSideNav from '../../components/ClientSideNav/ClientSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import messages from '../../json/messages.json'
 

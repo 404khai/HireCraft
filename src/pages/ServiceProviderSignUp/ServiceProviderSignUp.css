@@ -30,15 +30,12 @@
     border-radius: 11px;
     font-family: "Inter", sans-serif;
   }
-  .firstStep, .secondStep{
+  .firstStep, .secondStep, .fourthStep{
     height: 150px;
   }
 
-  .firstStep, .secondStep, .thirdStep{
+  .firstStep, .secondStep, .thirdStep, .fourthStep{
     justify-content: space-between;
-  }
-  .fourthStep{
-    justify-content: center;
   }
   .thirdStep{
     height: 400px;

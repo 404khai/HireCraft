@@ -5,11 +5,11 @@ import FAQS from "./pages/FAQS/FAQS";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./pages/Login/Login";
 import BrowseFreelancers from "./pages/BrowseFreelancers/BrowseFreelancers";
-import EmployerSignUp from "./pages/EmployerSignUp/EmployerSignUp";
+import ClientSignUp from "./pages/ClientSignUp/ClientSignUp";
 import ServiceProviderSignUp from "./pages/ServiceProviderSignUp/ServiceProviderSignUp";
 import Footer from "./components/Footer/Footer";
 import ProviderDashboard from "./pages/ProviderDashboard/ProviderDashboard";
-import EmployerDashboard from "./pages/EmployerDashboard/EmployerDashboard";
+import ClientDashboard from "./pages/ClientDashboard/ClientDashboard";
 import Messages from "./pages/Messages/Messages";
 import Wallet from "./pages/Wallet/Wallet";
 import Settings from "./pages/Settings/Settings";
@@ -23,11 +23,12 @@ import ContactUs from "./pages/ContactUs/ContactUs";
 import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
 
 
+
 const Layout = () => {
   const location = useLocation();
 
-  const hideNavbarPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/EmployerDashboard"];
-  const hideFooterPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/EmployerDashboard"];
+  const hideNavbarPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard"];
+  const hideFooterPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard"];
   const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
   const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
 
@@ -42,7 +43,7 @@ const Layout = () => {
         <Route path="/FAQS" element={<FAQS />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/EmployerSignUp" element={<EmployerSignUp />} />
+        <Route path="/ClientSignUp" element={<ClientSignUp />} />
         <Route path="/ProviderProfile" element={<ProviderProfile />} />
         <Route path="/ServiceProviderSignUp" element={<ServiceProviderSignUp />} />
       </Routes>
@@ -69,10 +70,10 @@ const ProviderDashboardLayout = () => (
 );
 
 
-const EmployerDashboardLayout = () => (
+const ClientDashboardLayout = () => (
   <>
     <Routes>
-      <Route path="/EmployerDashboard" element={<EmployerDashboard />} />
+      <Route path="/ClientDashboard" element={<ClientDashboard />} />
     </Routes>
   </>
 );
@@ -81,12 +82,12 @@ const AppRouter = () => {
   const location = useLocation();
 
   const isProviderDashboardRoute = location.pathname.startsWith("/ProviderDashboard");
-  const isEmployerDashboardRoute = location.pathname.startsWith("/EmployerDashboard");
+  const isClientDashboardRoute = location.pathname.startsWith("/ClientDashboard");
 
   if (isProviderDashboardRoute) {
     return <ProviderDashboardLayout />;
-  } else if (isEmployerDashboardRoute) {
-    return <EmployerDashboardLayout />;
+  } else if (isClientDashboardRoute) {
+    return <ClientDashboardLayout />;
   } else {
     return <Layout />;
   }

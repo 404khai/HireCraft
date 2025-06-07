@@ -90,7 +90,7 @@ const Home = () => {
                 <p>Hire <span className='homeTxtSpan'>skilled workers</span> you can rely on, <span className='homeTxtSpan'>Grow your service</span> and find jobs easily - All in One</p>
 
                 <div className="ctaBtns">
-                    <Link to="/EmployerDashboard" style={{textDecoration: "none"}}>
+                    <Link to="/ClientDashboard" style={{textDecoration: "none"}}>
                         <button className='animated-hover-button'>
                             <div className="btn-content">
                                 Hire a Pro <i className='hireProIcon'><IoSearch /></i>
