@@ -36,37 +36,36 @@ const Bookings = () => {
                   My Bookings
                 </div>
 
-                <div className="jobAlert">
-                  <div className="jobAlertTitle">
-                    <p><b>TV Unit Decor</b></p>
-                  </div>
-                  <div className="jobAlertInfo">
-                    <p>
-                      <i><IoBriefcaseOutline /></i>
-                      Categories: Home Decor
-                    </p>
-                    <p>
-                      <i><IoLocationOutline /></i>
-                      Location: Ikeja, Lagos
-                    </p>
-                    <p>
-                      <i><LiaGlobeAmericasSolid /></i>
-                      Nigeria
-                    </p>
-                  </div>
-
+                <div className="jobAlert">               
                   <div className="jobAlertEmployer">
                     <img src={OIF} alt="" />
                     <div className="jobEmployerTxt">
-                      <p>Peter Grey</p>
-                      <p>Company: Aptech</p>
+                      <div className="jobEmployerTxtInfo">
+                        <p>Peter Grey</p>
+                        <p>Recruiting Manager, Microsoft</p>
+                      </div>
+                      
+                      <div className="jobEmployerTxtLocation">
+                        <p>
+                          <i><IoLocationOutline /></i>
+                          Ikeja, Lagos
+                        </p>
+                        <p>
+                          <i><LiaGlobeAmericasSolid /></i>
+                          Nigeria
+                        </p>
+                      </div>
+                      
                     </div>
                     
                   </div>
 
-                  <div className="jobAlertDuration">
-                    <p><i><LuClock4/></i>3 days</p>
+                  <div className="bookingsControl">
+
                   </div>
+                  {/* <div className="jobAlertDuration">
+                    <p><i><LuClock4/></i>3 days</p>
+                  </div> */}
                 </div>
               </div>
             </div>

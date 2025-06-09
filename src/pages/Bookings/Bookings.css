@@ -47,30 +47,16 @@
 }
 .jobAlert{
     display: flex;
-    flex-direction: column;
-    height: 170px;
+    /* flex-direction: column; */
+    height: 150px;
+    /* background-color: #3184ae50; */
     border-bottom: 1px solid #9a9a9a;
 }
-.jobAlertTitle{
-    /* background-color: coral; */
-    height: 50px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding-left: 30px;
-}
-.jobAlertInfo{
-    /* background-color: cornflowerblue; */
-    height: 30px;
-    display: flex;
-    gap: 30px;
-    padding-left: 30px;
-    align-items: center;
-    color: #777;
-}
+
 .jobAlertEmployer{
     /* background-color: crimson; */
-    height: 60px;
+    height: 100%;
+    width: 70%;
     display: flex;
     gap: 10px;
     padding-left: 30px;
@@ -78,15 +64,26 @@
     color: #777;
 }
 .jobAlertEmployer img{
-    width: 50px;
-    height: 80%;
+    width:80px;
+    height: 50%;
     border-radius: 50px;
 }
-.jobAlertEmployerTxt{
+.jobEmployerTxt{
+    width: 70%;
+    /* background-color: coral; */
+    height: 55%;
     display: flex;
     flex-direction: column;
     color: #777;
-    justify-content: center;
+    justify-content: space-between;
+}
+.jobEmployerTxtLocation{
+    display: flex;
+    width: 100%;
+    height: 30px;
+    /* background-color: antiquewhite; */
+    align-items: center;
+    gap: 20px;
 }
 .jobAlertDuration{
     /* background-color: palegreen; */
@@ -96,11 +93,17 @@
     align-items: center;
     color: #777;
 }
-.jobAlertDuration p, .jobAlertInfo P{
+.jobEmployerTxtLocation p, .jobAlertDuration p{
     display: flex;
-    gap: 10px;
+    gap: 5px;
 }
 .jobAlertDuration p i, .jobAlertInfo p i{
     display: flex;
     align-items: center;
+}
+
+.bookingsControl{
+    width: 30%;
+    background-color: bisque;
+    height: 100%;
 }
