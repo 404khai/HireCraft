@@ -9,6 +9,9 @@ import OIF from '../../assets/OIF.jpeg'
 import { LuClock4 } from "react-icons/lu";
 import { MdTaskAlt } from "react-icons/md";
 import { LiaGlobeAmericasSolid } from "react-icons/lia";
+import { SiTicktick } from "react-icons/si";
+import { MdOutlineCancel } from "react-icons/md";
+import { BiTask } from "react-icons/bi";
 
 const Bookings = () => {
   return (
@@ -68,7 +71,9 @@ const Bookings = () => {
                     
 
                     <div className="bookingControls2">
-
+                      <i><SiTicktick className='accept' title='Accept Booking Request'/></i>
+                      <i><MdOutlineCancel className='decline' title='Decline Booking Request'/></i>
+                      <i><BiTask className='completed' title='Mark as Completed'/></i>
                     </div>
                   </div>
                   {/* <div className="jobAlertDuration">
