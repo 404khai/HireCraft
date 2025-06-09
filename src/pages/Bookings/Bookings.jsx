@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Bookings.css'
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
@@ -60,8 +61,15 @@ const Bookings = () => {
                     
                   </div>
 
-                  <div className="bookingsControl">
+                  <div className="bookingControls">
+                    <Link to="/ProviderDashboard/Messages">
+                      <button className='viewMessageBtn'>View Message</button>
+                    </Link>
+                    
 
+                    <div className="bookingControls2">
+
+                    </div>
                   </div>
                   {/* <div className="jobAlertDuration">
                     <p><i><LuClock4/></i>3 days</p>
