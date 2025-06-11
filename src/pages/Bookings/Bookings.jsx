@@ -59,6 +59,11 @@ const Bookings = () => {
                           Nigeria
                         </p>
                       </div>
+
+                      <p className='bookingTime'>
+                        <i><LuClock4/></i>
+                        3 days ago
+                      </p>
                       
                     </div>
                     

@@ -48,6 +48,15 @@
 }
 .messageChat{
     /* border: 1px solid greenyellow; */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-image: url('https://i.pinimg.com/736x/86/60/27/86602780ceb6d31c6073675e344bd54a.jpg');
+    /* background-image: url('https://i.pinimg.com/736x/28/a6/72/28a672379eb9ecd917860f08304ca9b9.jpg'); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.363);
+    background-blend-mode: darken;
     width: 50%;
     height: 100%;
     border-left: 1px solid #9a9a9a;
@@ -64,6 +73,15 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+}
+/* Odd-numbered elements (1st, 3rd, 5th, etc.) */
+.messageUser:nth-child(odd) {
+    background-color: white;
+}
+
+/* Even-numbered elements (2nd, 4th, 6th, etc.) */
+.messageUser:nth-child(even) {
+    background-color: #f0f0f0; /* or any grey shade you prefer */
 }
 .messageUser img{
     width: 60px;
@@ -115,8 +133,8 @@
     padding-left: 20px;
     color: white;
     outline: none;
-    background-color: #333;
-    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* background-color: #333; */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .sendChat input::placeholder{
     color: white;

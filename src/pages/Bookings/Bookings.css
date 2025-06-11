@@ -69,7 +69,7 @@
 }
 .jobEmployerTxt{
     width: 90%;
-    height: 55%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     color: #777;
@@ -91,11 +91,12 @@
     align-items: center;
     color: #777;
 }
-.jobEmployerTxtLocation p, .jobAlertDuration p{
+.jobEmployerTxtLocation p, .jobAlertDuration p, .bookingTime{
     display: flex;
     gap: 5px;
+    font-size: 14px;
 }
-.jobAlertDuration p i, .jobAlertInfo p i{
+.jobAlertDuration p i, .jobAlertInfo p i, .bookingTime i{
     display: flex;
     align-items: center;
 }
