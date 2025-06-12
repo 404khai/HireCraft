@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import { AuthContext } from '../../AuthContext'
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom'
 import loginImg from '../../assets/loginImg2.png'
@@ -8,6 +9,9 @@ import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+
+  const { setUser } = useContext(AuthContext);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -25,6 +29,7 @@ const Login = () => {
     if (response.ok) {
       const data = await response.json();
       localStorage.setItem('token', data.token);
+      setUser(data.user);
       console.log('Login successful:', data);
 
       toast.success('Login successful!', {

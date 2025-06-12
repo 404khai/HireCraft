@@ -1,5 +1,6 @@
 import './DashboardNav.css'
-import profilePic from '../../assets/pacman.jpg'
+// import profilePic from '../../assets/pacman.jpg'
+import profilePic from '../../assets/userPic.png'
 import { IoExitOutline, IoHomeOutline } from "react-icons/io5"
 import { PiBellRinging, PiMailbox } from "react-icons/pi"
 import { LuBellRing } from "react-icons/lu";

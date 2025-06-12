@@ -4,8 +4,8 @@ import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import { TiFolderAdd } from "react-icons/ti";
-import avatar from '../../assets/pacman.jpg'
-
+// import avatar from '../../assets/pacman.jpg'
+import avatar from '../../assets/userPic.png'
 
 import { CountrySelect, StateSelect, CitySelect } from 'react-country-state-city'
 import "react-country-state-city/dist/react-country-state-city.css";

@@ -1,15 +1,14 @@
 import './App.css'
 import AppRouter from './AppRouter'
-// import { ThemeProvider } from './context/ThemeContext';
+import { AuthProvider  } from './AuthContext'
 
 function App() {
 
   return (
     <>
-      {/* <ThemeProvider> */}
-        <AppRouter/>
-      {/* </ThemeProvider> */}
-      
+    <AuthProvider>
+      <AppRouter />
+    </AuthProvider>,      
     </>
   )
 }
