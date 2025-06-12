@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import { AuthContext } from '../../AuthContext'
+import { AuthContext } from '../../context/AuthContext'
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom'
 import loginImg from '../../assets/loginImg2.png'
@@ -28,9 +28,11 @@ const Login = () => {
 
     if (response.ok) {
       const data = await response.json();
-      localStorage.setItem('token', data.token);
+      localStorage.setItem('token', data.access_token);
       setUser(data.user);
-      console.log('Login successful:', data);
+      console.log('Login successful. Token stored.');
+      // console.log('Login successful:', data.user);
+
 
       toast.success('Login successful!', {
         position: "top-center",

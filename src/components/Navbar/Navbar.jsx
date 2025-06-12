@@ -1,36 +1,45 @@
 // import React from 'react'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import './Navbar.css'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import hirecraftLogo from '../../../public/favicon2.png'
 import OIF from '../../assets/OIF.jpeg'
 import UserChoiceModal from "../UserChoiceModal/UserChoiceModal";
 import { IoIosUnlock } from "react-icons/io";
 import { PiPlusCircleFill } from "react-icons/pi";
-import { useLocation } from 'react-router-dom';
-
-// import { HiWrenchScrewdriver } from "react-icons/hi2";
-// import Contact from '../Contact/Contact';
+import { AuthContext } from '../../context/AuthContext'
+import { LuLayoutDashboard } from "react-icons/lu";
+import { IoExitOutline, IoHomeOutline } from "react-icons/io5"
+import { FaRegUser } from 'react-icons/fa6'
 
 const Navbar = () => {
 
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         const navbar = document.querySelector('.navbar');
-
-    //         if (window.scrollY > 30) {
-    //         navbar.classList.add('scrolled');
-    //         } else {
-    //         navbar.classList.remove('scrolled');
-    //         }
-    //     };
-
-    //     window.addEventListener('scroll', handleScroll);
-    //     return () => window.removeEventListener('scroll', handleScroll);
-    // }, []);
-
     const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
+    const { user, logout } = useContext(AuthContext);
+
+    const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+      const dropdownRef = useRef(null)
+    
+      const toggleDropdown = () => {
+        setIsDropdownVisible(prev => !prev)
+      }
+    
+      // Close dropdown on outside click
+      useEffect(() => {
+        const handleClickOutside = (event) => {
+          if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setIsDropdownVisible(false)
+          }
+        }
+    
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => document.removeEventListener("mousedown", handleClickOutside)
+    }, [])
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -53,13 +62,11 @@ const Navbar = () => {
 
     // alert(activeTab)
     // console.log("Active Tab:", activeTab);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const [showModal, setShowModal] = useState(false);
     const handleOpenModal = () => {
         setShowModal(true);
         document.body.classList.add('modal-open');
@@ -74,10 +81,7 @@ const Navbar = () => {
 
         <Link to="/Home" className="navLogoLink">
             <div className="navLogo">
-                {/* <img src={hirecraftLogo} alt="" className="hirecraftLogo"/> */}
                 <p>hire<span className="navLogoSpan">craft</span></p>
-                {/* <i><HiWrenchScrewdriver/></i>
-                <p>hire<span className="navLogoSpan">craft</span></p> */}
             </div>
         </Link>
         
@@ -86,26 +90,53 @@ const Navbar = () => {
             <Link to='/BrowseFreelancers'>Browse Freelancers</Link>
             <Link to='/FAQS'>FAQ's</Link>
             <Link to='/ContactUs'>Contact Us</Link>
-
-            <div className="navOpenLoginBtn">
-                <button onClick={handleOpenModal} className='navSignUp'>
-                    <Link to=''>Sign Up</Link>  
-                </button> 
-            </div>
-
-            <div className="navOpenLoginBtn">
-                <Link to='/Login' className="loginLink">
-                    <button className='logIn'>
-                        Login
-                    </button> 
-                </Link>  
-            </div>
         </nav>
 
         <div className="navBtn">
-            <Link to="" onClick={handleOpenModal}><i><PiPlusCircleFill /></i> Register</Link>
-            <Link to='/Login'><i><IoIosUnlock/></i> Login</Link>
-            {/* <img src={OIF} alt="" className='navUserImg'/> */}
+            {/* {!user ? (
+                <>
+                    <div className="navOpenLoginBtn">
+                    <button onClick={handleOpenModal} className='navSignUp'>
+                        <Link to=''>Sign Up</Link>
+                    </button>
+                    </div>
+                    <div className="navOpenLoginBtn">
+                    <Link to='/Login' className="loginLink">
+                        <button className='logIn'>Login</button>
+                    </Link>
+                    </div>
+                </>
+                ) : (
+                <div className="navUserSection">
+                    <img
+                    src={user.profilePictureUrl}
+                    alt="User"
+                    className='navUserImg'
+                    />
+                    <button className="logoutBtn" onClick={logout}>Logout</button>
+                </div>
+            )} */}
+            {!user ? (
+            <>
+                <Link to="" onClick={handleOpenModal}><i><PiPlusCircleFill /></i> Register</Link>
+                <Link to='/Login'><i><IoIosUnlock /></i> Login</Link>
+            </>
+            ) : (
+                <div className='navbarProfileWrapper' onClick={toggleDropdown}>
+                    <img src={user.profilePictureUrl} alt="User" className='navUserImg' />
+                    {isDropdownVisible && (
+                        <div className="navbarProfileDropdown" ref={dropdownRef}>
+                            <Link to="/ProviderProfile"><i><FaRegUser /></i>My Profile</Link>
+                            <Link to="/ProviderDashboard"><i><LuLayoutDashboard /></i>Dashboard</Link>
+                            <Link to="" onClick={logout}><i><IoExitOutline /></i>Log Out</Link>
+                        </div>
+                    )}
+                </div>
+                // <>
+                //     <img src={}  alt="User" className='navUserImg'/>
+                //     <button className="logoutBtn" onClick={logout}>Logout</button>
+                // </>
+            )}
         </div>
 
         {showModal && (
