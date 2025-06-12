@@ -1,11 +1,11 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React, {useState, useContext, useEffect, useRef} from 'react'
 import './Settings.css'
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import { TiFolderAdd } from "react-icons/ti";
 // import avatar from '../../assets/pacman.jpg'
-import avatar from '../../assets/userPic.png'
+import defaultAvatar from '../../assets/userPic.png'
 
 import { CountrySelect, StateSelect, CitySelect } from 'react-country-state-city'
 import "react-country-state-city/dist/react-country-state-city.css";
@@ -47,6 +47,8 @@ const Settings = () => {
   //   setPhoneNumber(value);
   // };
 
+  const fileInputRef = useRef(null);
+
   useEffect(() => {
     if (user) {
       setFirstName(user.firstName || '');
@@ -58,12 +60,6 @@ const Settings = () => {
       setSkills(Array.isArray(user.skills) ? user.skills.join(', ') : (user.skills || ''));
       setProfilePictureUrl(user.profilePictureUrl || profilePictureUrl);
 
-      // For country/state/city, if your user object stores IDs, you can set them here.
-      // Otherwise, the user will have to re-select these fields.
-      // This example assumes names are stored and will set placeholders.
-      // If you store IDs (e.g., user.countryId), you'd use:
-      // setSelectedCountryId(user.countryId || 0);
-      // setSelectedStateId(user.stateId || 0);
       setSelectedCountryName(user.country || '');
       setSelectedStateName(user.state || '');
       setSelectedCityName(user.city || '');
@@ -143,6 +139,68 @@ const Settings = () => {
     }
   };
 
+  const handleProfilePictureChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      handleUploadProfilePicture(file);
+    }
+  };
+
+  // --- Function to handle the actual upload to backend ---
+  const handleUploadProfilePicture = async (file) => {
+    if (!token) {
+      toast.error('You are not authenticated. Please log in.', { position: 'top-center', autoClose: 2000 });
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', file); // 'file' must match @RequestPart("file") in your Spring controller
+
+    toast.info('Uploading profile picture...', { position: 'top-center', autoClose: false, toastId: 'uploading' }); // Show loading toast
+
+    try {
+      const response = await fetch('http://localhost:9090/api/v1/users/update-profile-picture', {
+        method: 'PATCH',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          // 'Content-Type': 'multipart/form-data' is NOT set here.
+          // The browser sets it automatically with the correct boundary when FormData is used.
+        },
+        body: formData,
+      });
+
+      toast.dismiss('uploading'); // Dismiss loading toast
+
+      if (response.ok) {
+        const result = await response.json(); // This should be { "profilePictureUrl": "..." }
+        const newProfilePictureUrl = result.profilePictureUrl;
+
+        // Update local state for immediate display
+        setProfilePictureUrl(newProfilePictureUrl);
+
+        // Update AuthContext user object to reflect the new profile picture URL
+        setUser(prevUser => ({
+          ...prevUser,
+          profilePictureUrl: newProfilePictureUrl,
+        }));
+
+        toast.success('Profile picture updated successfully!', { position: 'top-center', autoClose: 1500, transition: Bounce });
+      } else {
+        const errorData = await response.json();
+        console.error('Profile picture upload error:', errorData);
+        toast.error(errorData.message || 'Failed to upload profile picture. Check console for details.', {
+          position: 'top-center',
+          autoClose: 3000,
+          transition: Bounce,
+        });
+      }
+    } catch (error) {
+      toast.dismiss('uploading');
+      console.error('Network error during profile picture upload:', error);
+      toast.error('An error occurred during image upload. Please try again.', { position: 'top-center', autoClose: 2000, transition: Bounce });
+    }
+  };
+
   return (
     <div className='profileBox'>
       <DashboardNav/>
@@ -167,8 +225,21 @@ const Settings = () => {
 
                         <div className="editPic">
                           <p><b>Avatar</b></p>
-                          {/* <input type="week" /> */}
-                          <img src={profilePictureUrl} alt="User Avatar" title='Change Avatar'/>
+                          <img
+                            src={profilePictureUrl}
+                            alt="User Avatar"
+                            title='Click to Change Avatar'
+                            className='profilePic'
+                            onClick={() => fileInputRef.current.click()} // Programmatically click the hidden input
+                            style={{ cursor: 'pointer' }} // Add cursor for better UX
+                          />
+                          <input
+                            type="file"
+                            accept="image/*" // Only allow image files
+                            ref={fileInputRef} // Attach ref to the input
+                            onChange={handleProfilePictureChange} // Handle file selection
+                            style={{ display: 'none' }} // Hide the input visually
+                          />
                         </div>
 
                         <form className="changeInfoForm" onSubmit={handleSaveChanges}>
