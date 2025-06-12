@@ -1,7 +1,7 @@
 .jobAlertsBox{
     width: 90%;
     height: 400px;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
     gap: 40px;
