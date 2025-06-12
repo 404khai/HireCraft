@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import './ProviderProfile.css'
 import OIF from '../../assets/OIF.jpeg'
 import ReactCountryFlag from "react-country-flag"
@@ -12,15 +12,69 @@ import mac2 from '../../assets/mac2.jpg'
 import mac3 from '../../assets/mac3.jpg'
 import lofi from '../../assets/lofi.png'
 import shop from '../../assets/shop.jpg'
+
+import countries from 'i18n-iso-countries';
+import en from 'i18n-iso-countries/langs/en.json'; // Import English locale data
+countries.registerLocale(en); // Register the locale data for lookup
+
+import { AuthContext } from '../../context/AuthContext';
+
 const ProviderProfile = () => {
+
+  const { user } = useContext(AuthContext);
+  const token = localStorage.getItem('token');
+
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  const [occupation, setOccupation] = useState('');
+  const [providerBio, setProviderBio] = useState('');
+  const [skills, setSkills] = useState('');
+  
+  const [selectedCountryName, setSelectedCountryName] = useState('');
+  const [selectedStateName, setSelectedStateName] = useState('');
+  const [selectedCityName, setSelectedCityName] = useState('');
+
+  const [profilePictureUrl, setProfilePictureUrl] = useState('');
+
+  // NEW STATE: To store the ISO country code for the flag
+  const [displayCountryCode, setDisplayCountryCode] = useState('');
+
+  useEffect(() => {
+    if (user) {
+      setFirstName(user.firstName || '');
+      setLastName(user.lastName || '');
+      setEmail(user.email || '');
+      setPhoneNumber(user.phoneNumber || '');
+      setOccupation(user.occupation || '');
+      setProviderBio(user.providerBio || '');
+      setSkills(Array.isArray(user.skills) ? user.skills.join(', ') : (user.skills || ''));
+      setProfilePictureUrl(user.profilePictureUrl || profilePictureUrl);
+
+      setSelectedCountryName(user.country || '');
+      setSelectedStateName(user.state || '');
+      setSelectedCityName(user.city || '');
+
+      if (user.country) {
+        // Get the 2-letter country code (e.g., "NG" for "Nigeria")
+        const code = countries.getAlpha2Code(user.country, 'en');
+        setDisplayCountryCode(code || ''); // Set the code, or empty string if not found
+      } else {
+        setDisplayCountryCode(''); // Clear code if no country is set
+      }
+    }
+  }, [user]);
+
   return (
     <div className='providerProfile'>
       <div className="providerProfileHead">
-        <img src={OIF} alt="" className='providerProfileImg'/>
+        <img src={profilePictureUrl} alt="" className='providerProfileImg'/>
 
         <div className="providerProfileName">
-          <h3>Daniels Fega</h3>
-          <p style={{color: "#808080"}}>Software Engineer</p>
+          <h3>{firstName + " " +lastName}</h3>
+          <p style={{color: "#808080"}}>{occupation}</p>
 
           <div className='providerRatingBox'>
             <div className="providerRating">
@@ -33,12 +87,23 @@ const ProviderProfile = () => {
             </div>
 
             <div className='providerProfileCountry'>
-              <ReactCountryFlag className='flag' countryCode="US" svg />
-              <p>United States</p>
-            </div>       
+              {displayCountryCode && ( // Only render flag if a code is available
+                <ReactCountryFlag
+                  className='flag'
+                  countryCode={displayCountryCode} // Use the derived country code
+                  svg
+                  title={selectedCountryName} // Add title for accessibility
+                />
+              )}
+              <p>{selectedCountryName}</p>
+            </div>
           </div>
-
-          <p className='providerProfileState'><i><IoLocationOutline/></i> Chicago, Illinois</p>
+          <p className='providerProfileState'>
+            <i><IoLocationOutline /></i> {selectedCityName}
+            {selectedCityName && selectedStateName && ', '}
+            {selectedStateName}
+          </p>
+          {/* <p className='providerProfileState'><i><IoLocationOutline/></i> {selectedCityName}, {selectedStateName}</p> */}
         </div>
 
         {/* <button>Send a job request</button> */}
@@ -48,7 +113,7 @@ const ProviderProfile = () => {
       <div className="providerProfileBody">
         <div className="providerProfileAbout">
           <h3>About Me</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum eaque mollitia officiis nam atque assumenda enim distinctio asperiores temporibus, voluptatum necessitatibus laborum fugit, harum, obcaecati itaque est cumque aliquam saepe?. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus vel neque voluptatibus perspiciatis! Cupiditate natus facilis soluta. Ut a, omnis laudantium obcaecati, cumque quos voluptates atque veritatis adipisci at magnam!</p>
+          <p>{providerBio || 'No bio provided yet.'}</p>
         </div>
         <div className="providerProfileOverview">
           <h3>Profile Overview</h3>
@@ -73,12 +138,13 @@ const ProviderProfile = () => {
 
           <h3>Skills</h3>
           <div className="skills">
-            <p>Web Design</p>
-            <p>UI / UX Design</p>
-            <p>Web Design</p>
-            <p>UI / UX Design</p>
-            <p>Web Design</p>
-            <p>UI / UX Design</p>
+            {skills.split(',').filter(s => s.trim() !== '').map((skill, index) => (
+              <p key={index}>{skill.trim()}</p>
+            ))}
+            {/* Fallback if no skills */}
+            {(!skills || skills.split(',').filter(s => s.trim() !== '').length === 0) && (
+              <p style={{color: "#808080"}}>No skills listed yet.</p>
+            )}
           </div>
 
           <h3>Attachments</h3>

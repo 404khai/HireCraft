@@ -306,7 +306,7 @@ const Settings = () => {
                               id="bio"
                               name="bio"
                               value={providerBio}
-                              onChange={(e) => setBio(e.target.value)}
+                              onChange={(e) => setProviderBio(e.target.value)}
                             ></textarea>
                           </div>
 
