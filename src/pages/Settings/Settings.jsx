@@ -25,14 +25,17 @@ const Settings = () => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+
   const [occupation, setOccupation] = useState('');
-  const [bio, setBio] = useState('');
+  const [providerBio, setProviderBio] = useState('');
   const [skills, setSkills] = useState('');
+  
   const [selectedCountryId, setSelectedCountryId] = useState(0);
   const [selectedStateId, setSelectedStateId] = useState(0);
   const [selectedCountryName, setSelectedCountryName] = useState('');
   const [selectedStateName, setSelectedStateName] = useState('');
   const [selectedCityName, setSelectedCityName] = useState('');
+
   const [profilePictureUrl, setProfilePictureUrl] = useState(''); //
 
   // const [countryid, setcountryid] = useState(0);
@@ -51,9 +54,9 @@ const Settings = () => {
       setEmail(user.email || '');
       setPhoneNumber(user.phoneNumber || '');
       setOccupation(user.occupation || '');
-      setBio(user.bio || '');
-      setSkills(user.skills || '');
-      setProfilePictureUrl(user.profilePictureUrl || defaultAvatar);
+      setProviderBio(user.providerBio || '');
+      setSkills(Array.isArray(user.skills) ? user.skills.join(', ') : (user.skills || ''));
+      setProfilePictureUrl(user.profilePictureUrl || profilePictureUrl);
 
       // For country/state/city, if your user object stores IDs, you can set them here.
       // Otherwise, the user will have to re-select these fields.
@@ -84,14 +87,21 @@ const Settings = () => {
       lastName,
       email,
       phoneNumber,
-      occupation,
-      bio,
-      skills,
       country: selectedCountryName, // Send the selected country name
       state: selectedStateName,     // Send the selected state name
       city: selectedCityName,       // Send the selected city name
-      // profilePictureUrl: profilePictureUrl, // Only send if the backend supports updating it this way directly
-      // If profile picture is uploaded separately, this field won't be in the main update payload
+      
+      companyName: null,
+      position: null,
+      profession: null,
+      companyWebsiteUrl: null,
+      clientBio: null,
+
+      // Service Provider specific fields
+      occupation,
+      providerBio,
+      cvUrl: null, 
+      skills: skills ? skills.split(',').map(s => s.trim()) : [],
     };
 
     try {
@@ -224,7 +234,7 @@ const Settings = () => {
                             <textarea
                               id="bio"
                               name="bio"
-                              value={bio}
+                              value={providerBio}
                               onChange={(e) => setBio(e.target.value)}
                             ></textarea>
                           </div>
