@@ -433,6 +433,31 @@ const Settings = () => {
                       </div>
                     </div>
 
+                    <div className="editSocials">
+                      <div className="editProfileHead">
+                        <i><TiFolderAdd /></i>
+                        <b>Change Additional Info</b>
+                      </div>
+
+                      <div className="changePasswordForm">
+                        <div className="changeInfoInputContainer">
+                          <label className="changeInfoLabel">Hourly Rate</label>
+                          <input title="Current Password" type="text" className="changeInfoInput" required/>
+                        </div>
+
+                        <div className="changeInfoInputContainer">
+                          <label className="changeInfoLabel">New Password</label>
+                          <input title="New Password" type="text" className="changeInfoInput" required/>
+                        </div>
+
+                        <div className="changeInfoInputContainer">
+                          <label className="changeInfoLabel">Confirm New Password</label>
+                          <input  title="Confirm New Password" type="text" className="changeInfoInput" required/>
+                        </div>
+
+                        <button className='saveChanges'>Save Changes</button>
+                      </div>
+                    </div>
 
                 </div>
 

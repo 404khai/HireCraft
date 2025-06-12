@@ -6,7 +6,7 @@ import ReviewCard from '../../components/ReviewCard/ReviewCard';
 import { FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { DiVisualstudio } from 'react-icons/di';
-import { FaRegThumbsUp, FaInstagram, FaLinkedinIn, FaWhatsapp, FaFacebookF } from "react-icons/fa6";
+import { FaRegThumbsUp, FaInstagram, FaWhatsapp, FaFacebookF } from "react-icons/fa6";
 import mac1 from '../../assets/mac1.jpg'
 import mac2 from '../../assets/mac2.jpg'
 import mac3 from '../../assets/mac3.jpg'
@@ -30,6 +30,7 @@ const ProviderProfile = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const [occupation, setOccupation] = useState('');
+  const [hourlyRate, setHourlyRate] = useState('')
   const [providerBio, setProviderBio] = useState('');
   const [skills, setSkills] = useState('');
   
@@ -49,6 +50,7 @@ const ProviderProfile = () => {
       setEmail(user.email || '');
       setPhoneNumber(user.phoneNumber || '');
       setOccupation(user.occupation || '');
+      setHourlyRate(user.hourlyRate || '');
       setProviderBio(user.providerBio || '');
       setSkills(Array.isArray(user.skills) ? user.skills.join(', ') : (user.skills || ''));
       setProfilePictureUrl(user.profilePictureUrl || profilePictureUrl);
@@ -119,7 +121,7 @@ const ProviderProfile = () => {
           <h3>Profile Overview</h3>
           <div className="providerProfileOverviewRates">
             <div className="hourlyRate">
-              <strong>$22</strong>
+              <strong>${hourlyRate}</strong>
               <p style={{color: "#808080"}}>Hourly Rate</p>
             </div>
             <div className="jobsDone">
@@ -133,7 +135,7 @@ const ProviderProfile = () => {
             {/* <i><FaFacebookF/></i> */}
             <i><FaInstagram/></i>
             <i><FaWhatsapp/></i>
-            <i><FaLinkedinIn/></i>
+            <i><FaFacebookF/></i>
           </div>
 
           <h3>Skills</h3>

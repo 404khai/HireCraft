@@ -31,8 +31,13 @@
     width: 90%;
     height: 91%;
     /* background-color: aqua; */
-    display: flex;
-    gap: 30px;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 100px;
+    /* gap: 30px; */
 }
 .editProfileHead{
     height: 50px;
@@ -45,7 +50,8 @@
 .editProfile{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    grid-area: 1 / 1 / 7 / 2;
+    /* width: 50%; */
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     /* border: 1px solid black; */
@@ -183,8 +189,9 @@ textarea#bio {
     display: flex;
     flex-direction: column;
     /* justify-content: ; */
-    width: 50%;
-    height: 450px;
+    grid-area: 1 / 2 / 3 / 3;
+    /* width: 50%; */
+    /* height: 450px; */
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     /* border: 1px solid black; */
@@ -198,4 +205,16 @@ textarea#bio {
     flex-direction: column;
     justify-content: center;
     gap: 30px;
+}
+
+.editSocials{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: ; */
+    grid-area: 3 / 2 / 5 / 3;
+    /* width: 50%; */
+    /* height: 450px; */
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    /* border: 1px solid black; */
 }

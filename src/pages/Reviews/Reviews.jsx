@@ -148,7 +148,7 @@ const Reviews = () => {
                 </div>
               ))
             ) : (
-              <p>No reviews available for this provider yet.</p>
+              <p>No reviews available for you yet.</p>
             )}
           </div>
         </div>
