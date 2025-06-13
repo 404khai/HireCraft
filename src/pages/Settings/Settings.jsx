@@ -27,6 +27,7 @@ const Settings = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const [occupation, setOccupation] = useState('');
+  const [hourlyRate, setHourlyRate] = useState('');
   const [providerBio, setProviderBio] = useState('');
   const [skills, setSkills] = useState('');
   
@@ -56,6 +57,7 @@ const Settings = () => {
       setEmail(user.email || '');
       setPhoneNumber(user.phoneNumber || '');
       setOccupation(user.occupation || '');
+      setHourlyRate(user.hourlyRate || '');
       setProviderBio(user.providerBio || '');
       setSkills(Array.isArray(user.skills) ? user.skills.join(', ') : (user.skills || ''));
       setProfilePictureUrl(user.profilePictureUrl || profilePictureUrl);
@@ -442,16 +444,22 @@ const Settings = () => {
                       <div className="changePasswordForm">
                         <div className="changeInfoInputContainer">
                           <label className="changeInfoLabel">Hourly Rate</label>
-                          <input title="Current Password" type="text" className="changeInfoInput" required/>
+                          <input 
+                            value={hourlyRate} 
+                            onChange={(e) => setHourlyRate(e.target.value)}
+                            title="Edit hourly rate" 
+                            type="number" 
+                            className="changeInfoInput" 
+                          />
                         </div>
 
                         <div className="changeInfoInputContainer">
-                          <label className="changeInfoLabel">New Password</label>
+                          <label className="changeInfoLabel">Instagram</label>
                           <input title="New Password" type="text" className="changeInfoInput" required/>
                         </div>
 
                         <div className="changeInfoInputContainer">
-                          <label className="changeInfoLabel">Confirm New Password</label>
+                          <label className="changeInfoLabel">Facebook</label>
                           <input  title="Confirm New Password" type="text" className="changeInfoInput" required/>
                         </div>
 

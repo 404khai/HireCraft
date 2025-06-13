@@ -3,7 +3,7 @@ import './ProviderProfile.css'
 import OIF from '../../assets/OIF.jpeg'
 import ReactCountryFlag from "react-country-flag"
 import ReviewCard from '../../components/ReviewCard/ReviewCard';
-import { FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
+import { FaStar, FaRegStarHalfStroke, FaRegStar } from 'react-icons/fa6';
 import { IoLocationOutline } from "react-icons/io5";
 import { DiVisualstudio } from 'react-icons/di';
 import { FaRegThumbsUp, FaInstagram, FaWhatsapp, FaFacebookF } from "react-icons/fa6";
@@ -33,6 +33,7 @@ const ProviderProfile = () => {
   const [hourlyRate, setHourlyRate] = useState('')
   const [providerBio, setProviderBio] = useState('');
   const [skills, setSkills] = useState('');
+  const [averageRating, setAverageRating] = useState(0);
   
   const [selectedCountryName, setSelectedCountryName] = useState('');
   const [selectedStateName, setSelectedStateName] = useState('');
@@ -52,6 +53,7 @@ const ProviderProfile = () => {
       setOccupation(user.occupation || '');
       setHourlyRate(user.hourlyRate || '');
       setProviderBio(user.providerBio || '');
+      setAverageRating(user.averageRating !== undefined && user.averageRating !== null ? user.averageRating : 0);
       setSkills(Array.isArray(user.skills) ? user.skills.join(', ') : (user.skills || ''));
       setProfilePictureUrl(user.profilePictureUrl || profilePictureUrl);
 
@@ -69,6 +71,30 @@ const ProviderProfile = () => {
     }
   }, [user]);
 
+  const renderStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0; // Check if there's a decimal part
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+    const stars = [];
+
+    // Full stars
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<i key={`full-${i}`}><FaStar/></i>);
+    }
+
+        // Half star (if applicable)
+    if (hasHalfStar) {
+        stars.push(<i key="half"><FaRegStarHalfStroke/></i>);
+    }
+
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(<i key={`empty-${i}`}><FaRegStar/></i>); // Assuming FaRegStar is imported
+    }
+
+    return stars;
+  };
+
   return (
     <div className='providerProfile'>
       <div className="providerProfileHead">
@@ -80,12 +106,8 @@ const ProviderProfile = () => {
 
           <div className='providerRatingBox'>
             <div className="providerRating">
-              <button>4.5</button>
-              <i><FaStar/></i>
-              <i><FaStar/></i>
-              <i><FaStar/></i>
-              <i><FaStar/></i>
-              <i><FaRegStarHalfStroke/></i>
+              <button>{averageRating.toFixed(1)}</button> {/* Display with 1 decimal place */}
+              {renderStars(averageRating)}
             </div>
 
             <div className='providerProfileCountry'>
