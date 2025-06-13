@@ -15,10 +15,12 @@
     margin-top: 70px;
     /* overflow-y: scroll; */
 }
+#settingsDash{
+    height: 1600px;
+}
 .dashboard{
     background-color: #fafafa;
     /* position: relative; */
-    height: 1600px;
     overflow-y: hidden;
     width: 80%;
     display: flex;

@@ -113,8 +113,8 @@
 .navUserImg{
     border: 2px solid #35D07D;
     border-radius: 50%;
-    width: 70px;
-    height: 80%;
+    width: 60px;
+    height: 70%;
 }
 .navOpenLoginBtn{
     display: none;

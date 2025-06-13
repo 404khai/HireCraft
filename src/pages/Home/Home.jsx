@@ -98,7 +98,7 @@ const Home = () => {
                         </button>
                     </Link>
                     
-                    <Link to="/ProviderDashboard">
+                    <Link to="/ServiceProviderSignUp">
                         <button className='becomeProvider'>Become a Service Provider</button>
                     </Link>
                 </div>

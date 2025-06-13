@@ -209,7 +209,7 @@ const Settings = () => {
         <div className='profileBody'>
           <ProviderSideNav/>
           {/* <EmployerSideNav/> */}
-            <div className="dashboard">
+            <div className="dashboard" id='settingsDash'>
                 <div className="welcome">
                     <div className="welcomeTxt">
                         <h2>Settings</h2>

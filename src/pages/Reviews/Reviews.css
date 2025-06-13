@@ -1,9 +1,10 @@
 .reviewsBox{
     width: 90%;
-    height: 350px;
+    height: 420px;
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
+    overflow-y: hidden;
     /* gap: 30px; */
     /* align-items: center; */
     justify-content: start;
