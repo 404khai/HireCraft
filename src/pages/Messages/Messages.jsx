@@ -76,25 +76,25 @@ import './Messages2.css';
 import { IoIosSend } from "react-icons/io";
 import DashboardNav from '../../components/DashboardNav/DashboardNav';
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav';
-import ClientSideNav from '../../components/ClientSideNav/ClientSideNav'; // Assuming you might use this
+import ClientSideNav from '../../components/ClientSideNav/ClientSideNav';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import axios from 'axios';
 import SockJS from 'sockjs-client';
-import { Stomp } from '@stomp/stompjs';
-import { AuthContext } from '../../context/AuthContext'; // Assuming AuthContext provides user role or ID
+import { Client } from '@stomp/stompjs'; // <--- THIS IS THE UPDATED IMPORT
+import { AuthContext } from '../../context/AuthContext';
 
 const Messages = () => {
-    const { user } = useContext(AuthContext); // Get user info from context to determine senderType (Client/Provider)
+    const { user } = useContext(AuthContext);
     const images = import.meta.glob('../../assets/*', { eager: true });
-    const messagesEndRef = useRef(null); // Ref for auto-scrolling chat
+    const messagesEndRef = useRef(null);
 
     const [currentBookingId, setCurrentBookingId] = useState(null);
     const [messages, setMessages] = useState([]);
     const [newMessageContent, setNewMessageContent] = useState('');
-    const [activeChatUser, setActiveChatUser] = useState(null); // To display the name of the person you're chatting with
-    const [userBookings, setUserBookings] = useState([]); // To store the list of bookings for the user
+    const [activeChatUser, setActiveChatUser] = useState(null);
+    const [userBookings, setUserBookings] = useState([]);
 
-    const stompClientRef = useRef(null); // Ref to store the STOMP client instance
+    const stompClientRef = useRef(null);
 
     const getImage = (filename) => {
         const entry = Object.entries(images).find(([key]) => key.includes(filename));
@@ -102,44 +102,35 @@ const Messages = () => {
     };
 
     // --- Fetch User Bookings (Chats) ---
-    // This will fetch all bookings a user (client or provider) has,
-    // which then serve as the list of available chats.
     useEffect(() => {
         const fetchUserBookings = async () => {
             try {
-                // You'll need an endpoint to get bookings for the logged-in user.
-                // This is a placeholder; adjust the URL and logic based on your backend.
-                // Assuming client/provider can see their respective bookings.
                 const token = localStorage.getItem('token');
                 const config = {
                     headers: { Authorization: `Bearer ${token}` }
                 };
 
                 let response;
-                if (user && user.userType === 'CLIENT') {
-                    // Example: endpoint to get client's bookings
+                if (user && user.userType === 'ROLE_CLIENT') {
                     response = await axios.get('http://localhost:9090/api/v1/bookings/client/me', config);
-                } else if (user && user.userType === 'PROVIDER') {
-                    // Example: endpoint to get provider's bookings
+                } else if (user && user.userType === 'ROLE_PROVIDER') {
                     response = await axios.get('http://localhost:9090/api/v1/bookings/provider/me', config);
                 } else {
-                    return; // Or handle unauthorized access
+                    return;
                 }
                 setUserBookings(response.data);
                 if (response.data.length > 0 && !currentBookingId) {
-                    // Automatically select the first booking if available
-                    handleChatSelect(response.data[0].id, response.data[0].providerFullName || response.data[0].clientFullName);
+                    handleChatSelect(response.data[0].id, user.userType === 'ROLE_CLIENT' ? response.data[0].providerFullName : response.data[0].clientFullName);
                 }
             } catch (error) {
                 console.error("Error fetching user bookings:", error);
-                // Handle error (e.g., show a toast)
             }
         };
 
-        if (user) { // Only fetch if user is logged in
+        if (user) {
             fetchUserBookings();
         }
-    }, [user, currentBookingId]); // Refetch if user changes or if currentBookingId is not set initially
+    }, [user, currentBookingId]);
 
 
     // --- Fetch Messages for the Selected Booking ---
@@ -153,8 +144,7 @@ const Messages = () => {
             setMessages(response.data);
         } catch (error) {
             console.error("Error fetching messages:", error);
-            setMessages([]); // Clear messages on error
-            // Handle error (e.g., show a toast)
+            setMessages([]);
         }
     };
 
@@ -163,22 +153,40 @@ const Messages = () => {
         if (!currentBookingId) return;
 
         const connectWebSocket = () => {
-            const socket = new SockJS('http://localhost:9090/ws'); // Your WebSocket endpoint
-            const stompClient = Stomp.over(socket);
+            // If a client already exists, disconnect it before creating a new one
+            if (stompClientRef.current && stompClientRef.current.connected) {
+                stompClientRef.current.deactivate();
+            }
 
-            stompClient.connect({}, (frame) => {
+            const stompClient = new Client({
+                webSocketFactory: () => new SockJS('http://localhost:9090/ws'),
+                // debug: (str) => { console.log(str); }, // Uncomment for debugging
+                // reconnectDelay: 5000,
+            });
+
+            // Assign event handlers
+            stompClient.onConnect = (frame) => {
                 console.log('Connected: ' + frame);
                 // Subscribe to a topic for new messages for this booking
                 stompClient.subscribe(`/topic/messages/${currentBookingId}`, (message) => {
                     const receivedMessage = JSON.parse(message.body);
                     setMessages((prevMessages) => [...prevMessages, receivedMessage]);
                 });
-            }, (error) => {
-                console.error("WebSocket connection error:", error);
-                // Handle reconnection logic here if needed
-                setTimeout(connectWebSocket, 5000); // Attempt to reconnect after 5 seconds
-            });
+            };
 
+            stompClient.onStompError = (frame) => {
+                console.error('Broker reported error: ' + frame.headers['message']);
+                console.error('Additional details: ' + frame.body);
+                // You might want to attempt reconnection here or show a message to the user
+                // setTimeout(connectWebSocket, 5000); // Attempt to reconnect after 5 seconds
+            };
+
+            stompClient.onDisconnect = () => {
+                console.log('Disconnected from WebSocket');
+            };
+
+            // Activate the client to establish the connection
+            stompClient.activate();
             stompClientRef.current = stompClient;
         };
 
@@ -187,9 +195,7 @@ const Messages = () => {
         // Cleanup function for WebSocket when component unmounts or booking changes
         return () => {
             if (stompClientRef.current && stompClientRef.current.connected) {
-                stompClientRef.current.disconnect(() => {
-                    console.log('Disconnected from WebSocket');
-                });
+                stompClientRef.current.deactivate(); // Use deactivate for clean disconnect
             }
         };
     }, [currentBookingId]); // Reconnect WebSocket if currentBookingId changes
@@ -199,7 +205,7 @@ const Messages = () => {
         if (messagesEndRef.current) {
             messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
         }
-    }, [messages]); // Scroll whenever messages update
+    }, [messages]);
 
 
     const handleChatSelect = (bookingId, chatPartnerName) => {
@@ -214,32 +220,17 @@ const Messages = () => {
         const messagePayload = {
             bookingId: currentBookingId,
             content: newMessageContent,
-            // You might need to add senderType and senderId here if your backend doesn't derive it from the token
-            // senderType: user.userType, // Example
-            // senderId: user.id, // Example
+            // senderType and senderId are likely derived from your backend based on the token
         };
 
         try {
             const token = localStorage.getItem('token');
-            // Sending via REST API first, then backend should push to WebSocket
             await axios.post('http://localhost:9090/api/v1/messages/send', messagePayload, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            setNewMessageContent(''); // Clear input after sending
-            // The message will be added to state via WebSocket subscription,
-            // so no need to manually add it here unless you want immediate local update.
-            // If you want immediate local update without waiting for WebSocket, you can do:
-            // setMessages((prevMessages) => [...prevMessages, {
-            //     senderType: user.userType,
-            //     senderFullName: user.fullName, // Assuming user has fullName
-            //     content: newMessageContent,
-            //     dateStamp: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-            //     timeSent: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-            // }]);
-
+            setNewMessageContent('');
         } catch (error) {
             console.error("Error sending message:", error);
-            // Handle error (e.g., show a toast)
         }
     };
 
@@ -254,7 +245,7 @@ const Messages = () => {
                         <div className="welcomeTxt">
                             <h2>Messages</h2>
                         </div>
-                        <Breadcrumbs firstLink="Dashboard" link={user && user.userType === 'CLIENT' ? "/ClientDashboard" : "/ProviderDashboard"} secondLink="Messages" link2={user && user.userType === 'CLIENT' ? "/ClientDashboard/Messages" : "/ProviderDashboard/Messages"} />
+                        <Breadcrumbs firstLink="Dashboard" link={user && user.userType === 'ROLE_CLIENT' ? "/ClientDashboard" : "/ProviderDashboard"} secondLink="Messages" link2={user && user.userType === 'ROLE_CLIENT' ? "/ClientDashboard/Messages" : "/ProviderDashboard/Messages"} />
                     </div>
 
                     <div className="messagesGroup">
@@ -264,25 +255,16 @@ const Messages = () => {
                                 <div
                                     key={booking.id}
                                     className={`messageUser ${currentBookingId === booking.id ? 'active-chat' : ''}`}
-                                    onClick={() => handleChatSelect(booking.id, user.userType === 'CLIENT' ? booking.providerFullName : booking.clientFullName)}
+                                    onClick={() => handleChatSelect(booking.id, user.userType === 'ROLE_CLIENT' ? booking.providerFullName : booking.clientFullName)}
                                 >
-                                    {/* You'll need to figure out how to get the image for the other user */}
-                                    {/* <img src={getImage(message.image)} alt="" /> */}
                                     <div className="messageUser-avatar">
-                                        {/* Placeholder for avatar initials or generic icon */}
-                                        {user.userType === 'CLIENT' && booking.providerFullName ? booking.providerFullName.charAt(0).toUpperCase() : booking.clientFullName.charAt(0).toUpperCase()}
+                                        {user.userType === 'ROLE_CLIENT' && booking.providerFullName ? booking.providerFullName.charAt(0).toUpperCase() : booking.clientFullName.charAt(0).toUpperCase()}
                                     </div>
 
                                     <div className="messageTxt">
-                                        <p>{user.userType === 'CLIENT' ? booking.providerFullName : booking.clientFullName}</p>
-                                        {/* You might want to display the last message here if available in booking data */}
+                                        <p>{user.userType === 'ROLE_CLIENT' ? booking.providerFullName : booking.clientFullName}</p>
                                         <p>{booking.description.substring(0, 30)}...</p>
                                     </div>
-
-                                    {/* Badge for unread messages - requires backend support */}
-                                    {/* <div className='messageBadge'>
-                                        <p>8</p>
-                                    </div> */}
                                 </div>
                             ))}
                         </div>
@@ -306,7 +288,7 @@ const Messages = () => {
                                                 </div>
                                             </div>
                                         ))}
-                                        <div ref={messagesEndRef} /> {/* For auto-scrolling */}
+                                        <div ref={messagesEndRef} />
                                     </div>
                                     <div className="sendChat">
                                         <input
