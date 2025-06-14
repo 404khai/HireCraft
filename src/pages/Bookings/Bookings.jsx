@@ -104,8 +104,8 @@ import './Bookings.css';
 import DashboardNav from '../../components/DashboardNav/DashboardNav';
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
-import { IoLocationOutline, IoBriefcaseOutline } from 'react-icons/io5';
-import { LuClock4 } from 'react-icons/lu';
+import { IoLocationOutline, IoBriefcaseOutline, IoCalendarOutline } from 'react-icons/io5';
+import { LuClock4, LuMessageSquareText } from 'react-icons/lu';
 import { MdTaskAlt } from 'react-icons/md';
 import { LiaGlobeAmericasSolid } from 'react-icons/lia';
 import { SiTicktick } from 'react-icons/si';
@@ -210,11 +210,11 @@ const Bookings = () => {
     }
 
     return (
-        <div className='dashboardBox'>
+        <div className='bookingBox'>
             <DashboardNav />
-            <div className='dashboardBody'>
+            <div className='bookingBody'>
                 <ProviderSideNav />
-                <div className="dashboard">
+                <div className="bookingDashboard">
                     <div className="welcome">
                         <div className="welcomeTxt">
                             <h2>My Bookings</h2>
@@ -263,47 +263,51 @@ const Bookings = () => {
                                                     </p>
                                                 </div>
 
-                                                <p className='bookingTime'>
-                                                    <i><LuClock4 /></i>
-                                                    {booking.timeAgo} {/* This comes directly from your API response */}
-                                                </p>
                                                 {/* Display Time Slot and Estimated Duration */}
                                                 <p className='bookingDetails'>
-                                                    <i><IoBriefcaseOutline /></i>
-                                                    Service: {booking.description.substring(0, 50)}...
+                                                    <i><LuMessageSquareText /></i>
+                                                    {booking.description.substring(0, 50)}...
                                                 </p>
                                                 <p className='bookingDetails'>
                                                     <i><LuClock4 /></i>
-                                                    Scheduled: {booking.timeSlot}
+                                                    {booking.timeSlot}
                                                 </p>
                                                 <p className='bookingDetails'>
-                                                    <i><BiTask /></i>
-                                                    Est. Duration: {booking.estimatedDuration}
+                                                    <i><IoCalendarOutline /></i>
+                                                    {booking.estimatedDuration}
                                                 </p>
-                                                <p className={`bookingStatus ${booking.status.toLowerCase()}`}>
-                                                    Status: {booking.status}
-                                                </p>
+                                                
                                             </div>
                                         </div>
 
                                         <div className="bookingControls">
                                             {/* Pass booking ID to messages page if needed for context */}
-                                            <Link to={`/ProviderDashboard/Messages?bookingId=${booking.id}`}>
-                                                <button className='viewMessageBtn'>View Message</button>
-                                            </Link>
+                                            
+                                            <button>
+                                              <p className={`bookingStatus ${booking.status.toLowerCase()}`}>
+                                                {booking.status}
+                                              </p>
+                                            </button>
 
                                             <div className="bookingControls2">
-                                                {/* Conditional rendering for control buttons based on status */}
-                                                {booking.status === 'PENDING' && (
-                                                    <>
-                                                        <i><SiTicktick className='accept' title='Accept Booking Request' /></i>
-                                                        <i><MdOutlineCancel className='decline' title='Decline Booking Request' /></i>
-                                                    </>
-                                                )}
-                                                {booking.status === 'CONFIRMED' && (
-                                                     <i><BiTask className='completed' title='Mark as Completed' /></i>
-                                                )}
-                                                {/* You might add logic for 'COMPLETED' or 'CANCELLED' states */}
+                                                <Link to={`/ProviderDashboard/Messages?bookingId=${booking.id}`}>
+                                                    <button className='viewMessageBtn'>View Message</button>
+                                                </Link>
+                                                <div className="bookingControls3">
+                                                  {booking.status === 'PENDING' && (
+                                                      <>
+                                                          <i><SiTicktick className='accept' title='Accept Booking Request' /></i>
+                                                          <i><MdOutlineCancel className='decline' title='Decline Booking Request' /></i>
+                                                      </>
+                                                  )}
+                                                  {booking.status === 'CONFIRMED' && (
+                                                      <i><BiTask className='completed' title='Mark as Completed' /></i>
+                                                  )}
+                                                </div>
+                                                <p className='bookingTime'>
+                                                    <i><LuClock4 /></i>
+                                                    {booking.timeAgo} 
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
