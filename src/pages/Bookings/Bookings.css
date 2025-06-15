@@ -86,7 +86,7 @@
 .jobAlert{
     display: flex;
     /* flex-direction: column; */
-    height: 200px;
+    height: 150px;
     /* background-color: #3184ae50; */
     border-bottom: 1px solid #9a9a9a;
 }
@@ -116,7 +116,6 @@
 .jobEmployerTxtLocation{
     display: flex;
     width: 100%;
-    height: 30px;
     /* background-color: antiquewhite; */
     align-items: center;
     gap: 20px;
@@ -129,7 +128,10 @@
     align-items: center;
     color: #777;
 }
-.jobEmployerTxtLocation p, .jobAlertDuration p, .bookingTime{
+.bookingTime{
+    color: #777;
+}
+.jobEmployerTxtLocation p, .bookingDetails, .jobAlertDuration p, .bookingTime{
     display: flex;
     gap: 5px;
     font-size: 14px;
@@ -144,19 +146,17 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     gap: 10px;
-    background-color: #666;
 }
 .bookingControls2{
-    width: 100%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     gap: 10px;
-    background-color: rgba(255, 127, 80, 0.381);
+
 }
 .bookingControls3{
     width: 70%;
@@ -164,12 +164,11 @@
     display: flex;
     gap: 20px;
     align-items: center;
-    justify-content: center;
-    border: 1px solid black;
+
 }
 .decline, .accept, .completed{
-    padding: 5px;
-    border-radius: 5px;
+    padding: 2px;
+    border-radius: 12px;
     font-size: 20px;
 }
 .accept{
@@ -220,3 +219,105 @@
     border: 0;
     color: white;
 }
+
+
+
+
+/* Base style for all booking status tags */
+.bookingStatus {
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 6px 10px;
+    font-size: 0.85em; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+}
+
+/* --- Status Specific Styles --- */
+
+/* PENDING Status */
+.bookingStatus.pending {
+    color: #FFA500; /* Orange text */
+    background-color: #FFF3E0; /* Very light orange background */
+    border: 1px solid #FFCC80; /* Slightly darker orange border */
+}
+
+/* ACCEPTED Status */
+.bookingStatus.accepted {
+    color: #28A745; /* Green text */
+    background-color: #E6F7ED; /* Very light green background */
+    border: 1px solid #82E0AA; /* Slightly darker green border */
+}
+
+/* DECLINED Status */
+.bookingStatus.declined {
+    color: #DC3545; /* Red text */
+    background-color: #FDEDE9; /* Very light red background */
+    border: 1px solid #F0B2B2; /* Slightly darker red border */
+}
+
+/* COMPLETED Status */
+.bookingStatus.completed {
+    color: #007BFF; /* Blue text */
+    background-color: #E0F2FF; /* Very light blue background */
+    border: 1px solid #87CEFA; /* Slightly darker blue border */
+}
+
+/* CANCELLED Status */
+.bookingStatus.cancelled {
+    color: #6C757D; /* Gray text */
+    background-color: #F8F9FA; /* Very light gray background */
+    border: 1px solid #D3D6DB; /* Slightly darker gray border */
+}
+
+
+/* .status-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.status-button.pending {
+    background-color: #FFCC80;
+    color: #8B4500; 
+}
+.status-button.pending:hover {
+    background-color: #FFA500;
+}
+
+.status-button.accepted {
+    background-color: #82E0AA;
+    color: #1A5E2A; 
+}
+.status-button.accepted:hover {
+    background-color: #28A745;
+}
+
+.status-button.declined {
+    background-color: #F0B2B2;
+    color: #9A242F; 
+}
+.status-button.declined:hover {
+    background-color: #DC3545;
+}
+
+.status-button.completed {
+    background-color: #87CEFA;
+    color: #003F7F;
+}
+.status-button.completed:hover {
+    background-color: #007BFF;
+}
+
+.status-button.cancelled {
+    background-color: #D3D6DB;
+    color: #495057; 
+}
+.status-button.cancelled:hover {
+    background-color: #6C757D;
+}  */

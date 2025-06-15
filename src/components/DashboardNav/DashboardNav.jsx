@@ -44,7 +44,6 @@ const DashboardNav = () => {
         <Link to="/Home">
           <i className='notifications'><IoHomeOutline /></i>
         </Link>
-        {/* <i className='notifications'><PiMailbox /></i> */}
         <i className='notifications'><PiBellRinging /></i>
         <div className='profileWrapper' onClick={toggleDropdown}>
           <img src={displayProfilePic} alt="Profile" className='profilePic' />

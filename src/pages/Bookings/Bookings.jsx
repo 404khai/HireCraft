@@ -264,10 +264,10 @@ const Bookings = () => {
                                                 </div>
 
                                                 {/* Display Time Slot and Estimated Duration */}
-                                                <p className='bookingDetails'>
+                                                {/* <p className='bookingDetails'>
                                                     <i><LuMessageSquareText /></i>
                                                     {booking.description.substring(0, 50)}...
-                                                </p>
+                                                </p> */}
                                                 <p className='bookingDetails'>
                                                     <i><LuClock4 /></i>
                                                     {booking.timeSlot}
@@ -283,8 +283,8 @@ const Bookings = () => {
                                         <div className="bookingControls">
                                             {/* Pass booking ID to messages page if needed for context */}
                                             
-                                            <button>
-                                              <p className={`bookingStatus ${booking.status.toLowerCase()}`}>
+                                            <button className={`bookingStatus ${booking.status.toLowerCase()}`}>
+                                              <p >
                                                 {booking.status}
                                               </p>
                                             </button>
@@ -294,7 +294,10 @@ const Bookings = () => {
                                                     <button className='viewMessageBtn'>View Message</button>
                                                 </Link>
                                                 <div className="bookingControls3">
-                                                  {booking.status === 'PENDING' && (
+                                                  <i><SiTicktick className='accept' title='Accept Booking Request' /></i>
+                                                  <i><MdOutlineCancel className='decline' title='Decline Booking Request' /></i>
+                                                  <i><BiTask className='completed' title='Mark as Completed' /></i>
+                                                  {/* {booking.status === 'PENDING' && (
                                                       <>
                                                           <i><SiTicktick className='accept' title='Accept Booking Request' /></i>
                                                           <i><MdOutlineCancel className='decline' title='Decline Booking Request' /></i>
@@ -302,11 +305,10 @@ const Bookings = () => {
                                                   )}
                                                   {booking.status === 'CONFIRMED' && (
                                                       <i><BiTask className='completed' title='Mark as Completed' /></i>
-                                                  )}
+                                                  )} */}
                                                 </div>
                                                 <p className='bookingTime'>
-                                                    <i><LuClock4 /></i>
-                                                    {booking.timeAgo} 
+                                                  {booking.timeAgo} 
                                                 </p>
                                             </div>
                                         </div>
