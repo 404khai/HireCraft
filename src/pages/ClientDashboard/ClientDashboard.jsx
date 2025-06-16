@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import './ClientDashboard.css'
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ClientSideNav from '../../components/ClientSideNav/ClientSideNav'
@@ -8,7 +8,20 @@ import { HiArrowTrendingUp } from "react-icons/hi2";
 import { FaDollarSign } from "react-icons/fa6";
 import { MdMarkUnreadChatAlt } from "react-icons/md";
 
+import { AuthContext } from '../../context/AuthContext'
+
 const ClientDashboard = () => {
+  const { user } = useContext(AuthContext);
+    const token = localStorage.getItem('token');
+    
+    const [firstName, setFirstName] = useState('');
+  
+    useEffect(() => {
+        if (user) {
+          setFirstName(user.firstName || '');
+        }
+      }, [user]);
+
   return (
     <div className='dashboardBox'>
       <DashboardNav/>
@@ -18,7 +31,7 @@ const ClientDashboard = () => {
           <div className="dashboard">
             <div className="welcome">
               <div className="welcomeTxt">
-                <h2>Welcome, Victor</h2>
+                <h2>Welcome, {firstName}</h2>
                 <p style={{color: "#888"}}>We are glad to see you again!</p>
               </div>
 

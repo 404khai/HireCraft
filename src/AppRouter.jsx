@@ -21,6 +21,7 @@ import Reviews from './pages/Reviews/Reviews'
 import './App.css'
 import ContactUs from "./pages/ContactUs/ContactUs";
 import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
+import ClientBookings from "./pages/ClientBookings/ClientBookings";
 
 
 
@@ -74,6 +75,7 @@ const ClientDashboardLayout = () => (
   <>
     <Routes>
       <Route path="/ClientDashboard" element={<ClientDashboard />} />
+      <Route path="/ClientDashboard/Bookings" element={<ClientBookings />} />
     </Routes>
   </>
 );

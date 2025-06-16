@@ -18,6 +18,7 @@ import en from 'i18n-iso-countries/langs/en.json'; // Import English locale data
 countries.registerLocale(en); // Register the locale data for lookup
 
 import { AuthContext } from '../../context/AuthContext';
+import Avatar from '../../components/Avatar';
 
 const ProviderProfile = () => {
 
@@ -98,7 +99,14 @@ const ProviderProfile = () => {
   return (
     <div className='providerProfile'>
       <div className="providerProfileHead">
-        <img src={profilePictureUrl} alt="" className='providerProfileImg'/>
+        <Avatar
+          imageUrl={profilePictureUrl}
+          firstName={firstName}
+          lastName={lastName}
+          size={100} // Adjust size as needed
+          textSize={40} // Adjust text size for initials
+          className='providerProfileImg' // Add your existing CSS class for extra styling
+        />
 
         <div className="providerProfileName">
           <h3>{firstName + " " +lastName}</h3>

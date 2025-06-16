@@ -15,11 +15,11 @@ const ClientSideNav = () => {
 
         <div className="start">
             <p><b>Home</b></p>
-            <Link to="/Dashboard">
+            <Link to="/ClientDashboard">
                 <i><LuLayoutDashboard /></i>
                 Dashboard
             </Link>
-            <Link to="/Dashboard/Messages">
+            <Link to="/ProviderDashboard/Messages">
                 <i><TiMessages /></i>
                 Messages
             </Link>
@@ -27,7 +27,7 @@ const ClientSideNav = () => {
                 <i><LuBellRing /></i>
                 Job Requests
             </Link> */}
-            <Link to="/Dashboard">
+            <Link to="/ClientDashboard/Bookings">
                 <i><IoBriefcaseOutline /></i>
                 My Bookings
             </Link>

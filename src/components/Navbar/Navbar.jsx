@@ -270,8 +270,8 @@ const Navbar = () => {
                             imageUrl={user.profilePictureUrl}
                             firstName={user.firstName}
                             lastName={user.lastName}
-                            size={40} // Adjust size as needed for your navbar
-                            textSize={18} // Adjust text size as needed
+                            size={55} // Adjust size as needed for your navbar
+                            textSize={23} // Adjust text size as needed
                             className='navUserImg' // Apply the existing class for styling if needed
                         />
                         {isDropdownVisible && (

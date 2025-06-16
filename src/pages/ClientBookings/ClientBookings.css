@@ -105,9 +105,9 @@
     height: 50%;
     border-radius: 50px;
 }
-.jobEmployerTxt{
+.jobEmployerTxtClient{
     width: 90%;
-    height: 80%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     color: #777;
