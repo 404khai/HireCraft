@@ -47,10 +47,10 @@ const ProviderSideNav = () => {
                 <i><IoMdFolderOpen /></i>
                 Projects
             </Link>
-            <Link to="/ProviderDashboard/Resume">
+            {/* <Link to="/ProviderDashboard/Resume">
                 <i><TbFileTextSpark /></i>
                 Resume
-            </Link>
+            </Link> */}
         </div>
 
         <div className="account">
