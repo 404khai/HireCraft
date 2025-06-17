@@ -87,6 +87,7 @@
     display: flex;
     /* flex-direction: column; */
     height: 150px;
+    width: 100%;
     /* background-color: #3184ae50; */
     border-bottom: 1px solid #9a9a9a;
 }
@@ -145,63 +146,42 @@
     width: 50%;
     height: 100%;
     display: flex;
+    /* background-color: #6C757D; */
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 10px;
 }
+
 .bookingControls2{
-    width: 50%;
+    width: 35%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-
+    /* background-color: #007BFF;  */
 }
 .bookingControls3{
-    width: 70%;
-    height: 40px;
+    width: 30%;
+    height: 80%;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-
+    gap: 20px;
+    /* background-color: crimson; */
+}
+.bookingStatusBox{
+    height: 100%;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .decline, .accept, .completed{
-    padding: 2px;
-    border-radius: 12px;
-    font-size: 20px;
+    font-size: 15px;
+    color: white;
 }
-.accept{
-    color: #2E7D32; 
-    background-color: #E8F5E9;
-}
-.accept:hover{
-    background-color: #2E7D32; 
-    color: #E8F5E9;
-    transition: 1s;
-    transform: scale(0.9);
-}
-.decline{
-    color: #C62828; 
-    background-color: #FFEBEE;
-}
-.decline:hover{
-    background-color: #C62828; 
-    color: #FFEBEE;
-    transition: 1s;
-    transform: scale(0.9);
-}
-.completed{
-    color: #00897B;
-    background-color: #E0F2F1;
-}
-.completed:hover{
-    background-color: #00897B; 
-    color: #E0F2F1;
-    transition: 1s;
-    transform: scale(0.9);
-}
-
 .viewMessageBtn{
     /* background-color: #35D07D; */
     background-color: #def5d8;
@@ -233,6 +213,102 @@
     font-size: 0.85em; 
     text-transform: uppercase; 
     letter-spacing: 0.5px; 
+}
+
+.acceptBtn {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: #28A745;
+}
+.declineBtn {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: #C62828;
+}
+.completedBtn {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: #00897B;
+}
+/* plus sign */
+.acceptBtnIcon {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.acceptBtnIcon i{
+    display: flex;
+}
+
+/* .sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+} */
+
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+/* hover effect on button width */
+.acceptBtn:hover, .declineBtn:hover, .completedBtn:hover {
+  width: 120px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.acceptBtn:hover .acceptBtnIcon, .declineBtn:hover .acceptBtnIcon, .completedBtn:hover .acceptBtnIcon {
+  width: 30%;
+  transition-duration: .3s;
+  
+}
+/* hover effect button's text */
+.acceptBtn:hover .text, .declineBtn:hover .text, .completedBtn.completedBtn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.accceptBtn:active, .declineBtn:active, .completedBtn:active {
+  transform: translate(2px ,2px);
 }
 
 /* --- Status Specific Styles --- */
@@ -271,8 +347,6 @@
     background-color: #F8F9FA; /* Very light gray background */
     border: 1px solid #D3D6DB; /* Slightly darker gray border */
 }
-
-
 /* .status-button {
     padding: 8px 15px;
     border: none;

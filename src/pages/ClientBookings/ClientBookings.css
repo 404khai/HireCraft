@@ -83,23 +83,7 @@
     border-radius: 5px;
     padding: 5px 8px;
 }
-.jobAlert{
-    display: flex;
-    /* flex-direction: column; */
-    height: 150px;
-    /* background-color: #3184ae50; */
-    border-bottom: 1px solid #9a9a9a;
-}
 
-.jobAlertEmployer{
-    height: 100%;
-    width: 50%;
-    display: flex;
-    gap: 10px;
-    padding-left: 30px;
-    align-items: center;
-    color: #777;
-}
 .jobAlertEmployer img{
     width:80px;
     height: 50%;
@@ -141,37 +125,23 @@
     align-items: center;
 }
 
-.bookingControls{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
-}
-.bookingControls2{
-    width: 50%;
+
+
+/* .bookingControls3{
+    width: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-
-}
-.bookingControls3{
-    width: 70%;
-    height: 40px;
-    display: flex;
     gap: 20px;
     align-items: center;
-
-}
+    background-color: crimson;
+} */
 .decline, .accept, .completed{
     padding: 2px;
     border-radius: 12px;
     font-size: 20px;
 }
-.accept{
+/* .accept{
     color: #2E7D32; 
     background-color: #E8F5E9;
 }
@@ -200,7 +170,7 @@
     color: #E0F2F1;
     transition: 1s;
     transform: scale(0.9);
-}
+} */
 
 .viewMessageBtn{
     /* background-color: #35D07D; */
