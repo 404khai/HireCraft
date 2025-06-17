@@ -4,6 +4,7 @@ import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import { TiFolderAdd } from "react-icons/ti";
+import { LuScanText } from "react-icons/lu";
 
 import { CountrySelect, StateSelect, CitySelect } from 'react-country-state-city'
 import "react-country-state-city/dist/react-country-state-city.css";
@@ -488,7 +489,7 @@ const Settings = () => {
                       <p>pdf</p>
                     </div> */}
 
-                    <div className="editCv">
+                    <div className="editCV">
                       <div className="editProfileHead">
                         <i><TiFolderAdd /></i>
                         <b>Upload CV</b>
@@ -504,17 +505,24 @@ const Settings = () => {
                               onChange={handleCvFileChange}
                               style={{ display: 'none' }}
                             />
-                            <button
-                              type="button" // Important: type="button" to prevent form submission
-                              onClick={() => cvFileInputRef.current.click()}
-                              className="uploadCvButton" // Add a class for styling
-                            >
-                              {selectedCvFile ? `Selected: ${selectedCvFile.name}` : (cvUrl ? "Change CV" : "Upload CV")}
-                            </button>
+                            <div className='cvControls'>
+                              <button
+                                type="button" // Important: type="button" to prevent form submission
+                                onClick={() => cvFileInputRef.current.click()}
+                                className="uploadCvButton" // Add a class for styling
+                                >
+                                  {selectedCvFile ? `Selected: ${selectedCvFile.name}` : (cvUrl ? "Change CV" : "Upload CV")}
+                              </button>
+
+                              <a href={cvUrl} target="_blank" rel="noopener noreferrer">View CV <LuScanText/></a>
+                            </div>
+                            
                             {cvUrl && (
                               <div className="cvOverview">
-                                <p><a href={cvUrl} target="_blank" rel="noopener noreferrer">View CV</a></p>
-                                {/* For a mini preview, you could use an iframe for PDFs, but might need a dedicated library for Word docs */}
+                                {/* <div className="cvFile">
+                                  <p><a href={cvUrl} target="_blank" rel="noopener noreferrer">View CV</a></p>
+                                  <p>pdf</p>
+                                </div> */}
                                 {cvUrl.toLowerCase().endsWith('.pdf') && (
                                   <iframe src={cvUrl} width="100%" height="300px" title="CV Preview" style={{ border: '1px solid #ccc', marginTop: '10px' }}></iframe>
                                 )}
