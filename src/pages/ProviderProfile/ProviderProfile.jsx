@@ -5,6 +5,7 @@ import ReactCountryFlag from "react-country-flag"
 import ReviewCard from '../../components/ReviewCard/ReviewCard';
 import { FaStar, FaRegStarHalfStroke, FaRegStar } from 'react-icons/fa6';
 import { IoLocationOutline } from "react-icons/io5";
+import { FiMail, FiPhoneCall } from "react-icons/fi";
 import { DiVisualstudio } from 'react-icons/di';
 import { FaRegThumbsUp, FaInstagram, FaWhatsapp, FaFacebookF } from "react-icons/fa6";
 import mac1 from '../../assets/mac1.jpg'
@@ -138,6 +139,17 @@ const ProviderProfile = () => {
           {/* <p className='providerProfileState'><i><IoLocationOutline/></i> {selectedCityName}, {selectedStateName}</p> */}
         </div>
 
+        <div className="socialLinks">
+          <p>
+            <i><FiPhoneCall/></i>
+            {phoneNumber}
+          </p>
+          <p>
+            <i><FiMail/></i>
+            {email}
+          </p>
+          
+        </div>
         {/* <button>Send a job request</button> */}
 
       </div>
@@ -160,13 +172,12 @@ const ProviderProfile = () => {
             </div>
           </div>
 
-          <h3>Social Profiles</h3>
+          {/* <h3>Social Profiles</h3>
           <div className="socialProfiles">
-            {/* <i><FaFacebookF/></i> */}
             <i><FaInstagram/></i>
             <i><FaWhatsapp/></i>
             <i><FaFacebookF/></i>
-          </div>
+          </div> */}
 
           <h3>Skills</h3>
           <div className="skills">

@@ -37,6 +37,7 @@
 import React, { useState, useEffect } from 'react';
 import Filter from '../../components/Filter/Filter'
 import FreelancerProfile from '../../components/FreelancerProfile/FreelancerProfile';
+import './BrowseFreelancers.css'
 
 const BrowseFreelancers = () => {
   const [providers, setProviders] = useState([]);
@@ -67,7 +68,8 @@ const BrowseFreelancers = () => {
       </div>
       <div className="servicesShowcase">
         <div className="freelancerFilter">
-          <Filter onFilter={handleFilterChange}/>
+          {/* <Filter onFilter={handleFilterChange}/> */}
+          <Filter/>
         </div>
         <div className="freelancers">
           {providers.map(provider => (

@@ -5,6 +5,7 @@ import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import { TiFolderAdd } from "react-icons/ti";
 import { LuScanText } from "react-icons/lu";
+import { IoSettingsOutline } from "react-icons/io5";
 
 import { CountrySelect, StateSelect, CitySelect } from 'react-country-state-city'
 import "react-country-state-city/dist/react-country-state-city.css";
@@ -268,6 +269,7 @@ const Settings = () => {
                 <div className="editProfileSettings">
                     <div className="editProfile">
                         <div className="editProfileHead">
+                            {/* <i><IoSettingsOutline /></i> */}
                             <i><TiFolderAdd /></i>
                             <b>Edit Profile</b>
                         </div>
@@ -489,6 +491,7 @@ const Settings = () => {
                       <p>pdf</p>
                     </div> */}
 
+                    {user && user.userRole === 'ROLE_PROVIDER' && (
                     <div className="editCV">
                       <div className="editProfileHead">
                         <i><TiFolderAdd /></i>
@@ -496,7 +499,7 @@ const Settings = () => {
                       </div>
 
                       <div className="changePasswordForm">
-                        {user && user.userRole === 'ROLE_PROVIDER' && (
+                        
                         <div className="changeInfoInputContainer">
                             <input
                               type="file"
@@ -529,9 +532,10 @@ const Settings = () => {
                               </div>
                             )}
                           </div>
-                        )}
+                        
                       </div>
                     </div>
+                    )}
 
                       
                 </div>

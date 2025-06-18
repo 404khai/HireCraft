@@ -50,6 +50,8 @@
 
 
 import React, { useState } from 'react';
+import './Filter.css'
+import PriceFilter from '../PriceFilter/PriceFilter';
 
 const Filter = ({ onFilter }) => {
   const [name, setName] = useState('');
@@ -86,7 +88,8 @@ const Filter = ({ onFilter }) => {
        
       <div className='priceFilterBox'>
         <label htmlFor="">Filter by Rates</label>
-        <PriceFilter onFilterChange={handleFilterChange} />
+        {/* <PriceFilter onFilterChange={handleFilterChange} /> */}
+        <PriceFilter/>
       </div>
       <button onClick={handleFilter}>Apply Filters</button>
     </div>
