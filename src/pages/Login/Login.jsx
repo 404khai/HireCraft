@@ -8,11 +8,14 @@ import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'; // Import axios
 
+import { VscEye, VscEyeClosed } from "react-icons/vsc";
+
 const Login = () => {
     const { setUser } = useContext(AuthContext);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -62,6 +65,10 @@ const Login = () => {
         }
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <div className="loginContainer">
             <img src={loginGif} alt="" className='loginImg' />
@@ -96,13 +103,16 @@ const Login = () => {
                     </svg>
                     <input
                         placeholder="Password"
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         className="input_field"
                         id="password_field"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    <span className="password-toggle-icon" onClick={togglePasswordVisibility}>
+                        {showPassword ? <VscEyeClosed /> : <VscEye />}
+                    </span>
                 </div>
 
                 <button title="Log In" type="submit" className="logInBtn">
