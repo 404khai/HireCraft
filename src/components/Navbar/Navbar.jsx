@@ -172,6 +172,7 @@ import { LuLayoutDashboard } from "react-icons/lu";
 import { IoExitOutline, IoHomeOutline } from "react-icons/io5"
 import { FaRegUser } from 'react-icons/fa6'
 import Avatar from '../Avatar'; // <--- Import the new Avatar component
+import { RxCaretDown } from "react-icons/rx";
 
 const Navbar = () => {
 
@@ -274,6 +275,9 @@ const Navbar = () => {
                             textSize={23} // Adjust text size as needed
                             className='navUserImg' // Apply the existing class for styling if needed
                         />
+                        <button className='onlineBtn'></button>
+                        <p className='navUserImgName'>Hi, {user.firstName}</p>
+                        <i className='navUserIcon'><RxCaretDown/></i>
                         {isDropdownVisible && (
                             <div className="navbarProfileDropdown">
                                 {/* Use getDashboardLink for dynamic dashboard route */}

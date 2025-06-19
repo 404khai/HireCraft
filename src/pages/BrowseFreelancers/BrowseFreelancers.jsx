@@ -150,7 +150,7 @@ const BrowseFreelancers = () => {
         const errorData = await response.json();
         // If the error indicates authentication failure, provide a specific message
         if (response.status === 401 || response.status === 403) {
-            throw new Error('You are not authorized to view this resource. Please log in.');
+            throw new Error('You are not authorized to view this page. Please log in as a client.');
         }
         throw new Error(errorData.message || `Failed to fetch providers. Status: ${response.status}`);
       }
