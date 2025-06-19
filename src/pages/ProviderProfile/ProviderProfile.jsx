@@ -302,7 +302,7 @@ const API_BASE_URL = 'http://localhost:9090/api/v1/users';
 const PLACEHOLDER_IMG = 'https://placehold.co/150x150/EEEEEE/888888?text=No+Image';
 
 const ProviderProfile = () => {
-  const { id } = useParams();
+  const { id: providerProfileIdFromUrl } = useParams();
   const { token } = useContext(AuthContext);
   const { user: loggedInUser } = useContext(AuthContext);
 
@@ -314,7 +314,7 @@ const ProviderProfile = () => {
 
   useEffect(() => {
     const fetchProviderDetails = async () => {
-      if (!id) {
+      if (!providerProfileIdFromUrl) {
         setError('Provider ID is missing from URL.');
         setIsLoading(false);
         return;
@@ -329,7 +329,7 @@ const ProviderProfile = () => {
       setError(null);
 
       try {
-        const response = await fetch(`${API_BASE_URL}/providers/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/providers/${providerProfileIdFromUrl}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -367,7 +367,7 @@ const ProviderProfile = () => {
     };
 
     fetchProviderDetails();
-  }, [id, token]);
+  }, [providerProfileIdFromUrl, token]);
 
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -421,7 +421,8 @@ const ProviderProfile = () => {
     state,
     country,
     profilePictureUrl,
-    portfolioImages = []
+    portfolioImages = [],
+    providerId
   } = providerData;
 
   const fullName = `${firstName || ''} ${lastName || ''}`.trim();
@@ -542,7 +543,7 @@ const ProviderProfile = () => {
         </div>
         <div className="providerWorkFeedback">
           <h3><i><FaRegThumbsUp/></i> Work Feedback</h3>
-          <ReviewCard providerId={id} />
+          <ReviewCard providerId={providerId} />
         </div>
       </div>
 
@@ -550,7 +551,7 @@ const ProviderProfile = () => {
       <BookingModal
         isOpen={isModalOpen}
         onClose={closeBookingModal}
-        providerId={id} 
+        providerId={providerId} 
         providerName={fullName} 
       />
     </div>
