@@ -87,34 +87,42 @@
 // export default BrowseFreelancers;
 
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react'; // Import useContext
+import { AuthContext } from '../../context/AuthContext'; // Import AuthContext
 import Filter from '../../components/Filter/Filter';
 import FreelancerProfile from '../../components/FreelancerProfile/FreelancerProfile';
-import './BrowseFreelancers.css'; // Ensure your CSS file is correctly linked
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // For pagination arrows
+import './BrowseFreelancers.css';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-const API_BASE_URL = 'http://localhost:9090/api/v1/users'; // Centralized API URL
+const API_BASE_URL = 'http://localhost:9090/api/v1/users';
 
 const BrowseFreelancers = () => {
-  const [providers, setProviders] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0); // Spring Data JPA pages are 0-indexed
-  const [totalPages, setTotalPages] = useState(0);
-  const [filters, setFilters] = useState({}); // State to hold current filters
-  const [isLoading, setIsLoading] = useState(false); // New: Loading state
-  const [error, setError] = useState(null); // New: Error state
+  const { token } = useContext(AuthContext); // <--- Get the token from AuthContext
 
-  // Function to fetch providers from the API
+  const [providers, setProviders] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+  const [filters, setFilters] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const fetchProviders = async (currentFilters = filters, page = currentPage) => {
-    setIsLoading(true); // Set loading to true before fetching
-    setError(null); // Clear any previous errors
+    setIsLoading(true);
+    setError(null);
+
+    // Check if token exists before making the request
+    if (!token) {
+      setError('Authentication required to view providers.');
+      setIsLoading(false);
+      console.warn('Attempted to fetch providers without a token.');
+      return; // Stop the function if no token is present
+    }
 
     try {
       const params = new URLSearchParams();
 
-      // Add filters to URLSearchParams
       if (currentFilters.occupation) params.append('occupation', currentFilters.occupation);
       if (currentFilters.skills) {
-        // Assuming skills are comma-separated from the input
         currentFilters.skills.split(',').forEach(skill => {
           if (skill.trim()) params.append('skills', skill.trim());
         });
@@ -122,59 +130,68 @@ const BrowseFreelancers = () => {
       if (currentFilters.city) params.append('city', currentFilters.city);
       if (currentFilters.state) params.append('state', currentFilters.state);
       if (currentFilters.country) params.append('country', currentFilters.country);
-      // Ensure minRating is only sent if greater than 0
       if (currentFilters.minRating && currentFilters.minRating > 0) {
         params.append('minRating', currentFilters.minRating);
       }
 
-      // Add pagination parameters
       params.append('page', page);
-      params.append('size', 10); // You can adjust the page size as needed
-      params.append('sort', 'createdAt,desc'); // Default sort order
+      params.append('size', 10);
+      params.append('sort', 'createdAt,desc');
 
-      const response = await fetch(`${API_BASE_URL}/providers?${params.toString()}`);
+      const response = await fetch(`${API_BASE_URL}/providers?${params.toString()}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json', // Assuming JSON body if you were sending one, good practice
+          'Authorization': `Bearer ${token}` // <--- INCLUDE THE TOKEN HERE!
+        }
+      });
 
       if (!response.ok) {
         const errorData = await response.json();
+        // If the error indicates authentication failure, provide a specific message
+        if (response.status === 401 || response.status === 403) {
+            throw new Error('You are not authorized to view this resource. Please log in.');
+        }
         throw new Error(errorData.message || `Failed to fetch providers. Status: ${response.status}`);
       }
 
       const data = await response.json();
-      setProviders(data.content); // Assuming the API returns a Page object with 'content'
+      setProviders(data.content);
       setTotalPages(data.totalPages);
-      setCurrentPage(data.number); // Update currentPage with the actual page number from response
+      setCurrentPage(data.number);
 
     } catch (err) {
       console.error('Error fetching providers:', err.message);
-      setError('Failed to load providers. Please try again later.'); // User-friendly error message
-      setProviders([]); // Clear providers on error
+      setError(err.message || 'Failed to load providers. Please try again later.'); // Show specific error message
+      setProviders([]);
       setTotalPages(0);
       setCurrentPage(0);
     } finally {
-      setIsLoading(false); // Always set loading to false after fetch attempt
+      setIsLoading(false);
     }
   };
 
-  // Initial fetch when component mounts or filters/page change
-  // The 'filters' and 'currentPage' dependencies are crucial for re-fetching
-  // when these values are explicitly updated by the filter or pagination handlers.
-  // The initial useEffect below runs once on mount.
+  // The initial fetch should now depend on 'token' to ensure it's available
+  // when the component first tries to load data.
   useEffect(() => {
-    fetchProviders(filters, currentPage);
-  }, []); // Empty dependency array means this runs once on mount for the initial load
+    if (token) { // Only fetch if a token is available
+      fetchProviders(filters, currentPage);
+    } else {
+        // If no token on initial mount, set an error
+        setError('Please log in to view service providers.');
+    }
+  }, [token]); // Add token to dependency array
 
-  // Handle filter changes from the Filter component
   const handleFilterChange = (newFilters) => {
-    setFilters(newFilters); // Update the filters state
-    setCurrentPage(0); // Reset to first page when filters change
-    fetchProviders(newFilters, 0); // Fetch with new filters, starting from page 0
+    setFilters(newFilters);
+    setCurrentPage(0);
+    fetchProviders(newFilters, 0);
   };
 
-  // Handle page changes
   const handlePageChange = (pageNumber) => {
     if (pageNumber >= 0 && pageNumber < totalPages) {
-      setCurrentPage(pageNumber); // This update will trigger a re-render
-      fetchProviders(filters, pageNumber); // Fetch with current filters, new page number
+      setCurrentPage(pageNumber);
+      fetchProviders(filters, pageNumber);
     }
   };
 
@@ -185,7 +202,6 @@ const BrowseFreelancers = () => {
       </div>
       <div className="servicesShowcase">
         <div className="freelancerFilter">
-          {/* Pass the handleFilterChange function to the Filter component */}
           <Filter onFilter={handleFilterChange} />
         </div>
 
@@ -200,7 +216,6 @@ const BrowseFreelancers = () => {
           {!isLoading && !error && (
             providers.length > 0 ? (
               providers.map(provider => (
-                // Pass the entire provider object to FreelancerProfile
                 <FreelancerProfile key={provider.id} provider={provider} />
               ))
             ) : (
