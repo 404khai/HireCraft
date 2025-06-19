@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const SendJobRequestBtn = ({ onClick }) => {
   return (
     <StyledWrapper>
-      <button className="button" onClick={{ onClick }}>
+      <button className="button" onClick={ onClick }>
         <div className="outline" />
         <div className="state state--default">
           <div className="icon">
