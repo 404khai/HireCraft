@@ -76,64 +76,98 @@
 // export default PriceFilter;
 
 
-// PriceFilter.jsx
+
+// import React, { useState } from 'react';
+// import { Range, getTrackBackground } from 'react-range';
+// import './PriceFilter.css';
+
+// const MIN = 12;
+// const MAX = 100;
+
+// const PriceFilter = ({ onFilterChange }) => {
+//   const [values, setValues] = useState([12, 59]);
+
+//   const handleChange = (newValues) => {
+//     setValues(newValues);
+//     onFilterChange(newValues);
+//   };
+
+//   return (
+//     <div className="price-filter">
+//       <div className="price-bubble">
+//         ${values[0]} – ${values[1]}
+//       </div>
+//       <Range
+//         step={1}
+//         min={MIN}
+//         max={MAX}
+//         values={values}
+//         onChange={handleChange}
+//         renderTrack={({ props, children }) => (
+//           <div
+//             {...props}
+//             className="slider-track"
+//             style={{
+//               background: getTrackBackground({
+//                 values,
+//                 colors: ['#ccc', '#4CAF50', '#ccc'],
+//                 min: MIN,
+//                 max: MAX,
+//               }),
+//               height: '6px',
+//               width: '300px',
+//               borderRadius: '4px',
+//               display: 'flex',
+//               alignItems: 'center',
+//             }}
+//           >
+//             {children}
+//           </div>
+//         )}
+//         renderThumb={({ props }) => (
+//           <div
+//             {...props}
+//             className="slider-thumb"
+//             style={{
+//               ...props.style,
+//             }}
+//           />
+//         )}
+//       />
+//     </div>
+//   );
+// };
+
+// export default PriceFilter;
+
+
+
+// Example PriceFilter.jsx
 import React, { useState } from 'react';
-import { Range, getTrackBackground } from 'react-range';
-import './PriceFilter.css';
+// import './PriceFilter.css'; // Your CSS for PriceFilter
 
-const MIN = 12;
-const MAX = 100;
+const PriceFilter = ({ onFilterChange, currentRate = 0 }) => {
+  const [rateValue, setRateValue] = useState(currentRate);
 
-const PriceFilter = ({ onFilterChange }) => {
-  const [values, setValues] = useState([12, 59]);
-
-  const handleChange = (newValues) => {
-    setValues(newValues);
-    onFilterChange(newValues);
+  const handleChange = (e) => {
+    const newRate = parseInt(e.target.value, 10);
+    setRateValue(newRate);
+    if (onFilterChange) {
+      onFilterChange(newRate); // Pass the new rate back to the parent
+    }
   };
 
   return (
-    <div className="price-filter">
-      <div className="price-bubble">
-        ${values[0]} – ${values[1]}
-      </div>
-      <Range
-        step={1}
-        min={MIN}
-        max={MAX}
-        values={values}
+    <div className="priceFilter">
+      <input
+        type="range"
+        min="0"
+        max="5" // Assuming rating from 0 to 5
+        step="0.5" // Allows for half-star ratings
+        value={rateValue}
         onChange={handleChange}
-        renderTrack={({ props, children }) => (
-          <div
-            {...props}
-            className="slider-track"
-            style={{
-              background: getTrackBackground({
-                values,
-                colors: ['#ccc', '#4CAF50', '#ccc'],
-                min: MIN,
-                max: MAX,
-              }),
-              height: '6px',
-              width: '300px',
-              borderRadius: '4px',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            {children}
-          </div>
-        )}
-        renderThumb={({ props }) => (
-          <div
-            {...props}
-            className="slider-thumb"
-            style={{
-              ...props.style,
-            }}
-          />
-        )}
       />
+      <p>Min. Rating: {rateValue.toFixed(1)}</p>
     </div>
   );
 };

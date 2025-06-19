@@ -253,7 +253,7 @@ const Navbar = () => {
             </Link>
 
             <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
-                <Link to='/BrowseFreelancers'>Browse Freelancers</Link>
+                <Link to='/BrowseFreelancers'>Browse Providers</Link>
                 <Link to='/FAQS'>FAQ's</Link>
                 <Link to='/ContactUs'>Contact Us</Link>
             </nav>
