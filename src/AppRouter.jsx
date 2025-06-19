@@ -21,6 +21,7 @@ import Reviews from './pages/Reviews/Reviews'
 import './App.css'
 import ContactUs from "./pages/ContactUs/ContactUs";
 import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
+import Profile from "./pages/Profile/Profile";
 import ClientBookings from "./pages/ClientBookings/ClientBookings";
 
 
@@ -45,8 +46,9 @@ const Layout = () => {
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/ClientSignUp" element={<ClientSignUp />} />
-        <Route path="/ProviderProfile" element={<ProviderProfile />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="/ServiceProviderSignUp" element={<ServiceProviderSignUp />} />
+        <Route path="/ProviderProfile/:id" element={<ProviderProfile />} />
       </Routes>
 
       {shouldShowFooter && <Footer />}

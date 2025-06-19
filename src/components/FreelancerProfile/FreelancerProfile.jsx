@@ -93,12 +93,16 @@
 
 // export default FreelancerProfile;
 
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { IoLocationOutline } from 'react-icons/io5';
 import { FaStar, FaRegStarHalfStroke } from 'react-icons/fa6';
 import { AuthContext } from '../../context/AuthContext'; // Ensure this path is correct
 import './FreelancerProfile.css'; // Ensure your CSS file is correctly linked
+import countries from 'i18n-iso-countries';
+import en from 'i18n-iso-countries/langs/en.json'; // Import English locale data
+countries.registerLocale(en); 
+import ReactCountryFlag from "react-country-flag"
 
 // Placeholder image if no profile picture is available
 const PLACEHOLDER_IMG = 'https://placehold.co/150x150/EEEEEE/888888?text=No+Image';
@@ -106,6 +110,7 @@ const PLACEHOLDER_IMG = 'https://placehold.co/150x150/EEEEEE/888888?text=No+Imag
 const FreelancerProfile = ({ provider }) => {
   const { user } = useContext(AuthContext); // Assuming AuthContext provides user object and role
 
+  const [displayCountryCode, setDisplayCountryCode] = useState('');
   // Helper function to render star ratings dynamically
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -114,14 +119,14 @@ const FreelancerProfile = ({ provider }) => {
     const stars = [];
 
     for (let i = 0; i < fullStars; i++) {
-      stars.push(<FaStar key={`full-${i}`} />);
+      stars.push(<FaStar className='renderStars' key={`full-${i}`} />);
     }
     if (hasHalfStar) {
-      stars.push(<FaRegStarHalfStroke key="half" />);
+      stars.push(<FaRegStarHalfStroke className='renderStars' key="half" />);
     }
     // Using FaRegStarHalfStroke for empty stars, you could use a FaRegStar if preferred
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<FaRegStarHalfStroke key={`empty-${i}`} className="empty-star" />);
+      stars.push(<FaRegStarHalfStroke className='renderStars empty-star' key={`empty-${i}`} />);
     }
     return stars;
   };
@@ -146,15 +151,40 @@ const FreelancerProfile = ({ provider }) => {
   } = provider;
 
   const fullName = `${firstName || ''} ${lastName || ''}`.trim();
-  const location = [city, state, country].filter(Boolean).join(', '); // Concatenate non-empty location parts
+  const location = [state, city].filter(Boolean).join(', '); // Concatenate non-empty location parts
+
+  useEffect(() => {
+      if (user) {
+        if (country) {
+          // Get the 2-letter country code (e.g., "NG" for "Nigeria")
+          const code = countries.getAlpha2Code(country, 'en');
+          setDisplayCountryCode(code || ''); // Set the code, or empty string if not found
+        } else {
+          setDisplayCountryCode(''); // Clear code if no country is set
+        }
+      }
+    }, [user]);
 
   return (
     <div className='freelancerProfile'>
       {/* Use provider's profile picture URL or a placeholder */}
-      <img src={profilePictureUrl || PLACEHOLDER_IMG} alt={`${fullName}'s profile`} />
+      <img className='freelancerProfileImg' src={profilePictureUrl || PLACEHOLDER_IMG} alt={`${fullName}'s profile`} />
 
+      <div className="providerNameInfo">
       <div className="freelancerProfileInfo">
-        <p className='freelanceProfileInfoName'><b>{fullName || 'N/A'}</b></p>
+        <div className='providerProfileInfoName'>
+          <b>{fullName || 'N/A'}</b> 
+         
+            {displayCountryCode && ( // Only render flag if a code is available
+              <ReactCountryFlag
+                className='flag2'
+                countryCode={displayCountryCode} // Use the derived country code
+                svg
+                title={country} // Add title for accessibility
+              />
+            )}       
+       
+        </div>
         <p className='freelanceProfileInfoJob'>{occupation || 'Not Specified'}</p>
 
         {/* Display rating if available and greater than 0 */}
@@ -192,6 +222,7 @@ const FreelancerProfile = ({ provider }) => {
             <Link to={`/ProviderProfile/${id}`}>View Profile</Link>
           </button>
         )}
+      </div>
       </div>
     </div>
   );

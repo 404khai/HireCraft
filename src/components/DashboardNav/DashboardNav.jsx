@@ -83,6 +83,7 @@ import React, { useState, useRef, useEffect, useContext } from 'react'
 import { FaRegUser } from 'react-icons/fa6'
 import { AuthContext } from '../../context/AuthContext';
 import Avatar from '../Avatar';
+import { RxCaretDown } from "react-icons/rx";
 
 const DashboardNav = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
@@ -109,7 +110,7 @@ const DashboardNav = () => {
     // Determine dashboard/profile link based on user role
     const getProfileLink = () => {
         if (!user || !user.userRole) return "/"; // Default or fallback
-        if (user.userRole.includes("PROVIDER")) return "/ProviderProfile";
+        if (user.userRole.includes("PROVIDER")) return "/Profile";
         if (user.userRole.includes("CLIENT")) return "/ClientProfile";
         return "/";
     };
@@ -124,14 +125,14 @@ const DashboardNav = () => {
       </Link>
 
       <div className='dashboardNavControls'>
-        <Link to="/Home">
+        {/* <Link to="/Home">
           <i className='notifications'><IoHomeOutline /></i>
         </Link>
-        <i className='notifications'><PiBellRinging /></i>
+        <i className='notifications'><PiBellRinging /></i> */}
 
         {/* Conditionally render the profile section ONLY if 'user' is not null */}
         {user ? (
-          <div className='profileWrapper' onClick={toggleDropdown} ref={dropdownRef}>
+          <div className='navbarProfileWrapper' onClick={toggleDropdown} ref={dropdownRef}>
             <Avatar
               imageUrl={user.profilePictureUrl}
               firstName={user.firstName}
@@ -140,6 +141,9 @@ const DashboardNav = () => {
               textSize={18} // Adjust text size as needed
               className='navUserImg' // Apply the existing class for styling if needed
             />
+            <button className='onlineBtn'></button>
+            <p>Hi, {user.firstName}</p>
+            <i><RxCaretDown/></i>
             {/* <button className='online'></button> */}
             {isDropdownVisible && (
               <div className="profileDropdown">

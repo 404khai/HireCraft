@@ -1,157 +1,203 @@
-import React, {useContext, useEffect, useState} from 'react'
-import './ProviderProfile.css'
-import OIF from '../../assets/OIF.jpeg'
-import ReactCountryFlag from "react-country-flag"
-import ReviewCard from '../../components/ReviewCard/ReviewCard';
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'; // Import useParams
+import { IoLocationOutline } from 'react-icons/io5';
 import { FaStar, FaRegStarHalfStroke, FaRegStar } from 'react-icons/fa6';
-import { IoLocationOutline } from "react-icons/io5";
 import { FiMail, FiPhoneCall } from "react-icons/fi";
-import { DiVisualstudio } from 'react-icons/di';
-import { FaRegThumbsUp, FaInstagram, FaWhatsapp, FaFacebookF } from "react-icons/fa6";
-import mac1 from '../../assets/mac1.jpg'
-import mac2 from '../../assets/mac2.jpg'
-import mac3 from '../../assets/mac3.jpg'
-import lofi from '../../assets/lofi.png'
-import shop from '../../assets/shop.jpg'
-
+import ReactCountryFlag from 'react-country-flag';
 import countries from 'i18n-iso-countries';
-import en from 'i18n-iso-countries/langs/en.json'; // Import English locale data
-countries.registerLocale(en); // Register the locale data for lookup
+import en from 'i18n-iso-countries/langs/en.json';
+countries.registerLocale(en);
 
 import { AuthContext } from '../../context/AuthContext';
 import Avatar from '../../components/Avatar';
+import ReviewCard from '../../components/ReviewCard/ReviewCard'; // Assuming you still use this
+// Import placeholder images if needed
+// import mac1 from '../../assets/mac1.jpg';
+// import mac2 from '../../assets/mac2.jpg';
+// import mac3 from '../../assets/mac3.jpg';
+// import lofi from '../../assets/lofi.png';
+// import shop from '../../assets/shop.jpg';
+
+const API_BASE_URL = 'http://localhost:9090/api/v1/users'; // Define API base URL
+
+const PLACEHOLDER_IMG = 'https://placehold.co/150x150/EEEEEE/888888?text=No+Image';
 
 const ProviderProfile = () => {
+  const { id } = useParams(); // <--- Get the provider ID from the URL
+  const { token } = useContext(AuthContext); // Get the token for API calls
+  const { user: loggedInUser } = useContext(AuthContext); // Get logged-in user, potentially for conditional rendering later
 
-  const { user } = useContext(AuthContext);
-  const token = localStorage.getItem('token');
+  const [providerData, setProviderData] = useState(null); // State to hold all fetched provider data
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-
-  const [occupation, setOccupation] = useState('');
-  const [hourlyRate, setHourlyRate] = useState('')
-  const [providerBio, setProviderBio] = useState('');
-  const [skills, setSkills] = useState('');
-  const [averageRating, setAverageRating] = useState(0);
-  
-  const [selectedCountryName, setSelectedCountryName] = useState('');
-  const [selectedStateName, setSelectedStateName] = useState('');
-  const [selectedCityName, setSelectedCityName] = useState('');
-
-  const [profilePictureUrl, setProfilePictureUrl] = useState('');
-
-  // NEW STATE: To store the ISO country code for the flag
+  // States derived from providerData for display purposes
   const [displayCountryCode, setDisplayCountryCode] = useState('');
 
   useEffect(() => {
-    if (user) {
-      setFirstName(user.firstName || '');
-      setLastName(user.lastName || '');
-      setEmail(user.email || '');
-      setPhoneNumber(user.phoneNumber || '');
-      setOccupation(user.occupation || '');
-      setHourlyRate(user.hourlyRate || '');
-      setProviderBio(user.providerBio || '');
-      setAverageRating(user.averageRating !== undefined && user.averageRating !== null ? user.averageRating : 0);
-      setSkills(Array.isArray(user.skills) ? user.skills.join(', ') : (user.skills || ''));
-      setProfilePictureUrl(user.profilePictureUrl || profilePictureUrl);
-
-      setSelectedCountryName(user.country || '');
-      setSelectedStateName(user.state || '');
-      setSelectedCityName(user.city || '');
-
-      if (user.country) {
-        // Get the 2-letter country code (e.g., "NG" for "Nigeria")
-        const code = countries.getAlpha2Code(user.country, 'en');
-        setDisplayCountryCode(code || ''); // Set the code, or empty string if not found
-      } else {
-        setDisplayCountryCode(''); // Clear code if no country is set
+    // This effect runs when the component mounts or when 'id' or 'token' changes
+    const fetchProviderDetails = async () => {
+      if (!id) {
+        setError('Provider ID is missing from URL.');
+        setIsLoading(false);
+        return;
       }
-    }
-  }, [user]);
+      if (!token) {
+        setError('Authentication token is missing. Please log in.');
+        setIsLoading(false);
+        return;
+      }
 
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/providers/${id}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          // Provide more specific error messages for 401/403
+          if (response.status === 401 || response.status === 403) {
+            throw new Error('You are not authorized to view this profile. Please log in.');
+          } else if (response.status === 404) {
+            throw new Error('Provider not found.');
+          }
+          throw new Error(errorData.message || `Failed to fetch provider details. Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setProviderData(data); // Set the entire fetched data to state
+
+        // Set country code for flag if country data is available
+        if (data.country) {
+          const code = countries.getAlpha2Code(data.country, 'en');
+          setDisplayCountryCode(code || '');
+        } else {
+          setDisplayCountryCode('');
+        }
+
+      } catch (err) {
+        console.error('Error fetching provider details:', err);
+        setError(err.message || 'Failed to load provider profile. Please try again.');
+        setProviderData(null); // Clear data on error
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProviderDetails();
+  }, [id, token]); // Dependencies: Re-run if ID or token changes
+
+  // Helper function to render star ratings dynamically (keep this as is)
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 !== 0; // Check if there's a decimal part
+    const hasHalfStar = rating % 1 !== 0;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-
     const stars = [];
 
-    // Full stars
     for (let i = 0; i < fullStars; i++) {
       stars.push(<i key={`full-${i}`}><FaStar/></i>);
     }
-
-        // Half star (if applicable)
     if (hasHalfStar) {
-        stars.push(<i key="half"><FaRegStarHalfStroke/></i>);
+      stars.push(<i key="half"><FaRegStarHalfStroke/></i>);
     }
-
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<i key={`empty-${i}`}><FaRegStar/></i>); // Assuming FaRegStar is imported
+      stars.push(<i key={`empty-${i}`}><FaRegStar/></i>);
     }
-
     return stars;
   };
+
+  // Render loading, error, or data
+  if (isLoading) {
+    return <div className="providerProfile"><p>Loading provider profile...</p></div>;
+  }
+
+  if (error) {
+    return <div className="providerProfile"><p className="error-message" style={{ color: 'red' }}>{error}</p></div>;
+  }
+
+  if (!providerData) {
+    return <div className="providerProfile"><p>No provider data found.</p></div>; // Should ideally be caught by error state
+  }
+
+  // Destructure providerData for easier access in JSX
+  const {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    occupation,
+    hourlyRate,
+    providerBio,
+    skills,
+    averageRating = 0,
+    city,
+    state,
+    country,
+    profilePictureUrl,
+    // Assuming portfolioImages is an array of URLs for the portfolio section
+    portfolioImages = []
+  } = providerData;
+
+  const fullName = `${firstName || ''} ${lastName || ''}`.trim();
+  const location = [city, state].filter(Boolean).join(', '); // city, state
 
   return (
     <div className='providerProfile'>
       <div className="providerProfileHead">
         <Avatar
-          imageUrl={profilePictureUrl}
+          imageUrl={profilePictureUrl || PLACEHOLDER_IMG}
           firstName={firstName}
           lastName={lastName}
-          size={100} // Adjust size as needed
-          textSize={40} // Adjust text size for initials
-          className='providerProfileImg' // Add your existing CSS class for extra styling
+          size={100}
+          textSize={40}
+          className='providerProfileImg'
         />
 
         <div className="providerProfileName">
-          <h3>{firstName + " " +lastName}</h3>
-          <p style={{color: "#808080"}}>{occupation}</p>
+          <h3>{fullName || 'N/A'}</h3>
+          <p style={{color: "#808080"}}>{occupation || 'Not Specified'}</p>
 
           <div className='providerRatingBox'>
             <div className="providerRating">
-              <button>{averageRating.toFixed(1)}</button> {/* Display with 1 decimal place */}
+              <button>{averageRating.toFixed(1)}</button>
               {renderStars(averageRating)}
             </div>
 
             <div className='providerProfileCountry'>
-              {displayCountryCode && ( // Only render flag if a code is available
+              {displayCountryCode && (
                 <ReactCountryFlag
                   className='flag'
-                  countryCode={displayCountryCode} // Use the derived country code
+                  countryCode={displayCountryCode}
                   svg
-                  title={selectedCountryName} // Add title for accessibility
+                  title={country}
                 />
               )}
-              <p>{selectedCountryName}</p>
+              <p>{country || 'N/A'}</p> {/* Display full country name */}
             </div>
           </div>
           <p className='providerProfileState'>
-            <i><IoLocationOutline /></i> {selectedCityName}
-            {selectedCityName && selectedStateName && ', '}
-            {selectedStateName}
+            <i><IoLocationOutline /></i> {location || 'N/A'}
           </p>
-          {/* <p className='providerProfileState'><i><IoLocationOutline/></i> {selectedCityName}, {selectedStateName}</p> */}
         </div>
 
         <div className="socialLinks">
           <p>
             <i><FiPhoneCall/></i>
-            {phoneNumber}
+            {phoneNumber || 'N/A'}
           </p>
           <p>
             <i><FiMail/></i>
-            {email}
+            {email || 'N/A'}
           </p>
-          
         </div>
-        {/* <button>Send a job request</button> */}
-
+        {/* You can add a "Send a job request" button here, maybe conditionally based on loggedInUser.userRole */}
       </div>
 
       <div className="providerProfileBody">
@@ -163,70 +209,62 @@ const ProviderProfile = () => {
           <h3>Profile Overview</h3>
           <div className="providerProfileOverviewRates">
             <div className="hourlyRate">
-              <strong>${hourlyRate}</strong>
+              <strong>{hourlyRate ? `$${hourlyRate}` : 'N/A'}</strong>
               <p style={{color: "#808080"}}>Hourly Rate</p>
             </div>
             <div className="jobsDone">
-              <strong>2</strong>
+              <strong>{providerData.jobsDone || '0'}</strong> {/* Assuming jobsDone comes from providerData */}
               <p style={{color: "#808080"}}>Jobs Done</p>
             </div>
           </div>
 
-          {/* <h3>Social Profiles</h3>
-          <div className="socialProfiles">
-            <i><FaInstagram/></i>
-            <i><FaWhatsapp/></i>
-            <i><FaFacebookF/></i>
-          </div> */}
-
           <h3>Skills</h3>
           <div className="skills">
-            {skills.split(',').filter(s => s.trim() !== '').map((skill, index) => (
-              <p key={index}>{skill.trim()}</p>
-            ))}
-            {/* Fallback if no skills */}
-            {(!skills || skills.split(',').filter(s => s.trim() !== '').length === 0) && (
+            {skills && skills.split(',').filter(s => s.trim() !== '').length > 0 ? (
+              skills.split(',').map((skill, index) => (
+                <p key={index}>{skill.trim()}</p>
+              ))
+            ) : (
               <p style={{color: "#808080"}}>No skills listed yet.</p>
             )}
           </div>
 
           <h3>Attachments</h3>
           <div className="cvFile">
-            <p>My-CV.pdf</p>
-            <p>pdf</p>
+            {/* You'll need the actual CV URL from the providerData */}
+            {providerData.cvUrl ? (
+              <>
+                <p><a href={providerData.cvUrl} target="_blank" rel="noopener noreferrer">Download CV</a></p>
+                <p>pdf</p> {/* You might need to parse file type from URL */}
+              </>
+            ) : (
+              <p style={{color: "#808080"}}>No CV uploaded.</p>
+            )}
           </div>
         </div>
 
         <div className="providerProfilePortfolio">
           <h3>Portfolio</h3>
-
           <div className="providerProfilePortfolioImgBox">
-            <div className="providerProfilePortfolioImg1">
-                <img src={shop} alt=""/>
-            </div>
-            <div className="providerProfilePortfolioImg2">
-                <img src={mac1} alt=""/>
-            </div>
-            <div className="providerProfilePortfolioImg3">
-                <img src={lofi} alt=""/>
-            </div>
-            <div className="providerProfilePortfolioImg4">
-                {/* <img src={shop} alt=""/> */}
-            </div>
-            <div className="providerProfilePortfolioImg5">
-                {/* <img src={mac3} alt="" /> */}
-            </div>
-
+            {portfolioImages.length > 0 ? (
+              portfolioImages.map((imgUrl, index) => (
+                <div key={index} className={`providerProfilePortfolioImg${index + 1}`}>
+                  <img src={imgUrl} alt={`Portfolio item ${index + 1}`} />
+                </div>
+              ))
+            ) : (
+              <p style={{color: "#808080"}}>No portfolio images yet.</p>
+            )}
           </div>
         </div>
         <div className="providerWorkFeedback">
           <h3><i><FaRegThumbsUp/></i> Work Feedback</h3>
-          <ReviewCard/>
-          
+          {/* You might want to pass provider.id to ReviewCard to fetch reviews for this specific provider */}
+          <ReviewCard providerId={id} />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProviderProfile
+export default ProviderProfile;

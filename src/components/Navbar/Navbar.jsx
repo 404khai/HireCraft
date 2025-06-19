@@ -281,7 +281,7 @@ const Navbar = () => {
                         {isDropdownVisible && (
                             <div className="navbarProfileDropdown">
                                 {/* Use getDashboardLink for dynamic dashboard route */}
-                                <Link to={`/${user.userRole.includes("PROVIDER") ? "ProviderProfile" : "ClientProfile"}`}><i><FaRegUser /></i>My Profile</Link>
+                                <Link to={`/${user.userRole.includes("PROVIDER") ? "Profile" : "ClientProfile"}`}><i><FaRegUser /></i>My Profile</Link>
                                 <Link to={getDashboardLink()}><i><LuLayoutDashboard /></i>Dashboard</Link>
                                 <Link to="" onClick={logout}><i><IoExitOutline /></i>Log Out</Link>
                             </div>
