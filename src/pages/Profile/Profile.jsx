@@ -3,11 +3,10 @@ import './Profile.css'
 import OIF from '../../assets/OIF.jpeg'
 import ReactCountryFlag from "react-country-flag"
 import ReviewCard from '../../components/ReviewCard/ReviewCard';
-import { FaStar, FaRegStarHalfStroke, FaRegStar } from 'react-icons/fa6';
+import { FaStar, FaRegStarHalfStroke, FaRegStar, FaRegThumbsUp } from 'react-icons/fa6';
 import { IoLocationOutline } from "react-icons/io5";
 import { FiMail, FiPhoneCall } from "react-icons/fi";
 import { DiVisualstudio } from 'react-icons/di';
-import { FaRegThumbsUp, FaInstagram, FaWhatsapp, FaFacebookF } from "react-icons/fa6";
 import mac1 from '../../assets/mac1.jpg'
 import mac2 from '../../assets/mac2.jpg'
 import mac3 from '../../assets/mac3.jpg'
