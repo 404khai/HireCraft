@@ -97,8 +97,8 @@ const Profile = () => {
   };
 
   return (
-    <div className='providerProfile'>
-      <div className="providerProfileHead">
+    <div className='Profile'>
+      <div className="ProfileHead">
         <Avatar
           imageUrl={profilePictureUrl}
           firstName={firstName}

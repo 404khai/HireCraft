@@ -138,7 +138,7 @@ const FreelancerProfile = ({ provider }) => {
 
   // Destructure provider properties with fallbacks
   const {
-    id,
+    providerId,
     firstName,
     lastName,
     occupation,
@@ -219,7 +219,7 @@ const FreelancerProfile = ({ provider }) => {
         {user && user.userRole === 'ROLE_CLIENT' && (
           <button className='viewProfileBtn'>
             {/* Link to the specific provider's detailed profile page */}
-            <Link to={`/ProviderProfile/${id}`}>View Profile</Link>
+            <Link to={`/ProviderProfile/${providerId}`}>View Profile</Link>
           </button>
         )}
       </div>
