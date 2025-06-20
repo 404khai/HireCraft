@@ -391,16 +391,16 @@ const ModalContent = styled.div`
   }
 
   .submit-btn {
-    background-color: #007bff;
+    background-color: #35D07D;
     color: white;
   }
 
   .submit-btn:hover {
-    background-color: #0056b3;
+    background-color:rgb(74, 180, 123);
   }
 
   .submit-btn:disabled {
-    background-color: #a0c4ff;
+    background-color:rgb(171, 234, 201);
     cursor: not-allowed;
   }
 `;
@@ -517,7 +517,7 @@ const BookingModal = ({ isOpen, onClose, providerId, providerName }) => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="message">Your Message (First Message to Provider):</label>
+            <label htmlFor="message">Message</label>
             <textarea
               id="message"
               value={message}
