@@ -1,7 +1,7 @@
 .dashboardBox{
     /* background-color: tan; */
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
@@ -12,14 +12,13 @@
     display: flex;
     /* background-color: cadetblue; */
     margin-top: 70px;
+    overflow: hidden;
     /* overflow-y: scroll; */
 }
 .dashboard{
     margin-left: 20%;
     background-color: #fafafa;
-    /* position: relative; */
-    /* height: 1000px; */
-    overflow-y: hidden;
+    height: 1700px;
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -37,24 +36,21 @@
 }
 
 .overview{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    /* background-color: aqua; */
+    display: flex;
     width: 90%;
     height: 350px;
+    justify-content: space-between;
     /* grid-area: 1 / 1 / 4 / 3; */
 }
 .jobReqOverview, .profileViewsOverview, .earningsOverview, .unreadNotisOverview{
     background-color: white;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    height: 165px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     border-radius: 5px;
+    width: 30%;
 }
 .jobReqOverview i, .profileViewsOverview i, .earningsOverview i, .unreadNotisOverview i{
     font-size: 30px;
@@ -63,8 +59,7 @@
     display: flex;
 }
 .overviewTxt{
-    /* border: 1px solid black;  */
-    width: 200px;
+    width: 180px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,40 +71,36 @@
     font-size: 15px;
 }
 .overviewTxtValue{
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
 }
-.jobReqOverview { 
-    grid-column: 1;
-    grid-row: 1;
-}
-.profileViewsOverview{
-    grid-column: 2;
-    grid-row: 1;
-}
-.earningsOverview{
-    grid-column: 1;
-    grid-row: 2;
-}
-.unreadNotisOverview{
-    grid-column: 2;
-    grid-row: 2;
-}
-.jobReqOverviewIcon{
-    /* color: brown;
-    background-color: rgba(165, 42, 42, 0.263); */
+
+/* .jobReqOverviewIcon{
     color: crimson;
     background-color: rgba(220, 20, 60, 0.185);
+} */
+.jobReqOverview .overviewTxtValue{
+    color: tomato;
 }
-.profileViewsOverviewIcon{
-    color: teal;
-    background-color: rgba(0, 128, 128, 0.116);
+.earningsOverview .overviewTxtValue{
+    color: darkturquoise;
+}
+.unreadNotisOverview .overviewTxtValue{
+    color: purple;
+}
+.jobReqOverviewIcon{
+    /* color: teal;
+    background-color: rgba(0, 128, 128, 0.116); */
+
+    color: tomato;
+    background-color: rgb(255, 202, 193);
 }
 .earningsOverviewIcon{
-    color: cornflowerblue;
-    background-color: rgba(100, 148, 237, 0.183);
+    color:  darkturquoise;
+    background-color: rgb(211, 254, 255);
 }
 .unreadNotisOverviewIcon{
     color: purple;
-    background-color: rgba(128, 0, 128, 0.233);
+    background-color: #f0d8fb;
+    /* background-color: rgba(128, 0, 128, 0.233); */
 }

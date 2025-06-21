@@ -5,7 +5,7 @@ import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import { IoBriefcaseOutline} from "react-icons/io5";
 import { HiArrowTrendingUp } from "react-icons/hi2";
-import { FaDollarSign } from "react-icons/fa6";
+import { FaDollarSign, FaBriefcase, FaRegMessage } from "react-icons/fa6";
 import { MdMarkUnreadChatAlt } from "react-icons/md";
 
 import { AuthContext } from '../../context/AuthContext'
@@ -40,36 +40,27 @@ const ProviderDashboard = () => {
 
             <div className="overview">
                 <div className="jobReqOverview">
+                  <i className='jobReqOverviewIcon'><FaBriefcase/></i>
                   <div className="overviewTxt">
                     <p className='overviewTxtTitle'>New Booking Requests</p>
                     <p className='overviewTxtValue'>50</p>
                   </div>
-                  <i className='jobReqOverviewIcon'><IoBriefcaseOutline/></i>
-                </div>
-
-                <div className="profileViewsOverview">
-                  <div className="overviewTxt">
-                    <p className='overviewTxtTitle'>Profile Views</p>
-                    <p className='overviewTxtValue'>50</p>
-                    <p><span style={{color: "green"}}>47%</span> more than yesterday</p>
-                  </div>
-                  <i className='profileViewsOverviewIcon'><HiArrowTrendingUp/></i>
                 </div>
 
                 <div className="earningsOverview">
+                  <i className='earningsOverviewIcon'><FaDollarSign/></i>
                   <div className="overviewTxt">
                     <p className='overviewTxtTitle'>Daily Earnings</p>
                     <p className='overviewTxtValue'>$50</p>
                   </div>
-                  <i className='earningsOverviewIcon'><FaDollarSign/></i>
                 </div>
 
                 <div className="unreadNotisOverview">
+                  <i className='unreadNotisOverviewIcon'><MdMarkUnreadChatAlt/></i>
                   <div className="overviewTxt">
                     <p className='overviewTxtTitle'>Unread Messages</p>
                     <p className='overviewTxtValue'>3</p>
                   </div>
-                  <i className='unreadNotisOverviewIcon'><MdMarkUnreadChatAlt/></i>
                 </div>
             </div>
           </div>

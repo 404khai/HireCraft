@@ -18,10 +18,10 @@
 #settingsDash{
     height: 1700px;
 }
-.dashboard{
+.settingsDashboard{
+    margin-left: 20%;
     background-color: #fafafa;
-    /* position: relative; */
-    overflow-y: hidden;
+    height: 1000px;
     width: 80%;
     display: flex;
     flex-direction: column;
