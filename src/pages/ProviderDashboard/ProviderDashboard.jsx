@@ -366,7 +366,7 @@ const ProviderDashboard = () => {
 
         .action-card:hover {
           transform: translateY(-2px);
-          border-color: #007bff;
+          border-color: #35D07D;
         }
 
         .action-icon {
@@ -378,7 +378,7 @@ const ProviderDashboard = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #007bff;
+          color: #35D07D;
         }
 
         .action-title {

@@ -77,10 +77,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { HiOutlineMenu, HiX } from "react-icons/hi";
-import { LuLayoutDashboard } from "react-icons/lu";
+import { LuLayoutDashboard, LuLogOut, LuCalendarRange, LuSettings, LuBriefcaseBusiness, LuFolderCog } from "react-icons/lu";
 import { TiMessages } from "react-icons/ti";
 import { IoBriefcaseOutline, IoSettingsOutline, IoExitOutline } from "react-icons/io5";
 import { RiWallet3Line } from "react-icons/ri";
+import { RxCalendar } from "react-icons/rx";
 import { MdOutlineRateReview } from "react-icons/md";
 // Assuming you are using React Router for navigation
 // If not, you'll need to install it: npm install react-router-dom
@@ -296,7 +297,7 @@ const ProviderSideNav = () => {
             <span style={linkTextStyle}>Messages</span>
           </Link>
           <Link to="/ProviderDashboard/Bookings" style={linkStyle} onClick={closeSidebar}>
-            <TiMessages style={iconStyle} />
+            <LuBriefcaseBusiness style={iconStyle} />
             <span style={linkTextStyle}>My Bookings</span>
           </Link>
         </div>
@@ -305,11 +306,15 @@ const ProviderSideNav = () => {
         <div style={sectionStyle}>
           <p style={sectionHeaderStyle}>Organize & Manage</p>
           <Link to="/ProviderDashboard/Wallet" style={linkStyle} onClick={closeSidebar}>
+            <LuCalendarRange style={iconStyle} />
+            <span style={linkTextStyle}>Calendar</span>
+          </Link>
+          <Link to="/ProviderDashboard/Wallet" style={linkStyle} onClick={closeSidebar}>
             <RiWallet3Line style={iconStyle} />
-            <span style={linkTextStyle}>Wallet</span>
+            <span style={linkTextStyle}>Payments / Earnings</span>
           </Link>
           <Link to="/ProviderDashboard/Projects" style={linkStyle} onClick={closeSidebar}>
-            <IoBriefcaseOutline style={iconStyle} />
+            <LuFolderCog style={iconStyle} />
             <span style={linkTextStyle}>Projects</span>
           </Link>
         </div>
@@ -318,7 +323,7 @@ const ProviderSideNav = () => {
         <div style={sectionStyle}>
           <p style={sectionHeaderStyle}>Account</p>
           <Link to="/ProviderDashboard/Settings" style={linkStyle} onClick={closeSidebar}>
-            <IoSettingsOutline style={iconStyle} />
+            <LuSettings style={iconStyle} />
             <span style={linkTextStyle}>Settings</span>
           </Link>
           <Link to="/ProviderDashboard/Reviews" style={linkStyle} onClick={closeSidebar}>
@@ -326,7 +331,7 @@ const ProviderSideNav = () => {
             <span style={linkTextStyle}>Review & Ratings</span>
           </Link>
           <Link to="/logout" style={linkStyle} onClick={closeSidebar}>
-            <IoExitOutline style={iconStyle} />
+            <LuLogOut style={iconStyle} />
             <span style={linkTextStyle}>Log Out</span>
           </Link>
         </div>
