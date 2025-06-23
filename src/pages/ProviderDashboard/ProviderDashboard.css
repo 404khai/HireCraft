@@ -95,6 +95,14 @@
     color: tomato;
     background-color: rgb(255, 215, 208);
 }
+.completionRateIcon{
+    color: darkred;
+    background-color: rgb(255, 201, 201);
+}
+.jobsDoneIcon{
+    color: #28a745;
+    background-color: #cbffd8;
+}
 .earningsOverviewIcon{
     color:  darkturquoise;
     background-color: rgb(211, 254, 255);

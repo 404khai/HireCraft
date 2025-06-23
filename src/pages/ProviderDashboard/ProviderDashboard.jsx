@@ -83,8 +83,9 @@ import { IoBriefcaseOutline} from "react-icons/io5";
 import { HiArrowTrendingUp } from "react-icons/hi2";
 import { FaDollarSign, FaBriefcase, FaRegMessage } from "react-icons/fa6";
 import { MdMarkUnreadChatAlt } from "react-icons/md";
-import { FaStar, FaClock, FaUsers, FaCalendarAlt, FaCheckCircle } from "react-icons/fa";
+import { FaStar, FaClock, FaUsers, FaCalendarAlt, FaCheckCircle, FaBalanceScale } from "react-icons/fa";
 import { IoNotifications, IoTime } from "react-icons/io5";
+import { SiTicktick } from 'react-icons/si';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import BookingLineChart from '../../components/BookingLineChart'
 import { AuthContext } from '../../context/AuthContext'
@@ -555,10 +556,26 @@ const ProviderDashboard = () => {
                 <div className="overviewTxtValue" style={{color: '#ffc107'}}>4.8</div>
                 <div className="metric-change positive">
                   <FaStar size={12} />
-                  {performanceMetrics.completionRate} completion
+                  6 client reviews
                 </div>
               </div>
               <i style={{color: '#ffc107', background: '#fff8dc', fontSize: '30px', padding: '10px', borderRadius: '5px'}}><FaStar/></i>
+            </div>
+
+            <div className="metric-card-enhanced">
+              <div className="metric-info">
+                <div className="overviewTxtTitle">Jobs Done</div>
+                <div className="overviewTxtValue" style={{color: '#28a745'}}>2</div>
+              </div>
+              <i className='jobsDoneIcon'><SiTicktick/></i>
+            </div>
+
+            <div className="metric-card-enhanced">
+              <div className="metric-info">
+                <div className="overviewTxtTitle">Completion Rate</div>
+                <div className="overviewTxtValue" style={{color: 'darkred'}}>87.5%</div>
+              </div>
+              <i className='completionRateIcon'><FaBalanceScale/></i>
             </div>
           </div>
 

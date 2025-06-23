@@ -307,7 +307,7 @@ const ProviderSideNav = () => {
           <p style={sectionHeaderStyle}>Organize & Manage</p>
           <Link to="/ProviderDashboard/Wallet" style={linkStyle} onClick={closeSidebar}>
             <LuCalendarRange style={iconStyle} />
-            <span style={linkTextStyle}>Calendar</span>
+            <span style={linkTextStyle}>Schedule</span>
           </Link>
           <Link to="/ProviderDashboard/Wallet" style={linkStyle} onClick={closeSidebar}>
             <RiWallet3Line style={iconStyle} />
