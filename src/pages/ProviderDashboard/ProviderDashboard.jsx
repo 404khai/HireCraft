@@ -103,6 +103,7 @@ const ProviderDashboard = () => {
   const [dailyEarnings, setDailyEarnings] = useState(0); 
   const [unreadMessages, setUnreadMessages] = useState(0);
   const [averageRating, setAverageRating] = useState(0);
+  const [totalReviews, setTotalReviews] = useState(0);
   const [completionRate, setCompletionRate] = useState('0%');
 
   // Mock data for new features
@@ -187,10 +188,33 @@ const ProviderDashboard = () => {
       }
     };
 
+    const fetchTotalReviewsForProvider = async () => {
+    if (!token) return;
+      try {
+        const response = await fetch('http://localhost:9090/api/v1/reviews/provider/dashboard/total-reviews', { // Correct URL
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        });
+        if (response.ok) {
+          const count = await response.json();
+          setTotalReviews(count);
+        } else {
+          console.error('Failed to fetch total reviews:', response.status, response.statusText);
+          setTotalReviews(0);
+        }
+      } catch (error) {
+        console.error('Error fetching total reviews:', error);
+        setTotalReviews(0);
+      }
+    };
+
     // Call the fetch functions when the component mounts or token changes
     if (token) {
       fetchNewBookingRequestsToday();
       fetchCompletedJobs();
+      fetchTotalReviewsForProvider();
       // You can add calls for daily earnings, unread messages, average rating, etc. here once their backend endpoints are ready.
       // Example for Daily Earnings (assuming you create a similar endpoint):
       // const fetchDailyEarnings = async () => {
@@ -631,7 +655,7 @@ const ProviderDashboard = () => {
                 <div className="overviewTxtValue" style={{color: '#ffc107'}}>{averageRating.toFixed(1)}</div>
                 <div className="metric-change positive">
                   <FaStar size={12} />
-                  6 client reviews
+                  {totalReviews} client reviews
                 </div>
               </div>
               <i style={{color: '#ffc107', background: '#fff8dc', fontSize: '30px', padding: '10px', borderRadius: '5px'}}><FaStar/></i>
