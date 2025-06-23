@@ -7,7 +7,7 @@ import { IoBriefcaseOutline} from "react-icons/io5";
 import { HiArrowTrendingUp } from "react-icons/hi2";
 import { FaDollarSign, FaBriefcase, FaRegMessage } from "react-icons/fa6";
 import { MdMarkUnreadChatAlt } from "react-icons/md";
-
+import BookingLineChart from '../../components/BookingLineChart'
 import { AuthContext } from '../../context/AuthContext'
 
 const ProviderDashboard = () => {
@@ -63,6 +63,8 @@ const ProviderDashboard = () => {
                   </div>
                 </div>
             </div>
+
+            <BookingLineChart />
           </div>
           
       </div>

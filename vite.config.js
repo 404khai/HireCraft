@@ -17,6 +17,9 @@ export default defineConfig({
     // SockJS-client sometimes uses 'global' which is a Node.js concept.
     global: 'window',
   },
+  css: {
+    postcss: './postcss.config.js',
+  },
   optimizeDeps: {
     // Explicitly include 'sockjs-client' for pre-bundling.
     // This helps Vite handle its CommonJS module structure more effectively for the browser.
