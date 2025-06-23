@@ -134,13 +134,13 @@ const ProviderSideNav = () => {
   };
 
   const sidebarStyle = {
-    width: '280px',
-    height: '100vh',
+    width: '255px',
+    height: '480px',
     position: 'fixed',
     left: 0,
     top: 0,
     backgroundColor: 'white',
-    paddingTop: '40px',
+    paddingTop: '100px',
     overflowY: 'auto',
     display: 'flex',
     flexDirection: 'column',
@@ -287,15 +287,15 @@ const ProviderSideNav = () => {
         <div style={sectionStyle}>
           <p style={sectionHeaderStyle}>Home</p>
           {/* Use React Router's Link component for navigation */}
-          <Link to="/dashboard" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ProviderDashboard" style={linkStyle} onClick={closeSidebar}>
             <LuLayoutDashboard style={iconStyle} />
             <span style={linkTextStyle}>Dashboard</span>
           </Link>
-          <Link to="/messages" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ProviderDashboard/Messages" style={linkStyle} onClick={closeSidebar}>
             <TiMessages style={iconStyle} />
             <span style={linkTextStyle}>Messages</span>
           </Link>
-          <Link to="/bookings" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ProviderDashboard/Bookings" style={linkStyle} onClick={closeSidebar}>
             <TiMessages style={iconStyle} />
             <span style={linkTextStyle}>My Bookings</span>
           </Link>
@@ -304,11 +304,11 @@ const ProviderSideNav = () => {
         {/* Organize & Manage Section */}
         <div style={sectionStyle}>
           <p style={sectionHeaderStyle}>Organize & Manage</p>
-          <Link to="/wallet" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ProviderDashboard/Wallet" style={linkStyle} onClick={closeSidebar}>
             <RiWallet3Line style={iconStyle} />
             <span style={linkTextStyle}>Wallet</span>
           </Link>
-          <Link to="/projects" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ProviderDashboard/Projects" style={linkStyle} onClick={closeSidebar}>
             <IoBriefcaseOutline style={iconStyle} />
             <span style={linkTextStyle}>Projects</span>
           </Link>
@@ -317,11 +317,11 @@ const ProviderSideNav = () => {
         {/* Account Section */}
         <div style={sectionStyle}>
           <p style={sectionHeaderStyle}>Account</p>
-          <Link to="/settings" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ProviderDashboard/Settings" style={linkStyle} onClick={closeSidebar}>
             <IoSettingsOutline style={iconStyle} />
             <span style={linkTextStyle}>Settings</span>
           </Link>
-          <Link to="/reviews" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ProviderDashboard/Reviews" style={linkStyle} onClick={closeSidebar}>
             <MdOutlineRateReview style={iconStyle} />
             <span style={linkTextStyle}>Review & Ratings</span>
           </Link>

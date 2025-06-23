@@ -985,9 +985,9 @@ const Messages = () => {
 
     return (
         <div className='messagesBox'>
-            <DashboardNav />
+            <SideNavComponent />
             <div className='messagesBodyBox'>
-                <SideNavComponent /> {/* Dynamic SideNav */}
+                < DashboardNav/> {/* Dynamic SideNav */}
                 <div className="messagesBody">
 
                     <div className="welcome">

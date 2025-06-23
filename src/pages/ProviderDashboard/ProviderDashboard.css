@@ -52,7 +52,7 @@
     border-radius: 5px;
     width: 30%;
 }
-.jobReqOverview i, .profileViewsOverview i, .earningsOverview i, .unreadNotisOverview i{
+.metric-card-enhanced i{
     font-size: 30px;
     padding: 10px;
     border-radius: 5px;
@@ -68,7 +68,7 @@
 }
 .overviewTxtTitle{
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
 }
 .overviewTxtValue{
     font-size: 20px;
@@ -93,7 +93,7 @@
     background-color: rgba(0, 128, 128, 0.116); */
 
     color: tomato;
-    background-color: rgb(255, 202, 193);
+    background-color: rgb(255, 215, 208);
 }
 .earningsOverviewIcon{
     color:  darkturquoise;

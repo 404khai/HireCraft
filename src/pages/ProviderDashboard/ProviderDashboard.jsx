@@ -139,11 +139,12 @@ const ProviderDashboard = () => {
           display: flex;
           align-items: center;
           gap: 15px;
-          background: white;
+          background: #333;
+          color: white;
           padding: 15px 20px;
           border-radius: 8px;
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-          margin-bottom: 20px;
+          align-self: end
         }
 
         .availability-toggle {
@@ -485,9 +486,9 @@ const ProviderDashboard = () => {
         }
       `}</style>
 
-      <DashboardNav/>
+      <ProviderSideNav/>
       <div className='dashboardBody'>
-        <ProviderSideNav/>
+        <DashboardNav/>
         <div className="dashboard">
           <div className="welcome">
             <div className="welcomeTxt">
@@ -498,8 +499,7 @@ const ProviderDashboard = () => {
           </div>
 
           {/* Availability Toggle */}
-          <div className="availability-section">
-            <span style={{fontWeight: '500'}}>Service Status:</span>
+          {/* <div className="availability-section">
             <div className="availability-toggle">
               <span>{isAvailable ? 'Available for bookings' : 'Currently unavailable'}</span>
               <div 
@@ -509,7 +509,7 @@ const ProviderDashboard = () => {
                 <div className="toggle-slider"></div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Enhanced Overview Cards */}
           <div className="enhanced-overview">
@@ -647,43 +647,8 @@ const ProviderDashboard = () => {
             </div>
           </div>
 
-          {/* Performance Analytics */}
-          <div className="performance-section">
-            <div className="performance-card">
-              <h3 className="performance-title">Service Performance</h3>
-              <ResponsiveContainer width="100%" height={250}>
-                <BarChart data={servicePerformance}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="service" />
-                  <YAxis />
-                  <Tooltip />
-                  <Bar dataKey="bookings" fill="#007bff" name="Bookings" />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-
-            <div className="performance-card">
-              <h3 className="performance-title">Performance Metrics</h3>
-              <div className="performance-metrics">
-                <div className="performance-metric">
-                  <div className="performance-metric-label">Avg Response Time</div>
-                  <div className="performance-metric-value">{performanceMetrics.responseTime}</div>
-                </div>
-                <div className="performance-metric">
-                  <div className="performance-metric-label">Completion Rate</div>
-                  <div className="performance-metric-value">{performanceMetrics.completionRate}</div>
-                </div>
-                <div className="performance-metric">
-                  <div className="performance-metric-label">Repeat Customers</div>
-                  <div className="performance-metric-value">{performanceMetrics.repeatCustomers}</div>
-                </div>
-                <div className="performance-metric">
-                  <div className="performance-metric-label">Weekly Growth</div>
-                  <div className="performance-metric-value" style={{color: '#28a745'}}>{performanceMetrics.weeklyGrowth}</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
+           
         </div>
       </div>
     </div>

@@ -129,9 +129,9 @@ const Bookings = () => {
     if (loading) {
         return (
             <div className='dashboardBox'>
-                <DashboardNav />
+                <ProviderSideNav/>
                 <div className='dashboardBody'>
-                    <ProviderSideNav />
+                    < DashboardNav />
                     <div className="dashboard">
                         <div className="welcome">
                             <div className="welcomeTxt">
@@ -151,9 +151,9 @@ const Bookings = () => {
     if (error) {
         return (
             <div className='dashboardBox'>
-                <DashboardNav />
+                <ProviderSideNav />
                 <div className='dashboardBody'>
-                    <ProviderSideNav />
+                    < DashboardNav/>
                     <div className="dashboard">
                         <div className="welcome">
                             <div className="welcomeTxt">
@@ -172,9 +172,9 @@ const Bookings = () => {
 
     return (
         <div className='bookingBox'>
-            <DashboardNav />
+            <ProviderSideNav />
             <div className='bookingBody'>
-                <ProviderSideNav />
+                < DashboardNav/>
                 <div className="bookingDashboard">
                     <div className="welcome">
                         <div className="welcomeTxt">
