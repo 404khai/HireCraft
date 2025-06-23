@@ -161,7 +161,7 @@ const BookingLineChart = ({ data = bookingData, width = "100%", height = 400 }) 
 
 // CSS-in-JS Styles
 const containerStyle = {
-  width: '100%',
+
   backgroundColor: 'white',
   padding: '24px',
   borderRadius: '8px',
@@ -201,7 +201,7 @@ const tooltipLabelStyle = {
 };
 
 const statsContainerStyle = {
-  marginTop: '24px',
+  marginTop: '10px',
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
   gap: '16px'

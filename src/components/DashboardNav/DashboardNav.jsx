@@ -76,6 +76,7 @@ import './DashboardNav.css'
 // import profilePic from '../../assets/pacman.jpg'
 // import profilePic from '../../assets/userPic.png' // No longer needed, Avatar component handles defaults
 import { IoExitOutline, IoHomeOutline } from "react-icons/io5"
+import { IoMdNotifications } from "react-icons/io";
 import { PiBellRinging, PiMailbox } from "react-icons/pi"
 import { LuBellRing } from "react-icons/lu";
 import { Link } from 'react-router-dom'
@@ -129,6 +130,7 @@ const DashboardNav = () => {
           <i className='notifications'><IoHomeOutline /></i>
         </Link>
         <i className='notifications'><PiBellRinging /></i> */}
+        <i className='notifications'><IoMdNotifications/></i>
 
         {/* Conditionally render the profile section ONLY if 'user' is not null */}
         {user ? (
@@ -141,7 +143,7 @@ const DashboardNav = () => {
               textSize={18} // Adjust text size as needed
               className='navUserImg' // Apply the existing class for styling if needed
             />
-            <button className='onlineBtn'></button>
+            <button className='dashboardOnlineBtn'></button>
             <p>Hi, {user.firstName}</p>
             <i><RxCaretDown/></i>
             {/* <button className='online'></button> */}
