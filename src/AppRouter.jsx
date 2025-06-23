@@ -23,14 +23,14 @@ import ContactUs from "./pages/ContactUs/ContactUs";
 import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
 import Profile from "./pages/Profile/Profile";
 import ClientBookings from "./pages/ClientBookings/ClientBookings";
-
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 
 
 const Layout = () => {
   const location = useLocation();
 
-  const hideNavbarPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard"];
-  const hideFooterPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard"];
+  const hideNavbarPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard"];
+  const hideFooterPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard"];
   const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
   const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
 
@@ -49,6 +49,7 @@ const Layout = () => {
         <Route path="/Profile" element={<Profile />} />
         <Route path="/ServiceProviderSignUp" element={<ServiceProviderSignUp />} />
         <Route path="/ProviderProfile/:id" element={<ProviderProfile />} />
+        <Route path="/AdminDashboard" element={<AdminDashboard />} />
       </Routes>
 
       {shouldShowFooter && <Footer />}
