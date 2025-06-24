@@ -97,14 +97,16 @@ const ProviderDashboard = () => {
   const [firstName, setFirstName] = useState('');
   const [isAvailable, setIsAvailable] = useState(true);
   const [timeFilter, setTimeFilter] = useState('7days');
-  const [newBookingRequestsToday, setNewBookingRequestsToday] = useState(0);
-  const [jobsCompleted, setJobsCompleted] = useState(0);
-  const [totalAcceptedJobs, setTotalAcceptedJobs] = useState(0);
-  // Placeholders for other dynamic data you might add later
-  const [dailyEarnings, setDailyEarnings] = useState(0); 
-  const [unreadMessages, setUnreadMessages] = useState(0);
-  const [averageRating, setAverageRating] = useState(0);
-  const [totalReviews, setTotalReviews] = useState(0);
+  
+  const [dashboardMetrics, setDashboardMetrics] = useState({
+    newBookingRequestsToday: 0,
+    completedJobs: 0,
+    acceptedJobs: 0,
+    totalReviews: 0,
+    dailyEarnings: 0, 
+    unreadMessages: 0, 
+    averageRating: 0, 
+  });
   const [completionRate, setCompletionRate] = useState('0%');
 
   // Mock data for new features
@@ -128,141 +130,52 @@ const ProviderDashboard = () => {
     weeklyGrowth: '+15%'
   };
 
-  const servicePerformance = [
-    { service: 'Plumbing', bookings: 15, revenue: 1200 },
-    { service: 'Electrical', bookings: 8, revenue: 950 },
-    { service: 'Carpentry', bookings: 12, revenue: 800 },
-    { service: 'Painting', bookings: 6, revenue: 480 }
-  ];
-
   useEffect(() => {
     if (user) {
       setFirstName(user.firstName || '');
-      setAverageRating(user.averageRating !== undefined && user.averageRating !== null ? user.averageRating : 0);
     }
 
-    // Function to fetch new booking requests for today
-    const fetchNewBookingRequestsToday = async () => {
-      if (!token) return; // Don't fetch if no token
-
-      try {
-        const response = await fetch('http://localhost:9090/api/v1/bookings/provider/dashboard/new-requests-today', {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        });
-        if (response.ok) {
-          const count = await response.json();
-          setNewBookingRequestsToday(count);
-        } else {
-          console.error('Failed to fetch new booking requests today:', response.status, response.statusText);
-          setNewBookingRequestsToday(0); // Default to 0 on error
-        }
-      } catch (error) {
-        console.error('Error fetching new booking requests today:', error);
-        setNewBookingRequestsToday(0); // Default to 0 on error
-      }
-    };
-
-    // Function to fetch total completed jobs
-    const fetchCompletedJobs = async () => {
-      if (!token) return; // Don't fetch if no token
-
-      try {
-        const response = await fetch('http://localhost:9090/api/v1/bookings/provider/dashboard/completed-jobs', {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        });
-        if (response.ok) {
-          const count = await response.json();
-          setJobsCompleted(count);
-        } else {
-          console.error('Failed to fetch completed jobs:', response.status, response.statusText);
-          setJobsCompleted(0); // Default to 0 on error
-        }
-      } catch (error) {
-        console.error('Error fetching completed jobs:', error);
-        setJobsCompleted(0); // Default to 0 on error
-      }
-    };
-
-    const fetchTotalAcceptedJobs = async () => {
-      if (!token) return;
-      try {
-        const response = await fetch('http://localhost:9090/api/v1/bookings/provider/dashboard/accepted-jobs', {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        });
-        if (response.ok) {
-          const count = await response.json();
-          setTotalAcceptedJobs(count); // Update the state
-        } else {
-          console.error('Failed to fetch total accepted jobs:', response.status, response.statusText);
-          setTotalAcceptedJobs(0); 
-        }
-      } catch (error) {
-        console.error('Error fetching total accepted jobs:', error);
-        setTotalAcceptedJobs(0); 
-      }
-    };
-
-    const fetchTotalReviewsForProvider = async () => {
-    if (!token) return;
-      try {
-        const response = await fetch('http://localhost:9090/api/v1/reviews/provider/dashboard/total-reviews', { // Correct URL
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        });
-        if (response.ok) {
-          const count = await response.json();
-          setTotalReviews(count);
-        } else {
-          console.error('Failed to fetch total reviews:', response.status, response.statusText);
-          setTotalReviews(0);
-        }
-      } catch (error) {
-        console.error('Error fetching total reviews:', error);
-        setTotalReviews(0);
-      }
-    };
-
-    // Call the fetch functions when the component mounts or token changes
-    if (token) {
-      fetchNewBookingRequestsToday();
-      fetchCompletedJobs();
-      fetchTotalAcceptedJobs();
-      fetchTotalReviewsForProvider();
-      // You can add calls for daily earnings, unread messages, average rating, etc. here once their backend endpoints are ready.
-      // Example for Daily Earnings (assuming you create a similar endpoint):
-      // const fetchDailyEarnings = async () => {
-      //   try {
-      //     const response = await fetch('http://localhost:8080/api/earnings/provider/daily', { headers: { 'Authorization': `Bearer ${token}` } });
-      //     if (response.ok) {
-      //       const amount = await response.json();
-      //       setDailyEarnings(amount);
-      //     }
-      //   } catch (error) { console.error('Error fetching daily earnings:', error); }
-      // };
-      // fetchDailyEarnings();
+    // Early return if no token - don't fetch anything
+    if (!token) {
+      console.warn("No token available, skipping dashboard metrics fetch.");
+      return;
     }
 
+    // Fetch dashboard metrics only when token exists
+    const fetchAllDashboardMetrics = async () => {
+      try {
+        const response = await fetch('http://localhost:9090/api/v1/bookings/provider/dashboard/metrics', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        });
+        
+        if (response.ok) {
+          const metrics = await response.json();
+          setDashboardMetrics(metrics); 
+        } else {
+          console.error('Failed to fetch dashboard metrics:', response.status, response.statusText);
+          // Keep default/initial state on API error
+        }
+      } catch (error) {
+        console.error('Error fetching dashboard metrics:', error);
+        // Keep default/initial state on network error
+      }
+    };
+
+    fetchAllDashboardMetrics();
   }, [user, token]);
 
+  // Calculate completion rate whenever relevant dashboardMetrics change
   useEffect(() => {
-      if (totalAcceptedJobs > 0) {
-          const rate = (jobsCompleted / totalAcceptedJobs) * 100;
-          setCompletionRate(`${rate.toFixed(1)}%`); // Format to one decimal place
+      if (dashboardMetrics.acceptedJobs > 0) {
+          const rate = (dashboardMetrics.completedJobs / dashboardMetrics.acceptedJobs) * 100;
+          setCompletionRate(`${rate.toFixed(1)}%`); 
       } else {
-          setCompletionRate('0%'); // If no jobs accepted, rate is 0%
+          setCompletionRate('0%'); 
       }
-  }, [jobsCompleted, totalAcceptedJobs]);
+  }, [dashboardMetrics.completedJobs, dashboardMetrics.acceptedJobs]);
 
   return (
     <div className='dashboardBox'>
@@ -319,10 +232,10 @@ const ProviderDashboard = () => {
             <div className="metric-card-enhanced">
               <div className="metric-info">
                 <div className="overviewTxtTitle">New Booking Requests</div>
-                <div className="overviewTxtValue" style={{color: 'tomato'}}>{newBookingRequestsToday}</div>
+                <div className="overviewTxtValue" style={{color: 'tomato'}}>{dashboardMetrics.newBookingRequestsToday}</div>
                 <div className="metric-change positive">
                   <HiArrowTrendingUp size={12} />
-                  8 new today
+                  8% vs yesterday
                 </div>
               </div>
               <i className='jobReqOverviewIcon'><FaBriefcase/></i>
@@ -355,10 +268,10 @@ const ProviderDashboard = () => {
             <div className="metric-card-enhanced">
               <div className="metric-info">
                 <div className="overviewTxtTitle">Average Rating</div>
-                <div className="overviewTxtValue" style={{color: '#ffc107'}}>{averageRating.toFixed(1)}</div>
+                <div className="overviewTxtValue" style={{color: '#ffc107'}}>{dashboardMetrics.averageRating.toFixed(1)}</div>
                 <div className="metric-change positive">
                   <FaStar size={12} />
-                  {totalReviews} client reviews
+                  {dashboardMetrics.totalReviews} client reviews
                 </div>
               </div>
               <i style={{color: '#ffc107', background: '#fff8dc', fontSize: '30px', padding: '10px', borderRadius: '5px'}}><FaStar/></i>
@@ -367,7 +280,7 @@ const ProviderDashboard = () => {
             <div className="metric-card-enhanced">
               <div className="metric-info">
                 <div className="overviewTxtTitle">Jobs Completed</div>
-                <div className="overviewTxtValue" style={{color: '#28a745'}}>{jobsCompleted}</div>
+                <div className="overviewTxtValue" style={{color: '#28a745'}}>{dashboardMetrics.completedJobs}</div>
               </div>
               <i className='jobsDoneIcon'><SiTicktick/></i>
             </div>
