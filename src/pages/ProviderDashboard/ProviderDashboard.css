@@ -112,3 +112,333 @@
     background-color: #f0d8fb;
     /* background-color: rgba(128, 0, 128, 0.233); */
 }
+
+
+
+        .availability-section {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          background: #333;
+          color: white;
+          padding: 15px 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+          align-self: end
+        }
+
+        .availability-toggle {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .enhanced-overview {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+          width: 90%;
+          margin-bottom: 30px;
+        }
+
+        .metric-card-enhanced {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          transition: transform 0.2s;
+        }
+
+        .metric-card-enhanced:hover {
+          transform: translateY(-2px);
+        }
+
+        .metric-info {
+          flex: 1;
+        }
+
+        .metric-change {
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          margin-top: 5px;
+        }
+
+        .metric-change.positive {
+          color: #28a745;
+        }
+
+        .metric-change.negative {
+          color: #dc3545;
+        }
+
+        .dashboard-grid {
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          gap: 30px;
+          width: 90%;
+          margin-bottom: 30px;
+        }
+
+        .sidebar-section {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .sidebar-card {
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+          overflow: hidden;
+        }
+
+        .sidebar-header {
+          padding: 15px 20px;
+          background: #f8f9fa;
+          border-bottom: 1px solid #dee2e6;
+          font-weight: 600;
+          color: #2c3e50;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .sidebar-content {
+          padding: 15px 20px;
+        }
+
+        .schedule-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 0;
+          border-bottom: 1px solid #f1f3f4;
+        }
+
+        .schedule-item:last-child {
+          border-bottom: none;
+        }
+
+        .schedule-time {
+          font-weight: 600;
+          color: #007bff;
+          min-width: 60px;
+        }
+
+        .schedule-details {
+          flex: 1;
+          margin-left: 15px;
+        }
+
+        .schedule-client {
+          font-weight: 500;
+          color: #2c3e50;
+          margin-bottom: 2px;
+        }
+
+        .schedule-service {
+          font-size: 12px;
+          color: #6c757d;
+        }
+
+        .status-badge {
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 11px;
+          font-weight: 500;
+          text-transform: uppercase;
+        }
+
+        .status-confirmed {
+          background: #d4edda;
+          color: #155724;
+        }
+
+        .status-pending {
+          background: #fff3cd;
+          color: #856404;
+        }
+
+        .notification-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 12px 0;
+          border-bottom: 1px solid #f1f3f4;
+        }
+
+        .notification-item:last-child {
+          border-bottom: none;
+        }
+
+        .notification-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #007bff;
+          margin-top: 6px;
+          flex-shrink: 0;
+        }
+
+        .notification-dot.urgent {
+          background: #dc3545;
+        }
+
+        .notification-content {
+          flex: 1;
+        }
+
+        .notification-text {
+          font-size: 14px;
+          color: #2c3e50;
+          margin-bottom: 2px;
+        }
+
+        .notification-time {
+          font-size: 12px;
+          color: #6c757d;
+        }
+
+        .quick-actions {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 20px;
+          width: 90%;
+          margin-bottom: 30px;
+        }
+
+        .action-card {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+          text-align: center;
+          cursor: pointer;
+          transition: all 0.2s;
+          border: 2px solid transparent;
+        }
+
+        .action-card:hover {
+          transform: translateY(-2px);
+          border-color: #35D07D;
+        }
+
+        .action-icon {
+          width: 40px;
+          height: 40px;
+          margin: 0 auto 10px;
+          background: #f8f9fa;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #35D07D;
+        }
+
+        .action-title {
+          font-weight: 600;
+          color: #2c3e50;
+          margin-bottom: 5px;
+        }
+
+        .action-description {
+          font-size: 12px;
+          color: #6c757d;
+        }
+
+        .performance-section {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+          width: 90%;
+          margin-bottom: 30px;
+        }
+
+        .performance-card {
+          background: white;
+          padding: 25px;
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .performance-title {
+          font-size: 18px;
+          font-weight: 600;
+          color: #2c3e50;
+          margin-bottom: 20px;
+        }
+
+        .performance-metrics {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+          padding: 20px 0;
+        }
+
+        .performance-metric {
+          text-align: center;
+        }
+
+        .performance-metric-label {
+          font-size: 12px;
+          color: #6c757d;
+          margin-bottom: 5px;
+        }
+
+        .performance-metric-value {
+          font-size: 20px;
+          font-weight: 600;
+          color: #2c3e50;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+          .dashboard-grid {
+            grid-template-columns: 1fr;
+          }
+          
+          .performance-section {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .dashboard {
+            margin-left: 0;
+            width: 100%;
+          }
+          
+          .enhanced-overview {
+            grid-template-columns: 1fr;
+          }
+          
+          .quick-actions {
+            grid-template-columns: 1fr;
+          }
+          
+          .performance-metrics {
+            grid-template-columns: 1fr;
+          }
+          
+          .availability-section {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .overview {
+            flex-direction: column;
+            height: auto;
+            gap: 15px;
+          }
+          
+          .jobReqOverview, .profileViewsOverview, .earningsOverview, .unreadNotisOverview {
+            width: 100%;
+          }
+        }
