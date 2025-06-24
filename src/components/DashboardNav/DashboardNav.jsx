@@ -349,16 +349,16 @@ const DashboardNav = () => {
               ) : notifications.length > 0 ? (
                 <>
                   {/* Display only the first 3 notifications */}
-                  {notifications.slice(0, 3).map((notification) => (
+                  {notifications.slice(0, 6).map((notification) => (
                     <div
                       key={notification.id}
                       className={`notification-item ${!notification.isRead ? 'unread' : ''}`}
                     >
-                      <p className="title">{notification.message}</p> {/* Use message from API */}
+                      <p>{notification.message}</p> {/* Use message from API */}
                       <p className="time">{notification.timeAgo}</p> {/* Use timeAgo from API */}
                     </div>
                   ))}
-                  <Link to="/notifications" className="view-all-link">View All Notifications</Link>
+                  <Link to="/Notifications" className="view-all-link">View All Notifications</Link>
                 </>
               ) : (
                 <div className="empty-notifications">No new notifications.</div>

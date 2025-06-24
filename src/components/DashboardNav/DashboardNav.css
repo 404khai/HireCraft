@@ -167,8 +167,8 @@
   display: flex; /* Use flexbox for vertical stacking */
   flex-direction: column;
   animation: fadeInScale 0.25s ease forwards;
-  top: 70px;
-  right: 10px;
+  top: 60px;
+  right: -200px;
 }
 
 /* Dropdown item styling */

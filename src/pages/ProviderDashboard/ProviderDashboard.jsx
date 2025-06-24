@@ -35,6 +35,10 @@ const ProviderDashboard = () => {
   });
   const [completionRate, setCompletionRate] = useState('0%');
 
+  const [dashboardNotifications, setDashboardNotifications] = useState([]);
+  const [loadingNotifications, setLoadingNotifications] = useState(true);
+  const [notificationsError, setNotificationsError] = useState(null);
+
   // Mock data for new features
   const todaySchedule = [
     { time: '09:00', client: 'John Smith', service: 'Pipe Repair', status: 'confirmed' },
@@ -90,7 +94,38 @@ const ProviderDashboard = () => {
       }
     };
 
+    const fetchNotifications = async () => {
+      setLoadingNotifications(true);
+      setNotificationsError(null);
+      try {
+        const response = await fetch('http://localhost:9090/api/v1/notifications/all', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          // Assuming the backend returns notifications sorted by creation date descending (newest first).
+          // If not, you'd sort them here:
+          // data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+          setDashboardNotifications(data);
+        } else {
+          const errorData = await response.json();
+          setNotificationsError(`Failed to fetch notifications: ${errorData.message || response.statusText}`);
+          console.error("Failed to fetch notifications:", response.status, errorData);
+        }
+      } catch (error) {
+        setNotificationsError('Network error or unable to connect to notifications API.');
+        console.error("Error fetching notifications for dashboard:", error);
+      } finally {
+        setLoadingNotifications(false);
+      }
+    };
+
     fetchAllDashboardMetrics();
+    fetchNotifications(); // Call the new fetch function
   }, [user, token]);
 
   // Calculate completion rate whenever relevant dashboardMetrics change
@@ -255,17 +290,32 @@ const ProviderDashboard = () => {
                   <IoNotifications size={16} />
                   Recent Notifications
                 </div>
+                
                 <div className="sidebar-content">
-                  {notifications.map((notification, index) => (
-                    <div key={index} className="notification-item">
-                      <div className={`notification-dot ${notification.type === 'urgent' ? 'urgent' : ''}`}></div>
-                      <div className="notification-content">
-                        <div className="notification-text">{notification.text}</div>
-                        <div className="notification-time">{notification.time}</div>
+                  {loadingNotifications ? (
+                    <div className="loading-message">Loading notifications...</div>
+                  ) : notificationsError ? (
+                    <div className="error-message">{notificationsError}</div>
+                  ) : dashboardNotifications.length > 0 ? (
+                    // Slice to show only the first 4 notifications (assuming sorted newest first by API)
+                    dashboardNotifications.slice(0, 4).map((notification) => (
+                      <div key={notification.id} className="notification-item">
+                        {/* Use !notification.isRead for the dot to indicate unread status */}
+                        <div className={`notification-dot ${!notification.isRead ? 'unread-dot' : 'read-dot'}`}></div>
+                        <div className="notification-content">
+                          {/* Use message from API response */}
+                          <div className="notification-text">{notification.message}</div>
+                          {/* Use timeAgo from API response */}
+                          <div className="notification-time">{notification.timeAgo}</div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))
+                  ) : (
+                    <div className="empty-notifications">No notifications to display.</div>
+                  )}
                 </div>
+                
+                
               </div>
             </div>
           </div>
