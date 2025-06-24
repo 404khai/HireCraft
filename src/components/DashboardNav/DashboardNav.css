@@ -143,7 +143,7 @@
 @keyframes fadeInScale {
   0% {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
   100% {
     opacity: 1;
@@ -152,3 +152,92 @@
 }
 
 
+/* DashboardNav.css */
+
+/* General dropdown styling */
+.notificationsDropdown{
+  position: absolute;
+  background-color: #fff; /* White background */
+  border: 1px solid #e0e0e0; /* Light grey border */
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  z-index: 1000; /* Ensure it appears above other content */
+  width: 350px; /* Minimum width for the dropdown */
+  padding: 10px 0; /* Vertical padding */
+  display: flex; /* Use flexbox for vertical stacking */
+  flex-direction: column;
+  animation: fadeInScale 0.25s ease forwards;
+  top: 70px;
+  right: 10px;
+}
+
+/* Dropdown item styling */
+.notificationsDropdown a {
+  padding: 12px 20px; /* Padding for each link item */
+  text-decoration: none;
+  color: #333; /* Darker text color */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+  transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition on hover */
+}
+
+.notificationsDropdown a:hover {
+  background-color: #f5f5f5; /* Light background on hover */
+  color: #35D07D; /* Highlight color on hover (e.g., a blue) */
+}
+
+.notificationsDropdown a i{
+  font-size: 18px; /* Icon size */
+  color: #666; /* Icon color */
+}
+
+.notificationsDropdown a:hover i {
+    color: #35D07D; /* Icon color on hover */
+}
+
+/* Add specific styling for notifications content if it's different from profile links */
+.notificationsDropdown .notification-item {
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee; /* Separator between notifications */
+  font-size: 14px;
+  color: #555;
+}
+
+.notificationsDropdown .notification-item:last-child {
+  border-bottom: none; /* No border for the last item */
+}
+
+.notificationsDropdown .notification-item p.title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.notificationsDropdown .notification-item p.time {
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+}
+
+.notificationsDropdown .view-all-link {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    color: #35D07D;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.notificationsDropdown .view-all-link:hover {
+    background-color: #e7fff2;
+}
+
+/* Optional: Styling for an empty state */
+.notificationsDropdown .empty-notifications {
+    padding: 20px;
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}

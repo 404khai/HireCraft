@@ -87,26 +87,71 @@ import Avatar from '../Avatar';
 import { RxCaretDown } from "react-icons/rx";
 
 const DashboardNav = () => {
+  // const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+  // const [isNotificationsVisible, setIsNotificationsVisible] = useState(false)
+  // const dropdownRef = useRef(null);
+  // const notificationRef = useRef(null)
+
+  // const { user, logout } = useContext(AuthContext);
+
+  // const toggleDropdown = () => {
+  //   setIsDropdownVisible(prev => !prev)
+  // }
+
+  // const toggleNotifications = () => {
+  //   setIsNotificationsVisible(prev => !prev)
+  // }
+
+  // // Close dropdown on outside click
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if ((dropdownRef.current && !dropdownRef.current.contains(event.target)) || (notificationRef.current && !notificationRef.current.contains(event.target))) {
+  //       setIsDropdownVisible(false)
+  //       setIsNotificationsVisible(false)
+  //     }
+  //   }
+
+  //   document.addEventListener("mousedown", handleClickOutside)
+  //   return () => document.removeEventListener("mousedown", handleClickOutside)
+  // }, [])
+
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
-  const dropdownRef = useRef(null)
+  const [isNotificationsVisible, setIsNotificationsVisible] = useState(false)
+  const dropdownRef = useRef(null); // Ref for the profile dropdown
+  const notificationButtonRef = useRef(null); // Ref for the notification icon itself
+  const notificationDropdownRef = useRef(null); // Ref for the notification dropdown content
 
   const { user, logout } = useContext(AuthContext);
 
   const toggleDropdown = () => {
     setIsDropdownVisible(prev => !prev)
+    setIsNotificationsVisible(false); // Close notifications if opening profile
   }
 
-  // Close dropdown on outside click
+  const toggleNotifications = () => {
+    setIsNotificationsVisible(prev => !prev)
+    setIsDropdownVisible(false); // Close profile dropdown if opening notifications
+  }
+
+  // Close dropdowns on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownVisible(false)
+      // Check if click is outside profile dropdown AND outside the profile button
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target) &&
+          event.target.closest('.navbarProfileWrapper') !== dropdownRef.current.closest('.navbarProfileWrapper')) {
+        setIsDropdownVisible(false);
       }
-    }
+      
+      // Check if click is outside notification dropdown AND outside the notification button
+      if (notificationDropdownRef.current && !notificationDropdownRef.current.contains(event.target) &&
+          notificationButtonRef.current && !notificationButtonRef.current.contains(event.target)) {
+        setIsNotificationsVisible(false);
+      }
+    };
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
     // Determine dashboard/profile link based on user role
     const getProfileLink = () => {
@@ -130,7 +175,27 @@ const DashboardNav = () => {
           <i className='notifications'><IoHomeOutline /></i>
         </Link>
         <i className='notifications'><PiBellRinging /></i> */}
-        <i className='notifications'><IoMdNotifications/></i>
+        <i className='notifications' onClick={toggleNotifications} ref={notificationButtonRef}><IoMdNotifications/></i>
+        {isNotificationsVisible && (
+            <div className="notificationsDropdown" ref={notificationDropdownRef}>
+              {/* Example Notification Items - replace with actual data */}
+              <div className="notification-item unread">
+                <p>You have a new booking request from John Doe.</p>
+                <p className="time">5 min ago</p>
+              </div>
+              <div className="notification-item">
+                <p>Your booking with Jane Smith was completed.</p>
+                <p className="time">2 hours ago</p>
+              </div>
+              <div className="notification-item">
+                <p>Payment for job #12345 has been processed.</p>
+                <p className="time">Yesterday</p>
+              </div>
+              {/* Example of an empty state */}
+              {/* <div className="empty-notifications">No new notifications.</div> */}
+              <Link to="/notifications" className="view-all-link">View All Notifications</Link>
+            </div>
+          )}
 
         {/* Conditionally render the profile section ONLY if 'user' is not null */}
         {user ? (
