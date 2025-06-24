@@ -79,6 +79,7 @@ import React, { useState, useEffect } from 'react';
 import { HiOutlineMenu, HiX } from "react-icons/hi";
 import { LuLayoutDashboard, LuLogOut, LuCalendarRange, LuSettings, LuBriefcaseBusiness, LuFolderCog } from "react-icons/lu";
 import { TiMessages } from "react-icons/ti";
+import { TbLayoutKanban } from "react-icons/tb";
 import { IoBriefcaseOutline, IoSettingsOutline, IoExitOutline } from "react-icons/io5";
 import { RiWallet3Line } from "react-icons/ri";
 import { RxCalendar } from "react-icons/rx";
@@ -305,9 +306,10 @@ const ProviderSideNav = () => {
         {/* Organize & Manage Section */}
         <div style={sectionStyle}>
           <p style={sectionHeaderStyle}>Organize & Manage</p>
-          <Link to="/ProviderDashboard/Wallet" style={linkStyle} onClick={closeSidebar}>
-            <LuCalendarRange style={iconStyle} />
-            <span style={linkTextStyle}>Schedule</span>
+          <Link to="/ProviderDashboard/Kanban" style={linkStyle} onClick={closeSidebar}>
+            {/* <LuCalendarRange style={iconStyle} /> */}
+            <TbLayoutKanban style={iconStyle} />
+            <span style={linkTextStyle}>Schedule Board</span>
           </Link>
           <Link to="/ProviderDashboard/Wallet" style={linkStyle} onClick={closeSidebar}>
             <RiWallet3Line style={iconStyle} />

@@ -24,6 +24,7 @@ import ProviderProfile from "./pages/ProviderProfile/ProviderProfile";
 import Profile from "./pages/Profile/Profile";
 import ClientBookings from "./pages/ClientBookings/ClientBookings";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
+import Kanban from "./pages/Kanban/Kanban";
 
 
 const Layout = () => {
@@ -65,6 +66,7 @@ const ProviderDashboardLayout = () => (
       {/* <Route path="/Dashboard/JobAlerts" element={<JobAlerts />} /> */}
       <Route path="/ProviderDashboard/Bookings" element={<Bookings />} />
       <Route path="/ProviderDashboard/Wallet" element={<Wallet />} />
+      <Route path="/ProviderDashboard/Kanban" element={<Kanban />} />
       <Route path="/ProviderDashboard/MyProjects" element={<MyProjects />} />
       <Route path="/ProviderDashboard/Settings" element={<Settings />} />
       <Route path="/ProviderDashboard/Reviews" element={<Reviews/>}  />
