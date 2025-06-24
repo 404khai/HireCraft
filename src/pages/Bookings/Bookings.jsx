@@ -128,11 +128,11 @@ const Bookings = () => {
     // --- UI Render Logic (unchanged from your existing code, but now using `bookings` state) ---
     if (loading) {
         return (
-            <div className='dashboardBox'>
+            <div className='bookingBox'>
                 <ProviderSideNav/>
-                <div className='dashboardBody'>
+                <div className='bookingBody'>
                     < DashboardNav />
-                    <div className="dashboard">
+                    <div className="bookingDashboard">
                         <div className="welcome">
                             <div className="welcomeTxt">
                                 <h2>My Bookings</h2>
@@ -150,11 +150,11 @@ const Bookings = () => {
 
     if (error) {
         return (
-            <div className='dashboardBox'>
+            <div className='bookingBox'>
                 <ProviderSideNav />
-                <div className='dashboardBody'>
+                <div className='bookingBody'>
                     < DashboardNav/>
-                    <div className="dashboard">
+                    <div className="bookingDashboard">
                         <div className="welcome">
                             <div className="welcomeTxt">
                                 <h2>My Bookings</h2>

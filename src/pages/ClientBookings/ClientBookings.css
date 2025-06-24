@@ -1,40 +1,4 @@
-.bookingBox{
-    /* background-color: tan; */
-    /* position: fixed; */
-    width: 100%;
-    overflow: hidden;
-    /* height: 100vh; */
-    display: flex;
-    flex-direction: column;
-    /* overflow-y: hidden; */
-    /* align-items: end; */
-}
-.bookingBody{
-    width: 100%;
-    /* height: 1000px; */
-    display: flex;
-    /* flex: 1; */
-    /* background-color: cadetblue; */
-    margin-top: 70px;
-    overflow: hidden;
-}
-.bookingDashboard{
-    margin-left: 20%;
-    background-color: #fafafa;
-    /* position: relative; */
-    /* height: 100%; */
-    /* background-color: rgb(85, 0, 79); */
-    height: 1000px;
-    /* overflow-y: scroll; */
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* flex: 1; */
-    gap: 30px;
-    /* position: fixed; */
-    /* margin-right: -60px; */
-}
+
 .jobAlertsBox{
     width: 90%;
     height: fit-content;

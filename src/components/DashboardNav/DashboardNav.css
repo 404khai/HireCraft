@@ -162,7 +162,7 @@
   border-radius: 8px; /* Slightly rounded corners */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
   z-index: 1000; /* Ensure it appears above other content */
-  width: 350px; /* Minimum width for the dropdown */
+  width: 400px; /* Minimum width for the dropdown */
   padding: 10px 0; /* Vertical padding */
   display: flex; /* Use flexbox for vertical stacking */
   flex-direction: column;
@@ -218,6 +218,7 @@
     font-size: 12px;
     color: #888;
     text-align: right;
+    width: 70px;
 }
 
 .notificationsDropdown .view-all-link {
