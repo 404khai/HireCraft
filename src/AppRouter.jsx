@@ -26,13 +26,13 @@ import ClientBookings from "./pages/ClientBookings/ClientBookings";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import Kanban from "./pages/Kanban/Kanban";
 import Notifications from "./pages/Notifications/Notifications";
-
+import PasswordResetModal from "./pages/PasswordResetModal/PasswordResetModal";
 
 const Layout = () => {
   const location = useLocation();
 
-  const hideNavbarPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications"];
-  const hideFooterPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications"];
+  const hideNavbarPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal"];
+  const hideFooterPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal"];
   const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
   const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
 
@@ -53,6 +53,7 @@ const Layout = () => {
         <Route path="/ProviderProfile/:id" element={<ProviderProfile />} />
         <Route path="/AdminDashboard" element={<AdminDashboard />} />
         <Route path="/Notifications" element={<Notifications />} />
+        <Route path="/PasswordResetModal" element={<PasswordResetModal />} />
       </Routes>
 
       {shouldShowFooter && <Footer />}

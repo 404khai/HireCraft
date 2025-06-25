@@ -185,20 +185,18 @@
 .notification-badge {
         position: absolute;
         top: -5px; /* Adjust as needed */
-        right: -5px; /* Adjust as needed */
+        right: -13px; /* Adjust as needed */
         background-color: #ef4444; /* Red color for alerts */
         color: white;
         border-radius: 50%;
-        padding: 4px 8px;
+        padding: 5px 8px;
         font-size: 12px;
         font-weight: 600;
-        min-width: 20px; /* Ensure it's circular for single digits */
         text-align: center;
         box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 20px;
         transition: background-color 0.2s ease;
     }
 

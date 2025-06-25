@@ -545,7 +545,7 @@ const Login = () => {
                 </button>
                 <p className="note">
                     Forgot Password?
-                    <Link to="" className="logInBtnLink" style={{ color: "red" }}>Reset Password</Link>
+                    <Link to="/PasswordResetModal" className="logInBtnLink" style={{ color: "red" }}>Reset Password</Link>
                 </p>
             </form>
 
