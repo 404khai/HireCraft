@@ -44,6 +44,7 @@ const Profile = () => {
 
   // NEW STATE: To store the ISO country code for the flag
   const [displayCountryCode, setDisplayCountryCode] = useState('');
+  const [dashboardMetrics, setDashboardMetrics] = useState({ completedJobs: 0 });
 
   useEffect(() => {
     if (user) {
@@ -71,6 +72,39 @@ const Profile = () => {
       }
     }
   }, [user]);
+
+  useEffect(() => {
+      // Early return if no token - don't fetch anything
+      if (!token) {
+        console.warn("No token available, skipping dashboard metrics fetch.");
+        return;
+      }
+  
+      // Fetch dashboard metrics only when token exists
+      const fetchAllDashboardMetrics = async () => {
+        try {
+          const response = await fetch('http://localhost:9090/api/v1/bookings/provider/dashboard/metrics', {
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          });
+          
+          if (response.ok) {
+            const metrics = await response.json();
+            setDashboardMetrics(metrics); 
+          } else {
+            console.error('Failed to fetch dashboard metrics:', response.status, response.statusText);
+            // Keep default/initial state on API error
+          }
+        } catch (error) {
+          console.error('Error fetching dashboard metrics:', error);
+          // Keep default/initial state on network error
+        }
+      };
+      fetchAllDashboardMetrics();
+
+    }, [user, token]);
 
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -166,7 +200,7 @@ const Profile = () => {
               <p style={{color: "#808080"}}>Hourly Rate</p>
             </div>
             <div className="jobsDone">
-              <strong>2</strong>
+              <strong>{dashboardMetrics.completedJobs}</strong>
               <p style={{color: "#808080"}}>Jobs Done</p>
             </div>
           </div>

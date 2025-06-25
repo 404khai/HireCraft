@@ -1,6 +1,7 @@
 .providersidenav{
     width: 20%;
-    height: 480px;
+    height: 100vh;
+    /* height: 480px; */
     display: flex;
     flex-direction: column;
     position: fixed;
