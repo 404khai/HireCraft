@@ -464,7 +464,23 @@ const Login = () => {
             });
 
             setTimeout(() => {
-                navigate('/ProviderDashboard');
+                // --- MODIFICATION START ---
+                // Check if the user object exists and has roles
+                if (user && user.userRole) {
+                    if (user.userRole.includes('ROLE_CLIENT')) {
+                        navigate('/ClientDashboard'); // Redirect to client dashboard
+                    } else if (user.userRole.includes('ROLE_PROVIDER')) {
+                        navigate('/ProviderDashboard'); // Redirect to provider dashboard
+                    } else {
+                        // Handle other roles or a default dashboard if necessary
+                        console.warn("User has an unhandled role or no specific role for redirection.");
+                        navigate('/default-dashboard'); // A generic dashboard for other roles
+                    }
+                } else {
+                    console.warn("User object or roles not found in login response. Defaulting to ProviderDashboard.");
+                    navigate('/ProviderDashboard'); // Fallback if roles are missing
+                }
+                // --- MODIFICATION END ---
             }, 1400);
 
         } catch (error) {

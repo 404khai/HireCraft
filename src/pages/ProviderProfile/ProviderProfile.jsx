@@ -135,6 +135,7 @@ const ProviderProfile = () => {
     phoneNumber,
     occupation,
     hourlyRate,
+    jobsDone,
     providerBio,
     skills,
     averageRating = 0,
@@ -219,7 +220,7 @@ const ProviderProfile = () => {
               <p style={{color: "#808080"}}>Hourly Rate</p>
             </div>
             <div className="jobsDone">
-              <strong>{providerData.jobsDone || '0'}</strong> {/* Assuming jobsDone comes from providerData */}
+              <strong>{jobsDone}</strong> {/* Assuming jobsDone comes from providerData */}
               <p style={{color: "#808080"}}>Jobs Done</p>
             </div>
           </div>
