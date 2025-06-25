@@ -532,17 +532,7 @@ const Login = () => {
                 <button title="Log In" type="submit" className="logInBtn">
                     <span>Log In</span>
                 </button>
-
-                <div className="separator">
-                    <hr className='line' />
-                    <span>Or</span>
-                    <hr className="line" />
-                </div>
-
-                <button title="Sign In with Google" type="submit" className="sign-in_ggl">
-                    <img src={google} alt="" className='google' />
-                    <span>Sign In with Google</span>
-                </button>
+                
                 <p className="note">
                     Forgot Password?
                     <Link to="/PasswordResetModal" className="logInBtnLink" style={{ color: "red" }}>Reset Password</Link>
