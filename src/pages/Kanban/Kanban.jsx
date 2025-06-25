@@ -677,6 +677,8 @@
 
 import React, { useContext, useState, useEffect } from 'react';
 import { Plus, Calendar, Clock, X, MoreVertical, Edit2, Trash2 } from 'lucide-react';
+import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav';
+import DashboardNav from '../../components/DashboardNav/DashboardNav';
 
 const Kanban = () => {
   const [firstName, setFirstName] = useState('John');
@@ -951,6 +953,8 @@ const Kanban = () => {
   const styles = {
     container: {
       minHeight: '100vh',
+      marginLeft: '20%',
+      width: '100% ',
       backgroundColor: '#f9fafb',
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
     },
@@ -1255,9 +1259,13 @@ const Kanban = () => {
   };
 
   return (
+    <>
+    <ProviderSideNav/>
     <div style={styles.container}>
-      {/* Header */}
+      
+      <DashboardNav/>
       <div style={styles.header}>
+        
         <div style={styles.headerContent}>
           <h1 style={styles.title}>Welcome, {firstName}</h1>
           <p style={styles.subtitle}>We are glad to see you again!</p>
@@ -1434,6 +1442,7 @@ const Kanban = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

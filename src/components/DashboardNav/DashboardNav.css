@@ -182,11 +182,41 @@
   transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition on hover */
 }
 
+.notification-badge {
+        position: absolute;
+        top: -5px; /* Adjust as needed */
+        right: -5px; /* Adjust as needed */
+        background-color: #ef4444; /* Red color for alerts */
+        color: white;
+        border-radius: 50%;
+        padding: 4px 8px;
+        font-size: 12px;
+        font-weight: 600;
+        min-width: 20px; /* Ensure it's circular for single digits */
+        text-align: center;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20px;
+        transition: background-color 0.2s ease;
+    }
+
 .notificationsDropdown a:hover {
   background-color: #f5f5f5; /* Light background on hover */
   color: #35D07D; /* Highlight color on hover (e.g., a blue) */
 }
+.unread-dot {
+        background-color: #35D07D; /* Green for unread */
+    }
 
+    .read-dot {
+        background-color: #ccc; /* Grey for read */
+    }
+
+    .notification-dot:hover {
+        border-color: #35D07D; /* Highlight border on hover */
+    }
 .notificationsDropdown a i{
   font-size: 18px; /* Icon size */
   color: #666; /* Icon color */

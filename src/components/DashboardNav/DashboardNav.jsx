@@ -236,7 +236,7 @@ import './DashboardNav.css'; // Make sure this CSS file is correctly linked and 
 import { IoExitOutline, IoHomeOutline } from "react-icons/io5";
 import { IoMdNotifications } from "react-icons/io";
 import { Link } from 'react-router-dom';
-import React, { useState, useRef, useEffect, useContext } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useContext } from 'react';
 import { FaRegUser } from 'react-icons/fa6';
 import { AuthContext } from '../../context/AuthContext';
 import Avatar from '../Avatar';
@@ -248,6 +248,8 @@ const DashboardNav = () => {
   const [notifications, setNotifications] = useState([]); // State to hold fetched notifications
   const [loadingNotifications, setLoadingNotifications] = useState(true); // Loading state for notifications
   const [notificationsError, setNotificationsError] = useState(null); // Error state for notifications
+  const [unreadCount, setUnreadCount] = useState(0); // State for unread notifications count
+  const [loadingUnreadCount, setLoadingUnreadCount] = useState(true);
 
   const dropdownRef = useRef(null); // Ref for the profile dropdown container
   const notificationButtonRef = useRef(null); // Ref for the notification icon itself
@@ -256,20 +258,112 @@ const DashboardNav = () => {
   const { user, logout } = useContext(AuthContext);
   const token = localStorage.getItem('token'); // Get token from local storage
 
+  const fetchUnreadCount = useCallback(async () => {
+    if (!user || !token) {
+      setUnreadCount(0);
+      setLoadingUnreadCount(false);
+      return;
+    }
+    setLoadingUnreadCount(true);
+    try {
+      const response = await fetch('http://localhost:9090/api/v1/notifications/unread/count', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        const count = await response.json();
+        setUnreadCount(count);
+      } else {
+        console.error("Failed to fetch unread count:", response.status, await response.text());
+        setUnreadCount(0); // Reset count on error
+      }
+    } catch (error) {
+      console.error("Error fetching unread count:", error);
+      setUnreadCount(0); // Reset count on error
+    } finally {
+      setLoadingUnreadCount(false);
+    }
+  }, [user, token]); // Dependencies for useCallback
+
+  // Function to mark all notifications as read
+  const markAllNotificationsAsRead = useCallback(async () => {
+    if (!user || !token) return;
+
+    try {
+      const response = await fetch('http://localhost:9090/api/v1/notifications/read-all', {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        // Optimistically update local state and refetch count
+        setNotifications(prevNotifications =>
+          prevNotifications.map(notif => ({ ...notif, isRead: true }))
+        );
+        fetchUnreadCount(); // Refresh the unread count badge
+      } else {
+        console.error("Failed to mark all notifications as read:", response.status, await response.text());
+      }
+    } catch (error) {
+      console.error("Error marking all notifications as read:", error);
+    }
+  }, [user, token, fetchUnreadCount]);
+
+  // Function to mark an individual notification as read
+  const markIndividualNotificationAsRead = useCallback(async (notificationId, event) => {
+    // Prevent event from bubbling up and closing the dropdown immediately if clicked on dot
+    event.stopPropagation();
+
+    if (!user || !token) return;
+
+    try {
+      const response = await fetch(`http://localhost:9090/api/v1/notifications/${notificationId}/read`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        // Update the specific notification in local state
+        setNotifications(prevNotifications =>
+          prevNotifications.map(notif =>
+            notif.id === notificationId ? { ...notif, isRead: true } : notif
+          )
+        );
+        fetchUnreadCount(); // Refresh the unread count badge
+      } else {
+        console.error(`Failed to mark notification ${notificationId} as read:`, response.status, await response.text());
+      }
+    } catch (error) {
+      console.error(`Error marking notification ${notificationId} as read:`, error);
+    }
+  }, [user, token, fetchUnreadCount]);
+
+
+  // --- Toggle Functions ---
+
   // Toggle profile dropdown visibility
   const toggleDropdown = () => {
     setIsDropdownVisible(prev => !prev);
     setIsNotificationsVisible(false); // Close notifications if opening profile
   };
 
-  // Toggle notifications dropdown visibility and fetch if opening
+  // Toggle notifications dropdown visibility and fetch/mark as read if opening
   const toggleNotifications = async () => {
-    // Only fetch if the dropdown is currently hidden and about to become visible
-    if (!isNotificationsVisible && user && token) {
+    // If the dropdown is currently hidden and about to become visible
+    if (!isNotificationsVisible) {
       setLoadingNotifications(true);
       setNotificationsError(null);
       try {
-        const response = await fetch('http://localhost:9090/api/v1/notifications/all', {
+        const response = await fetch('http://localhost:9090/api/v1/notifications/all', { // Using the /notifications endpoint to get all for display
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -278,9 +372,11 @@ const DashboardNav = () => {
 
         if (response.ok) {
           const data = await response.json();
-          // Assuming the API returns notifications sorted newest first.
-          // If not, you'd sort them here: .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
           setNotifications(data);
+          // After fetching, if there are any notifications, mark them all as read
+          if (data.length > 0 && data.some(notif => !notif.isRead)) { // Only mark if there are actually unread ones
+            await markAllNotificationsAsRead();
+          }
         } else {
           const errorData = await response.json();
           setNotificationsError(`Failed to fetch notifications: ${errorData.message || response.statusText}`);
@@ -297,12 +393,14 @@ const DashboardNav = () => {
     setIsDropdownVisible(false); // Close profile dropdown if opening notifications
   };
 
-  // Close dropdowns on outside click
+  // --- UseEffects ---
+
+  // Effect to close dropdowns on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       // Check if click is outside profile dropdown AND outside the profile button
       if (dropdownRef.current && !dropdownRef.current.contains(event.target) &&
-          event.target.closest('.navbarProfileWrapper') !== dropdownRef.current.closest('.navbarProfileWrapper')) {
+          (!event.target.closest('.navbarProfileWrapper') || !dropdownRef.current.contains(event.target.closest('.navbarProfileWrapper')))) {
         setIsDropdownVisible(false);
       }
       
@@ -317,7 +415,11 @@ const DashboardNav = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Determine dashboard/profile link based on user role
+  // Effect to fetch unread count on mount and when user/token changes
+  useEffect(() => {
+    fetchUnreadCount();
+  }, [fetchUnreadCount]);
+
   const getProfileLink = () => {
     if (!user || !user.userRole) return "/"; // Default or fallback
     if (user.userRole.includes("PROVIDER")) return "/Profile";
@@ -338,7 +440,9 @@ const DashboardNav = () => {
         <div style={{ position: 'relative' }}> {/* Wrapper for relative positioning */}
           <i className='notifications' onClick={toggleNotifications} ref={notificationButtonRef}>
             <IoMdNotifications/>
-            {/* Optional: Add a badge for unread count here if you fetch it separately */}
+            {!loadingUnreadCount && unreadCount > 0 && (
+              <span className="notification-badge">{unreadCount}</span>
+            )}
           </i>
           {isNotificationsVisible && (
             <div className="notificationsDropdown" ref={notificationDropdownRef}>
@@ -350,10 +454,12 @@ const DashboardNav = () => {
                 <>
                   {/* Display only the first 3 notifications */}
                   {notifications.slice(0, 6).map((notification) => (
-                    <div
-                      key={notification.id}
-                      className={`notification-item ${!notification.isRead ? 'unread' : ''}`}
-                    >
+                    <div key={notification.id} className={`notification-item`} >
+                      <div 
+                        className={`notification-dot ${!notification.isRead ? 'unread-dot' : 'read-dot'}`}
+                        onClick={(e) => markIndividualNotificationAsRead(notification.id, e)}
+                      >
+                      </div>
                       <p>{notification.message}</p> {/* Use message from API */}
                       <p className="time">{notification.timeAgo}</p> {/* Use timeAgo from API */}
                     </div>
