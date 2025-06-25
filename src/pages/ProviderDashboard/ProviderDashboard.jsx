@@ -200,7 +200,7 @@ const ProviderDashboard = () => {
                 </div>
               </div>
               <i className='jobReqOverviewIcon'><FaBriefcase/></i>
-              <button className='dashboardMetricsBtn'></button>
+              {/* <button className='dashboardMetricsBtn'></button> */}
             </div>
 
             <div className="metric-card-enhanced">
@@ -225,7 +225,7 @@ const ProviderDashboard = () => {
                 </div>
               </div>
               <i className='unreadNotisOverviewIcon'><MdMarkUnreadChatAlt/></i>
-              <button className='dashboardMetricsBtn'></button>
+              {/* <button className='dashboardMetricsBtn'></button> */}
             </div>
 
             <div className="metric-card-enhanced">

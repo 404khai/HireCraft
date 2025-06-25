@@ -35,6 +35,7 @@
   top: -21px;
   position: relative;
   border: 2px solid white;
+  transition: 1s;
 }
 .welcome{
     width: 90%;

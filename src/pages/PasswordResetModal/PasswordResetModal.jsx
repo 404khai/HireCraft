@@ -61,8 +61,8 @@ const PasswordResetModal = () => {
             return;
         }
 
-        if (newPassword.length < 6) {
-            toast.error('Password must be at least 6 characters long');
+        if (newPassword.length < 4) {
+            toast.error('Password must be at least 4 characters long');
             return;
         }
 

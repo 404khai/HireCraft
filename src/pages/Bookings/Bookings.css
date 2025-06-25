@@ -21,6 +21,7 @@
 .bookingDashboard{
     margin-left: 20%;
     background-color: #fafafa;
+    padding-bottom: 50px;
     /* position: relative; */
     /* height: 100%; */
     /* background-color: rgb(85, 0, 79); */
@@ -346,6 +347,96 @@
     color: #6C757D; /* Gray text */
     background-color: #F8F9FA; /* Very light gray background */
     border: 1px solid #D3D6DB; /* Slightly darker gray border */
+}
+
+
+
+
+/* Filter Buttons Styles */
+.bookingFilters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 0 20px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.filterBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    color: #495057;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.filterBtn:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+    transform: translateY(-1px);
+}
+
+.filterBtn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+.filterCount {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+.filterBtn.active .filterCount {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.filterBtn:not(.active) .filterCount {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Filter Summary */
+.filterSummary {
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+.filterSummary p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bookingFilters {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .filterBtn {
+        justify-content: center;
+        padding: 10px 16px;
+    }
 }
 /* .status-button {
     padding: 8px 15px;
