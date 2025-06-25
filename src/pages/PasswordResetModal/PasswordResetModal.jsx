@@ -187,9 +187,9 @@ const PasswordResetModal = () => {
                         </button>
                     </div>
 
-                    <div className="modal-content">
-                        <h2>Reset Your Password</h2>
-                        <p>Enter the OTP sent to <strong>{email}</strong> and your new password.</p>
+                    <div className="modal-content-two">
+                        <h3>Reset Your Password</h3>
+                        <p>Enter the OTP sent to <strong>{email}</strong></p>
 
                         <form onSubmit={handlePasswordReset} className="reset-form">
                             <div className="input_container">
@@ -337,8 +337,8 @@ const PasswordResetModal = () => {
                     </button>
                 </div>
 
-                <div className="modal-content">
-                    <h2>Reset Your Password</h2>
+                <div className="modal-content-one">
+                    <h3>Reset Your Password</h3>
                     <p>Enter your email address and we'll send you an OTP to reset your password.</p>
 
                     <form onSubmit={handleSendOTP} className="reset-form">
@@ -363,6 +363,7 @@ const PasswordResetModal = () => {
                         <button 
                             type="submit" 
                             className="reset-submit-btn"
+                            id='getOTP'
                             disabled={isLoading}
                         >
                             {isLoading ? (
