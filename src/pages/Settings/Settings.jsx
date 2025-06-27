@@ -4,7 +4,7 @@ import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import { TiFolderAdd } from "react-icons/ti";
-import { LuScanText } from "react-icons/lu";
+import { LuScanText, LuFolderCog } from "react-icons/lu";
 import { IoSettingsOutline } from "react-icons/io5";
 
 import { CountrySelect, StateSelect, CitySelect } from 'react-country-state-city'
@@ -270,7 +270,7 @@ const Settings = () => {
                     <div className="editProfile">
                         <div className="editProfileHead">
                             {/* <i><IoSettingsOutline /></i> */}
-                            <i><TiFolderAdd /></i>
+                            <i><LuFolderCog /></i>
                             <b>Edit Profile</b>
                         </div>
 
@@ -440,7 +440,7 @@ const Settings = () => {
 
                     <div className="editPassword">
                       <div className="editProfileHead">
-                        <i><TiFolderAdd /></i>
+                        <i><LuFolderCog /></i>
                         <b>Change Password</b>
                       </div>
 
@@ -466,7 +466,7 @@ const Settings = () => {
 
                     <div className="editSocials">
                       <div className="editProfileHead">
-                        <i><TiFolderAdd /></i>
+                        <i><LuFolderCog /></i>
                         <b>Edit social Profiles</b>
                       </div>
 
@@ -494,7 +494,7 @@ const Settings = () => {
                     {user && user.userRole === 'ROLE_PROVIDER' && (
                     <div className="editCV">
                       <div className="editProfileHead">
-                        <i><TiFolderAdd /></i>
+                        <i><LuFolderCog /></i>
                         <b>Upload CV</b>
                       </div>
 
