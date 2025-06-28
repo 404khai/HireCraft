@@ -12,7 +12,7 @@ const UserChoiceModal = ({ onClose }) => {
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="employer">
           <h3>Register as Client</h3>
-          <Link to={{ pathname: "/EmployerSignUp", state: { role: "ROLE_CLIENT" } }}>
+          <Link to={{ pathname: "/ClientSignUp", state: { role: "ROLE_CLIENT" } }}>
             <img src={employer} alt="" />
           </Link>
           <p>Hire the services of master craftsmen and artisans within minutes</p>

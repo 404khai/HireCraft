@@ -31,8 +31,8 @@ import PasswordResetModal from "./pages/PasswordResetModal/PasswordResetModal";
 const Layout = () => {
   const location = useLocation();
 
-  const hideNavbarPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal"];
-  const hideFooterPaths = ["/ServiceProviderSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal"];
+  const hideNavbarPaths = ["/ServiceProviderSignUp", "/ClientSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal"];
+  const hideFooterPaths = ["/ServiceProviderSignUp", "/ClientSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal"];
   const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
   const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
 

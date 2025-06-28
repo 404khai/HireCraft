@@ -215,23 +215,18 @@ const ClientSideNav = () => {
             <LuLayoutDashboard style={iconStyle} />
             <span style={linkTextStyle}>Dashboard</span>
           </Link>
-          <Link to="/ProviderDashboard/Messages" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ClientDashboard/Messages" style={linkStyle} onClick={closeSidebar}>
             <TiMessages style={iconStyle} />
             <span style={linkTextStyle}>Messages</span>
-          </Link>
-          <Link to="/ProviderDashboard/Bookings" style={linkStyle} onClick={closeSidebar}>
-            <LuBriefcaseBusiness style={iconStyle} />
-            <span style={linkTextStyle}>My Bookings</span>
           </Link>
         </div>
 
         {/* Organize & Manage Section */}
         <div style={sectionStyle}>
           <p style={sectionHeaderStyle}>Organize & Manage</p>
-          <Link to="/ProviderDashboard/Kanban" style={linkStyle} onClick={closeSidebar}>
-            {/* <LuCalendarRange style={iconStyle} /> */}
-            <TbLayoutKanban style={iconStyle} />
-            <span style={linkTextStyle}>Schedule Board</span>
+          <Link to="/ClientDashboard/Bookings" style={linkStyle} onClick={closeSidebar}>
+            <LuBriefcaseBusiness style={iconStyle} />
+            <span style={linkTextStyle}>My Bookings</span>
           </Link>
           <Link to="/ProviderDashboard/Wallet" style={linkStyle} onClick={closeSidebar}>
             <RiWallet3Line style={iconStyle} />

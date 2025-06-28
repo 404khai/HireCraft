@@ -313,7 +313,7 @@ const ProviderSideNav = () => {
           </Link>
           <Link to="/ProviderDashboard/Wallet" style={linkStyle} onClick={closeSidebar}>
             <RiWallet3Line style={iconStyle} />
-            <span style={linkTextStyle}>Payments / Earnings</span>
+            <span style={linkTextStyle}>Earnings</span>
           </Link>
           {/* <Link to="/ProviderDashboard/MyProjects" style={linkStyle} onClick={closeSidebar}>
             <LuFolderCog style={iconStyle} />

@@ -676,7 +676,7 @@ const Bookings = () => {
 
     // Filter options
     const filterOptions = [
-        { key: 'ALL', label: 'All Requests', count: 0 },
+        // { key: 'ALL', label: 'All Requests', count: 0 },
         { key: 'PENDING', label: 'New Requests', count: 0 },
         { key: 'DECLINED', label: 'Declined', count: 0 },
         { key: 'COMPLETED', label: 'Completed', count: 0 },
