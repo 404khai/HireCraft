@@ -92,7 +92,17 @@ const ClientSignUp = () => {
             // Redirect to login or dashboard
             } else {
             const error = await response.json();
-            alert('Error: ' + error.message);
+            toast.error(error.message, {
+                position: "top-center",
+                autoClose: 1300,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
             console.error('Registration error:', error);
             }
         } catch (err) {

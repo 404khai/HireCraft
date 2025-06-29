@@ -387,6 +387,8 @@ import { CountrySelect, StateSelect, CitySelect } from 'react-country-state-city
 import "react-country-state-city/dist/react-country-state-city.css";
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
+import { ToastContainer, toast, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ServiceProviderSignUp = () => {
     const location = useLocation(); // Get the location object
@@ -456,16 +458,45 @@ const ServiceProviderSignUp = () => {
 
             if (response.ok) {
             const data = await response.json();
-            alert('Registration successful!');
+            toast.success('Registration successful!', {
+                position: "top-center",
+                autoClose: 1300,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                theme: "dark",
+                transition: Bounce,
+            });
             // Redirect to login or dashboard
             } else {
             const error = await response.json();
-            alert('Error: ' + error.message);
+            toast.error(error.message, {
+                position: "top-center",
+                autoClose: 1300,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
             console.error('Registration error:', error);
             }
         } catch (err) {
             console.error(err);
-            alert('Something went wrong.');
+            toast.error('Something went wrong', {
+                position: "top-center",
+                autoClose: 1300,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+            });
         }
     };
 
@@ -628,7 +659,7 @@ const ServiceProviderSignUp = () => {
             )}
 
             {step === 3 && (
-                <div className='thirdStep'>
+                <div className='sixthStep'>
                     <div className="input_container" id='country'>
                         <label className="input_label" htmlFor="country_field">Select Country</label>
                         <CountrySelect
@@ -732,17 +763,6 @@ const ServiceProviderSignUp = () => {
                 <span>Register</span> 
             </button>
             )}
-
-            <div className="separator">
-                <hr className='line'/>
-                <span>Or</span>
-                <hr className="line"/>
-            </div>
-
-            <button title="Sign Up with Google" type="submit" className="sign-up_ggl">
-                <img src={google} alt="" className='signUpGoogle'/>
-                <span>Sign Up with Google</span>
-            </button>
 
             <p className="note">
                 Already have an account? 

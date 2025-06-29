@@ -34,15 +34,18 @@
     height: 150px;
   }
 
-  .firstStep, .secondStep, .thirdStep, .fourthStep{
+  .firstStep, .secondStep, .thirdStep, .fourthStep, .sixthStep{
     justify-content: space-between;
   }
   .thirdStep{
     height: 400px;
     gap: 10px;
   }
- 
-  .firstStep, .secondStep, .thirdStep, .fourthStep, .fifthStep{
+  .sixthStep{
+    height: 230px;
+    gap: 10px;
+  }
+  .firstStep, .secondStep, .thirdStep, .fourthStep, .fifthStep, .sixthStep{
     /* background-color: coral; */
     width: 80%;
     /* height: 300px;
