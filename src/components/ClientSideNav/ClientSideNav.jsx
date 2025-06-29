@@ -247,8 +247,8 @@ const ClientSideNav = () => {
           </Link>
 
           <Link to="/logout" style={linkStyle} onClick={closeSidebar}>
-            <FaRegUser style={iconStyle} />
-            <span style={linkTextStyle}>Profile</span>
+            <LuLogOut style={iconStyle} />
+            <span style={linkTextStyle}>Log Out</span>
           </Link>
         </div>
       </nav>
