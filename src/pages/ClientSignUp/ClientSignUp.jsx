@@ -7,6 +7,8 @@ import { CountrySelect, StateSelect, CitySelect } from 'react-country-state-city
 import "react-country-state-city/dist/react-country-state-city.css";
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
+import { ToastContainer, toast, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ClientSignUp = () => {
     const location = useLocation(); // Get the location object
@@ -19,13 +21,14 @@ const ClientSignUp = () => {
         password: '',
         phoneNumber: '',
         profession: '',
+        position: '',
         country: '',
         countryId: 0,
         state: '',
         stateId: 0,
         city: '',
         cityId: 0, // Added cityId for proper tracking
-        role: location.state?.role || "ROLE_PROVIDER"
+        role: location.state?.role || "ROLE_CLIENT"
     });
 
     useEffect(() => {
@@ -57,7 +60,8 @@ const ClientSignUp = () => {
             password: formData.password,
             phoneNumber: formData.phoneNumber,
             role: formData.role,
-            occupation: formData.occupation,
+            profession: formData.profession,
+            position: formData.position,
             hourlyRate: formData.hourlyRate,
             country: formData.country,
             state: formData.state,
@@ -75,7 +79,16 @@ const ClientSignUp = () => {
 
             if (response.ok) {
             const data = await response.json();
-            alert('Registration successful!');
+            toast.success('Registration successful!', {
+                position: "top-center",
+                autoClose: 1300,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                theme: "dark",
+                transition: Bounce,
+            });
             // Redirect to login or dashboard
             } else {
             const error = await response.json();
@@ -211,7 +224,7 @@ const ClientSignUp = () => {
             )}
 
             {step === 2 && (
-                <div className="fourthStep">
+                <div className="sixthStep">
                     <div className="group" id='phoneNo'>
                         <label htmlFor="" >
                             <label className="input_label" htmlFor="phone_field">Phone Number</label>
@@ -243,11 +256,30 @@ const ClientSignUp = () => {
                             onChange={(e) => setFormData({ ...formData, profession: e.target.value })}
                         />
                     </div>
+
+                    <div className="input_container">
+                        <label className="input_label" htmlFor="occupation_field">Job Title</label>
+                        <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" className="icon">
+                            <path strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" stroke="#141B34" d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"></path>
+                            <path strokeLinejoin="round" strokeWidth="1.5" stroke="#141B34" d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z"></path>
+                        </svg>
+                        <input 
+                            placeholder="Plumber" 
+                            title="Input occupation" 
+                            name="occupation" 
+                            type="text" 
+                            className="signup_input_field" 
+                            id="occupation_field" 
+                            required
+                            value={formData.position}
+                            onChange={(e) => setFormData({ ...formData, position: e.target.value })}
+                        />
+                    </div>
                 </div>
             )}
 
             {step === 3 && (
-                <div className='thirdStep'>
+                <div className='sixthStep'>
                     <div className="input_container" id='country'>
                         <label className="input_label" htmlFor="country_field">Select Country</label>
                         <CountrySelect
@@ -344,6 +376,19 @@ const ClientSignUp = () => {
                 Already have an account? 
                 <Link to="/Login" className="logInBtnLink">Log In</Link>
             </p>
+            <ToastContainer
+                position="top-center"
+                autoClose={1200}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+                transition={Bounce}
+            />
         </form>
     </div>
   )

@@ -41,6 +41,7 @@
     height: 400px;
     gap: 10px;
   }
+ 
   .firstStep, .secondStep, .thirdStep, .fourthStep, .fifthStep{
     /* background-color: coral; */
     width: 80%;
