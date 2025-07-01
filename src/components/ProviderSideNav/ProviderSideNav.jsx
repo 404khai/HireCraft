@@ -297,15 +297,16 @@ const ProviderSideNav = () => {
             <TiMessages style={iconStyle} />
             <span style={linkTextStyle}>Messages</span>
           </Link>
-          <Link to="/ProviderDashboard/Bookings" style={linkStyle} onClick={closeSidebar}>
-            <LuBriefcaseBusiness style={iconStyle} />
-            <span style={linkTextStyle}>My Bookings</span>
-          </Link>
+          
         </div>
 
         {/* Organize & Manage Section */}
         <div style={sectionStyle}>
           <p style={sectionHeaderStyle}>Organize & Manage</p>
+          <Link to="/ProviderDashboard/Bookings" style={linkStyle} onClick={closeSidebar}>
+            <LuBriefcaseBusiness style={iconStyle} />
+            <span style={linkTextStyle}>My Bookings</span>
+          </Link>
           <Link to="/ProviderDashboard/Kanban" style={linkStyle} onClick={closeSidebar}>
             {/* <LuCalendarRange style={iconStyle} /> */}
             <TbLayoutKanban style={iconStyle} />

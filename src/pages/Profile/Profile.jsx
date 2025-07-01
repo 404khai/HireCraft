@@ -12,7 +12,9 @@ import mac2 from '../../assets/mac2.jpg'
 import mac3 from '../../assets/mac3.jpg'
 import lofi from '../../assets/lofi.png'
 import shop from '../../assets/shop.jpg'
-
+import plumber1 from '../../assets/plumber1.jpg'
+import plumber2 from '../../assets/plumber2.jpg'
+import plumber3 from '../../assets/plumber3.jpg'
 import countries from 'i18n-iso-countries';
 import en from 'i18n-iso-countries/langs/en.json'; // Import English locale data
 countries.registerLocale(en); // Register the locale data for lookup
@@ -235,13 +237,13 @@ const Profile = () => {
 
           <div className="providerProfilePortfolioImgBox">
             <div className="providerProfilePortfolioImg1">
-                <img src={shop} alt=""/>
+                <img src={plumber3} alt=""/>
             </div>
             <div className="providerProfilePortfolioImg2">
-                <img src={mac1} alt=""/>
+                <img src={plumber2} alt=""/>
             </div>
             <div className="providerProfilePortfolioImg3">
-                <img src={lofi} alt=""/>
+                <img src={plumber1} alt=""/>
             </div>
             <div className="providerProfilePortfolioImg4">
                 {/* <img src={shop} alt=""/> */}

@@ -873,7 +873,7 @@ const Kanban = () => {
         style={{
           ...styles.taskCard,
           opacity: isDragging ? 0.5 : 1,
-          transform: isDragging ? 'rotate(5deg)' : 'none'
+          
         }}
         draggable
         onDragStart={(e) => handleDragStart(e, task, columnId)}
