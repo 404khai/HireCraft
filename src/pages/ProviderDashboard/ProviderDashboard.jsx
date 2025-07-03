@@ -193,7 +193,7 @@ const ProviderDashboard = () => {
             <div className="metric-card-enhanced">
               <div className="metric-info">
                 <div className="overviewTxtTitle">New Booking Requests</div>
-                <div className="overviewTxtValue" style={{color: 'tomato'}}>{dashboardMetrics.newBookingRequestsToday}</div>
+                <div className="overviewTxtValue">{dashboardMetrics.newBookingRequestsToday}</div>
                 <div className="metric-change positive">
                   <HiArrowTrendingUp size={12} />
                   8% vs yesterday
@@ -206,7 +206,7 @@ const ProviderDashboard = () => {
             <div className="metric-card-enhanced">
               <div className="metric-info">
                 <div className="overviewTxtTitle">Daily Earnings</div>
-                <div className="overviewTxtValue" style={{color: 'darkturquoise'}}>$450</div>
+                <div className="overviewTxtValue">$450</div>
                 <div className="metric-change positive">
                   <HiArrowTrendingUp size={12} />
                   +12% vs yesterday
@@ -218,7 +218,7 @@ const ProviderDashboard = () => {
             <div className="metric-card-enhanced">
               <div className="metric-info">
                 <div className="overviewTxtTitle">Unread Messages</div>
-                <div className="overviewTxtValue" style={{color: 'purple'}}>7</div>
+                <div className="overviewTxtValue">7</div>
                 <div className="metric-change negative">
                   <FaClock size={12} />
                   3 urgent responses
@@ -231,7 +231,7 @@ const ProviderDashboard = () => {
             <div className="metric-card-enhanced">
               <div className="metric-info">
                 <div className="overviewTxtTitle">Average Rating</div>
-                <div className="overviewTxtValue" style={{color: '#ffc107'}}>{dashboardMetrics.averageRating.toFixed(1)}</div>
+                <div className="overviewTxtValue">{dashboardMetrics.averageRating.toFixed(1)}</div>
                 <div className="metric-change positive">
                   <FaStar size={12} />
                   {dashboardMetrics.totalReviews} client reviews
@@ -243,7 +243,7 @@ const ProviderDashboard = () => {
             <div className="metric-card-enhanced">
               <div className="metric-info">
                 <div className="overviewTxtTitle">Jobs Completed</div>
-                <div className="overviewTxtValue" style={{color: '#28a745'}}>{dashboardMetrics.completedJobs}</div>
+                <div className="overviewTxtValue">{dashboardMetrics.completedJobs}</div>
               </div>
               <i className='jobsDoneIcon'><SiTicktick/></i>
             </div>
@@ -251,7 +251,7 @@ const ProviderDashboard = () => {
             <div className="metric-card-enhanced">
               <div className="metric-info">
                 <div className="overviewTxtTitle">Completion Rate</div>
-                <div className="overviewTxtValue" style={{color: 'darkred'}}>{completionRate}</div>
+                <div className="overviewTxtValue">{completionRate}</div>
               </div>
               <i className='completionRateIcon'><FaBalanceScale/></i>
             </div>
@@ -322,8 +322,8 @@ const ProviderDashboard = () => {
             </div>
           </div>
 
-          {/* Quick Actions */}
-          <div className="quick-actions">
+
+          {/* <div className="quick-actions">
             <div className="action-card">
               <div className="action-icon">
                 <FaRegMessage size={20} />
@@ -355,7 +355,7 @@ const ProviderDashboard = () => {
               <div className="action-title">Client Reviews</div>
               <div className="action-description">Manage feedback and ratings</div>
             </div>
-          </div>
+          </div> */}
 
           
            

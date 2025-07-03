@@ -76,6 +76,7 @@
 
 
 import React, { useState, useEffect } from 'react';
+import './ProviderSideNav.css'
 import { HiOutlineMenu, HiX } from "react-icons/hi";
 import { LuLayoutDashboard, LuLogOut, LuCalendarRange, LuSettings, LuBriefcaseBusiness, LuFolderCog } from "react-icons/lu";
 import { TiMessages } from "react-icons/ti";
@@ -137,7 +138,7 @@ const ProviderSideNav = () => {
 
   const sidebarStyle = {
     width: '255px',
-    height: '480px',
+    height: '100vh',
     position: 'fixed',
     left: 0,
     top: 0,
@@ -156,43 +157,6 @@ const ProviderSideNav = () => {
     '@media (min-width: 769px)': {
       transform: 'translateX(0)',
     },
-  };
-
-  const sectionStyle = {
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column'
-  };
-
-  const sectionHeaderStyle = {
-    paddingLeft: '20px',
-    color: '#35D07D',
-    fontSize: '16px',
-    fontWeight: '600',
-    marginBottom: '8px',
-    marginTop: '0'
-  };
-
-  const linkStyle = {
-    textDecoration: 'none',
-    height: '50px',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '12px',
-    color: '#888',
-    paddingLeft: '20px',
-    transition: 'all 0.2s ease',
-    cursor: 'pointer'
-  };
-
-  const iconStyle = {
-    fontSize: '20px',
-    flexShrink: 0
-  };
-
-  const linkTextStyle = {
-    fontSize: '15px',
-    fontWeight: '500'
   };
 
   // Injecting global styles using useEffect to handle hover/scrollbar
@@ -217,33 +181,7 @@ const ProviderSideNav = () => {
         }
       }
 
-      .provider-sidenav a:hover {
-        color: #009749 !important;
-        border-left: 3px solid #009749;
-        padding-left: 25px !important;
-        background-color: #35d07d23;
-      }
-
-      .provider-sidenav a:hover svg {
-        color: #009749 !important;
-      }
-
-      .provider-sidenav::-webkit-scrollbar {
-        width: 6px;
-      }
-
-      .provider-sidenav::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-
-      .provider-sidenav::-webkit-scrollbar-thumb {
-        background: #c1c1c1;
-        border-radius: 3px;
-      }
-
-      .provider-sidenav::-webkit-scrollbar-thumb:hover {
-        background: #a8a8a8;
-      }
+      
     `;
     document.head.appendChild(styleElement);
 
@@ -286,56 +224,52 @@ const ProviderSideNav = () => {
         className="provider-sidenav" // Add class for global CSS targeting
       >
         {/* Home Section */}
-        <div style={sectionStyle}>
-          <p style={sectionHeaderStyle}>Home</p>
-          {/* Use React Router's Link component for navigation */}
-          <Link to="/ProviderDashboard" style={linkStyle} onClick={closeSidebar}>
-            <LuLayoutDashboard style={iconStyle} />
-            <span style={linkTextStyle}>Dashboard</span>
+        <div className='dashboardLinkBox'>
+          <p>Home</p>
+          {/* Use React Router's Lin component for navigation */}
+          <Link to="/ProviderDashboard" onClick={closeSidebar}>
+            <LuLayoutDashboard />
+            <span>Dashboard</span>
           </Link>
-          <Link to="/ProviderDashboard/Messages" style={linkStyle} onClick={closeSidebar}>
-            <TiMessages style={iconStyle} />
-            <span style={linkTextStyle}>Messages</span>
+          <Link to="/ProviderDashboard/Messages" onClick={closeSidebar}>
+            <TiMessages />
+            <span>Messages</span>
           </Link>
           
         </div>
 
         {/* Organize & Manage Section */}
-        <div style={sectionStyle}>
-          <p style={sectionHeaderStyle}>Organize & Manage</p>
-          <Link to="/ProviderDashboard/Bookings" style={linkStyle} onClick={closeSidebar}>
-            <LuBriefcaseBusiness style={iconStyle} />
-            <span style={linkTextStyle}>My Bookings</span>
+        <div className='dashboardLinkBox'>
+          <p>Organize & Manage</p>
+          <Link to="/ProviderDashboard/Bookings" onClick={closeSidebar}>
+            <LuBriefcaseBusiness />
+            <span>My Bookings</span>
           </Link>
-          <Link to="/ProviderDashboard/Kanban" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ProviderDashboard/Kanban" onClick={closeSidebar}>
             {/* <LuCalendarRange style={iconStyle} /> */}
-            <TbLayoutKanban style={iconStyle} />
-            <span style={linkTextStyle}>Schedule Board</span>
+            <TbLayoutKanban />
+            <span>Schedule Board</span>
           </Link>
-          <Link to="/ProviderDashboard/Wallet" style={linkStyle} onClick={closeSidebar}>
-            <RiWallet3Line style={iconStyle} />
-            <span style={linkTextStyle}>Earnings</span>
+          <Link to="/ProviderDashboard/Wallet" onClick={closeSidebar}>
+            <RiWallet3Line />
+            <span>Earnings</span>
           </Link>
-          {/* <Link to="/ProviderDashboard/MyProjects" style={linkStyle} onClick={closeSidebar}>
-            <LuFolderCog style={iconStyle} />
-            <span style={linkTextStyle}>Projects</span>
-          </Link> */}
         </div>
 
         {/* Account Section */}
-        <div style={sectionStyle}>
-          <p style={sectionHeaderStyle}>Account</p>
-          <Link to="/ProviderDashboard/Settings" style={linkStyle} onClick={closeSidebar}>
-            <LuSettings style={iconStyle} />
-            <span style={linkTextStyle}>Settings</span>
+        <div className='dashboardLinkBox'>
+          <p>Account</p>
+          <Link to="/ProviderDashboard/Settings" onClick={closeSidebar}>
+            <LuSettings />
+            <span>Settings</span>
           </Link>
-          <Link to="/ProviderDashboard/Reviews" style={linkStyle} onClick={closeSidebar}>
-            <MdOutlineRateReview style={iconStyle} />
-            <span style={linkTextStyle}>Review & Ratings</span>
+          <Link to="/ProviderDashboard/Reviews" onClick={closeSidebar}>
+            <MdOutlineRateReview />
+            <span>Review & Ratings</span>
           </Link>
-          <Link to="/logout" style={linkStyle} onClick={closeSidebar}>
-            <LuLogOut style={iconStyle} />
-            <span style={linkTextStyle}>Log Out</span>
+          <Link to="/logout" onClick={closeSidebar}>
+            <LuLogOut />
+            <span>Log Out</span>
           </Link>
         </div>
       </nav>

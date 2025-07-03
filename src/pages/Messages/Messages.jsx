@@ -1030,6 +1030,17 @@ const Messages = () => {
                                         <p>{userSimplifiedRole === 'CLIENT' ? booking.providerFullName : booking.clientFullName}</p>
                                         <p>{booking.description ? booking.description.substring(0, 30) + '...' : 'No description'}</p>
                                     </div>
+
+                                    {/* <div className="messageTxt">
+                                        <p>{userSimplifiedRole === 'CLIENT' ? booking.providerFullName : booking.clientFullName}</p>
+                                        <p>
+                                            {booking.latestMessage?.content
+                                            ? booking.latestMessage.content.length > 30
+                                                ? booking.latestMessage.content.substring(0, 30) + '...'
+                                                : booking.latestMessage.content
+                                            : 'No messages yet'}
+                                        </p>
+                                    </div> */}
                                 </div>
                             ))}
                         </div>

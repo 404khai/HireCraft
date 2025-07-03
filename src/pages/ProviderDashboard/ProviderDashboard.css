@@ -80,31 +80,28 @@
 .overviewTxtTitle{
     font-weight: 400;
     font-size: 14px;
+    color: rgb(61, 61, 61);
 }
 .overviewTxtValue{
     font-size: 20px;
     font-weight: 600;
+    color: #0b0e61;
 }
 
 /* .jobReqOverviewIcon{
     color: crimson;
     background-color: rgba(220, 20, 60, 0.185);
 } */
-.jobReqOverview .overviewTxtValue{
-    color: tomato;
-}
-.earningsOverview .overviewTxtValue{
-    color: darkturquoise;
-}
-.unreadNotisOverview .overviewTxtValue{
-    color: purple;
-}
+
 .jobReqOverviewIcon{
     /* color: teal;
     background-color: rgba(0, 128, 128, 0.116); */
 
-    color: tomato;
-    background-color: rgb(255, 215, 208);
+    /* color: tomato;
+    background-color: rgb(255, 215, 208); */
+
+    color: #0b0e61;
+    background-color: #b4b6ff;
 }
 .completionRateIcon{
     color: darkred;
