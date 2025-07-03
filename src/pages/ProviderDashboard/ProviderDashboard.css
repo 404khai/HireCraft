@@ -17,7 +17,7 @@
 }
 .dashboard{
     margin-left: 20%;
-    background-color: #fafafa;
+    background-color: #f7f7f7;
     height: 1300px;
     width: 80%;
     display: flex;
@@ -97,27 +97,40 @@
     /* color: teal;
     background-color: rgba(0, 128, 128, 0.116); */
 
-    /* color: tomato;
-    background-color: rgb(255, 215, 208); */
+    color: sandybrown;
+    /*background-color: rgb(255, 215, 208); */
 
-    color: #0b0e61;
-    background-color: #b4b6ff;
+    /* color: #0b0e61; */
+    /* color: #9699ff; */
+    background-color: black;
+    /* background-color: #b4b6ff; */
+}
+.reviewIcon{
+  color: gold;
+  /* color: #ffc107; */
+  /* background-color: #fff8dc; */
+  background-color: black;
 }
 .completionRateIcon{
-    color: darkred;
-    background-color: rgb(255, 201, 201);
+    color: crimson;
+    background-color: black;
+    /* background-color: rgb(255, 201, 201); */
 }
 .jobsDoneIcon{
-    color: #28a745;
-    background-color: #cbffd8;
+    /* color: #28a745; */
+    color: springgreen;
+    background-color: black;
+    /* background-color: #cbffd8; */
 }
 .earningsOverviewIcon{
-    color:  darkturquoise;
-    background-color: rgb(211, 254, 255);
+    color:  turquoise;
+    background-color: black;
+    /* background-color: rgb(211, 254, 255); */
 }
 .unreadNotisOverviewIcon{
-    color: purple;
-    background-color: #f0d8fb;
+    color: orchid;
+    background-color: black;
+    /* background-color: #f0d8fb; */
     /* background-color: rgba(128, 0, 128, 0.233); */
 }
 

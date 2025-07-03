@@ -5,7 +5,7 @@
 }
 .dashboardLinkBox p{
     padding-left: 20px;
-    color: #9699ff;
+    color: #35D07D;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 8px;
@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    color: #464646;
+    color: #5f5f5f;
     padding-left: 20px;
     transition: all 0.2s ease;
     cursor: pointer
@@ -35,14 +35,14 @@
 }
 
 .dashboardLinkBox a:hover {
-    color: #0b0e61;
-    border-left: 3px solid #0b0e61;
+    color: #00a64d;
+    border-left: 3px solid #00a64d;
     padding-left: 25px !important;
-    background-color: #e4e5ff;
+    background-color: #f0fff7;
 }
 
 .dashboardLinkBox a:hover svg {
-    color: #0b0e61 ;
+    color: #00a64d ;
 }
 
 .provider-sidenav::-webkit-scrollbar {

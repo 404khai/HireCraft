@@ -6,7 +6,7 @@ import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import { IoBriefcaseOutline} from "react-icons/io5";
-import { HiArrowTrendingUp } from "react-icons/hi2";
+import { HiArrowTrendingDown, HiArrowTrendingUp } from "react-icons/hi2";
 import { FaDollarSign, FaBriefcase, FaRegMessage } from "react-icons/fa6";
 import { MdMarkUnreadChatAlt } from "react-icons/md";
 import { FaStar, FaClock, FaUsers, FaCalendarAlt, FaCheckCircle, FaBalanceScale } from "react-icons/fa";
@@ -237,13 +237,17 @@ const ProviderDashboard = () => {
                   {dashboardMetrics.totalReviews} client reviews
                 </div>
               </div>
-              <i style={{color: '#ffc107', background: '#fff8dc', fontSize: '30px', padding: '10px', borderRadius: '5px'}}><FaStar/></i>
+              <i className='reviewIcon'><FaStar/></i>
             </div>
 
             <div className="metric-card-enhanced">
               <div className="metric-info">
                 <div className="overviewTxtTitle">Jobs Completed</div>
                 <div className="overviewTxtValue">{dashboardMetrics.completedJobs}</div>
+                <div className="metric-change negative">
+                  <HiArrowTrendingDown size={12} />
+                  4% vs yesterday
+                </div>
               </div>
               <i className='jobsDoneIcon'><SiTicktick/></i>
             </div>
