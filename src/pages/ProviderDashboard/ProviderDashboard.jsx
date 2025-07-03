@@ -200,6 +200,7 @@ const ProviderDashboard = () => {
                 </div>
               </div>
               <i className='jobReqOverviewIcon'><FaBriefcase/></i>
+              {/* <i className='jobReqOverviewIcon'><FaBriefcase/></i> */}
               {/* <button className='dashboardMetricsBtn'></button> */}
             </div>
 

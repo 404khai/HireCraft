@@ -66,7 +66,7 @@
 .metric-card-enhanced i{
     font-size: 30px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     display: flex;
 }
 .overviewTxt{
@@ -93,43 +93,68 @@
     background-color: rgba(220, 20, 60, 0.185);
 } */
 
+.glass-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient(15deg, black, rgb(83, 83, 83));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+
 .jobReqOverviewIcon{
-    /* color: teal;
-    background-color: rgba(0, 128, 128, 0.116); */
-
-    color: sandybrown;
-    /*background-color: rgb(255, 215, 208); */
-
-    /* color: #0b0e61; */
-    /* color: #9699ff; */
-    background-color: black;
-    /* background-color: #b4b6ff; */
+  color: sandybrown;
+  background: linear-gradient(15deg, black, rgb(83, 83, 83));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 .reviewIcon{
   color: gold;
   /* color: #ffc107; */
   /* background-color: #fff8dc; */
-  background-color: black;
+  background: linear-gradient(15deg, black, rgb(83, 83, 83));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 .completionRateIcon{
     color: crimson;
     background-color: black;
+    background: linear-gradient(15deg, black, rgb(83, 83, 83));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     /* background-color: rgb(255, 201, 201); */
 }
 .jobsDoneIcon{
     /* color: #28a745; */
     color: springgreen;
-    background-color: black;
+    background: linear-gradient(15deg, black, rgb(83, 83, 83));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     /* background-color: #cbffd8; */
 }
 .earningsOverviewIcon{
     color:  turquoise;
-    background-color: black;
+    background: linear-gradient(15deg, black, rgb(83, 83, 83));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     /* background-color: rgb(211, 254, 255); */
 }
 .unreadNotisOverviewIcon{
     color: orchid;
-    background-color: black;
+    background: linear-gradient(15deg, black, rgb(83, 83, 83));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     /* background-color: #f0d8fb; */
     /* background-color: rgba(128, 0, 128, 0.233); */
 }
