@@ -25,10 +25,10 @@
   color: black;
 }
 .navUserImgName{
-  color: white;
+  color: black;
 }
 .navUserIcon{
-  color: white;
+  color: black;
   font-size: 17px;
 }
 .navbar{
@@ -60,7 +60,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: rgb(255, 255, 255);
+    color: black;
     height: 100%;
     border-right: 1px solid #9a9a9a;
 }
@@ -91,7 +91,7 @@
     /* justify-content: space-between; */
 }
 .nav a{
-    color: rgb(255, 255, 255);
+    color: black;
 }
 .nav a:hover{
     color: #35D07D;
@@ -162,7 +162,7 @@
     padding: 15px;
     border-radius: 10px;
     width: 60%;
-    color: white;
+    color: black;
 }
 .logIn{
    background-image: linear-gradient(to right, #788cff , #3251ff);

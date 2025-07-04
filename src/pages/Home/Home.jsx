@@ -5,6 +5,7 @@ import { MdHomeRepairService } from "react-icons/md";
 import { FaStar, FaStarHalf, FaStarHalfAlt, FaRegStar, FaArrowRight } from "react-icons/fa";
 import explore from '../../assets/explore.png'
 import tomHolland from '../../assets/tomHolland.jpg'
+import hirecraftBanner from '../../assets/hirecraft-banner3.png'
 import girl from '../../assets/girl.jpeg'
 import OIF from '../../assets/OIF.jpeg'
 import { Link } from 'react-router-dom'
@@ -98,16 +99,13 @@ const Home = () => {
                         </button>
                     </Link>
                     
-                    <Link to="/ServiceProviderSignUp">
-                        <button className='becomeProvider'>Become a Service Provider</button>
-                    </Link>
                 </div>
             </div>
 
-            {/* <div className="heroSecImgs">
-                <img src={jobSearchGlobe} alt=""  className='jobSearch'/>
-                <img src={artisan} alt="" className='artisan'/>
-            </div> */}
+            <div className="heroSecImgs">
+                <img src={hirecraftBanner} alt="" />
+                
+            </div>
             
             {/* <img src={jobSearchGlobe} alt=""  className='jobSearch'/> */}
         </div>
