@@ -57,11 +57,19 @@
 /* .jobAlertsNoti p{
     font-size: 20px;
 } */
-.jobAlerts{
+/* .jobAlerts{
     width: 100%;
     height: 90%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    /* background-color: #00897B; */
+    background-color: #00897B;
+} */
+.jobAlerts {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e1e8ed;
 }
 .jobAlertsHead{
     height: 50px;
@@ -76,6 +84,248 @@
     display: flex;
     color: #35D07D;
 }
+
+
+
+
+.booking-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.booking-table-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-bottom: 2px solid #e1e8ed;
+}
+
+.booking-table-header th {
+    padding: 18px 20px;
+    text-align: left;
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-right: 1px solid #e1e8ed;
+}
+
+.booking-table-header th:last-child {
+    border-right: none;
+}
+
+.booking-table-row {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.booking-table-row:hover {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.booking-table-row:last-child {
+    border-bottom: none;
+}
+
+.booking-table-cell {
+    padding: 20px;
+    vertical-align: top;
+    border-right: 1px solid #f1f5f9;
+}
+
+.booking-table-cell:last-child {
+    border-right: none;
+}
+
+/* Client Information Cell */
+.client-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.client-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e1e8ed;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.client-details h4 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.client-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Service Details Cell */
+.service-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #475569;
+}
+
+.service-item i {
+    color: #667eea;
+    font-size: 16px;
+    width: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Location Cell */
+.location-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.location-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #475569;
+}
+
+.location-item i {
+    color: #10b981;
+    font-size: 16px;
+    width: 16px;
+}
+
+/* Status Cell */
+.status-cell {
+    text-align: center;
+}
+
+
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.no-bookings-found {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+    font-style: italic;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 8px;
+    margin: 20px;
+}
+.acceptBtn:hover, .declineBtn:hover, .completedBtn:hover {
+    transform: translateY(-2px);
+    width: 100px;
+    border-radius: 20px;
+}
+.time-cell {
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+.acceptBtn:hover .text,
+.declineBtn:hover .text,
+.completedBtn:hover .text {
+    opacity: 1;
+}
+/* Actions Cell */
+.actions-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    min-width: 150px;
+}
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .booking-table-cell {
+        padding: 16px 12px;
+    }
+    
+    .client-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .client-avatar {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .booking-table,
+    .booking-table-header,
+    .booking-table-row,
+    .booking-table-cell {
+        display: block;
+    }
+    
+    .booking-table-header {
+        display: none;
+    }
+    
+    .booking-table-row {
+        border: 1px solid #e1e8ed;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .booking-table-cell {
+        border: none;
+        padding: 16px;
+        border-bottom: 1px solid #f1f5f9;
+        position: relative;
+    }
+    
+    .booking-table-cell:last-child {
+        border-bottom: none;
+    }
+    
+    .booking-table-cell:before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #2d3748;
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 .newJobAlert{
     background-color: rgb(255, 178, 193);

@@ -955,6 +955,8 @@ const Bookings = () => {
                                 </p>
                             </div>
 
+
+
                             {filteredBookings.length === 0 ? (
                                 <p className="no-bookings-found">
                                     {activeFilter === 'ALL' 
@@ -963,97 +965,109 @@ const Bookings = () => {
                                     }
                                 </p>
                             ) : (
-                                filteredBookings.map((booking) => (
-                                    <div className="jobAlert" key={booking.id}>
-                                        <div className="jobAlertEmployer">
-                                            <img src={OIF} alt="Client Profile" />
-                                            <div className="jobEmployerTxt">
-                                                <div className="jobEmployerTxtInfo">
-                                                    <p>{booking.clientFullName}</p>
-                                                    <p>
-                                                        {booking.clientPosition}
-                                                        {booking.clientCompany && `, ${booking.clientCompany}`}
-                                                    </p>
-                                                </div>
+                                <table className="booking-table">
+                                    <thead className="booking-table-header">
+                                        <tr>
+                                            <th>Client</th>
+                                            <th>Service Details</th>
+                                            <th>Location</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                            <th>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {filteredBookings.map((booking) => (
+                                            <tr className="booking-table-row" key={booking.id}>
+                                                <td className="booking-table-cell" data-label="Client">
+                                                    <div className="client-info">
+                                                        <img src={OIF} alt="Client Profile" className="client-avatar" />
+                                                        <div className="client-details">
+                                                            <h4>{booking.clientFullName}</h4>
+                                                            <p>
+                                                                {booking.clientPosition}
+                                                                {booking.clientCompany && `, ${booking.clientCompany}`}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell" data-label="Service Details">
+                                                    <div className="service-details">
+                                                        <div className="service-item">
+                                                            <i><LuClock4 /></i>
+                                                            <span>{booking.timeSlot}</span>
+                                                        </div>
+                                                        <div className="service-item">
+                                                            <i><IoCalendarOutline /></i>
+                                                            <span>{booking.estimatedDuration}</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell" data-label="Location">
+                                                    <div className="location-info">
+                                                        <div className="location-item">
+                                                            <i><IoLocationOutline /></i>
+                                                            <span>{booking.city}, {booking.state}</span>
+                                                        </div>
+                                                        <div className="location-item">
+                                                            <i><LiaGlobeAmericasSolid /></i>
+                                                            <span>{booking.country}</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell status-cell" data-label="Status">
+                                                    <div className={`bookingStatus ${booking.status.toLowerCase()}`}>
+                                                        {booking.status}
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell" data-label="Actions">
+                                                    <div className="actions-cell">
+                                                        <Link to={`/ProviderDashboard/Messages?bookingId=${booking.id}`}>
+                                                            <button className='viewMessageBtn'>View Message</button>
+                                                        </Link>
+                                                        
+                                                        <div className="action-buttons">
+                                                            {booking.status === 'PENDING' && (
+                                                                <>
+                                                                    <button className="acceptBtn" onClick={() => handleAccept(booking.id)}>
+                                                                        <div className="acceptBtnIcon">
+                                                                            <i><SiTicktick className='accept' title='Accept Booking Request' /></i>
+                                                                        </div>
+                                                                        <div className="text">Accept</div>
+                                                                    </button>
 
-                                                <div className="jobEmployerTxtLocation">
-                                                    <p>
-                                                        <i><IoLocationOutline /></i>
-                                                        {booking.city}, {booking.state}
-                                                    </p>
-                                                    <p>
-                                                        <i><LiaGlobeAmericasSolid /></i>
-                                                        {booking.country}
-                                                    </p>
-                                                </div>
+                                                                    <button className="declineBtn" onClick={() => handleDecline(booking.id)}>
+                                                                        <div className="acceptBtnIcon">
+                                                                            <i><MdOutlineCancel className='decline' title='Decline Booking Request' /></i>
+                                                                        </div>
+                                                                        <div className="text">Decline</div>
+                                                                    </button>
+                                                                </>
+                                                            )}
 
-                                                <p className='bookingDetails'>
-                                                    <i><LuClock4 /></i>
-                                                    {booking.timeSlot}
-                                                </p>
-                                                <p className='bookingDetails'>
-                                                    <i><IoCalendarOutline /></i>
-                                                    {booking.estimatedDuration}
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <div className="bookingControls">
-                                            <div className="bookingStatusBox">
-                                                <button className={`bookingStatus ${booking.status.toLowerCase()}`}>
-                                                    <p>{booking.status}</p>
-                                                </button>
-                                            </div>
-
-                                            <div className="bookingControls2">
-                                                <Link to={`/ProviderDashboard/Messages?bookingId=${booking.id}`}>
-                                                    <button className='viewMessageBtn'>View Message</button>
-                                                </Link>
-                                                <p className='bookingTime'>
+                                                            {booking.status === 'ACCEPTED' && (
+                                                                <button className="completedBtn" onClick={() => handleComplete(booking.id)}>
+                                                                    <div className="acceptBtnIcon">
+                                                                        <i><BiTask className='completed' title='Mark as Completed' /></i>
+                                                                    </div>
+                                                                    <div className="text">Completed</div>
+                                                                </button>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell time-cell" data-label="Time">
                                                     {booking.timeAgo}
-                                                </p>
-                                            </div>
-
-                                            <div className="bookingControls3">
-                                                {booking.status === 'PENDING' && (
-                                                    <>
-                                                        <button className="acceptBtn" onClick={() => handleAccept(booking.id)}>
-                                                            <div className="acceptBtnIcon">
-                                                                <i><SiTicktick className='accept' title='Accept Booking Request' /></i>
-                                                            </div>
-                                                            <div className="text">Accept</div>
-                                                        </button>
-
-                                                        <button className="declineBtn" onClick={() => handleDecline(booking.id)}>
-                                                            <div className="acceptBtnIcon">
-                                                                <i><MdOutlineCancel className='decline' title='Decline Booking Request' /></i>
-                                                            </div>
-                                                            <div className="text">Decline</div>
-                                                        </button>
-                                                    </>
-                                                )}
-
-                                                {booking.status === 'ACCEPTED' && (
-                                                    <button className="completedBtn" onClick={() => handleComplete(booking.id)}>
-                                                        <div className="acceptBtnIcon">
-                                                            <i><BiTask className='completed' title='Mark as Completed' /></i>
-                                                        </div>
-                                                        <div className="text">Completed</div>
-                                                    </button>
-                                                )}
-
-                                                {booking.status === 'COMPLETED  ' && (
-                                                    <button className="completedBtn" onClick={() => handleComplete(booking.id)}>
-                                                        <div className="acceptBtnIcon">
-                                                            <i><BiTask className='completed' title='Mark as Completed' /></i>
-                                                        </div>
-                                                        <div className="text">Leave a review</div>
-                                                    </button>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
                             )}
                         </div>
                     </div>
