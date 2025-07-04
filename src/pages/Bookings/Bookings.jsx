@@ -978,7 +978,7 @@ const Bookings = () => {
                                             <tr className="booking-table-row" key={booking.id}>
                                                 <td className="booking-table-cell" data-label="Client">
                                                     <div className="client-info">
-                                                        <img src={OIF} alt="Client Profile" className="client-avatar" />
+                                                        <img src={booking.profilePictureUrl} alt="Client Profile" className="client-avatar" />
                                                         <div className="client-details">
                                                             <h4>{booking.clientFullName}</h4>
                                                             <p>

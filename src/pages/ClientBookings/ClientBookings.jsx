@@ -323,7 +323,7 @@ const ClientBookings = () => {
                                             <tr className="booking-table-row" key={clientBooking.id}>
                                                 <td className="booking-table-cell" data-label="Client">
                                                     <div className="client-info">
-                                                        <img src={OIF} alt="Client Profile" className="client-avatar" />
+                                                        <img src={clientBooking.profilePictureUrl} alt="Client Profile" className="client-avatar" />
                                                         <div className="client-details">
                                                             <h4>{clientBooking.providerFullName}</h4>
                                                             

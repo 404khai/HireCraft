@@ -1022,7 +1022,8 @@ const Messages = () => {
                                 >
                                     <div className="messageUser-avatar">
                                         {/* Use userSimplifiedRole here */}
-                                        {userSimplifiedRole === 'CLIENT' && booking.providerFullName ? booking.providerFullName.charAt(0).toUpperCase() : (booking.clientFullName ? booking.clientFullName.charAt(0).toUpperCase() : '?')}
+                                        <img src={booking.profilePictureUrl} alt="" />
+                                        {/* {userSimplifiedRole === 'CLIENT' && booking.providerFullName ? booking.providerFullName.charAt(0).toUpperCase() : (booking.clientFullName ? booking.clientFullName.charAt(0).toUpperCase() : '?')} */}
                                     </div>
 
                                     <div className="messageTxt">
