@@ -847,10 +847,7 @@ const Bookings = () => {
         updateBookingStatus(bookingId, 'COMPLETED');
     };
 
-    const handleCancel = (bookingId) => {
-        updateBookingStatus(bookingId, 'CANCELLED');
-    };
-    // Handler for filter button clicks
+    
     const handleFilterChange = (filterKey) => {
         setActiveFilter(filterKey);
     };
@@ -942,7 +939,7 @@ const Bookings = () => {
                                         onClick={() => handleFilterChange(option.key)}
                                     >
                                         {option.label}
-                                        <span className="filterCount">({filterCounts[option.key] || 0})</span>
+                                        <span className="filterCount">{filterCounts[option.key] || 0}</span>
                                     </button>
                                 ))}
                             </div>
@@ -1030,7 +1027,7 @@ const Bookings = () => {
                                                             <button className='viewMessageBtn'>View Message</button>
                                                         </Link>
                                                         
-                                                        <div className="action-buttons">
+                                                        
                                                             {booking.status === 'PENDING' && (
                                                                 <>
                                                                     <button className="acceptBtn" onClick={() => handleAccept(booking.id)}>
@@ -1057,8 +1054,7 @@ const Bookings = () => {
                                                                     <div className="text">Completed</div>
                                                                 </button>
                                                             )}
-                                                        </div>
-                                                    </div>
+                                                                                                        </div>
                                                 </td>
                                                 
                                                 <td className="booking-table-cell time-cell" data-label="Time">

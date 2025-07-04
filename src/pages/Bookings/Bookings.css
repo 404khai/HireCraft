@@ -130,7 +130,7 @@
 }
 
 .booking-table-cell {
-    padding: 20px;
+    padding: 16px 10px;
     vertical-align: top;
     border-right: 1px solid #f1f5f9;
 }
@@ -433,25 +433,34 @@
     font-size: 15px;
     color: white;
 }
-.viewMessageBtn{
-    /* background-color: #35D07D; */
-    background-color: #def5d8;
-    color: #3fad27;
-   /* background-image: linear-gradient(to right, #788cff , #3251ff); */
-    border: 0;
-    padding: 15px;
-    border-radius: 10px;
-    width: 150px;
-}
-.viewMessageBtn:hover{
-    letter-spacing: 1px;
-    transition: 1s;
-    background-color: #3fad27;
-    border: 0;
-    color: white;
-}
 
 
+.viewMessageBtn {
+  padding: 15px;
+  border-radius: 10px;
+  width: 120px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: white;
+  background-color:  #23c483;
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.viewMessageBtn:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.viewMessageBtn:active {
+  transform: translateY(-1px);
+}
 
 
 /* Base style for all booking status tags */

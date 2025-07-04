@@ -23,47 +23,189 @@ const ClientBookings = () => {
     const [clientBookings, setClientBookings] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [activeFilter, setActiveFilter] = useState('ALL'); // New state for active filter
     const { user } = useContext(AuthContext); // Access user from AuthContext for token if needed
+
+    const API_BASE_URL = 'http://localhost:9090/api/v1/bookings';
+
+    // Filter options
+    const filterOptions = [
+        // { key: 'ALL', label: 'All Requests', count: 0 },
+        { key: 'PENDING', label: 'New Requests', count: 0 },
+        { key: 'DECLINED', label: 'Declined', count: 0 },
+        { key: 'COMPLETED', label: 'Completed', count: 0 },
+        { key: 'ACCEPTED', label: 'In Progress', count: 0 },
+        { key: 'CANCELLED', label: 'Cancelled', count: 0 }
+    ];
+
+    // Function to get counts for each status
+    const getFilterCounts = () => {
+        const counts = { ALL: clientBookings.length };
+        filterOptions.forEach(option => {
+            if (option.key !== 'ALL') {
+                counts[option.key] = clientBookings.filter(clientBooking => clientBooking.status === option.key).length;
+            }
+        });
+        return counts;
+    };
+
+    // Function to filter bookings based on active filter
+    const getFilteredBookings = () => {
+        if (activeFilter === 'ALL') {
+            return clientBookings;
+        }
+        return clientBookings.filter(clientBooking => clientBooking.status === activeFilter);
+    };
+
+    // Utility function for getting token and config
+    const getAuthConfig = () => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            setError("Authentication token not found. Please log in.");
+            setLoading(false);
+            return null;
+        }
+        return {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        };
+    };
+
+    // Function to parse timeAgo and convert to sortable timestamp
+    const parseTimeAgo = (timeAgo) => {
+        const now = new Date();
+        const timeAgoLower = timeAgo.toLowerCase();
+        
+        if (timeAgoLower.includes('just now') || timeAgoLower.includes('now')) {
+            return now;
+        }
+        
+        const match = timeAgoLower.match(/(\d+)\s*(second|minute|hour|day|week|month|year)s?\s*ago/);
+        if (!match) return now;
+        
+        const value = parseInt(match[1]);
+        const unit = match[2];
+        
+        const result = new Date(now);
+        
+        switch(unit) {
+            case 'second':
+                result.setSeconds(result.getSeconds() - value);
+                break;
+            case 'minute':
+                result.setMinutes(result.getMinutes() - value);
+                break;
+            case 'hour':
+                result.setHours(result.getHours() - value);
+                break;
+            case 'day':
+                result.setDate(result.getDate() - value);
+                break;
+            case 'week':
+                result.setDate(result.getDate() - (value * 7));
+                break;
+            case 'month':
+                result.setMonth(result.getMonth() - value);
+                break;
+            case 'year':
+                result.setFullYear(result.getFullYear() - value);
+                break;
+            default:
+                return now;
+        }
+        
+        return result;
+    };
 
     // Function to fetch bookings
     const fetchClientBookings = async () => {
-        setLoading(true); // Set loading to true when fetching starts
-        setError(null); // Clear any previous errors
+        setLoading(true);
+        setError(null);
+
+        const config = getAuthConfig();
+        if (!config) return;
 
         try {
-            const token = localStorage.getItem('token'); // Get token from localStorage
-            if (!token) {
-                // Handle case where token is not found (e.g., redirect to login)
-                setError("Authentication token not found. Please log in.");
-                setLoading(false);
-                return;
-            }
-
-            const config = {
-                headers: {
-                    Authorization: `Bearer ${token}` // Include the JWT token in the Authorization header
-                }
-            };
-
-            const response = await axios.get('http://localhost:9090/api/v1/bookings/client/me', config);
-            setClientBookings(response.data); // Set the fetched data to state
-            console.log("Fetched bookings:", response.data); // Log the data to console for verification
+            const response = await axios.get(`${API_BASE_URL}/client/me`, config);
+            // Sort bookings by parsing timeAgo (most recent first)
+            const sortedBookings = response.data.sort((a, b) => {
+                const dateA = a.createdAt ? new Date(a.createdAt) : parseTimeAgo(a.timeAgo);
+                const dateB = b.createdAt ? new Date(b.createdAt) : parseTimeAgo(b.timeAgo);
+                return dateB - dateA;
+            });
+            setClientBookings(sortedBookings);
+            console.log("Fetched bookings:", sortedBookings);
         } catch (err) {
             console.error("Error fetching provider bookings:", err);
-            setError("Failed to load bookings. Please try again later."); // Set error message
-            // You might want to handle different error statuses, e.g., 401 for unauthorized
+            if (err.response && err.response.status === 401) {
+                setError("Session expired or unauthorized. Please log in again.");
+            } else {
+                setError("Failed to load bookings. Please try again later.");
+            }
         } finally {
-            setLoading(false); // Set loading to false once fetching is complete
+            setLoading(false);
         }
     };
 
-    // Use useEffect to call fetchBookings when the component mounts
+    // Function to update booking status
+    const updateBookingStatus = async (bookingId, newStatus) => {
+        setError(null);
+
+        const config = getAuthConfig();
+        if (!config) return;
+
+        try {
+            const payload = { newStatus: newStatus };
+            await axios.patch(`${API_BASE_URL}/${bookingId}/status`, payload, config);
+            
+            // Update the state and maintain sorting
+            setClientBookings(prevBookings => {
+                const updatedBookings = prevBookings.map(booking =>
+                    booking.id === bookingId ? { ...booking, status: newStatus } : booking
+                );
+                // Re-sort to maintain newest first order using timeAgo parsing
+                return updatedBookings.sort((a, b) => {
+                    const dateA = a.createdAt ? new Date(a.createdAt) : parseTimeAgo(a.timeAgo);
+                    const dateB = b.createdAt ? new Date(b.createdAt) : parseTimeAgo(b.timeAgo);
+                    return dateB - dateA;
+                });
+            });
+            console.log(`Booking ${bookingId} status updated to ${newStatus}`);
+        } catch (err) {
+            console.error(`Error updating booking ${bookingId} to ${newStatus}:`, err);
+            if (err.response) {
+                if (err.response.status === 401) {
+                    setError("Unauthorized: You don't have permission to perform this action or your session expired.");
+                } else if (err.response.status === 400 || err.response.status === 409) {
+                    setError(`Error: ${err.response.data.message || 'Invalid status transition or request.'}`);
+                } else {
+                    setError(`Failed to update status: ${err.response.data.message || 'Server error.'}`);
+                }
+            } else {
+                setError("Failed to connect to the server. Please check your network.");
+            }
+        }
+    };
+
+    const handleCancel = (bookingId) => {
+        updateBookingStatus(bookingId, 'CANCELLED');
+    };
+
+    
+    const handleFilterChange = (filterKey) => {
+        setActiveFilter(filterKey);
+    };
+
     useEffect(() => {
-        if (user) { // Only fetch if user data is available (i.e., user is logged in)
+        if (user) {
             fetchClientBookings();
         }
-    }, [user]); // Dependency array: re-run if 'user' object changes (e.g., after login)
+    }, [user]);
 
+    // Get filtered bookings and counts
+    const filteredBookings = getFilteredBookings();
+    const filterCounts = getFilterCounts();
 
     // Render loading, error, or data
     if (loading) {
@@ -134,70 +276,116 @@ const ClientBookings = () => {
                                 My Bookings
                             </div>
 
-                            {clientBookings.length === 0 ? (
-                                <p className="no-bookings-found">No bookings found for you at the moment.</p>
+                            <div className="bookingFilters">
+                                {filterOptions.map(option => (
+                                    <button
+                                        key={option.key}
+                                        className={`filterBtn ${activeFilter === option.key ? 'active' : ''}`}
+                                        onClick={() => handleFilterChange(option.key)}
+                                    >
+                                        {option.label}
+                                        <span className="filterCount">{filterCounts[option.key] || 0}</span>
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Results Summary */}
+                            <div className="filterSummary">
+                                <p>
+                                    Showing {filteredBookings.length} of {clientBookings.length} bookings
+                                    {activeFilter !== 'ALL' && ` (${filterOptions.find(f => f.key === activeFilter)?.label})`}
+                                </p>
+                            </div>
+
+
+
+                            {filteredBookings.length === 0 ? (
+                                <p className="no-bookings-found">
+                                    {activeFilter === 'ALL' 
+                                        ? "No bookings found for you at the moment." 
+                                        : `No ${filterOptions.find(f => f.key === activeFilter)?.label.toLowerCase()} found.`
+                                    }
+                                </p>
                             ) : (
-                                // Map over the fetched bookings data
-                                clientBookings.map((clientBooking) => (
-                                    <div className="jobAlert" key={clientBooking.id}>
-                                        <div className="jobAlertEmployer">
-                                            {/* You might want to replace OIF with a dynamic client image if available */}
-                                            <img src={OIF} alt="Client Profile" />
-                                            <div className="jobEmployerTxtClient">
-                                                <div className="jobEmployerTxtInfo">
-                                                    <p>{clientBooking.providerFullName}</p>
-                                                    {/* Display clientCompany if available, otherwise just position */}
-                                                    <p>
-                                                        {clientBooking.occupation}
-                                                    </p>
-                                                </div>
+                                <table className="booking-table">
+                                    <thead className="booking-table-header">
+                                        <tr>
+                                            <th>Provider</th>
+                                            <th>Occupation</th>
+                                            <th>Location</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                            <th>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {filteredBookings.map((clientBooking) => (
+                                            <tr className="booking-table-row" key={clientBooking.id}>
+                                                <td className="booking-table-cell" data-label="Client">
+                                                    <div className="client-info">
+                                                        <img src={OIF} alt="Client Profile" className="client-avatar" />
+                                                        <div className="client-details">
+                                                            <h4>{clientBooking.providerFullName}</h4>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell" data-label="Service Details">
+                                                    <div className="service-details">
+                                                        <p>{clientBooking.occupation}</p>
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell" data-label="Location">
+                                                    <div className="location-info">
+                                                        <div className="location-item">
+                                                            <i><IoLocationOutline /></i>
+                                                            <span>{clientBooking.city}, {clientBooking.state}</span>
+                                                        </div>
+                                                        <div className="location-item">
+                                                            <i><LiaGlobeAmericasSolid /></i>
+                                                            <span>{clientBooking.country}</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell status-cell" data-label="Status">
+                                                    <div className={`bookingStatus ${clientBooking.status.toLowerCase()}`}>
+                                                        {clientBooking.status}
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell" data-label="Actions">
+                                                    <div className="actions-cell">
+                                                        <Link to={`/ProviderDashboard/Messages?bookingId=${clientBooking.id}`}>
+                                                            <button className='viewMessageBtn'>View Message</button>
+                                                        </Link>
+                                                        
+                                                        
+                                                            {clientBooking.status === 'PENDING' && (
+                                                                <>
+                                                                    <button className="declineBtn" onClick={() => handleCancel(clientBooking.id)}>
+                                                                        <div className="acceptBtnIcon">
+                                                                            <i><MdOutlineCancel className='decline' title='Cancel Booking Request' /></i>
+                                                                        </div>
+                                                                        <div className="text">Cancel</div>
+                                                                    </button>
+                                                                </>
+                                                            )}
 
-                                                <div className="jobEmployerTxtLocation">
-                                                    <p>
-                                                        <i><IoLocationOutline /></i>
-                                                        {clientBooking.city}, {clientBooking.state}
-                                                    </p>
-                                                    <p>
-                                                        <i><LiaGlobeAmericasSolid /></i>
-                                                        {clientBooking.country}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="bookingControls">
-                                            {/* Pass booking ID to messages page if needed for context */}
-                                            
-                                            <button className={`bookingStatus ${clientBooking.status.toLowerCase()}`}>
-                                              <p >
-                                                {clientBooking.status}
-                                              </p>
-                                            </button>
-
-                                            <div className="bookingControls2">
-                                                <Link to={`/ProviderDashboard/Messages?bookingId=${clientBooking.id}`}>
-                                                    <button className='viewMessageBtn'>View Message</button>
-                                                </Link>
-                                                <div className="bookingControls3">
-                                                  <i><MdOutlineCancel className='decline' title='Cancel Booking Request' /></i>
-                                                  {/* {booking.status === 'PENDING' && (
-                                                      <>
-                                                          <i><SiTicktick className='accept' title='Accept Booking Request' /></i>
-                                                          <i><MdOutlineCancel className='decline' title='Decline Booking Request' /></i>
-                                                      </>
-                                                  )}
-                                                  {booking.status === 'CONFIRMED' && (
-                                                      <i><BiTask className='completed' title='Mark as Completed' /></i>
-                                                  )} */}
-                                                </div>
-                                                <p className='bookingTime'>
-                                                  {clientBooking.timeAgo} 
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell time-cell" data-label="Time">
+                                                    {clientBooking.timeAgo}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
                             )}
+                        
                         </div>
                     </div>
                 </div>
