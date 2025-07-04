@@ -9,6 +9,10 @@ import hirecraftBanner from '../../assets/hirecraft-banner3.png'
 import girl from '../../assets/girl.jpeg'
 import OIF from '../../assets/OIF.jpeg'
 import { Link } from 'react-router-dom'
+import airbnb from '../../assets/airbnb.svg'
+import taskrabbit from '../../assets/taskrabbit.svg'
+import fiverr from '../../assets/fiverr.svg'
+import upwork from '../../assets/upwork.svg'
 import Carousel from "react-multi-carousel";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -99,6 +103,13 @@ const Home = () => {
                         </button>
                     </Link>
                     
+                </div>
+
+                <div className="companies">
+                    <img src={airbnb} alt="" />
+                    <img src={taskrabbit} alt="" />
+                    <img src={fiverr} alt="" />
+                    <img src={upwork} alt="" />
                 </div>
             </div>
 
