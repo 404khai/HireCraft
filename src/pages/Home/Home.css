@@ -35,10 +35,11 @@
     height: 60%;
     margin-top: 100px;
     position: relative;
-    left: 100px;
+    left: 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 10000;
 }
 .homeTxt p{
     font-size: 42px;
@@ -55,6 +56,8 @@
     display: flex;
     justify-content: end;
     align-items: center;
+    position: relative;
+    right: 10px;
 }
 .heroSecImgs img{
     width: 200%;
