@@ -151,7 +151,7 @@ const FreelancerProfile = ({ provider }) => {
   } = provider;
 
   const fullName = `${firstName || ''} ${lastName || ''}`.trim();
-  const location = [state, city].filter(Boolean).join(', '); // Concatenate non-empty location parts
+  const location = [state].filter(Boolean).join(', '); // Concatenate non-empty location parts
 
   useEffect(() => {
       if (user) {

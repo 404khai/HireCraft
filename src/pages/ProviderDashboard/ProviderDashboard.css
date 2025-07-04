@@ -443,6 +443,9 @@
 
         /* Responsive design */
         @media (max-width: 1200px) {
+          .dashboard{
+            height: 2100px;
+          }
           .dashboard-grid {
             grid-template-columns: 1fr;
           }

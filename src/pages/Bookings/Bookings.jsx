@@ -847,6 +847,9 @@ const Bookings = () => {
         updateBookingStatus(bookingId, 'COMPLETED');
     };
 
+    const handleCancel = (bookingId) => {
+        updateBookingStatus(bookingId, 'CANCELLED');
+    };
     // Handler for filter button clicks
     const handleFilterChange = (filterKey) => {
         setActiveFilter(filterKey);
@@ -1036,6 +1039,15 @@ const Bookings = () => {
                                                             <i><BiTask className='completed' title='Mark as Completed' /></i>
                                                         </div>
                                                         <div className="text">Completed</div>
+                                                    </button>
+                                                )}
+
+                                                {booking.status === 'COMPLETED  ' && (
+                                                    <button className="completedBtn" onClick={() => handleComplete(booking.id)}>
+                                                        <div className="acceptBtnIcon">
+                                                            <i><BiTask className='completed' title='Mark as Completed' /></i>
+                                                        </div>
+                                                        <div className="text">Leave a review</div>
                                                     </button>
                                                 )}
                                             </div>

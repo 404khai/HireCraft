@@ -211,7 +211,7 @@ const ClientSideNav = () => {
         <div style={sectionStyle}>
           <p style={sectionHeaderStyle}>Home</p>
           {/* Use React Router's Link component for navigation */}
-          <Link to="/ProviderDashboard" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ClientDashboard" style={linkStyle} onClick={closeSidebar}>
             <LuLayoutDashboard style={iconStyle} />
             <span style={linkTextStyle}>Dashboard</span>
           </Link>
@@ -228,7 +228,7 @@ const ClientSideNav = () => {
             <LuBriefcaseBusiness style={iconStyle} />
             <span style={linkTextStyle}>My Bookings</span>
           </Link>
-          <Link to="/ProviderDashboard/Wallet" style={linkStyle} onClick={closeSidebar}>
+          <Link to="" style={linkStyle} onClick={closeSidebar}>
             <RiWallet3Line style={iconStyle} />
             <span style={linkTextStyle}>Payments</span>
           </Link>
