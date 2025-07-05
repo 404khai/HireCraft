@@ -5,6 +5,7 @@
   height: auto;
   background: #0a0a0a;
   overflow: hidden;
+  z-index: 100000;
 }
 
 .services-content {
@@ -21,7 +22,7 @@
 .services-title {
   position: relative;
   margin: 0;
-  font-size: 90px;
+  font-size: 60px;
   line-height: 1;
   color: #fff;
   text-transform: uppercase;
@@ -37,7 +38,7 @@
 }
 
 .services-slider {
-  height: 80vh;
+  height: 50vh;
   padding: 30px 0;
 }
 
@@ -61,7 +62,7 @@
 .service-item {
   position: relative;
   flex: 0 0 auto;
-  width: 750px;
+  width: 400px;
   height: 100%;
   background: #000;
   will-change: transform;
@@ -78,7 +79,7 @@
   left: 30px;
   font-size: 50px;
   color: #26cf6c;
-  opacity: 0.5;
+  opacity: 0.8;
   z-index: 3;
   font-weight: 800;
 }
@@ -96,6 +97,7 @@
   height: 100%;
   object-fit: cover;
   z-index: 2;
+  
 }
 
 .service-image-bg {

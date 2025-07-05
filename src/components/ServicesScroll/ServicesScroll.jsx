@@ -11,40 +11,46 @@ const ServicesScroll = () => {
   // Sample services data - replace with your actual services
   const services = [
     {
-      id: 1,
+        id: 1,
+        title: "Carpentry",
+        description: "Classic furniture and premium woodware",
+        image: "https://i.pinimg.com/736x/23/a2/f3/23a2f39014f3db9981ba006a536deb3b.jpg"
+    },
+    {
+      id: 2,
       title: "Plumbing",
       description: "Custom web applications built with modern technologies",
       image: "https://careertraining.occc.edu/common/images/2/23274/Foundations-of-Plumbing-Tools-935x572.jpg"
     },
     {
-      id: 2,
+      id: 3,
       title: "Electrical",
       description: "Native and cross-platform mobile solutions",
       image: "https://african.land/oc-content/plugins/blog/img/blog/382.jpg"
     },
     {
-      id: 3,
+      id: 4,
       title: "Painting",
       description: "User-centered design that drives engagement",
       image: "https://www.hammerandbrush.com.au/wp-content/uploads/2021/11/closeup-of-house-painting-renovation-4519567.jpg"
     },
     {
-      id: 4,
-      title: "Video Editing",
-      description: "Complete online store solutions",
-      image: "https://sm.pcmag.com/pcmag_me/gallery/t/the-best-o/the-best-online-video-editors-for-2025_rjmd.jpg"
-    },
-    {
       id: 5,
-      title: "Photography",
-      description: "Strategic marketing campaigns that convert",
-      image: "https://d2ub1k1pknil0e.cloudfront.net/media/images/camera-photography.width-1200.jpg"
+      title: "Tiling",
+      description: "Complete online store solutions",
+      image: "https://i.pinimg.com/736x/49/f3/e7/49f3e74e4c70e3ae22a7e5070ab48340.jpg"
     },
     {
       id: 6,
-      title: "Home Decor",
+      title: "Ceiling Design",
+      description: "Strategic marketing campaigns that convert",
+      image: "https://img.interiorcompany.com/interior/webproduct/286638709053313227074.png?aio=w-1200;"
+    },
+    {
+      id: 7,
+      title: "Interior Design",
       description: "Memorable brand experiences and visual identity",
-      image: "https://s3.ap-south-1.amazonaws.com/mbprodimages/images/interiorDesignerCMS/decorPartner/69/projectImage/simple-tv-unit-interior-design-17.jpg"
+      image: "https://images.prismic.io/luxdeco-dev/YmM0YzhmZDItM2YzZS00ZWY1LThlMmEtNjJjYWEwOGJjZTg5_top-10-modern-interior-designers_260a6d81-aae7-4caf-834a-7657993e3360.jpg?auto=compress,format&w=1200&q=100"
     }
   ];
 
