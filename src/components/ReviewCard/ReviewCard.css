@@ -1,13 +1,14 @@
 .feedbackRatingRating{
     /* border: 1px solid white; */
     display: flex;
-    width: 100%;
+    width: 150px;
     height:40px;
 }
 .feedbackDate{
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 150px;
 }
 .providerRatingBox{
     width: 100%;
@@ -20,9 +21,10 @@
 .providerRating{
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 4px;
     /* background-color: gray; */
-    width: 200px;
+    width: 100%;
     height: 100%;
 }
 .providerRating button{
@@ -35,4 +37,8 @@
 .providerRating i{
     color: #febe42;
 
+}
+
+.review-txt-cell{
+    width: 100px;
 }

@@ -141,6 +141,7 @@
 
 /* Client Information Cell */
 .client-info {
+    width: 170px;
     display: flex;
     align-items: center;
     gap: 15px;
