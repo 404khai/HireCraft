@@ -8,6 +8,8 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    z-index: 0.5;
+    position: relative;
 }
 .footerLogoSpan{
     color: #35D07D;

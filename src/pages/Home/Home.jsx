@@ -23,6 +23,7 @@ import "react-multi-carousel/lib/styles.css";
 import ServicesScroll from '../../components/ServicesScroll/ServicesScroll';
 
 import popularServices from '../../json/popularServices.json'
+import Footer from '../../components/Footer/Footer';
 
 const Home = () => {
     const images = import.meta.glob('../../assets/*', { eager: true });
@@ -93,12 +94,21 @@ const Home = () => {
 
         <ServicesScroll/>
         
-        
         <div className="whyUs">
-            {/* <img src={whyUs} alt="" /> */}
-
+            <h2 className="services-title">
+                WHY <span className="services-title-stroke">US</span>
+            </h2>
+            <img src={whyUs} alt="" />
+            <div className="whyUsTxt">
+                <p>Client satisfaction guaranteed</p>
+                <p>Identity verification process</p>
+                <p>In-depth performance analytics</p>
+                <p>Secure payment protection</p>
+                <p>24/7 customer support</p>
+            </div>
         </div>
 
+        <Footer/>
         {/* <div className="howItWorks">
             <h2>How It Works</h2>
             <p style={{color: "#54595F"}}>Source the best providers at your pace</p>
