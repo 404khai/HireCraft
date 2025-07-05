@@ -596,10 +596,7 @@ const Bookings = () => {
                                                         <img src={booking.profilePictureUrl} alt="Client Profile" className="client-avatar" />
                                                         <div className="client-details">
                                                             <h4>{booking.clientFullName}</h4>
-                                                            <p>
-                                                                {booking.clientPosition}
-                                                                {booking.clientCompany && `, ${booking.clientCompany}`}
-                                                            </p>
+                                                            <p>{booking.clientJobTitle}</p>
                                                         </div>
                                                     </div>
                                                 </td>
