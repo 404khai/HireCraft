@@ -175,7 +175,7 @@
     gap: 8px;
 }
 
-.service-item {
+.service-details-item {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -183,7 +183,7 @@
     color: #475569;
 }
 
-.service-item i {
+.service-details-item i {
     color: #667eea;
     font-size: 16px;
     width: 16px;

@@ -991,11 +991,11 @@ const Bookings = () => {
                                                 
                                                 <td className="booking-table-cell" data-label="Service Details">
                                                     <div className="service-details">
-                                                        <div className="service-item">
+                                                        <div className="service-details-item">
                                                             <i><LuClock4 /></i>
                                                             <span>{booking.timeSlot}</span>
                                                         </div>
-                                                        <div className="service-item">
+                                                        <div className="service-details-item">
                                                             <i><IoCalendarOutline /></i>
                                                             <span>{booking.estimatedDuration}</span>
                                                         </div>

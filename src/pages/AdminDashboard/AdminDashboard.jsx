@@ -11,13 +11,17 @@
 // export default AdminDashboard
 import React, { useState, useEffect } from 'react'
 import './AdminDashboard.css'
+import { Link } from 'react-router-dom'
 import DashboardNav from '../../components/DashboardNav/DashboardNav'
 import SalesMappingDashboard from '../../components/SalesMappingDashboard'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
 import { FaUsers, FaUserTie, FaDollarSign, FaExclamationTriangle, FaCalendarCheck, FaChartLine, FaMapMarkerAlt, FaStar, FaHandshake, FaCreditCard } from 'react-icons/fa';
 import { MdPendingActions, MdTrendingUp, MdReport, MdNotifications } from 'react-icons/md';
-import { IoStatsChart, IoSettings } from 'react-icons/io5';
+import { IoStatsChart, IoSettings, IoLocationOutline } from 'react-icons/io5';
+import { LiaGlobeAmericasSolid } from "react-icons/lia";
 import { HiUserGroup } from 'react-icons/hi';
+import { PiPhoneCallFill } from "react-icons/pi";
+import { IoIosMail } from "react-icons/io";
 
 const AdminDashboard = () => {
   const [timeFilter, setTimeFilter] = useState('30days');
@@ -387,7 +391,7 @@ const AdminDashboard = () => {
 
         .analytics-grid {
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 4fr;
           gap: 30px;
           margin-bottom: 30px;
         }
@@ -745,9 +749,88 @@ const AdminDashboard = () => {
           <div className="analytics-card">
             <h3 className="analytics-title">
               <FaChartLine />
-              Service Categories
+              New Users
             </h3>
-            <ResponsiveContainer width="100%" height={250}>
+
+<table className="booking-table">
+                                    <thead className="booking-table-header">
+                                        <tr>
+                                            <th>User</th>
+                                            <th>Role</th>
+                                            <th>Contact Info</th>
+                                            <th>Location</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                            <th>Created On</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                            <tr className="booking-table-row">
+                                                <td className="booking-table-cell" data-label="Client">
+                                                    <div className="client-info">
+                                                        <img src="" alt="Profile pic" className="client-avatar" />
+                                                        <div className="client-details">
+                                                            <h4>Alex</h4>
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                                <td className="booking-table-cell status-cell" data-label="Role">
+                                                    <div className='bookingStatus .bookingStatus.pending'>
+                                                        CLIENT
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell" data-label="Contact Info">
+                                                    <div className="service-details">
+                                                        <div className="service-details-item">
+                                                            <i><IoIosMail /></i>
+                                                            <span>danielsfega@gmail.com</span>
+                                                        </div>
+                                                        <div className="service-details-item">
+                                                            <i><PiPhoneCallFill /></i>
+                                                            <span>+23470410494077</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell" data-label="Location">
+                                                    <div className="location-info">
+                                                        <div className="location-item">
+                                                            <i><IoLocationOutline /></i>
+                                                            <span>Chicago, Illinois</span>
+                                                        </div>
+                                                        <div className="location-item">
+                                                            <i><LiaGlobeAmericasSolid /></i>
+                                                            <span>America</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell status-cell" data-label="Status">
+                                                    <div className='bookingStatus .bookingStatus.pending'>
+                                                        PENDING
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell" data-label="Actions">
+                                                    <div className="actions-cell">
+                                                        <Link to="">
+                                                            <button className='viewMessageBtn'>View Message</button>
+                                                        </Link>
+    
+                                                    </div>
+                                                </td>
+                                                
+                                                <td className="booking-table-cell time-cell" data-label="Created On">
+                                                    04-07-25
+                                                </td>
+                                            </tr>
+                                      
+                                    </tbody>
+                                </table>
+            {/* <ResponsiveContainer width="100%" height={250}>
               <PieChart>
                 <Pie
                   data={serviceCategories}
@@ -763,7 +846,7 @@ const AdminDashboard = () => {
                 </Pie>
                 <Tooltip />
               </PieChart>
-            </ResponsiveContainer>
+            </ResponsiveContainer> */}
           </div>
 
           {/* <div className="analytics-card">

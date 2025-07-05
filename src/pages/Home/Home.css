@@ -165,7 +165,7 @@
 
   .animated-hover-button .btn-content {
     position: relative;
-    
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -424,7 +424,7 @@
 .topImgimg{
     width: 60px !important;
 }
-.positiveReview > h1, p{
+.positiveReview h1, .positiveReview p{
     color: white;
 }
 .positiveReview > h1{
