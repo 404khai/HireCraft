@@ -149,12 +149,12 @@ textarea#bio {
 }
 .saveChanges{
     padding: 10px 15px;
-    width: 120px;
     border-radius: 5px;
     background-color: #35D07D;
     display: flex;
     gap: 5px;
     color: white;
+    width: fit-content;
     border: 0;
 }
 /* .saveChanges i{

@@ -48,6 +48,10 @@ const Settings = () => {
   const fileInputRef = useRef(null);
   const cvFileInputRef = useRef(null);
 
+  const [oldPassword, setOldPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmNewPassword, setConfirmNewPassword] = useState('');
+
   useEffect(() => {
     if (user) {
       setFirstName(user.firstName || '');
@@ -126,6 +130,89 @@ const Settings = () => {
       }
     } catch (error) {
       console.error('Network error during profile update:', error);
+      toast.error('An error occurred. Please try again.', {
+        position: 'top-center',
+        autoClose: 2000,
+        transition: Bounce,
+      });
+    }
+  };
+
+  const handleChangePassword = async (e) => {
+    e.preventDefault();
+
+    if (!token) {
+      toast.error('You are not authenticated. Please log in.', {
+        position: 'top-center',
+        autoClose: 2000,
+      });
+      return;
+    }
+
+    // Client-side validation
+    if (!oldPassword || !newPassword || !confirmNewPassword) {
+      toast.error('All password fields are required.', {
+        position: 'top-center',
+        autoClose: 2000,
+      });
+      return;
+    }
+
+    if (newPassword !== confirmNewPassword) {
+      toast.error('Passwords do not match.', {
+        position: 'top-center',
+        autoClose: 2000,
+      });
+      return;
+    }
+
+    if (newPassword.length < 4) {
+      toast.error('New password must be at least 4 characters long.', {
+        position: 'top-center',
+        autoClose: 2000,
+      });
+      return;
+    }
+
+    const payload = {
+      oldPassword,
+      newPassword,
+      confirmNewPassword,
+    };
+
+    try {
+      const response = await fetch('http://localhost:9090/api/v1/auth/change-password', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        toast.success('Password changed successfully!', {
+          position: 'top-center',
+          autoClose: 1500,
+          transition: Bounce,
+        });
+        
+        // Clear password fields after successful change
+        setOldPassword('');
+        setNewPassword('');
+        setConfirmNewPassword('');
+      } 
+      else {
+        const errorData = await response.json();
+        toast.error(errorData.message || 'Failed to change password', {
+          position: 'top-center',
+          autoClose: 2000,
+          transition: Bounce,
+        });
+        console.error('Change password error:', errorData);
+      }
+    } catch (error) {
+      console.error('Network error during password change:', error);
       toast.error('An error occurred. Please try again.', {
         position: 'top-center',
         autoClose: 2000,
@@ -460,24 +547,47 @@ const Settings = () => {
                         <b>Change Password</b>
                       </div>
 
-                      <div className="changePasswordForm">
+                      <form className="changePasswordForm" onSubmit={handleChangePassword}>
                         <div className="changeInfoInputContainer">
                           <label className="changeInfoLabel">Current Password</label>
-                          <input title="Current Password" type="text" className="changeInfoInput" required/>
+                          <input 
+                            value={oldPassword}
+                            onChange={(e) => setOldPassword(e.target.value)}
+                            title="Current Password" 
+                            type="password" 
+                            className="changeInfoInput" 
+                            required
+                          />
                         </div>
 
                         <div className="changeInfoInputContainer">
                           <label className="changeInfoLabel">New Password</label>
-                          <input title="New Password" type="text" className="changeInfoInput" required/>
+                          <input 
+                            value={newPassword}
+                            onChange={(e) => setNewPassword(e.target.value)}
+                            title="New Password" 
+                            type="password" 
+                            className="changeInfoInput" 
+                            required
+                            minLength={4}
+                          />
                         </div>
 
                         <div className="changeInfoInputContainer">
                           <label className="changeInfoLabel">Confirm New Password</label>
-                          <input  title="Confirm New Password" type="text" className="changeInfoInput" required/>
+                          <input 
+                            value={confirmNewPassword}
+                            onChange={(e) => setConfirmNewPassword(e.target.value)}
+                            title="Confirm New Password" 
+                            type="password" 
+                            className="changeInfoInput" 
+                            required
+                            minLength={4}
+                          />
                         </div>
 
-                        <button className='saveChanges'>Save Changes</button>
-                      </div>
+                        <button type='submit' className='saveChanges'>Change Password</button>
+                      </form>
                     </div>
 
                     
