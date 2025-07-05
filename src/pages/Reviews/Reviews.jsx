@@ -1,48 +1,3 @@
-// import React from 'react'
-// import './Reviews.css'
-// import DashboardNav from '../../components/DashboardNav/DashboardNav'
-// import ProviderSideNav from '../../components/ProviderSideNav/ProviderSideNav'
-// import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
-// import ReviewCard from '../../components/ReviewCard/ReviewCard'
-
-// const Reviews = () => {
-//   return (
-//     <div className='dashboardBox'>
-//       <DashboardNav/>
-//       <div className='dashboardBody'>
-//           <ProviderSideNav/>
-//           {/* <EmployerSideNav/> */}
-//           <div className="dashboard">
-//             <div className="welcome">
-//               <div className="welcomeTxt">
-//                 <h2>Reviews</h2>
-//               </div>
-
-//               <Breadcrumbs firstLink="Dashboard" link="/ProviderDashboard" secondLink="Reviews" link2="/ProviderDashboard/Reviews"/>
-//             </div>
-
-//             <div className="reviewsBox">
-//               <div className="reviewBoxEach">
-//                 <ReviewCard/>
-//               </div>
-//               <div className="reviewBoxEach">
-//                 <ReviewCard/>
-//               </div>
-//               <div className="reviewBoxEach">
-//                 <ReviewCard/>
-//               </div>
-//             </div>
-            
-//           </div>
-          
-//       </div>
-//     </div>
-//   )
-// }
-
-
-// export default Reviews
-
 import React, { useState, useEffect, useContext } from 'react'; // Import necessary hooks
 import './Reviews.css';
 import DashboardNav from '../../components/DashboardNav/DashboardNav';
@@ -58,6 +13,9 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const [filteredReviews, setFilteredReviews] = useState([]); // Add filtered reviews state
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -83,6 +41,7 @@ const Reviews = () => {
 
         const data = await response.json();
         setReviews(data); // Set the fetched reviews
+        setFilteredReviews(data);
       } catch (err) {
         console.error('Error fetching reviews:', err);
         setError(err.message || 'Failed to load reviews.');
@@ -98,6 +57,30 @@ const Reviews = () => {
       setError('No user logged in to fetch reviews for.');
     }
   }, [user, token]); // Re-run effect if user or token changes
+
+  useEffect(() => {
+    if (!searchTerm.trim()) {
+      setFilteredReviews(reviews); // Show all reviews if search is empty
+    } else {
+      const filtered = reviews.filter(review => {
+        const searchLower = searchTerm.toLowerCase();
+        return (
+          // Search in review text
+          (review.reviewTxt && review.reviewTxt.toLowerCase().includes(searchLower)) ||
+          // Search in client full name
+          (review.clientFullName && review.clientFullName.toLowerCase().includes(searchLower)) ||
+          // Search in rating (convert to string for search)
+          review.rating.toString().includes(searchTerm)
+        );
+      });
+      setFilteredReviews(filtered);
+    }
+  }, [searchTerm, reviews]); // Re-run when search term or reviews change
+
+  // Handle search input change
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
 
   if (loading) {
     return (
@@ -141,15 +124,37 @@ const Reviews = () => {
           </div>
 
           <div className="reviewsBox">
-            <input type="text" placeholder='Search'/>
-            {reviews.length > 0 ? (
-              reviews.map((review) => (
-                <div className="reviewBoxEach" key={review.id}> {/* Assuming each review has a unique 'id' */}
+            <div className="searchReviewsBox">
+              <input
+                placeholder="Search Reviews...."
+                className="searchReviews"
+                name="text"
+                type="text"
+                value={searchTerm}
+                onChange={handleSearchChange}
+              />
+            </div>
+            
+            {searchTerm && (
+              <p className="searchResults">
+                Found {filteredReviews.length} review{filteredReviews.length !== 1 ? 's' : ''} 
+                {searchTerm && ` for "${searchTerm}"`}
+              </p>
+            )}
+            
+            {filteredReviews.length > 0 ? (
+              filteredReviews.map((review, index) => (
+                <div className="reviewBoxEach" key={review.id || index}> {/* Use index as fallback key */}
                   <ReviewCard review={review} />
                 </div>
               ))
             ) : (
-              <p>No reviews available for you yet.</p>
+              <p>
+                {searchTerm 
+                  ? `No reviews found matching "${searchTerm}"`
+                  : "No reviews available for you yet."
+                }
+              </p>
             )}
           </div>
         </div>

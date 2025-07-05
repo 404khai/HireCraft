@@ -4,7 +4,7 @@
     flex-direction: column;
     overflow-y: hidden;
     gap: 30px;
-    /* align-items: center; */
+     /* align-items: end;  */
     justify-content: start;
 }
 .reviewBoxEach{
@@ -13,4 +13,25 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid #9a9a9a;
+}
+
+.searchReviewsBox{
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: end;
+}
+.searchReviews {
+  color: black;
+  border: 2px solid #35D07D;
+  border-radius: 10px;
+  padding: 10px 25px;
+  background: transparent;
+  width: 500px;
+  outline: 0;
+}
+
+.searchReviews:active {
+  box-shadow: 2px 2px 15px #35D07D inset;
+  outline: 0;
 }
