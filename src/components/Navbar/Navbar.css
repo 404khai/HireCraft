@@ -39,6 +39,7 @@
     align-items: center;
     justify-content: space-evenly;
     background-color: transparent;
+    z-index: 1000;
     /* border-bottom: 1px solid #9a9a9a; */
     top: 0;
     /* gap: 40px; */

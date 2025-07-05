@@ -19,6 +19,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-multi-carousel/lib/styles.css";
 
+import ServicesScroll from '../../components/ServicesScroll/ServicesScroll';
+
 import popularServices from '../../json/popularServices.json'
 
 const Home = () => {
@@ -120,6 +122,8 @@ const Home = () => {
             
             {/* <img src={jobSearchGlobe} alt=""  className='jobSearch'/> */}
         </div>
+
+        <ServicesScroll/>
         
         <div className="trusted">
             <h2>Global Talent Source trusted by Top Companies</h2>
