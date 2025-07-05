@@ -37,7 +37,7 @@
     position: sticky;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     background-color: transparent;
     z-index: 1;
     /* border-bottom: 1px solid #9a9a9a; */
@@ -65,14 +65,13 @@
     /* border-right: 1px solid #9a9a9a; */
 }
 .navLogo{
-    /* background-color: paleturquoise; */
     height: 80%;
     width: 200px;
     color: black;
     /* width: 20%; */
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 .navLogo i{
     font-size: 40px;

@@ -1,7 +1,7 @@
 .home{
     /* background-color: rgba(0, 0, 0, 0.397); */
     width: 100%;
-    height: 5000px;
+    height: 4200px;
     display: flex;
     position: relative;
     z-index: 0.5;
@@ -421,7 +421,9 @@
     justify-content: center;
 }
 
-
+.topImgimg{
+    width: 60px !important;
+}
 .positiveReview > h1, p{
     color: white;
 }
@@ -430,20 +432,9 @@
 }
 
 
-/* HOW IT WORKS */
-.howItWorks{
-    width: 100%;
-    height: 500px;
-    border: 1px solid saddlebrown;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.howItWorksBoxes{
-    width: 90%;
-    height: 80%;
-    background-color: antiquewhite;
-}
+/* FAQ*/
+/* Bootstrap-based FAQ Styles */
+
 
 
 /* FEEDBACK SECTIOn */
