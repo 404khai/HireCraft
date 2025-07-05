@@ -31,8 +31,8 @@ import PasswordResetModal from "./pages/PasswordResetModal/PasswordResetModal";
 const Layout = () => {
   const location = useLocation();
 
-  const hideNavbarPaths = ["/ServiceProviderSignUp", "/ClientSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal"];
-  const hideFooterPaths = ["/Home", "/ServiceProviderSignUp", "/ClientSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal"];
+  const hideNavbarPaths = ["/ServiceProviderSignUp", "/ClientSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal", "/Dashboard"];
+  const hideFooterPaths = ["/Home", "/ServiceProviderSignUp", "/ClientSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal", "/Dashboard"];
   const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
   const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
 
@@ -65,14 +65,10 @@ const ProviderDashboardLayout = () => (
   <>
     <Routes>
       <Route path="/ProviderDashboard" element={<ProviderDashboard />} />
-      <Route path="/ProviderDashboard/Messages" element={<Messages />} />
-      {/* <Route path="/Dashboard/JobAlerts" element={<JobAlerts />} /> */}
       <Route path="/ProviderDashboard/Bookings" element={<Bookings />} />
       <Route path="/ProviderDashboard/Wallet" element={<Wallet />} />
       <Route path="/ProviderDashboard/Kanban" element={<Kanban />} />
       <Route path="/ProviderDashboard/MyProjects" element={<MyProjects />} />
-      <Route path="/ProviderDashboard/Settings" element={<Settings />} />
-      <Route path="/ProviderDashboard/Reviews" element={<Reviews/>}  />
       <Route path="/ProviderDashboard/Resume" element={<Resume />} />
     </Routes>
   </>
@@ -88,16 +84,31 @@ const ClientDashboardLayout = () => (
   </>
 );
 
+
+const SharedDashboardLayout = () => (
+  <>
+    <Routes>
+      <Route path="/Dashboard/Messages" element={<Messages />} />
+      <Route path="/Dashboard/Settings" element={<Settings />} />
+      <Route path="/Dashboard/Reviews" element={<Reviews />} />
+    </Routes>
+  </>
+);
+
+
 const AppRouter = () => {
   const location = useLocation();
 
   const isProviderDashboardRoute = location.pathname.startsWith("/ProviderDashboard");
   const isClientDashboardRoute = location.pathname.startsWith("/ClientDashboard");
+  const isSharedRoute = location.pathname.startsWith("/Dashboard");
 
   if (isProviderDashboardRoute) {
     return <ProviderDashboardLayout />;
   } else if (isClientDashboardRoute) {
     return <ClientDashboardLayout />;
+  } else if (isSharedRoute) {
+    return <SharedDashboardLayout />;
   } else {
     return <Layout />;
   }

@@ -215,7 +215,7 @@ const ClientSideNav = () => {
             <LuLayoutDashboard style={iconStyle} />
             <span style={linkTextStyle}>Dashboard</span>
           </Link>
-          <Link to="/ClientDashboard/Messages" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/Dashboard/Messages" style={linkStyle} onClick={closeSidebar}>
             <TiMessages style={iconStyle} />
             <span style={linkTextStyle}>Messages</span>
           </Link>
@@ -237,11 +237,11 @@ const ClientSideNav = () => {
         {/* Account Section */}
         <div style={sectionStyle}>
           <p style={sectionHeaderStyle}>Account</p>
-          <Link to="/ProviderDashboard/Settings" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/Dashboard/Settings" style={linkStyle} onClick={closeSidebar}>
             <LuSettings style={iconStyle} />
             <span style={linkTextStyle}>Settings</span>
           </Link>
-          <Link to="/ProviderDashboard/Reviews" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/Dashboard/Reviews" style={linkStyle} onClick={closeSidebar}>
             <MdOutlineRateReview style={iconStyle} />
             <span style={linkTextStyle}>Review & Ratings</span>
           </Link>

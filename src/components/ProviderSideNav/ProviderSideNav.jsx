@@ -162,7 +162,7 @@ const ProviderSideNav = () => {
             <LuLayoutDashboard />
             <span className='dashboardLinkBoxSpan'>Dashboard</span>
           </Link>
-          <Link to="/ProviderDashboard/Messages" onClick={closeSidebar}>
+          <Link to="/Dashboard/Messages" onClick={closeSidebar}>
             <TiMessages />
             <span className='dashboardLinkBoxSpan'>Messages</span>
             {/* <span className="sidenav-noti-badge">3</span> */}
@@ -198,11 +198,11 @@ const ProviderSideNav = () => {
         {/* Account Section */}
         <div className='dashboardLinkBox'>
           <p>Account</p>
-          <Link to="/ProviderDashboard/Settings" onClick={closeSidebar}>
+          <Link to="/Dashboard/Settings" onClick={closeSidebar}>
             <LuSettings />
             <span className='dashboardLinkBoxSpan'>Settings</span>
           </Link>
-          <Link to="/ProviderDashboard/Reviews" onClick={closeSidebar}>
+          <Link to="/Dashboard/Reviews" onClick={closeSidebar}>
             <MdOutlineRateReview />
             <span className='dashboardLinkBoxSpan'>Review & Ratings</span>
             {/* <span className="sidenav-noti-badge">3</span> */}

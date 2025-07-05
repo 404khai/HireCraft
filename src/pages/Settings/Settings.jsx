@@ -430,7 +430,7 @@ const Settings = () => {
 
                           {user && user.userRole === 'ROLE_CLIENT' && (
                             <div className="changeInfoInputContainer">
-                              <label className="changeInfoLabel">Occupation</label>
+                              <label className="changeInfoLabel">Job Title</label>
                               <input 
                                 value={jobTitle}
                                 onChange={(e) => setJobTitle(e.target.value)}
@@ -467,25 +467,29 @@ const Settings = () => {
                             </div>
                           )}
 
-                          <div className="changeInfoInputContainer">
-                            <label className="changeInfoLabel">Bio</label>
-                            <textarea
-                              id="bio"
-                              name="bio"
-                              value={providerBio}
-                              onChange={(e) => setProviderBio(e.target.value)}
-                            ></textarea>
-                          </div>
+                          {user && user.userRole === 'ROLE_PROVIDER' && (
+                            <div className="changeInfoInputContainer">
+                              <label className="changeInfoLabel">Bio</label>
+                              <textarea
+                                id="bio"
+                                name="bio"
+                                value={providerBio}
+                                onChange={(e) => setProviderBio(e.target.value)}
+                              ></textarea>
+                            </div>
+                          )}
 
-                          <div className="changeInfoInputContainer">
-                            <label className="changeInfoLabel">Skills</label>
-                            <textarea
-                              id="skills"
-                              name="skills"
-                              value={skills}
-                              onChange={(e) => setSkills(e.target.value)}
-                            ></textarea>
-                          </div>
+                          {user && user.userRole === 'ROLE_PROVIDER' && (
+                            <div className="changeInfoInputContainer">
+                              <label className="changeInfoLabel">Skills</label>
+                              <textarea
+                                id="skills"
+                                name="skills"
+                                value={skills}
+                                onChange={(e) => setSkills(e.target.value)}
+                              ></textarea>
+                            </div>
+                          )}
 
                           <div className="changeInfoInputContainer" id='country'>
                             <label className="changeInfoLabel" htmlFor="password_field">Country</label>
