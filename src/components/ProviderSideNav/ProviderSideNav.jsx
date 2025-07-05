@@ -160,12 +160,12 @@ const ProviderSideNav = () => {
           {/* Use React Router's Lin component for navigation */}
           <Link to="/ProviderDashboard" onClick={closeSidebar}>
             <LuLayoutDashboard />
-            <span>Dashboard</span>
+            <span className='dashboardLinkBoxSpan'>Dashboard</span>
           </Link>
           <Link to="/ProviderDashboard/Messages" onClick={closeSidebar}>
             <TiMessages />
-            <span>Messages</span>
-            <span className="sidenav-noti-badge">3</span>
+            <span className='dashboardLinkBoxSpan'>Messages</span>
+            {/* <span className="sidenav-noti-badge">3</span> */}
           </Link>
           
         </div>
@@ -175,7 +175,7 @@ const ProviderSideNav = () => {
           <p>Organize & Manage</p>
           <Link to="/ProviderDashboard/Bookings" onClick={closeSidebar}>
             <LuBriefcaseBusiness />
-            <span>My Bookings</span>
+            <span className='dashboardLinkBoxSpan'>My Bookings</span>
             {!loading && totalNotifications > 0 && (
               <span className="sidenav-noti-badge">
                 {totalNotifications}
@@ -186,12 +186,12 @@ const ProviderSideNav = () => {
           <Link to="/ProviderDashboard/Kanban" onClick={closeSidebar}>
             {/* <LuCalendarRange style={iconStyle} /> */}
             <TbLayoutKanban />
-            <span>Schedule Board</span>
+            <span className='dashboardLinkBoxSpan'>Schedule Board</span>
           </Link>
           <Link to="/ProviderDashboard/Wallet" onClick={closeSidebar}>
             <RiWallet3Line />
-            <span>Earnings</span>
-            <span className="sidenav-noti-badge">3</span>
+            <span className='dashboardLinkBoxSpan'>Earnings</span>
+            {/* <span className="sidenav-noti-badge">3</span> */}
           </Link>
         </div>
 
@@ -200,16 +200,16 @@ const ProviderSideNav = () => {
           <p>Account</p>
           <Link to="/ProviderDashboard/Settings" onClick={closeSidebar}>
             <LuSettings />
-            <span>Settings</span>
+            <span className='dashboardLinkBoxSpan'>Settings</span>
           </Link>
           <Link to="/ProviderDashboard/Reviews" onClick={closeSidebar}>
             <MdOutlineRateReview />
-            <span>Review & Ratings</span>
-            <span className="sidenav-noti-badge">3</span>
+            <span className='dashboardLinkBoxSpan'>Review & Ratings</span>
+            {/* <span className="sidenav-noti-badge">3</span> */}
           </Link>
           <Link to="/logout" onClick={closeSidebar}>
             <LuLogOut />
-            <span>Log Out</span>
+            <span className='dashboardLinkBoxSpan'>Log Out</span>
           </Link>
         </div>
       </nav>

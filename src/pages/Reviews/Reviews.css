@@ -1,17 +1,15 @@
 .reviewsBox{
     width: 90%;
-    height: 420px;
-    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
-    /* gap: 30px; */
+    gap: 30px;
     /* align-items: center; */
     justify-content: start;
 }
 .reviewBoxEach{
     /* background-color: #9a9a9a; */
-    height: 150px;
+    height: 100px;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #9a9a9a;

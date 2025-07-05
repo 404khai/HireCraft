@@ -29,7 +29,7 @@
     flex-shrink: 0
 }
 
-.dashboardLinkBox a span{
+.dashboardLinkBoxSpan{
     font-size: 15px;
     font-weight: 500
 }
@@ -64,39 +64,25 @@
 
 
 .sidenav-noti-badge {
-    position: absolute;
-    top: 8px;
-    right: 8px;
+    position: fixed;
+    right: 20px;
     background: #ff4444;
     color: white;
     border-radius: 50%;
-    width: 20px;
+    width: 10px;
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 12px;
     font-weight: bold;
-    min-width: 20px;
     padding: 0 4px;
-    box-sizing: border-box;
+    animation: pulse 2s infinite;
+    
 }
 
 .sidenav-noti-badge:empty {
     display: none;
-}
-
-/* Alternative styles for different notification types */
-.sidenav-noti-badge.pending {
-    background: #ff6b35;
-}
-
-.sidenav-noti-badge.accepted {
-    background: #4caf50;
-}
-
-.sidenav-noti-badge.total {
-    background: #2196f3;
 }
 
 /* Animation for new notifications */
@@ -112,9 +98,6 @@
     }
 }
 
-.sidenav-noti-badge.new {
-    animation: pulse 2s infinite;
-}
 
 /* .sidenav-noti-badge {
         position: fixed;

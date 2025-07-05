@@ -209,7 +209,7 @@ textarea#bio {
     gap: 30px;
 }
 
-.editSocials{
+.editCV{
     display: flex;
     flex-direction: column;
     /* justify-content: ; */
@@ -221,13 +221,13 @@ textarea#bio {
     /* border: 1px solid black; */
 }
 
-.editCV{
+/* .editCV{
     grid-area: 5 / 2 / 7 / 3;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
+} */
 .uploadCvButton{
     background-color: #35D07D;
     color: white;

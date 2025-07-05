@@ -141,6 +141,7 @@ const Reviews = () => {
           </div>
 
           <div className="reviewsBox">
+            <input type="text" placeholder='Search'/>
             {reviews.length > 0 ? (
               reviews.map((review) => (
                 <div className="reviewBoxEach" key={review.id}> {/* Assuming each review has a unique 'id' */}

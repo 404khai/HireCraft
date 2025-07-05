@@ -89,9 +89,6 @@ const Settings = () => {
       city: selectedCityName,
 
       jobTitle: null,
-      profession: null,
-      companyWebsiteUrl: null,
-      clientBio: null,
 
       occupation,
       providerBio,
@@ -344,6 +341,19 @@ const Settings = () => {
                             </label>
                           </div>
 
+                          {user && user.userRole === 'ROLE_CLIENT' && (
+                            <div className="changeInfoInputContainer">
+                              <label className="changeInfoLabel">Occupation</label>
+                              <input 
+                                value={jobTitle}
+                                onChange={(e) => setJobTitle(e.target.value)}
+                                title="Change Job Title"
+                                type="text"
+                                className="changeInfoInput"
+                              />
+                            </div>
+                          )}
+
                           {user && user.userRole === 'ROLE_PROVIDER' && (
                             <div className="changeInfoInputContainer">
                               <label className="changeInfoLabel">Occupation</label>
@@ -470,27 +480,7 @@ const Settings = () => {
                       </div>
                     </div>
 
-                    <div className="editSocials">
-                      <div className="editProfileHead">
-                        <i><LuFolderCog /></i>
-                        <b>Edit social Profiles</b>
-                      </div>
-
-                      <div className="changePasswordForm">
-                        
-                        <div className="changeInfoInputContainer">
-                          <label className="changeInfoLabel">Instagram</label>
-                          <input title="New Password" type="text" className="changeInfoInput" required/>
-                        </div>
-
-                        <div className="changeInfoInputContainer">
-                          <label className="changeInfoLabel">Facebook</label>
-                          <input  title="Confirm New Password" type="text" className="changeInfoInput" required/>
-                        </div>
-
-                        <button className='saveChanges'>Save Changes</button>
-                      </div>
-                    </div>
+                    
 
                     {/* <div className="cvFile">
                       <p>My-CV.pdf</p>
