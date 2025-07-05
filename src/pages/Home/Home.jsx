@@ -13,6 +13,7 @@ import airbnb from '../../assets/airbnb.svg'
 import taskrabbit from '../../assets/taskrabbit.svg'
 import fiverr from '../../assets/fiverr.svg'
 import upwork from '../../assets/upwork.svg'
+import whyUs from '../../assets/whyUs.png'
 import Carousel from "react-multi-carousel";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -31,40 +32,7 @@ const Home = () => {
     return entry ? entry[1].default : '';
   };
 
-  function SampleNextArrow(props) {
-        const { className, style, onClick } = props;
-        return (
-          <div
-            className={className}
-            style={{ ...style, display: "block", background: "#35D07D", borderRadius: "50%" }}
-            onClick={onClick}
-          />
-        );
-      }
-      
-      function SamplePrevArrow(props) {
-        const { className, style, onClick } = props;
-        return (
-          <div
-            className={className}
-            style={{ ...style, display: "block", background: "#35D07D", borderRadius: "50%" }}
-            onClick={onClick}
-          />
-        );
-      }
-
-    const settings = {
-        dots: true, 
-        infinite: true,
-        // speed: 500, 
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
-    }
-
+  
     const data = [
         {
             icon: [<FaStar className="starIcon" />, <FaStar className="starIcon" />, <FaStar className="starIcon" />, <FaStarHalfAlt className="starIcon" />, <FaRegStar className='starIcon'/>],
@@ -125,19 +93,10 @@ const Home = () => {
 
         <ServicesScroll/>
         
-        <div className="trusted">
-            <h2>Global Talent Source trusted by Top Companies</h2>
+        
+        <div className="whyUs">
+            {/* <img src={whyUs} alt="" /> */}
 
-            <div className="topCompaniesCarousel">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWx_E-0G-NHsVInfrP0xUrYvY-YFhmI8iasw&s" alt="" />
-                <img src="https://images.credly.com/images/cc2c9a21-84a0-4f80-bcda-eb9dea7aa35c/blob.png" alt="" />
-                {/* <img src="https://static.wikia.nocookie.net/logopedia/images/7/7f/RedbubbleLogo2012.png/revision/latest?cb=20190716174345" alt="" /> */}
-                <img src="https://support.substack.com/hc/theming_assets/01HZPCAPDV5H31C2F6C9262Q6H" alt="" />
-                <img src="https://images.ctfassets.net/vwt5n1ljn95x/394fsFytUKbNOV1wgRSbLP/8fd44c446e9f7d0b90d13f5d92ec2b9a/Screenshot_2025-04-29_at_15.07.03.png" alt="" />
-                <img src="https://i.pinimg.com/736x/72/c8/d3/72c8d31d8779299857123e1966c4a710.jpg" alt="" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Blizzard_Entertainment_Logo_2015.svg/2560px-Blizzard_Entertainment_Logo_2015.svg.png" alt="" />
-                <img src="https://ml.globenewswire.com/Resource/Download/15ddbb23-7272-49b1-8aa1-517bcdcb21a4" alt="" className='netflix'/>
-            </div>
         </div>
 
         {/* <div className="howItWorks">
@@ -150,12 +109,12 @@ const Home = () => {
             </div>
         </div> */}
 
-        <div className="best">
+        {/* <div className="best">
             <h2>The best Service Marketplace Site</h2>
             <div className="heroSecStats">
                 <div className='flexUserStats'>
                     <div className="userStats">
-                        {/* <img src={teacher} alt="" /> */}
+                        
                         <div className="userStatsBox">
                             <p>Over <span className='homeTxtSpan'><b>100</b></span> service providers</p>
                             <div className="userStatsImgs">
@@ -202,7 +161,7 @@ const Home = () => {
             </div>
             <div className="feedbackCarousel">
                 
-                {/* <Slider {...settings}> */}
+                
                     {data.map((d, key) => (
                         <div className='feedbackCard' key={key}>
                             <div className='feedbackIcons'>
@@ -228,7 +187,7 @@ const Home = () => {
                             
                         </div>
                     ))}
-                {/* </Slider> */}
+                
             </div>
         </div>
 
@@ -242,9 +201,9 @@ const Home = () => {
                 </button>
             </div>
             <div className="instantResultsImg">
-                {/* <img src={modernHouse} alt="" /> */}
+                
             </div>
-        </div>
+        </div> */}
     </div>
   )
 }

@@ -39,13 +39,12 @@
     align-items: center;
     justify-content: space-evenly;
     background-color: transparent;
-    z-index: 1000;
+    z-index: 1;
     /* border-bottom: 1px solid #9a9a9a; */
     top: 0;
     /* gap: 40px; */
     /* background-color: rgba(31, 33, 33, 0.619); */
     /* box-shadow: 3px 3px 3px 0px #3205797f; */
-    z-index: 1000;
 }
 
 .navLogoSpan{

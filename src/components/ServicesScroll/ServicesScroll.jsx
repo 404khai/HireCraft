@@ -75,12 +75,19 @@ const ServicesScroll = () => {
         ease: "none",
         scrollTrigger: {
           trigger: section,
-          start: "center center",
-          end: () => `+=${trackWidth}`,
+          start: "top top",
+          end: () => `+=${scrollDistance}`,
           pin: true,
           scrub: 1,
           anticipatePin: 1,
-          invalidateOnRefresh: true
+          invalidateOnRefresh: true,
+          pinSpacing: true,
+          pinType: "transform",
+          snap: {
+            snapTo: "labels", // optional: snap to specific points
+            duration: 0.3,
+            delay: 0.2
+          }
         }
       });
 
