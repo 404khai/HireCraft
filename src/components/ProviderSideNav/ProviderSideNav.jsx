@@ -1,79 +1,3 @@
-// import React from 'react'
-// import './ProviderSideNav.css'
-// import { Link } from 'react-router-dom'
-// import { HiWrenchScrewdriver, HiOutlineWallet } from "react-icons/hi2";
-// import { LuLayoutDashboard, LuBellRing } from "react-icons/lu";
-// import { TiMessages } from "react-icons/ti";
-// import { FaRegUser } from "react-icons/fa6";
-// import { IoExitOutline , IoBriefcaseOutline, IoSettingsOutline} from "react-icons/io5";
-// import { MdOutlineRateReview } from "react-icons/md";
-// import { IoMdFolderOpen } from "react-icons/io";
-// import { SiReaddotcv } from "react-icons/si";
-// import { RiWallet3Line } from "react-icons/ri";
-// import { TbFileTextSpark } from "react-icons/tb";
-
-// const ProviderSideNav = () => {
-//   return (
-//     <div className='providersidenav'>
-
-//         <div className="start">
-//             <p><b>Home</b></p>
-//             <Link to="/ProviderDashboard">
-//                 <i><LuLayoutDashboard /></i>
-//                 Dashboard
-//             </Link>
-//             <Link to="/ProviderDashboard/Messages">
-//                 <i><TiMessages /></i>
-//                 Messages
-//             </Link>
-//             {/* <Link to="/Dashboard/JobAlerts">
-//                 <i><LuBellRing /></i>
-//                 Job Alerts
-//             </Link> */}
-//             <Link to="/ProviderDashboard/Bookings">
-//                 <i><IoBriefcaseOutline /></i>
-//                 My Bookings
-//             </Link>
-//         </div>
-       
-//         <div className="manage">
-//             <p><b>Organize & Manage</b></p>
-//             <Link to="/ProviderDashboard/Wallet">
-//                 {/* <i><HiOutlineWallet /></i> */}
-//                 <i><RiWallet3Line/></i>
-//                 Wallet
-//             </Link>
-//             <Link to="/ProviderDashboard/MyProjects">
-//                 <i><IoMdFolderOpen /></i>
-//                 Projects
-//             </Link>
-//             {/* <Link to="/ProviderDashboard/Resume">
-//                 <i><TbFileTextSpark /></i>
-//                 Resume
-//             </Link> */}
-//         </div>
-
-//         <div className="account">
-//             <p><b>Account</b></p>
-//             <Link to="/ProviderDashboard/Settings">
-//                 <i><IoSettingsOutline /></i>
-//                 Settings
-//             </Link>
-//             <Link to="/ProviderDashboard/Reviews">
-//                 <i><MdOutlineRateReview /></i>
-//                 Review & Ratings
-//             </Link>
-//             <Link to="/ProviderDashboard">
-//                 <i><IoExitOutline /></i>
-//                 Log Out
-//             </Link>
-//         </div>
-//     </div>
-//   )
-// }
-
-// export default ProviderSideNav
-
 
 import React, { useState, useEffect } from 'react';
 import './ProviderSideNav.css'
@@ -85,9 +9,8 @@ import { IoBriefcaseOutline, IoSettingsOutline, IoExitOutline } from "react-icon
 import { RiWallet3Line } from "react-icons/ri";
 import { RxCalendar } from "react-icons/rx";
 import { MdOutlineRateReview } from "react-icons/md";
-// Assuming you are using React Router for navigation
-// If not, you'll need to install it: npm install react-router-dom
 import { Link } from 'react-router-dom';
+import useBookings from '../../hooks/useBookings';
 
 const ProviderSideNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -99,6 +22,14 @@ const ProviderSideNav = () => {
   const closeSidebar = () => {
     setIsOpen(false);
   };
+
+  const { getFilterCounts, loading } = useBookings();
+    
+    // Get counts for notifications
+    const filterCounts = getFilterCounts();
+    
+    // Calculate total notifications (pending + accepted)
+    const totalNotifications = (filterCounts.PENDING || 0);
 
   // Styles defined within the component for clarity, or can be moved outside
   // if they are truly static and don't depend on component state.
@@ -234,6 +165,7 @@ const ProviderSideNav = () => {
           <Link to="/ProviderDashboard/Messages" onClick={closeSidebar}>
             <TiMessages />
             <span>Messages</span>
+            <span className="sidenav-noti-badge">3</span>
           </Link>
           
         </div>
@@ -244,6 +176,12 @@ const ProviderSideNav = () => {
           <Link to="/ProviderDashboard/Bookings" onClick={closeSidebar}>
             <LuBriefcaseBusiness />
             <span>My Bookings</span>
+            {!loading && totalNotifications > 0 && (
+              <span className="sidenav-noti-badge">
+                {totalNotifications}
+              </span>
+            )}
+
           </Link>
           <Link to="/ProviderDashboard/Kanban" onClick={closeSidebar}>
             {/* <LuCalendarRange style={iconStyle} /> */}
@@ -253,6 +191,7 @@ const ProviderSideNav = () => {
           <Link to="/ProviderDashboard/Wallet" onClick={closeSidebar}>
             <RiWallet3Line />
             <span>Earnings</span>
+            <span className="sidenav-noti-badge">3</span>
           </Link>
         </div>
 
@@ -266,6 +205,7 @@ const ProviderSideNav = () => {
           <Link to="/ProviderDashboard/Reviews" onClick={closeSidebar}>
             <MdOutlineRateReview />
             <span>Review & Ratings</span>
+            <span className="sidenav-noti-badge">3</span>
           </Link>
           <Link to="/logout" onClick={closeSidebar}>
             <LuLogOut />

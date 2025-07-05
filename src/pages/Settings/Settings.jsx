@@ -35,6 +35,8 @@ const Settings = () => {
   const [cvUrl, setCvUrl] = useState('');
   const [selectedCvFile, setSelectedCvFile] = useState(null);
 
+  const [jobTitle, setJobTitle] = useState('');
+
   const [selectedCountryId, setSelectedCountryId] = useState(0);
   const [selectedStateId, setSelectedStateId] = useState(0);
   const [selectedCountryName, setSelectedCountryName] = useState('');
@@ -55,6 +57,7 @@ const Settings = () => {
       setOccupation(user.occupation || '');
       setHourlyRate(user.hourlyRate || '');
       setProviderBio(user.providerBio || '');
+      setJobTitle(user.jobTitle || '');
       setSkills(Array.isArray(user.skills) ? user.skills.join(', ') : (user.skills || ''));
       setProfilePictureUrl(user.profilePictureUrl || ''); // Use empty string if no URL
       setCvUrl(user.cvUrl || '');
@@ -85,8 +88,7 @@ const Settings = () => {
       state: selectedStateName,
       city: selectedCityName,
 
-      companyName: null,
-      position: null,
+      jobTitle: null,
       profession: null,
       companyWebsiteUrl: null,
       clientBio: null,
@@ -342,27 +344,31 @@ const Settings = () => {
                             </label>
                           </div>
 
-                          <div className="changeInfoInputContainer">
-                            <label className="changeInfoLabel">Occupation</label>
-                            <input 
-                              value={occupation}
-                              onChange={(e) => setOccupation(e.target.value)}
-                              title="Change Occupation"
-                              type="text"
-                              className="changeInfoInput"
-                            />
-                          </div>
+                          {user && user.userRole === 'ROLE_PROVIDER' && (
+                            <div className="changeInfoInputContainer">
+                              <label className="changeInfoLabel">Occupation</label>
+                              <input 
+                                value={occupation}
+                                onChange={(e) => setOccupation(e.target.value)}
+                                title="Change Occupation"
+                                type="text"
+                                className="changeInfoInput"
+                              />
+                            </div>
+                          )}
 
-                          <div className="changeInfoInputContainer">
-                            <label className="changeInfoLabel">Hourly Rate</label>
-                            <input 
-                              value={hourlyRate} 
-                              onChange={(e) => setHourlyRate(e.target.value)}
-                              title="Edit hourly rate" 
-                              type="number" 
-                              className="changeInfoInput" 
-                            />
-                          </div>
+                          {user && user.userRole === 'ROLE_PROVIDER' && (
+                            <div className="changeInfoInputContainer">
+                              <label className="changeInfoLabel">Hourly Rate</label>
+                              <input 
+                                value={hourlyRate} 
+                                onChange={(e) => setHourlyRate(e.target.value)}
+                                title="Edit hourly rate" 
+                                type="number" 
+                                className="changeInfoInput" 
+                              />
+                            </div>
+                          )}
 
                           <div className="changeInfoInputContainer">
                             <label className="changeInfoLabel">Bio</label>

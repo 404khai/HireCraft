@@ -216,7 +216,7 @@ const ProviderDashboard = () => {
               <i className='earningsOverviewIcon'><FaDollarSign/></i>
             </div>
 
-            <div className="metric-card-enhanced">
+            {/* <div className="metric-card-enhanced">
               <div className="metric-info">
                 <div className="overviewTxtTitle">Unread Messages</div>
                 <div className="overviewTxtValue">7</div>
@@ -226,8 +226,8 @@ const ProviderDashboard = () => {
                 </div>
               </div>
               <i className='unreadNotisOverviewIcon'><MdMarkUnreadChatAlt/></i>
-              {/* <button className='dashboardMetricsBtn'></button> */}
-            </div>
+              
+            </div> */}
 
             <div className="metric-card-enhanced">
               <div className="metric-info">
