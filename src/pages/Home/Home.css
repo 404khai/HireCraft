@@ -57,8 +57,7 @@
     display: flex;
     justify-content: end;
     align-items: center;
-    position: relative;
-    z-index: 0.5;
+    
     right: 10px;
 }
 .heroSecImgs img{
@@ -166,7 +165,7 @@
 
   .animated-hover-button .btn-content {
     position: relative;
-    z-index: 10;
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -366,6 +365,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 20px;
     margin-top: 100px;
     margin-bottom: 200px;
 }
@@ -374,11 +374,59 @@
     height: 50%;
 }
 .whyUsTxt{
-    border: 1px solid black;
     width: 500px;
     height: 70%;
     position: relative;
     bottom: -100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.whyUsTxt1{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.whyUsTxt2{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.whyUsTxt1 p{
+    display: flex;
+    align-items: center;
+    color: black;
+}
+.whyUsTxt1 p i{
+    font-size: 25px;
+    color: #35D07D;
+}
+.topImg{
+    /* border: 1px solid black; */
+    height: 100px;
+    width: 40%;
+    border-radius: 10px;
+    background: linear-gradient(#35D07D, #5cec61);
+    /* background: url('https://i.pinimg.com/736x/c9/d6/30/c9d6300f17eccfd00b95baf9fc5a4a45.jpg'); */
+    /* background: url('https://studyhub.themewant.com/wp-content/uploads/2024/03/03.jpg'); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    justify-content: center;
+}
+
+
+.positiveReview > h1, p{
+    color: white;
+}
+.positiveReview > h1{
+    font-size: 32px;
 }
 
 

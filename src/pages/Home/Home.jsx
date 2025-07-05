@@ -2,6 +2,7 @@ import React from 'react'
 import './Home.css'
 import { IoSearch } from "react-icons/io5";
 import { MdHomeRepairService } from "react-icons/md";
+import { TiTick } from "react-icons/ti";
 import { FaStar, FaStarHalf, FaStarHalfAlt, FaRegStar, FaArrowRight } from "react-icons/fa";
 import explore from '../../assets/explore.png'
 import tomHolland from '../../assets/tomHolland.jpg'
@@ -100,11 +101,32 @@ const Home = () => {
             </h2>
             <img src={whyUs} alt="" />
             <div className="whyUsTxt">
-                <p>Client satisfaction guaranteed</p>
-                <p>Identity verification process</p>
-                <p>In-depth performance analytics</p>
-                <p>Secure payment protection</p>
-                <p>24/7 customer support</p>
+                <div className="whyUsTxt1">
+                    <p><i><TiTick /></i>Client satisfaction guaranteed</p>
+                    <p><i><TiTick /></i>Identity verification process</p>
+                    <p><i><TiTick /></i>In-depth performance analytics</p>
+                    <p><i><TiTick /></i>Secure payment protection</p>
+                    <p><i><TiTick /></i>24/7 customer support</p>
+                </div>
+                
+                <div className="whyUsTxt2">
+                    <div className="topImg">
+                        <div className="positiveReview">
+                            <h1>100+</h1>
+                            <p><b>Positive Reviews</b></p>
+                        </div>
+                        <img decoding="async" width="49" height="45" src="https://studyhub.themewant.com/wp-content/uploads/2024/03/icon.svg" alt="" />
+                    </div>
+
+                    <div className="topImg">
+                        <div className="positiveReview">
+                            <h1>7+</h1>
+                            <p><b>Service Providers</b></p>
+                        </div>
+                        <img decoding="async" width="49" height="45" src="https://studyhub.themewant.com/wp-content/uploads/2024/03/icon.svg" alt="" />
+                    </div>
+                </div>
+                
             </div>
         </div>
 

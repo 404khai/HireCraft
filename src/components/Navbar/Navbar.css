@@ -68,7 +68,7 @@
     /* background-color: paleturquoise; */
     height: 80%;
     width: 200px;
-    
+    color: black;
     /* width: 20%; */
     display: flex;
     align-items: center;
@@ -80,6 +80,7 @@
 .navLogo p{
     font-size: 40px;
     font-weight: 600;
+    color: black;
 }
 .nav{
     /* background-color: palevioletred; */
