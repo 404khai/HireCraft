@@ -216,7 +216,7 @@ const ProviderDashboard = () => {
               <i className='earningsOverviewIcon'><FaDollarSign/></i>
             </div>
 
-            {/* <div className="metric-card-enhanced">
+            <div className="metric-card-enhanced">
               <div className="metric-info">
                 <div className="overviewTxtTitle">Unread Messages</div>
                 <div className="overviewTxtValue">7</div>
@@ -227,7 +227,7 @@ const ProviderDashboard = () => {
               </div>
               <i className='unreadNotisOverviewIcon'><MdMarkUnreadChatAlt/></i>
               
-            </div> */}
+            </div>
 
             <div className="metric-card-enhanced">
               <div className="metric-info">
@@ -305,7 +305,7 @@ const ProviderDashboard = () => {
                     <div className="error-message">{notificationsError}</div>
                   ) : dashboardNotifications.length > 0 ? (
                     // Slice to show only the first 4 notifications (assuming sorted newest first by API)
-                    dashboardNotifications.slice(0, 4).map((notification) => (
+                    dashboardNotifications.slice(0, 3).map((notification) => (
                       <div key={notification.id} className="notification-item">
                         {/* Use !notification.isRead for the dot to indicate unread status */}
                         <div className={`notification-dot ${!notification.isRead ? 'unread-dot' : 'read-dot'}`}></div>

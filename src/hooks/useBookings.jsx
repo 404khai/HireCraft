@@ -14,9 +14,9 @@ const useBookings = () => {
     // Filter options
     const filterOptions = [
         { key: 'PENDING', label: 'New Requests', count: 0 },
-        { key: 'DECLINED', label: 'Declined', count: 0 },
-        { key: 'COMPLETED', label: 'Completed', count: 0 },
         { key: 'ACCEPTED', label: 'In Progress', count: 0 },
+        { key: 'COMPLETED', label: 'Completed', count: 0 },
+        { key: 'DECLINED', label: 'Declined', count: 0 },
         { key: 'CANCELLED', label: 'Cancelled', count: 0 }
     ];
 

@@ -439,14 +439,17 @@ import { LuClock4 } from 'react-icons/lu';
 import { MdTaskAlt } from 'react-icons/md';
 import { LiaGlobeAmericasSolid } from 'react-icons/lia';
 import { SiTicktick } from 'react-icons/si';
-import { MdOutlineCancel } from 'react-icons/md';
+import { MdOutlineCancel, MdOutlineRateReview } from 'react-icons/md';
 import { BiTask } from 'react-icons/bi';
 import OIF from '../../assets/OIF.jpeg';
 import useBookings from '../../hooks/useBookings'; // Import the custom hook
+import ReviewModal from '../../components/ReviewModal/ReviewModal';
 
 const Bookings = () => {
     const [activeFilter, setActiveFilter] = useState('PENDING'); // Start with pending requests
-    
+    const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+    const [selectedBooking, setSelectedBooking] = useState(null);
+
     // Use the custom hook
     const {
         bookings,
@@ -473,6 +476,45 @@ const Bookings = () => {
 
     const handleFilterChange = (filterKey) => {
         setActiveFilter(filterKey);
+    };
+
+    const handleLeaveReview = (booking) => {
+        setSelectedBooking(booking);
+        setIsReviewModalOpen(true);
+    };
+
+    const handleCloseReviewModal = () => {
+        setIsReviewModalOpen(false);
+        setSelectedBooking(null);
+    };
+
+    const handleSubmitReview = async (reviewData) => {
+        try {
+            const token = localStorage.getItem('token'); // Adjust based on how you store your auth token
+            
+            const response = await fetch('http://localhost:9090/api/v1/reviews/create-review', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Include authorization header
+                },
+                body: JSON.stringify(reviewData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to submit review');
+            }
+
+            const result = await response.json();
+            alert('Review submitted successfully!');
+            
+            // You might want to refresh the bookings or update the UI
+            // For example, you could add a flag to mark that a review has been submitted
+            
+        } catch (error) {
+            console.error('Error submitting review:', error);
+            throw error; // Re-throw so the modal can handle it
+        }
     };
 
     // Get filtered bookings and counts
@@ -635,7 +677,7 @@ const Bookings = () => {
                                                 
                                                 <td className="booking-table-cell" data-label="Actions">
                                                     <div className="actions-cell">
-                                                        <Link to={`/ProviderDashboard/Messages?bookingId=${booking.id}`}>
+                                                        <Link to={`/Dashboard/Messages?bookingId=${booking.id}`}>
                                                             <button className='viewMessageBtn'>View Message</button>
                                                         </Link>
                                                         
@@ -663,6 +705,15 @@ const Bookings = () => {
                                                                     <i><BiTask className='completed' title='Mark as Completed' /></i>
                                                                 </div>
                                                                 <div className="text">Completed</div>
+                                                            </button>
+                                                        )}
+
+                                                        {booking.status === 'COMPLETED' && (
+                                                            <button className="leaveReviewBtn" onClick={() => handleLeaveReview(booking)}>
+                                                                <div className="acceptBtnIcon">
+                                                                    <i><MdOutlineRateReview className='leave-review' title='Leave a review' /></i>
+                                                                </div>
+                                                                <div className="text">Leave Review</div>
                                                             </button>
                                                         )}
                                                     </div>

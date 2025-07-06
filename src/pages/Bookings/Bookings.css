@@ -240,6 +240,7 @@
     width: 100px;
     border-radius: 20px;
 }
+
 .time-cell {
     text-align: center;
     color: #64748b;
@@ -247,7 +248,8 @@
 }
 .acceptBtn:hover .text,
 .declineBtn:hover .text,
-.completedBtn:hover .text {
+.completedBtn:hover .text ,
+.leaveReviewBtn:hover .text{
     opacity: 1;
 }
 /* Actions Cell */
@@ -434,6 +436,10 @@
     font-size: 15px;
     color: white;
 }
+.leave-review{
+    font-size: 25px;
+    color: white;
+}
 
 
 .viewMessageBtn {
@@ -518,6 +524,20 @@
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
   background-color: #00897B;
 }
+.leaveReviewBtn{
+display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10%;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: gold;
+}
 /* plus sign */
 .acceptBtnIcon {
   width: 100%;
@@ -549,26 +569,43 @@
   transition-duration: .3s;
 }
 /* hover effect on button width */
-.acceptBtn:hover, .declineBtn:hover, .completedBtn:hover {
+.acceptBtn:hover, .declineBtn:hover, .completedBtn:hover{
   width: 120px;
   border-radius: 40px;
   transition-duration: .3s;
 }
-
+.leaveReviewBtn:hover {
+  width: 150px;
+  border-radius: 10%;
+  transition-duration: .3s;
+}
 .acceptBtn:hover .acceptBtnIcon, .declineBtn:hover .acceptBtnIcon, .completedBtn:hover .acceptBtnIcon {
   width: 30%;
   transition-duration: .3s;
   
 }
+
+.leaveReviewBtn:hover .acceptBtnIcon {
+  width: 50%;
+  transition-duration: .3s;
+  
+}
 /* hover effect button's text */
-.acceptBtn:hover .text, .declineBtn:hover .text, .completedBtn.completedBtn:hover .text {
+.acceptBtn:hover .text, .declineBtn:hover .text, .completedBtn.completedBtn:hover .text{
   opacity: 1;
   width: 70%;
   transition-duration: .3s;
   padding-right: 10px;
 }
+
+.leaveReviewBtn:hover .text {
+  opacity: 1;
+  width: 60%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
 /* button click effect*/
-.accceptBtn:active, .declineBtn:active, .completedBtn:active {
+.accceptBtn:active, .declineBtn:active, .completedBtn:active, .leaveReviewBtn:active {
   transform: translate(2px ,2px);
 }
 
