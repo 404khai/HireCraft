@@ -33,14 +33,28 @@ const ReviewModal = ({ isOpen, onClose, booking, onSubmitReview }) => {
             return;
         }
 
+        // DEBUG: Check what values we're working with
+        console.log('Booking object:', booking);
+        console.log('Booking ID:', booking.id);
+        
+        // Check if booking ID exists
+        if (!booking.id) {
+            alert('Unable to submit review: Booking ID is missing');
+            return;
+        }
+        
+        const reviewData = {
+            bookingId: booking.id,  // Use booking ID instead of providerId
+            rating: rating,
+            reviewTxt: reviewText.trim()
+        };
+        
+        console.log('Review data to submit:', reviewData);
+
         setIsSubmitting(true);
         
         try {
-            await onSubmitReview({
-                providerId: booking.providerId,
-                rating: rating,
-                reviewTxt: reviewText.trim()
-            });
+            await onSubmitReview(reviewData);
             
             // Reset form
             setRating(0);
@@ -92,12 +106,12 @@ const ReviewModal = ({ isOpen, onClose, booking, onSubmitReview }) => {
                 <div className="review-modal-body">
                     <div className="service-provider-info">
                         <img 
-                            src={booking?.providerProfilePicture || '/default-avatar.png'} 
+                            src={booking.profilePictureUrl} 
                             alt="Provider" 
                             className="provider-avatar"
                         />
                         <div className="provider-details">
-                            <h4>{booking?.providerFullName}</h4>
+                            <h4>{booking.providerFullName}</h4>
                             <p>{booking?.serviceType}</p>
                         </div>
                     </div>

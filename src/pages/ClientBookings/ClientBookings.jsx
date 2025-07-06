@@ -9,15 +9,15 @@ import { LuClock4, LuMessageSquareText } from 'react-icons/lu';
 import { MdTaskAlt } from 'react-icons/md';
 import { LiaGlobeAmericasSolid } from 'react-icons/lia';
 import { SiTicktick } from 'react-icons/si';
-import { MdOutlineCancel } from 'react-icons/md';
+import { MdOutlineCancel, MdOutlineRateReview } from 'react-icons/md';
 import { BiTask } from 'react-icons/bi';
 import axios from 'axios'; // Import axios
 import OIF from '../../assets/OIF.jpeg'; // Assuming this is a placeholder or default image
-
+import { toast, Bounce } from 'react-toastify';
 // You'll likely need AuthContext to get the user's token for authentication
 import { AuthContext } from '../../context/AuthContext';
 import ClientSideNav from '../../components/ClientSideNav/ClientSideNav';
-
+import ReviewModal from '../../components/ReviewModal/ReviewModal';
 
 const ClientBookings = () => {
     const [clientBookings, setClientBookings] = useState([]);
@@ -25,6 +25,9 @@ const ClientBookings = () => {
     const [error, setError] = useState(null);
     const [activeFilter, setActiveFilter] = useState('ALL'); // New state for active filter
     const { user } = useContext(AuthContext); // Access user from AuthContext for token if needed
+
+    const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+    const [selectedBooking, setSelectedBooking] = useState(null);
 
     const API_BASE_URL = 'http://localhost:9090/api/v1/bookings';
 
@@ -203,6 +206,61 @@ const ClientBookings = () => {
         }
     }, [user]);
 
+    const handleLeaveReview = (booking) => {
+        setSelectedBooking(booking);
+        setIsReviewModalOpen(true);
+    };
+
+    const handleCloseReviewModal = () => {
+        setIsReviewModalOpen(false);
+        setSelectedBooking(null);
+    };
+
+    const handleSubmitReview = async (reviewData) => {
+        try {
+            const token = localStorage.getItem('token');
+            console.log('Token:', token); 
+            console.log('Submitting review data:', reviewData);
+            
+            // Validate that we have a valid booking ID
+            if (!reviewData.bookingId) {
+                throw new Error('Booking ID is required for review submission');
+            }
+            
+            const response = await fetch('http://localhost:9090/api/v1/reviews/create-review', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(reviewData)
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('API Error:', errorData);
+                throw new Error(errorData.message || 'Failed to submit review');
+            }
+
+            const result = await response.json();
+            console.log('Review submitted successfully:', result);
+            
+            toast.success('Review submitted successfully!', {
+                position: 'top-center',
+                autoClose: 1500,
+                transition: Bounce,
+            });
+            
+            // Optionally, you can update the booking status or refresh the bookings
+            // to show that a review has been submitted
+            await fetchClientBookings(); // Refresh bookings
+            
+        } catch (error) {
+            console.error('Error submitting review:', error);
+            throw error;
+        }
+    };
+
     // Get filtered bookings and counts
     const filteredBookings = getFilteredBookings();
     const filterCounts = getFilterCounts();
@@ -358,7 +416,7 @@ const ClientBookings = () => {
                                                 
                                                 <td className="booking-table-cell" data-label="Actions">
                                                     <div className="actions-cell">
-                                                        <Link to={`/ProviderDashboard/Messages?bookingId=${clientBooking.id}`}>
+                                                        <Link to={`/Dashboard/Messages?bookingId=${clientBooking.id}`}>
                                                             <button className='viewMessageBtn'>View Message</button>
                                                         </Link>
                                                         
@@ -374,6 +432,15 @@ const ClientBookings = () => {
                                                                 </>
                                                             )}
 
+                                                            {!clientBooking.reviewSubmitted && clientBooking.status === 'COMPLETED' && (
+                                                                <button className="leaveReviewBtn" onClick={() => handleLeaveReview(clientBooking)}>
+                                                                    <div className="acceptBtnIcon">
+                                                                        <i><MdOutlineRateReview className='leave-review' title='Leave a review' /></i>
+                                                                    </div>
+                                                                    <div className="text">Leave Review</div>
+                                                                </button>
+
+                                                            )}
                                                     </div>
                                                 </td>
                                                 
@@ -390,6 +457,12 @@ const ClientBookings = () => {
                     </div>
                 </div>
             </div>
+            <ReviewModal
+                isOpen={isReviewModalOpen}
+                onClose={handleCloseReviewModal}
+                booking={selectedBooking}
+                onSubmitReview={handleSubmitReview}
+            />
         </div>
     );
 };
