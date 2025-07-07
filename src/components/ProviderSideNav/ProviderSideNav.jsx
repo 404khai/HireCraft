@@ -183,11 +183,10 @@ const ProviderSideNav = () => {
             )}
 
           </Link>
-          <Link to="/ProviderDashboard/Kanban" onClick={closeSidebar}>
-            {/* <LuCalendarRange style={iconStyle} /> */}
+          {/* <Link to="/ProviderDashboard/Kanban" onClick={closeSidebar}>
             <TbLayoutKanban />
             <span className='dashboardLinkBoxSpan'>Schedule Board</span>
-          </Link>
+          </Link> */}
           <Link to="/ProviderDashboard/Wallet" onClick={closeSidebar}>
             <RiWallet3Line />
             <span className='dashboardLinkBoxSpan'>Earnings</span>

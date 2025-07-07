@@ -249,7 +249,8 @@
 .acceptBtn:hover .text,
 .declineBtn:hover .text,
 .completedBtn:hover .text ,
-.leaveReviewBtn:hover .text{
+.leaveReviewBtn:hover .text,
+.payBtn:hover .text{
     opacity: 1;
 }
 /* Actions Cell */
@@ -436,7 +437,7 @@
     font-size: 15px;
     color: white;
 }
-.leave-review{
+.leave-review, .payy{
     font-size: 25px;
     color: white;
 }
@@ -536,7 +537,21 @@ display: flex;
   position: relative;
   transition-duration: .3s;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-  background-color: gold;
+  background-color: #FFA500;
+}
+.payBtn{
+display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10%;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: #23c483;
 }
 /* plus sign */
 .acceptBtnIcon {
@@ -574,8 +589,13 @@ display: flex;
   border-radius: 40px;
   transition-duration: .3s;
 }
-.leaveReviewBtn:hover {
-  width: 150px;
+.leaveReviewBtn:hover{
+  width: 100px;
+  border-radius: 10%;
+  transition-duration: .3s;
+}
+.payBtn:hover {
+  width: 80px;
   border-radius: 10%;
   transition-duration: .3s;
 }
@@ -585,7 +605,7 @@ display: flex;
   
 }
 
-.leaveReviewBtn:hover .acceptBtnIcon {
+.leaveReviewBtn:hover .acceptBtnIcon, .payBtn:hover .acceptBtnIcon {
   width: 50%;
   transition-duration: .3s;
   
@@ -598,9 +618,16 @@ display: flex;
   padding-right: 10px;
 }
 
-.leaveReviewBtn:hover .text {
+.leaveReviewBtn:hover .text{
   opacity: 1;
   width: 60%;
+  font-size: 12px;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+.payBtn:hover .text{
+  opacity: 1;
+  width: 40%;
   transition-duration: .3s;
   padding-right: 10px;
 }

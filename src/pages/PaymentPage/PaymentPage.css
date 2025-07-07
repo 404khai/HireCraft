@@ -1,0 +1,234 @@
+/* PaymentPage.css */
+.paymentContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+}
+
+/* Core Container */
+.paymentBox {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 40px;
+  height: 400px;
+  width: 400px;
+  margin: 60px auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.paymentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.paymentTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f1113;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: #999;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s;
+}
+
+.closeBtn:hover {
+  color: #ff4d4f;
+  transform: rotate(90deg);
+}
+
+/* Provider Info */
+.paymentProvider {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.providerImage {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.providerImage:hover {
+  transform: scale(1.05);
+}
+
+.providerNote {
+  font-size: 1rem;
+  color: #444;
+  font-weight: 500;
+}
+
+/* Email + Amount */
+.paymentInfo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.paymentEmail {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+.paymentAmount {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.currency {
+  font-weight: 500;
+  margin-right: 6px;
+  color: #555;
+}
+
+/* Input Field */
+.paymentAmountInput {
+  margin: 30px 0 20px;
+}
+
+.paymentAmountInput label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #2d2d2d;
+}
+
+.paymentAmountInput input {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 14px;
+  border: 1px solid #ccc;
+  background: #fdfdfd;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.paymentAmountInput input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Action Buttons */
+.paymentActions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.payBtn {
+  background: linear-gradient(135deg, #6366f1, #4338ca);
+  color: #fff;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.payBtn:hover {
+  background: linear-gradient(135deg, #4f46e5, #3730a3);
+  transform: translateY(-1px);
+}
+
+.cancelBtn {
+  background: #f3f4f6;
+  color: #333;
+  padding: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cancelBtn:hover {
+  background: #e5e7eb;
+}
+
+/* Security Note */
+.paymentSecurity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+  font-size: 0.9rem;
+  color: #666;
+  gap: 8px;
+  font-style: italic;
+  letter-spacing: 0.3px;
+}
+
+.securityText strong {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #111;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .paymentContainer {
+        padding: 10px;
+    }
+    
+    .paymentBox {
+        max-width: 100%;
+        margin: 0 10px;
+    }
+    
+    .paymentMethods {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .paymentMethod {
+        min-width: 60px;
+    }
+    
+    .paymentAmount {
+        font-size: 20px;
+    }
+    
+    .testOption {
+        padding: 12px;
+    }
+    
+    .testOptionText {
+        font-size: 13px;
+    }
+}

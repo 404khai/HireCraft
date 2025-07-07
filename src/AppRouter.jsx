@@ -27,12 +27,14 @@ import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import Kanban from "./pages/Kanban/Kanban";
 import Notifications from "./pages/Notifications/Notifications";
 import PasswordResetModal from "./pages/PasswordResetModal/PasswordResetModal";
+import PaymentFlow from "./pages/PaymentPage/PaymentPage";
+import PaymentPage from "./pages/PaymentPage/PaymentPage";
 
 const Layout = () => {
   const location = useLocation();
 
-  const hideNavbarPaths = ["/ServiceProviderSignUp", "/ClientSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal", "/Dashboard"];
-  const hideFooterPaths = ["/Home", "/ServiceProviderSignUp", "/ClientSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal", "/Dashboard"];
+  const hideNavbarPaths = ["/ServiceProviderSignUp", "/ClientSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal", "/Dashboard", "/PaymentPage"];
+  const hideFooterPaths = ["/Home", "/ServiceProviderSignUp", "/ClientSignUp", "/Login", "/ProviderDashboard", "/ClientDashboard", "/AdminDashboard", "/Notifications", "/PasswordResetModal", "/Dashboard", "/PaymentPage"];
   const shouldShowNavbar = !hideNavbarPaths.includes(location.pathname);
   const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
 
@@ -54,6 +56,7 @@ const Layout = () => {
         <Route path="/AdminDashboard" element={<AdminDashboard />} />
         <Route path="/Notifications" element={<Notifications />} />
         <Route path="/PasswordResetModal" element={<PasswordResetModal />} />
+        <Route path="/PaymentPage" element={<PaymentPage />} />
       </Routes>
 
       {shouldShowFooter && <Footer />}
@@ -79,6 +82,7 @@ const ClientDashboardLayout = () => (
   <>
     <Routes>
       <Route path="/ClientDashboard" element={<ClientDashboard />} />
+      {/* <Route path="/ClientDashboard/PaymentPage" element={<PaymentPage />} /> */}
       <Route path="/ClientDashboard/Bookings" element={<ClientBookings />} />
     </Routes>
   </>

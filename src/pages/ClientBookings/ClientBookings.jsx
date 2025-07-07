@@ -11,6 +11,7 @@ import { LiaGlobeAmericasSolid } from 'react-icons/lia';
 import { SiTicktick } from 'react-icons/si';
 import { MdOutlineCancel, MdOutlineRateReview } from 'react-icons/md';
 import { BiTask } from 'react-icons/bi';
+import { FaCreditCard } from "react-icons/fa";
 import axios from 'axios'; // Import axios
 import OIF from '../../assets/OIF.jpeg'; // Assuming this is a placeholder or default image
 import { toast, Bounce } from 'react-toastify';
@@ -429,6 +430,31 @@ const ClientBookings = () => {
                                                                         </div>
                                                                         <div className="text">Cancel</div>
                                                                     </button>
+                                                                </>
+                                                            )}
+
+                                                            {clientBooking.status === 'ACCEPTED' && (
+                                                                <>
+                                                                    <button className="declineBtn" onClick={() => handleCancel(clientBooking.id)}>
+                                                                        <div className="acceptBtnIcon">
+                                                                            <i><MdOutlineCancel className='decline' title='Cancel Booking Request' /></i>
+                                                                        </div>
+                                                                        <div className="text">Cancel</div>
+                                                                    </button>
+                                                                </>
+                                                            )}
+
+                                                            {clientBooking.status === 'ACCEPTED' && (
+                                                                <>
+                                                                    <Link to={`/PaymentPage?bookingId=${clientBooking.id}`}>
+                                                                    {/* <Link to="/PaymentPage"> */}
+                                                                        <button className="payBtn" >
+                                                                            <div className="acceptBtnIcon">
+                                                                                <i><FaCreditCard className='payy' title='Make payment' /></i>
+                                                                            </div>
+                                                                            <div className="text">Pay</div>
+                                                                        </button>
+                                                                    </Link>
                                                                 </>
                                                             )}
 

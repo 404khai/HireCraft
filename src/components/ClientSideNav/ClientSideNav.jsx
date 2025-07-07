@@ -228,7 +228,7 @@ const ClientSideNav = () => {
             <LuBriefcaseBusiness style={iconStyle} />
             <span style={linkTextStyle}>My Bookings</span>
           </Link>
-          <Link to="" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ClientDashboard/PaymentPage" style={linkStyle} onClick={closeSidebar}>
             <RiWallet3Line style={iconStyle} />
             <span style={linkTextStyle}>Payments</span>
           </Link>
