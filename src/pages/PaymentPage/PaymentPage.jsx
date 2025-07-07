@@ -122,7 +122,7 @@ const initiatePayment = async () => {
 
     if (window.PaystackPop) {
       const handler = window.PaystackPop.setup({
-        key: paymentResponse.public_key,
+        key: paymentResponse.publicKey,
         email: paymentData.email,
         amount: paymentData.amount * 100,
         ref: paymentResponse.reference,

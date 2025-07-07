@@ -1,0 +1,34 @@
+.clientProfileBox{
+    /* background-color: tan; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    background-color: #fafafa;
+    /* align-items: end; */
+}
+#clientSettingsDash{
+    height: fit-content;
+}
+.clientSettingsDashboard{
+    margin-left: 20%;
+    background-color: #fafafa;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.editProfileSettings{
+    width: 90%;
+    height: 91%;
+    /* background-color: aqua; */
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 100px;
+    /* gap: 30px; */
+}

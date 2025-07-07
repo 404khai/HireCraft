@@ -228,16 +228,16 @@ const ClientSideNav = () => {
             <LuBriefcaseBusiness style={iconStyle} />
             <span style={linkTextStyle}>My Bookings</span>
           </Link>
-          <Link to="/ClientDashboard/PaymentPage" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ClientDashboard/Transactions" style={linkStyle} onClick={closeSidebar}>
             <RiWallet3Line style={iconStyle} />
-            <span style={linkTextStyle}>Payments</span>
+            <span style={linkTextStyle}>Transactions</span>
           </Link>
         </div>
 
         {/* Account Section */}
         <div style={sectionStyle}>
           <p style={sectionHeaderStyle}>Account</p>
-          <Link to="/Dashboard/Settings" style={linkStyle} onClick={closeSidebar}>
+          <Link to="/ClientDashboard/Settings" style={linkStyle} onClick={closeSidebar}>
             <LuSettings style={iconStyle} />
             <span style={linkTextStyle}>Settings</span>
           </Link>

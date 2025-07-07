@@ -1,0 +1,812 @@
+.bookingBox{
+    /* background-color: tan; */
+    /* position: fixed; */
+    width: 100%;
+    overflow: hidden;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    /* overflow-y: hidden; */
+    /* align-items: end; */
+}
+.bookingBody{
+    width: 100%;
+    /* height: 1000px; */
+    display: flex;
+    /* flex: 1; */
+    /* background-color: cadetblue; */
+    margin-top: 70px;
+    overflow: hidden;
+}
+.bookingDashboard{
+    margin-left: 20%;
+    background-color: #fafafa;
+    padding-bottom: 50px;
+    /* position: relative; */
+    /* height: 100%; */
+    /* background-color: rgb(85, 0, 79); */
+    height: fit-content;
+    /* overflw-y: scroll; */
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* flex: 1; */
+    gap: 30px;
+    /* position: fixed; */
+    /* margin-right: -60px; */
+}
+.jobAlertsBox{
+    width: 90%;
+    height: fit-content;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* background-color: #2E7D32; */
+}
+.jobAlertsNoti{
+    color: #3184ae;
+    background-color: #E9F7FE;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+/* .jobAlertsNoti p{
+    font-size: 20px;
+} */
+/* .jobAlerts{
+    width: 100%;
+    height: 90%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background-color: #00897B;
+} */
+.jobAlerts {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e1e8ed;
+}
+.jobAlertsHead{
+    height: 50px;
+    display: flex;
+    align-items: center;
+     padding-left: 40px;
+    gap: 10px;
+    border-bottom: 1px solid #9a9a9a;
+}
+.jobAlertsHead i{
+    font-size: 25px;
+    display: flex;
+    color: #35D07D;
+}
+
+
+
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.transaction-table-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-bottom: 2px solid #e1e8ed;
+}
+
+.transaction-table-header th {
+    padding: 18px 20px;
+    text-align: left;
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-right: 1px solid #e1e8ed;
+}
+
+.transaction-table-header th:last-child {
+    border-right: none;
+}
+
+.transaction-table-row {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.transaction-table-row:hover {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.transaction-table-row:last-child {
+    border-bottom: none;
+}
+
+.transaction-table-cell {
+    padding: 16px 10px;
+    vertical-align: top;
+    border-right: 1px solid #f1f5f9;
+}
+
+.transaction-table-cell:last-child {
+    border-right: none;
+}
+
+/* Client Information Cell */
+.client-info {
+    width: 170px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.client-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e1e8ed;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.client-details h4 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.client-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Service Details Cell */
+.service-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.service-details-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #475569;
+}
+
+.service-details-item i {
+    color: #667eea;
+    font-size: 16px;
+    width: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Location Cell */
+.location-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.location-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #475569;
+}
+
+.location-item i {
+    color: #10b981;
+    font-size: 16px;
+    width: 16px;
+}
+
+/* Status Cell */
+.status-cell {
+    text-align: center;
+}
+
+
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.no-bookings-found {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+    font-style: italic;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 8px;
+    margin: 20px;
+}
+.acceptBtn:hover, .declineBtn:hover, .completedBtn:hover {
+    transform: translateY(-2px);
+    width: 100px;
+    border-radius: 20px;
+}
+
+.time-cell {
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+.acceptBtn:hover .text,
+.declineBtn:hover .text,
+.completedBtn:hover .text ,
+.leaveReviewBtn:hover .text,
+.payBtn:hover .text{
+    opacity: 1;
+}
+/* Actions Cell */
+.actions-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    min-width: 150px;
+}
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .transaction-table-cell {
+        padding: 16px 12px;
+    }
+    
+    .client-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .client-avatar {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .transaction-table,
+    .transaction-table-header,
+    .transaction-table-row,
+    .transaction-table-cell {
+        display: block;
+    }
+    
+    .transaction-table-header {
+        display: none;
+    }
+    
+    .transaction-table-row {
+        border: 1px solid #e1e8ed;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .transaction-table-cell {
+        border: none;
+        padding: 16px;
+        border-bottom: 1px solid #f1f5f9;
+        position: relative;
+    }
+    
+    .transaction-table-cell:last-child {
+        border-bottom: none;
+    }
+    
+    .transaction-table-cell:before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #2d3748;
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.newJobAlert{
+    background-color: rgb(255, 178, 193);
+    color: crimson;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+.jobAlert{
+    display: flex;
+    /* flex-direction: column; */
+    height: 150px;
+    width: 100%;
+    /* background-color: #3184ae50; */
+    border-bottom: 1px solid #9a9a9a;
+}
+
+.jobAlertEmployer{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    gap: 10px;
+    padding-left: 30px;
+    align-items: center;
+    color: #777;
+}
+.jobAlertEmployer img{
+    width:80px;
+    height: 50%;
+    border-radius: 50px;
+}
+.jobEmployerTxt{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    color: #777;
+    justify-content: space-between;
+}
+.jobEmployerTxtLocation{
+    display: flex;
+    width: 100%;
+    /* background-color: antiquewhite; */
+    align-items: center;
+    gap: 20px;
+}
+.jobAlertDuration{
+    /* background-color: palegreen; */
+    height: 30px;
+    display: flex;
+    padding-left: 30px;
+    align-items: center;
+    color: #777;
+}
+.bookingTime{
+    color: #777;
+}
+.jobEmployerTxtLocation p, .bookingDetails, .jobAlertDuration p, .bookingTime{
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
+}
+.jobAlertDuration p i, .jobAlertInfo p i, .bookingTime i{
+    display: flex;
+    align-items: center;
+}
+
+.bookingControls{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    /* background-color: #6C757D; */
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.bookingControls2{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    /* background-color: #007BFF;  */
+}
+.bookingControls3{
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* background-color: crimson; */
+}
+.bookingStatusBox{
+    height: 100%;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.decline, .accept, .completed{
+    font-size: 15px;
+    color: white;
+}
+.leave-review, .payy{
+    font-size: 25px;
+    color: white;
+}
+
+
+.viewMessageBtn {
+  padding: 15px;
+  border-radius: 10px;
+  width: 120px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: white;
+  background-color:  #23c483;
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.viewMessageBtn:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.viewMessageBtn:active {
+  transform: translateY(-1px);
+}
+
+
+/* Base style for all booking status tags */
+.bookingStatus {
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 6px 10px;
+    font-size: 0.85em; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+}
+
+.acceptBtn {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: #28A745;
+}
+.declineBtn {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: #C62828;
+}
+.completedBtn {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: #00897B;
+}
+.leaveReviewBtn{
+display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10%;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: #FFA500;
+}
+.payBtn{
+display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10%;
+  cursor: pointer;
+  position: relative;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: #23c483;
+}
+/* plus sign */
+.acceptBtnIcon {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.acceptBtnIcon i{
+    display: flex;
+}
+
+/* .sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+} */
+
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+/* hover effect on button width */
+.acceptBtn:hover, .declineBtn:hover, .completedBtn:hover{
+  width: 120px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+.leaveReviewBtn:hover{
+  width: 100px;
+  border-radius: 10%;
+  transition-duration: .3s;
+}
+.payBtn:hover {
+  width: 80px;
+  border-radius: 10%;
+  transition-duration: .3s;
+}
+.acceptBtn:hover .acceptBtnIcon, .declineBtn:hover .acceptBtnIcon, .completedBtn:hover .acceptBtnIcon {
+  width: 30%;
+  transition-duration: .3s;
+  
+}
+
+.leaveReviewBtn:hover .acceptBtnIcon, .payBtn:hover .acceptBtnIcon {
+  width: 50%;
+  transition-duration: .3s;
+  
+}
+/* hover effect button's text */
+.acceptBtn:hover .text, .declineBtn:hover .text, .completedBtn.completedBtn:hover .text{
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+
+.leaveReviewBtn:hover .text{
+  opacity: 1;
+  width: 60%;
+  font-size: 12px;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+.payBtn:hover .text{
+  opacity: 1;
+  width: 40%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.accceptBtn:active, .declineBtn:active, .completedBtn:active, .leaveReviewBtn:active {
+  transform: translate(2px ,2px);
+}
+
+/* --- Status Specific Styles --- */
+
+/* PENDING Status */
+.bookingStatus.pending {
+    color: #FFA500; /* Orange text */
+    background-color: #FFF3E0; /* Very light orange background */
+    border: 1px solid #FFCC80; /* Slightly darker orange border */
+}
+
+/* ACCEPTED Status */
+.bookingStatus.accepted {
+    color: #28A745; /* Green text */
+    background-color: #E6F7ED; /* Very light green background */
+    border: 1px solid #82E0AA; /* Slightly darker green border */
+}
+
+/* DECLINED Status */
+.bookingStatus.declined {
+    color: #DC3545; /* Red text */
+    background-color: #FDEDE9; /* Very light red background */
+    border: 1px solid #F0B2B2; /* Slightly darker red border */
+}
+
+/* COMPLETED Status */
+.bookingStatus.completed {
+    color: #007BFF; /* Blue text */
+    background-color: #E0F2FF; /* Very light blue background */
+    border: 1px solid #87CEFA; /* Slightly darker blue border */
+}
+
+/* CANCELLED Status */
+.bookingStatus.cancelled {
+    color: #6C757D; /* Gray text */
+    background-color: #F8F9FA; /* Very light gray background */
+    border: 1px solid #D3D6DB; /* Slightly darker gray border */
+}
+
+
+
+
+/* Filter Buttons Styles */
+.bookingFilters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 0 20px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.filterBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    color: #495057;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.filterBtn:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+    transform: translateY(-1px);
+}
+
+.filterBtn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+.filterCount {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+.filterBtn.active .filterCount {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.filterBtn:not(.active) .filterCount {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Filter Summary */
+.filterSummary {
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+.filterSummary p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bookingFilters {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .filterBtn {
+        justify-content: center;
+        padding: 10px 16px;
+    }
+}
+/* .status-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.status-button.pending {
+    background-color: #FFCC80;
+    color: #8B4500; 
+}
+.status-button.pending:hover {
+    background-color: #FFA500;
+}
+
+.status-button.accepted {
+    background-color: #82E0AA;
+    color: #1A5E2A; 
+}
+.status-button.accepted:hover {
+    background-color: #28A745;
+}
+
+.status-button.declined {
+    background-color: #F0B2B2;
+    color: #9A242F; 
+}
+.status-button.declined:hover {
+    background-color: #DC3545;
+}
+
+.status-button.completed {
+    background-color: #87CEFA;
+    color: #003F7F;
+}
+.status-button.completed:hover {
+    background-color: #007BFF;
+}
+
+.status-button.cancelled {
+    background-color: #D3D6DB;
+    color: #495057; 
+}
+.status-button.cancelled:hover {
+    background-color: #6C757D;
+}  */

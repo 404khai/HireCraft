@@ -29,6 +29,8 @@ import Notifications from "./pages/Notifications/Notifications";
 import PasswordResetModal from "./pages/PasswordResetModal/PasswordResetModal";
 import PaymentFlow from "./pages/PaymentPage/PaymentPage";
 import PaymentPage from "./pages/PaymentPage/PaymentPage";
+import Transactions from "./pages/Transactions/Transactions";
+import ClientSettings from "./pages/ClientSettings/ClientSettings";
 
 const Layout = () => {
   const location = useLocation();
@@ -82,8 +84,9 @@ const ClientDashboardLayout = () => (
   <>
     <Routes>
       <Route path="/ClientDashboard" element={<ClientDashboard />} />
-      {/* <Route path="/ClientDashboard/PaymentPage" element={<PaymentPage />} /> */}
+      <Route path="/ClientDashboard/Transactions" element={<Transactions />} />
       <Route path="/ClientDashboard/Bookings" element={<ClientBookings />} />
+      <Route path="/ClientDashboard/Settings" element={<ClientSettings />} />
     </Routes>
   </>
 );
