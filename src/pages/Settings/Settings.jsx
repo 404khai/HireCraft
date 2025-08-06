@@ -456,7 +456,7 @@ const Settings = () => {
 
                           {user && user.userRole === 'ROLE_PROVIDER' && (
                             <div className="changeInfoInputContainer">
-                              <label className="changeInfoLabel">Hourly Rate</label>
+                              <label className="changeInfoLabel">Daily Rate</label>
                               <input 
                                 value={hourlyRate} 
                                 onChange={(e) => setHourlyRate(e.target.value)}

@@ -148,7 +148,7 @@ const Profile = () => {
           <h3>{firstName + " " +lastName}</h3>
           <p style={{color: "#808080"}}>{occupation}</p>
 
-          <div className='providerRatingBox'>
+          <div className='providerRatingBox2'>
             <div className="providerRating">
               <button>{averageRating.toFixed(1)}</button> {/* Display with 1 decimal place */}
               {renderStars(averageRating)}
@@ -198,8 +198,8 @@ const Profile = () => {
           <h3>Profile Overview</h3>
           <div className="providerProfileOverviewRates">
             <div className="hourlyRate">
-              <strong>${hourlyRate}</strong>
-              <p style={{color: "#808080"}}>Hourly Rate</p>
+              <strong>₦{hourlyRate.toLocaleString()}</strong>
+              <p style={{color: "#808080"}}>Daily Rate</p>
             </div>
             <div className="jobsDone">
               <strong>{dashboardMetrics.completedJobs}</strong>

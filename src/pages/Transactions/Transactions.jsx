@@ -287,10 +287,8 @@ const Transactions = () => {
                                             <tr>
                                                 <th>Provider</th>
                                                 <th>Occupation</th>
-                                                <th>Location</th>
-                                                <th>Status</th>
                                                 <th>Amount</th>
-                                                <th>Currrency</th>
+                                                <th>Status</th>
                                                 <th>Paid at</th>
                                             </tr>
                                         </thead>
@@ -305,7 +303,7 @@ const Transactions = () => {
                                                     
                                                     <td className="transaction-table-cell" data-label="Provider">
                                                         <div className="provider-info">
-                                                            <h4>{transaction.providerName}</h4>
+                                                            <h4>{transaction.providerOccupation}</h4>
                                                         </div>
                                                     </td>
                                                     
@@ -344,13 +342,6 @@ const Transactions = () => {
                                                         )} */}
                                                     </td>
                                                     
-                                                    <td className="transaction-table-cell" data-label="Payment Method">
-                                                        <div className="payment-method">
-                                                            <span>
-                                                                {transaction.paymentMethod || 'Paystack'}
-                                                            </span>
-                                                        </div>
-                                                    </td>
                                                     
                                                     <td className="transaction-table-cell" data-label="Date">
                                                         <div className="date-info">
@@ -367,31 +358,7 @@ const Transactions = () => {
                                                         </div>
                                                     </td>
                                                     
-                                                    <td className="transaction-table-cell" data-label="Actions">
-                                                        <div className="actions-cell">
-                                                            {transaction.bookingId && (
-                                                                <Link to={`/ClientDashboard/Bookings/${transaction.bookingId}`}>
-                                                                    <button className="viewBookingBtn">
-                                                                        <i><IoBriefcaseOutline /></i>
-                                                                        View Booking
-                                                                    </button>
-                                                                </Link>
-                                                            )}
-                                                            
-                                                            {transaction.status === 'SUCCESS' && (
-                                                                <button 
-                                                                    className="downloadReceiptBtn"
-                                                                    onClick={() => {
-                                                                        // You can implement receipt download functionality here
-                                                                        toast.info('Receipt download feature coming soon!');
-                                                                    }}
-                                                                >
-                                                                    <i><MdTaskAlt /></i>
-                                                                    Receipt
-                                                                </button>
-                                                            )}
-                                                        </div>
-                                                    </td>
+                                                    
                                                 </tr>
                                             ))}
                                         </tbody>

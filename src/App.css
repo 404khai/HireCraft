@@ -24,6 +24,12 @@
   /* font-family: "Ubuntu", sans-serif; */
   font-family: "Exo", sans-serif;
   /* font-family: "Jost", sans-serif; */
+  
+}
+.bodyDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .dashboardContainer{
   width: 100%;

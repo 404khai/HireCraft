@@ -352,7 +352,7 @@ const ClientSettings = () => {
                     <Breadcrumbs firstLink="Dashboard" link="/ProviderDashboard" secondLink="Settings" link2="/ProviderDashboard/Settings"/>
                 </div>
 
-                <div className="editProfileSettings">
+                <div className="editProfileSettingsClient">
                     <div className="editProfile">
                         <div className="editProfileHead">
                             {/* <i><IoSettingsOutline /></i> */}
@@ -381,7 +381,7 @@ const ClientSettings = () => {
                           />
                         </div>
 
-                        <form className="changeInfoForm" onSubmit={handleSaveChanges}>
+                        <form className="changeInfoClientForm" onSubmit={handleSaveChanges}>
                           <div className="changeInfoInputContainer">
                             <label className="changeInfoLabel">Firstname</label>
                             <input 

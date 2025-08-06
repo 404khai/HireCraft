@@ -90,6 +90,35 @@ const ProviderProfile = () => {
     fetchProviderDetails();
   }, [providerProfileIdFromUrl, token]);
 
+  const handleDownloadCV = async () => {
+    try {
+      const response = await fetch(providerData.cvUrl, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) throw new Error('Failed to download CV');
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${providerData.firstName || 'cv'}-cv.pdf`; // set default filename
+      document.body.appendChild(a);
+      a.click();
+
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error("Download error:", error);
+      alert("Unable to download CV. Please try again later.");
+    }
+  };
+
+
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
@@ -168,7 +197,7 @@ const ProviderProfile = () => {
           <h3>{fullName || 'N/A'}</h3>
           <p style={{color: "#808080"}}>{occupation || 'Not Specified'}</p>
 
-          <div className='providerRatingBox'>
+          <div className='providerRatingBox2'>
             <div className="providerRating">
               <button>{averageRating.toFixed(1)}</button>
               {renderStars(averageRating)}
@@ -216,8 +245,8 @@ const ProviderProfile = () => {
           <h3>Profile Overview</h3>
           <div className="providerProfileOverviewRates">
             <div className="hourlyRate">
-              <strong>{hourlyRate ? `$${hourlyRate}` : 'N/A'}</strong>
-              <p style={{color: "#808080"}}>Hourly Rate</p>
+              <strong>{hourlyRate ? `₦${hourlyRate}` : 'N/A'}</strong>
+              <p style={{color: "#808080"}}>Daily Rate</p>
             </div>
             <div className="jobsDone">
               <strong>{jobsDone}</strong> {/* Assuming jobsDone comes from providerData */}
@@ -243,7 +272,7 @@ const ProviderProfile = () => {
             {/* You'll need the actual CV URL from the providerData */}
             {providerData.cvUrl ? (
               <>
-                <p><a href={providerData.cvUrl} target="_blank" rel="noopener noreferrer">Download CV</a></p>
+                <p><a href={providerData.cvUrl} onClick={handleDownloadCV} >Download CV</a></p>
                 <p>pdf</p> {/* You might need to parse file type from URL */}
               </>
             ) : (

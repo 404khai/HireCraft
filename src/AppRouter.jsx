@@ -41,7 +41,7 @@ const Layout = () => {
   const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
 
   return (
-    <>
+    <div className="bodyDiv">
       {shouldShowNavbar && <Navbar />}
 
       <Routes>
@@ -62,7 +62,7 @@ const Layout = () => {
       </Routes>
 
       {shouldShowFooter && <Footer />}
-    </>
+    </div>
   );
 };
 

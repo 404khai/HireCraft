@@ -201,7 +201,7 @@ const FreelancerProfile = ({ provider }) => {
           <div className='freelancerProfileRate'>
             <p>Rate</p>
             {/* Display hourly rate, default if not available */}
-            <strong>{hourlyRate ? `$${hourlyRate} / hour` : 'N/A'}</strong>
+            <strong>{hourlyRate ? `₦${hourlyRate} / day` : 'N/A'}</strong>
           </div>
           <div className='freelancerProfileLocation'>
             <p>Location</p>

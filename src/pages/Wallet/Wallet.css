@@ -116,7 +116,7 @@
 
 .earnings{
     height: 200px;
-    width: 50%;
+    width: 100%;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     background-color: white;
@@ -139,7 +139,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 150px;
+    gap: 550px;
 }
 .earningsTitle button{
     border-radius: 5px;
@@ -176,9 +176,9 @@
     height: 60px;
     border-bottom: 1px solid #9a9a9a;
     display: flex;
-    /* justify-content: space-around; */
+    justify-content: space-between;
     align-items: center;
-    padding-left: 50px;  
+
 }
 
 .payoutMethodsBody{

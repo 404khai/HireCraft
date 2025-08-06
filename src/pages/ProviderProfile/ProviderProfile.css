@@ -33,7 +33,6 @@
     color: #777;
 }
 .providerProfileCountry{
-    /* background-color: gray; */
     width: 200px;
     height: 100%;
     color: #666;
@@ -272,4 +271,14 @@
     background-color: rgb(163, 163, 163);
     transition: 1s;
     transform: scale(0.97);
+}
+
+
+
+.providerRatingBox2{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    /* gap: 20px; */
+    height: 40px;
 }

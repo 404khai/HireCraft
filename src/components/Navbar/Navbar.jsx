@@ -255,7 +255,7 @@ const Navbar = () => {
 
             <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
                 <Link to='/BrowseFreelancers'>Browse Providers</Link>
-                <Link to='/FAQS'>How it works</Link>
+            
                 <Link to='/ContactUs'>Contact Us</Link>
             </nav>
 
@@ -302,6 +302,13 @@ const Navbar = () => {
                     <div className="bars" id="bar3"></div>
                 </label>
             </div>
+
+            {/* <svg>
+                <filter id="liquid-distortion">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.01 0.05" numOctaves="2" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="50" xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+            </svg> */}
         </div>
     )
 }
