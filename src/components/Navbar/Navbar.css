@@ -3,14 +3,9 @@
 .navbar.scrolled {
   
   transition: background-color 0.3s ease;
-  border-bottom: 1px solid #ccc;
-  width: 90%;
-  
   background: #f7f3ed; /* Semi-transparent background */
   backdrop-filter: blur(5px) saturate(180%); /* Blurs and enhances saturation of content behind */
-  border: 1px solid rgba(255, 255, 255, 0.8); /* Subtle border for definition */
-  border-radius: 20px; /* Rounded corners for a softer look */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.219); /* Soft shadow for depth */
 
 }
 
@@ -20,11 +15,11 @@
   color: black;
 }
 .navbar.scrolled .nav a:hover{
-    color: #d1fa94;
+    color: #7fbe37;
     transition: 0.4s;
 }
 .navbar.scrolled .navLogoSpan {
-  color: #d1fa94; /* keep your green accent */
+  color: #7fbe37; /* keep your green accent */
 }
 .navbar.scrolled {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -56,7 +51,7 @@
 }
 
 .navLogoSpan{
-    color: #d1fa94;
+    color: #7fbe37;
     /*color: #9699ff; */
 }
 .hirecraftLogo{
@@ -107,7 +102,7 @@
     color: black;
 }
 .nav a:hover{
-    color: #d1fa94;
+    color: #7fbe37;
     transition: 0.4s;
 }
 .navBtn{
@@ -123,7 +118,7 @@
 }
 .navBtn a{
     text-decoration: none;
-    color: #7bc22c;
+    color: #7fbe37;
     font-weight: 600;
     display: flex;
     gap: 4px;
@@ -140,7 +135,7 @@
     height: 70%;
 }
 .onlineBtn{
-  background-color: #d1fa94;
+  background-color: #7fbe37;
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -248,7 +243,7 @@
   .bars {
     width: 100%;
     height: 2px;
-    background-color: #d1fa94;
+    background-color: #7fbe37;
     border-radius: 4px;
   }
   

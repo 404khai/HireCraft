@@ -12,7 +12,7 @@
     position: relative;
 }
 .footerLogoSpan{
-    color: #35D07D;
+    color: #7fbe37;
 }
 .hirecraftLogoFooter{
     /* border: 1px solid rgb(255, 255, 255); */
@@ -62,7 +62,7 @@
 .footerTopBoxHeadTxt{
     margin-bottom: 10px;
     padding-left: 6px;
-    border-left: 3px solid #35D07D;
+    border-left: 3px solid #7fbe37;
     border-radius: 3px;
     color: white;
 }
@@ -88,10 +88,10 @@
     display: flex;
     align-items: center;
     /* border-radius: 10px; */
-    color: #35D07D;
+    color: #7fbe37;
 }
 .socials i:hover{
-    /* color: linear-gradient(#35D07D, #009749); */
+    /* color: linear-gradient(#7fbe37, #009749); */
     /* background-image: linear-gradient(to right, #788cff , #3251ff); */
     /* color: white; */
     transition: 0.6s;
@@ -100,7 +100,7 @@
     width: 100%;
     height: 60px;
     color: white;
-    border-top: 1px solid #35D07D;
+    border-top: 1px solid #7fbe37;
     /* background-color: rgb(130, 175, 238); */
     display: flex;
     align-items: center;
@@ -121,12 +121,12 @@
 } */
 
 .footerSpan{
-    color: #35D07D;
+    color: #7fbe37;
 }
 
 
 .contactUs{
-    background-color: #35D07D;
+    background-color: #7fbe37;
    /* background-image: linear-gradient(to right, #788cff , #3251ff); */
     border: 0;
     padding: 15px;
@@ -147,7 +147,7 @@
 .contactUs:hover{
     letter-spacing: 2px;
     transition: 1s;
-    background-color: #35d07d5a;
+    background-color: #7fbe375a;
     border: 0;
 }
 
