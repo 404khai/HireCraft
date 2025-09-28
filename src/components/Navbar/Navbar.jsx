@@ -162,7 +162,7 @@
 import React, { useState, useEffect, useContext, useRef } from 'react'
 import './Navbar.css'
 import { Link, useLocation } from 'react-router-dom'
-import hirecraftLogo from '../../../public/favicon2.png'
+import hirecraft from '../../assets/logo.jpeg'
 // import OIF from '../../assets/OIF.jpeg' // No longer strictly needed if Avatar component handles display
 import UserChoiceModal from "../UserChoiceModal/UserChoiceModal";
 import { IoIosUnlock } from "react-icons/io";
@@ -248,9 +248,10 @@ const Navbar = () => {
         <div className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
 
             <Link to="/Home" className="navLogoLink">
-                <div className="navLogo">
-                    <p>hire<span className="navLogoSpan">craft</span></p>
-                </div>
+                <img src={hirecraft} alt="" className='navLogoLinkImg'/>
+                {/* <div className="navLogo">
+                    <p>ire<span className="navLogoSpan">craft</span></p>
+                </div> */}
             </Link>
 
             <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
